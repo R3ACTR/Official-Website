@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Orbitron, Space_Grotesk } from "next/font/google";
 import { Home as HomeIcon, Layers, Tag, Mail } from "lucide-react";
-import { LinearCarousel } from "@/components/ui/linear-carousel";
+import CircularGallery from "@/components/ui/CircularGallery";
+import Grainient from "@/components/Grainient";
 
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["900"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
@@ -57,8 +58,8 @@ export default function Home() {
           </a>
         </nav>
 
-        {/* Center Hero Text (Behind image and clouds) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-12 md:pt-0 z-0 pointer-events-none md:-translate-y-16">
+        {/* Center Hero Text */}
+        <div className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-6 md:pt-0 z-10 pointer-events-none md:-translate-y-28">
           <div className="animate-fade-blur delay-2 relative w-[85vw] sm:w-[70vw] md:w-[60vw] max-w-[800px] h-[80px] sm:h-[100px] md:h-[160px] opacity-90 drop-shadow-md flex justify-center items-center">
             <Image src="/Images/r3actr.png" alt="R3ACTR" fill className="object-contain" priority />
           </div>
@@ -77,14 +78,31 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Background Image (Above text) */}
-        <div className="absolute inset-0 z-10 pointer-events-none">
-          <Image 
-            src="/bg1.png" 
-            alt="Background" 
-            fill 
-            className="object-cover blur-[4px] md:blur-[2px] scale-105 transition-all duration-700"
-            priority
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
+          <Grainient
+            color1="#e7e7e7"
+            color2="#88aae0"
+            color3="#d2e3ff"
+            timeSpeed={1.3}
+            colorBalance={-0.3}
+            warpStrength={1}
+            warpFrequency={5}
+            warpSpeed={0.9}
+            warpAmplitude={50}
+            blendAngle={0}
+            blendSoftness={0.05}
+            rotationAmount={500}
+            noiseScale={2}
+            grainAmount={0.1}
+            grainScale={2}
+            grainAnimated={false}
+            contrast={1.5}
+            gamma={1}
+            saturation={1}
+            centerX={0}
+            centerY={0}
+            zoom={0.9}
           />
         </div>
 
@@ -111,25 +129,35 @@ export default function Home() {
           <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
         </div>
 
-        {/* Linear Marquee Carousel (Mobile Only - Inside Hero) */}
-        <div className="animate-fade-blur delay-4 absolute bottom-[140px] sm:bottom-[160px] left-0 w-full z-25 pointer-events-none flex justify-center md:hidden">
-          <LinearCarousel />
+        {/* Circular Gallery (Inside Hero on Bottom) */}
+        <div className="animate-fade-blur delay-4 absolute bottom-10 md:bottom-0 left-0 w-full h-[30vh] sm:h-[35vh] md:h-[45vh] z-30 flex justify-center">
+          <CircularGallery 
+            items={[
+              { image: '/Images/1.jpeg', text: '' },
+              { image: '/Images/2.jpeg', text: '' },
+              { image: '/Images/3.jpeg', text: '' },
+              { image: '/Images/4.jpeg', text: '' },
+              { image: '/Images/5.jpeg', text: '' },
+              { image: '/Images/6.jpeg', text: '' },
+              { image: '/Images/7.jpeg', text: '' },
+              { image: '/Images/8.jpeg', text: '' }
+            ]}
+            bend={3} 
+            textColor="#1a1a1a" 
+            borderRadius={0.05} 
+            scrollEase={0.02} 
+          />
         </div>
 
         {/* Bottom Center Footer Text */}
-        <div className="animate-fade-blur delay-5 hidden md:block absolute bottom-24 md:bottom-4 left-1/2 -translate-x-1/2 z-30 w-full text-center pointer-events-none">
+        <div className="animate-fade-blur delay-5 hidden md:block absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 z-40 w-full text-center pointer-events-none">
           <p className={`text-slate-900 text-[9px] sm:text-[11px] md:text-xs font-semibold tracking-wide md:tracking-wider opacity-85 whitespace-nowrap ${spaceGrotesk.className}`}>
             Driving software innovation and research, working remotely with a global reach.
           </p>
         </div>
 
         {/* Gradient Blend to Next Section */}
-        <div className="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-gradient-to-t from-[#eef2f5] to-transparent z-20 pointer-events-none" />
-      </section>
-
-      {/* Linear Marquee Carousel Section (Desktop Only) */}
-      <section className="relative w-full z-30 py-8 md:py-16 hidden md:block">
-        <LinearCarousel />
+        <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-[#eef2f5] to-transparent z-20 pointer-events-none" />
       </section>
     </main>
   );
