@@ -81,14 +81,14 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
           <Grainient
-            color1="#e7e7e7"
+            color1="#88aae0"
             color2="#88aae0"
-            color3="#d2e3ff"
-            timeSpeed={1.3}
+            color3="#88aae0"
+            timeSpeed={0}
             colorBalance={-0.3}
             warpStrength={1}
             warpFrequency={5}
-            warpSpeed={0.9}
+            warpSpeed={0}
             warpAmplitude={50}
             blendAngle={0}
             blendSoftness={0.05}
