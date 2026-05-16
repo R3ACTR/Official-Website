@@ -1,65 +1,136 @@
 import Image from "next/image";
+import { Orbitron, Space_Grotesk } from "next/font/google";
+import { Home as HomeIcon, Layers, Tag, Mail } from "lucide-react";
+import { LinearCarousel } from "@/components/ui/linear-carousel";
+
+const orbitron = Orbitron({ subsets: ["latin"], weight: ["900"] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="w-full bg-[#eef2f5] flex flex-col">
+      <style>{`
+        @keyframes fadeBlurIn {
+          0% { opacity: 0; filter: blur(10px); transform: translateY(30px); }
+          100% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+        }
+        .animate-fade-blur {
+          opacity: 0;
+          animation: fadeBlurIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+      `}</style>
+      
+      {/* Hero Section */}
+      <section className="relative w-full h-screen overflow-hidden">
+        {/* Desktop Liquid Glass Navbar */}
+        <nav className="animate-fade-blur delay-1 hidden md:flex absolute top-6 left-1/2 -translate-x-1/2 z-[100] items-center justify-between px-6 py-3 w-[90%] max-w-4xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-full text-slate-800">
+          <div className={`${orbitron.className} font-black text-xl tracking-widest mix-blend-color-burn`}>R3ACTR</div>
+          <div className="flex gap-8 text-sm font-semibold mix-blend-color-burn">
+            <a href="#" className="hover:opacity-60 transition-opacity">Home</a>
+            <a href="#" className="hover:opacity-60 transition-opacity">Features</a>
+            <a href="#" className="hover:opacity-60 transition-opacity">Pricing</a>
+            <a href="#" className="hover:opacity-60 transition-opacity">Contact</a>
+          </div>
+          <button className="bg-white/40 hover:bg-white/60 backdrop-blur-md px-5 py-2 rounded-full text-sm font-bold transition-all border border-white/30 shadow-sm mix-blend-luminosity">
+            Get Started
+          </button>
+        </nav>
+
+        {/* Mobile Floating Icon Navbar */}
+        <nav className="animate-fade-blur delay-1 flex md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] items-center justify-around px-6 py-3.5 w-[85%] max-w-xs bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-full text-slate-800">
+          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
+            <HomeIcon size={22} strokeWidth={2.5} />
+          </a>
+          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
+            <Layers size={22} strokeWidth={2.5} />
+          </a>
+          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
+            <Tag size={22} strokeWidth={2.5} />
+          </a>
+          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
+            <Mail size={22} strokeWidth={2.5} />
+          </a>
+        </nav>
+
+        {/* Center Hero Text (Behind image and clouds) */}
+        <div className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-12 md:pt-0 z-0 pointer-events-none md:-translate-y-16">
+          <div className="animate-fade-blur delay-2 relative w-[85vw] sm:w-[70vw] md:w-[60vw] max-w-[800px] h-[80px] sm:h-[100px] md:h-[160px] opacity-90 drop-shadow-md flex justify-center items-center">
+            <Image src="/Images/r3actr.png" alt="R3ACTR" fill className="object-contain" priority />
+          </div>
+          <p className={`animate-fade-blur delay-3 mt-4 md:mt-6 text-black/90 text-[9px] sm:text-[10px] md:text-lg lg:text-xl font-bold tracking-wide md:tracking-wider text-center whitespace-nowrap ${spaceGrotesk.className}`}>
+            Innovating, researching, and building next-gen software solutions.
+          </p>
+
+          {/* Long Description (Mobile Only) */}
+          <div className={`animate-fade-blur delay-4 flex md:hidden flex-col gap-4 mt-8 px-4 w-[90vw] max-w-4xl text-black/90 text-[10px] sm:text-[11px] leading-relaxed font-semibold text-justify ${spaceGrotesk.className}`}>
+            <p>
+              At R3ACTR, we specialize in building innovative software solutions, research-driven projects, and cutting-edge web experiences. From AI and Web3 applications to SaaS platforms, our goal is to create products that make a real impact.
+            </p>
+            <p>
+              We combine creativity, technology, and research to craft software that is not only functional but also intelligent, scalable, and user-friendly. Whether designing sleek interfaces, developing complex applications, or exploring emerging technologies, our team is always pushing the boundaries of what’s possible.
+            </p>
+          </div>
+        </div>
+
+        {/* Background Image (Above text) */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <Image 
+            src="/bg1.png" 
+            alt="Background" 
+            fill 
+            className="object-cover blur-[4px] md:blur-[2px] scale-105 transition-all duration-700"
+            priority
+          />
+        </div>
+
+        {/* Clouds (Above image) */}
+        <div className="absolute top-10 left-4 md:left-10 w-[40vw] md:w-[300px] h-[30vw] md:h-[200px] opacity-40 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute top-40 right-4 md:right-20 w-[50vw] md:w-[400px] h-[35vw] md:h-[250px] opacity-30 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute bottom-24 md:bottom-20 left-4 md:left-1/4 w-[45vw] md:w-[350px] h-[30vw] md:h-[220px] opacity-50 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD2.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute top-1/4 md:top-1/3 left-1/2 -translate-x-1/2 md:-translate-x-0 w-[35vw] md:w-[250px] h-[25vw] md:h-[150px] opacity-25 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute bottom-32 md:bottom-40 right-0 md:right-10 w-[60vw] md:w-[450px] h-[40vw] md:h-[300px] opacity-40 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute top-20 left-1/4 md:left-1/3 w-[45vw] md:w-[320px] h-[30vw] md:h-[180px] opacity-35 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD2.png" alt="Cloud" fill className="object-contain" />
+        </div>
+        <div className="absolute top-1/2 right-10 md:right-1/4 w-[35vw] md:w-[280px] h-[25vw] md:h-[160px] opacity-45 z-20 pointer-events-none mix-blend-overlay">
+          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
+        </div>
+
+        {/* Linear Marquee Carousel (Mobile Only - Inside Hero) */}
+        <div className="animate-fade-blur delay-4 absolute bottom-[140px] sm:bottom-[160px] left-0 w-full z-25 pointer-events-none flex justify-center md:hidden">
+          <LinearCarousel />
+        </div>
+
+        {/* Bottom Center Footer Text */}
+        <div className="animate-fade-blur delay-5 hidden md:block absolute bottom-24 md:bottom-4 left-1/2 -translate-x-1/2 z-30 w-full text-center pointer-events-none">
+          <p className={`text-slate-900 text-[9px] sm:text-[11px] md:text-xs font-semibold tracking-wide md:tracking-wider opacity-85 whitespace-nowrap ${spaceGrotesk.className}`}>
+            Driving software innovation and research, working remotely with a global reach.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* Gradient Blend to Next Section */}
+        <div className="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-gradient-to-t from-[#eef2f5] to-transparent z-20 pointer-events-none" />
+      </section>
+
+      {/* Linear Marquee Carousel Section (Desktop Only) */}
+      <section className="relative w-full z-30 py-8 md:py-16 hidden md:block">
+        <LinearCarousel />
+      </section>
+    </main>
   );
 }
