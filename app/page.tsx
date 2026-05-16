@@ -1,136 +1,271 @@
 import Image from "next/image";
-import { Orbitron, Space_Grotesk } from "next/font/google";
-import { Home as HomeIcon, Layers, Tag, Mail } from "lucide-react";
+import ScrambleText from "@/components/ui/ScrambleText";
 import CircularGallery from "@/components/ui/CircularGallery";
-import Grainient from "@/components/Grainient";
-
-const orbitron = Orbitron({ subsets: ["latin"], weight: ["900"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
+import ProfileCard from "@/components/ui/ProfileCard";
 
 export default function Home() {
   return (
-    <main className="w-full bg-[#eef2f5] flex flex-col">
-      <style>{`
-        @keyframes fadeBlurIn {
-          0% { opacity: 0; filter: blur(10px); transform: translateY(30px); }
-          100% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+    <main className="w-full bg-black flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="w-full h-screen overflow-hidden relative flex flex-col">
+        <style>{`
+        @font-face {
+          font-family: 'Fellix';
+          src: url('/68f0f5e5f2f06b2f0ce509cb_Fellix-Regular.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
         }
-        .animate-fade-blur {
-          opacity: 0;
-          animation: fadeBlurIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+        @keyframes glitch-anim {
+          0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+          10% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+          20% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+          30% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+          40% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+          50% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+          60% { clip-path: inset(70% 0 20% 0); transform: translate(-2px, 1px); }
+          70% { clip-path: inset(10% 0 80% 0); transform: translate(2px, -1px); }
+          80% { clip-path: inset(50% 0 30% 0); transform: translate(-1px, 2px); }
+          90% { clip-path: inset(20% 0 60% 0); transform: translate(1px, -2px); }
+          100% { clip-path: inset(90% 0 5% 0); transform: translate(-2px, 1px); }
         }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
+
+        .glitch-wrapper { position: relative; }
+        .glitch-layer {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: #000;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        .glitch-layer-1 {
+          animation: glitch-anim 2.5s infinite linear alternate-reverse;
+          left: 2px;
+          text-shadow: -1px 0 rgba(255,255,255,0.5);
+        }
+        .glitch-layer-2 {
+          animation: glitch-anim 3.2s infinite linear alternate-reverse;
+          left: -2px;
+          text-shadow: 1px 0 rgba(255,255,255,0.4);
+        }
+        .barcode {
+          display: inline-block;
+          height: 0.9em;
+          width: 45px;
+          margin-left: 12px;
+          vertical-align: middle;
+          background: repeating-linear-gradient(
+            to right,
+            currentColor 0,
+            currentColor 1px,
+            transparent 1px,
+            transparent 3px,
+            currentColor 3px,
+            currentColor 4px,
+            transparent 4px,
+            transparent 5px,
+            currentColor 5px,
+            currentColor 8px,
+            transparent 8px,
+            transparent 10px
+          );
+          opacity: 0.5;
+        }
+
       `}</style>
       
-      {/* Hero Section */}
-      <section className="relative w-full h-screen overflow-hidden">
-        {/* Desktop Liquid Glass Navbar */}
-        <nav className="animate-fade-blur delay-1 hidden md:flex absolute top-6 left-1/2 -translate-x-1/2 z-[100] items-center justify-between px-6 py-3 w-[90%] max-w-4xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-full text-slate-800">
-          <div className={`${orbitron.className} font-black text-xl tracking-widest mix-blend-color-burn`}>R3ACTR</div>
-          <div className="flex gap-8 text-sm font-semibold mix-blend-color-burn">
-            <a href="#" className="hover:opacity-60 transition-opacity">Home</a>
-            <a href="#" className="hover:opacity-60 transition-opacity">Features</a>
-            <a href="#" className="hover:opacity-60 transition-opacity">Pricing</a>
-            <a href="#" className="hover:opacity-60 transition-opacity">Contact</a>
-          </div>
-          <button className="bg-white/40 hover:bg-white/60 backdrop-blur-md px-5 py-2 rounded-full text-sm font-bold transition-all border border-white/30 shadow-sm mix-blend-luminosity">
-            Get Started
-          </button>
-        </nav>
+      {/* Top Navigation */}
+      <div className="absolute top-6 md:top-8 w-full z-20 flex flex-row justify-between md:justify-center items-center px-6 md:px-0 pointer-events-none md:gap-16">
+        
+        {/* Left Nav Elements */}
+        <div className="flex gap-3 pointer-events-auto">
+          <a 
+            href="#" 
+            className="flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white transition-all duration-300"
+            aria-label="Instagram"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          {['Home', 'Work'].map((item) => (
+            <a 
+              key={item} 
+              href="#" 
+              className="hidden md:flex items-center justify-center px-7 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300"
+              style={{ fontFamily: "'Fellix', sans-serif" }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
 
-        {/* Mobile Floating Icon Navbar */}
-        <nav className="animate-fade-blur delay-1 flex md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] items-center justify-around px-6 py-3.5 w-[85%] max-w-xs bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-full text-slate-800">
-          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
-            <HomeIcon size={22} strokeWidth={2.5} />
-          </a>
-          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
-            <Layers size={22} strokeWidth={2.5} />
-          </a>
-          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
-            <Tag size={22} strokeWidth={2.5} />
-          </a>
-          <a href="#" className="hover:opacity-60 transition-opacity mix-blend-color-burn flex flex-col items-center gap-1">
-            <Mail size={22} strokeWidth={2.5} />
-          </a>
-        </nav>
+        {/* Center Logo */}
+        <div className="relative w-28 h-7 md:w-40 md:h-10 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] pointer-events-auto cursor-pointer">
+          <Image src="/Images/r3actr.png" alt="R3ACTR Logo" fill className="object-contain" priority />
+        </div>
 
-        {/* Center Hero Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-6 md:pt-0 z-10 pointer-events-none md:-translate-y-28">
-          <div className="animate-fade-blur delay-2 relative w-[85vw] sm:w-[70vw] md:w-[60vw] max-w-[800px] h-[80px] sm:h-[100px] md:h-[160px] opacity-90 drop-shadow-md flex justify-center items-center">
-            <Image src="/Images/r3actr.png" alt="R3ACTR" fill className="object-contain" priority />
-          </div>
-          <p className={`animate-fade-blur delay-3 mt-4 md:mt-6 text-black/90 text-[9px] sm:text-[10px] md:text-lg lg:text-xl font-bold tracking-wide md:tracking-wider text-center whitespace-nowrap ${spaceGrotesk.className}`}>
-            Innovating, researching, and building next-gen software solutions.
+        {/* Right Nav Elements */}
+        <div className="flex gap-3 pointer-events-auto">
+          {['About', 'Contact'].map((item) => (
+            <a 
+              key={item} 
+              href="#" 
+              className="hidden md:flex items-center justify-center px-7 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300"
+              style={{ fontFamily: "'Fellix', sans-serif" }}
+            >
+              {item}
+            </a>
+          ))}
+          <a 
+            href="#" 
+            className="flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white transition-all duration-300"
+            aria-label="LinkedIn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect width="4" height="12" x="2" y="9"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 pointer-events-none w-full h-full bg-black">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          preload="auto"
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/bg.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient Blend to Next Section */}
+        <div className="absolute bottom-0 left-0 w-full h-32 md:h-56 bg-gradient-to-t from-black via-black/60 to-transparent z-10 pointer-events-none" />
+      </div>
+
+      {/* Center Text */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+        <p 
+          className="text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90vw] md:max-w-4xl px-4 leading-tight tracking-tight drop-shadow-lg" 
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Driving software innovation and research, working remotely with a global reach
+        </p>
+      </div>
+
+      {/* Bottom Footer Text */}
+      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-none px-4">
+        <p 
+          className="text-white/70 text-[8px] sm:text-[10px] md:text-xs font-medium tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-normal md:whitespace-nowrap text-center max-w-[95vw] leading-relaxed"
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Innovating, researching, and building next-gen software solutions.
+        </p>
+      </div>
+
+      {/* Bottom Dashed Separator */}
+      <div className="absolute bottom-0 left-0 w-full border-b border-dashed border-white z-20" />
+      </section>
+
+      {/* About Section */}
+      <section className="w-full min-h-screen bg-black text-white/80 flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-16">
+        
+        {/* Top Cyberpunk Glitch Text */}
+        <div className="w-full px-8 md:pl-16 lg:pl-24 mb-12 md:mb-20 glitch-wrapper">
+          {/* Base Text */}
+          <p className="font-mono text-[9px] md:text-xs tracking-[0.4em] text-white/40 uppercase leading-[2.5]">
+            <span className="text-white/60">OTHERS CHASE</span> TRENDS.<span className="barcode text-white/80"></span><br/>
+            WE ENGINEER <span className="text-white/80">MOMENTUM.</span>
           </p>
-
-          {/* Long Description (Mobile Only) */}
-          <div className={`animate-fade-blur delay-4 flex md:hidden flex-col gap-4 mt-8 px-4 w-[90vw] max-w-4xl text-black/90 text-[10px] sm:text-[11px] leading-relaxed font-semibold text-justify ${spaceGrotesk.className}`}>
-            <p>
-              At R3ACTR, we specialize in building innovative software solutions, research-driven projects, and cutting-edge web experiences. From AI and Web3 applications to SaaS platforms, our goal is to create products that make a real impact.
+          {/* Glitch Layer 1 */}
+          <div className="glitch-layer glitch-layer-1 px-8 md:pl-16 lg:pl-24">
+            <p className="font-mono text-[9px] md:text-xs tracking-[0.4em] text-white/40 uppercase leading-[2.5]">
+              <span className="text-white/60">OTHERS CHASE</span> TRENDS.<span className="barcode text-white/80"></span><br/>
+              WE ENGINEER <span className="text-white/80">MOMENTUM.</span>
             </p>
-            <p>
-              We combine creativity, technology, and research to craft software that is not only functional but also intelligent, scalable, and user-friendly. Whether designing sleek interfaces, developing complex applications, or exploring emerging technologies, our team is always pushing the boundaries of what’s possible.
+          </div>
+          {/* Glitch Layer 2 */}
+          <div className="glitch-layer glitch-layer-2 px-8 md:pl-16 lg:pl-24">
+            <p className="font-mono text-[9px] md:text-xs tracking-[0.4em] text-white/40 uppercase leading-[2.5]">
+              <span className="text-white/60">OTHERS CHASE</span> TRENDS.<span className="barcode text-white/80"></span><br/>
+              WE ENGINEER <span className="text-white/80">MOMENTUM.</span>
             </p>
           </div>
         </div>
 
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
-          <Grainient
-            color1="#88aae0"
-            color2="#88aae0"
-            color3="#88aae0"
-            timeSpeed={0}
-            colorBalance={-0.3}
-            warpStrength={1}
-            warpFrequency={5}
-            warpSpeed={0}
-            warpAmplitude={50}
-            blendAngle={0}
-            blendSoftness={0.05}
-            rotationAmount={500}
-            noiseScale={2}
-            grainAmount={0.1}
-            grainScale={2}
-            grainAnimated={false}
-            contrast={1.5}
-            gamma={1}
-            saturation={1}
-            centerX={0}
-            centerY={0}
-            zoom={0.9}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center">
+          
+          {/* Left Text */}
+          <div 
+            className="space-y-8 text-left text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide px-8 md:pl-16 lg:pl-24 md:pr-12 py-16" 
+            style={{ fontFamily: "'Fellix', sans-serif" }}
+          >
+            <p>
+              At R3ACTR, we specialize in building <ScrambleText text="innovative software" /> solutions, research-driven projects, and cutting-edge web experiences. From AI and Web3 applications to SaaS platforms, our goal is to create products that make a <ScrambleText text="real impact" />.
+            </p>
+            <p>
+              We combine creativity, technology, and research to craft software that is not only functional but also <ScrambleText text="intelligent" />, scalable, and user-friendly. Whether designing sleek interfaces, developing complex applications, or exploring emerging technologies, our team is always pushing the boundaries of <ScrambleText text="what’s possible" />.
+            </p>
+          </div>
+
+          {/* Right Video */}
+          <div 
+            className="relative w-full md:w-[85%] mx-auto aspect-square md:aspect-video flex items-center justify-center pointer-events-none scale-95 md:scale-100"
+            style={{ 
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+              WebkitMaskComposite: 'source-in',
+              maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+              maskComposite: 'intersect'
+            }}
+          >
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover opacity-90"
+            >
+              <source src="/videos/process.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Dashed Separator */}
+      <div className="w-full border-b border-dashed border-white relative z-20" />
+
+      {/* Circular Gallery Section */}
+      <section className="w-full min-h-screen bg-black pt-24 pb-16 flex flex-col justify-between items-center relative overflow-hidden">
+        {/* Arm Image */}
+        <div className="absolute left-0 top-0 w-64 md:w-96 lg:w-[450px] z-10 pointer-events-none transform -translate-x-8 -translate-y-8 md:-translate-x-12 md:-translate-y-12 opacity-85 select-none">
+          <Image 
+            src="/Images/arm.png" 
+            alt="Robotic Arm" 
+            width={500} 
+            height={500} 
+            className="w-full h-auto object-contain scale-x-[-1]"
           />
         </div>
 
-        {/* Clouds (Above image) */}
-        <div className="absolute top-10 left-4 md:left-10 w-[40vw] md:w-[300px] h-[30vw] md:h-[200px] opacity-40 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute top-40 right-4 md:right-20 w-[50vw] md:w-[400px] h-[35vw] md:h-[250px] opacity-30 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute bottom-24 md:bottom-20 left-4 md:left-1/4 w-[45vw] md:w-[350px] h-[30vw] md:h-[220px] opacity-50 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD2.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute top-1/4 md:top-1/3 left-1/2 -translate-x-1/2 md:-translate-x-0 w-[35vw] md:w-[250px] h-[25vw] md:h-[150px] opacity-25 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute bottom-32 md:bottom-40 right-0 md:right-10 w-[60vw] md:w-[450px] h-[40vw] md:h-[300px] opacity-40 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute top-20 left-1/4 md:left-1/3 w-[45vw] md:w-[320px] h-[30vw] md:h-[180px] opacity-35 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD2.png" alt="Cloud" fill className="object-contain" />
-        </div>
-        <div className="absolute top-1/2 right-10 md:right-1/4 w-[35vw] md:w-[280px] h-[25vw] md:h-[160px] opacity-45 z-20 pointer-events-none mix-blend-overlay">
-          <Image src="/CLOUD1.png" alt="Cloud" fill className="object-contain" />
-        </div>
+        {/* Heading */}
+        <h2 
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-8"
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Snapshots
+        </h2>
 
-        {/* Circular Gallery (Inside Hero on Bottom) */}
-        <div className="animate-fade-blur delay-4 absolute bottom-10 md:bottom-0 left-0 w-full h-[30vh] sm:h-[35vh] md:h-[45vh] z-30 flex justify-center">
+        {/* Gallery Container */}
+        <div className="w-full relative h-[50vh] md:h-[65vh] block">
           <CircularGallery 
             items={[
               { image: '/Images/1.jpeg', text: '' },
@@ -143,21 +278,252 @@ export default function Home() {
               { image: '/Images/8.jpeg', text: '' }
             ]}
             bend={3} 
-            textColor="#1a1a1a" 
+            textColor="#ffffff" 
             borderRadius={0.05} 
             scrollEase={0.02} 
           />
         </div>
 
-        {/* Bottom Center Footer Text */}
-        <div className="animate-fade-blur delay-5 hidden md:block absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 z-40 w-full text-center pointer-events-none">
-          <p className={`text-slate-900 text-[9px] sm:text-[11px] md:text-xs font-semibold tracking-wide md:tracking-wider opacity-85 whitespace-nowrap ${spaceGrotesk.className}`}>
-            Driving software innovation and research, working remotely with a global reach.
+        {/* Text Below Carousel */}
+        <div 
+          className="max-w-5xl px-8 mt-12 space-y-8 text-center text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide z-20" 
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          <p>
+            Beyond development, R3ACTR thrives on collaboration and knowledge-sharing. We actively engage with tech communities, contribute to research, and mentor upcoming talent, ensuring our work is informed, innovative, and impactful.
           </p>
         </div>
+      </section>
 
-        {/* Gradient Blend to Next Section */}
-        <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-[#eef2f5] to-transparent z-20 pointer-events-none" />
+      {/* Dashed Separator */}
+      <div className="w-full border-b border-dashed border-white relative z-20 opacity-50" />
+
+      {/* Founders Section */}
+      <section className="w-full min-h-screen bg-black py-24 px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center relative overflow-hidden">
+        {/* Arm Image */}
+        <div className="absolute right-0 top-0 w-64 md:w-96 lg:w-[450px] z-10 pointer-events-none transform translate-x-8 -translate-y-8 md:translate-x-12 md:-translate-y-12 opacity-85 select-none">
+          <Image 
+            src="/Images/arm.png" 
+            alt="Robotic Arm" 
+            width={500} 
+            height={500} 
+            className="w-full h-auto object-contain"
+          />
+        </div>
+
+        <h2 
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-16"
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Founders
+        </h2>
+        
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 justify-items-center">
+          
+          <div className="flex flex-col items-center gap-6 w-full">
+            <ProfileCard
+              name=""
+              title=""
+              handle="abhinav"
+              status="Online"
+              contactText="Connect"
+              avatarUrl="/founders/abhinav.webp"
+              showUserInfo={false}
+              iconUrl="/Images/r3actr.png"
+              enableTilt={true}
+              enableMobileTilt={false}
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
+            />
+            <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
+              <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">ABHINAV R.</h3>
+              <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-6 w-full">
+            <ProfileCard
+              name=""
+              title=""
+              handle="sreehari"
+              status="Online"
+              contactText="Connect"
+              avatarUrl="/founders/sreehari.webp"
+              showUserInfo={false}
+              iconUrl="/Images/r3actr.png"
+              enableTilt={true}
+              enableMobileTilt={false}
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
+            />
+            <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
+              <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">SREEHARI R.</h3>
+              <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-6 w-full">
+            <ProfileCard
+              name=""
+              title=""
+              handle="kalidas"
+              status="Online"
+              contactText="Connect"
+              avatarUrl="/founders/kali.webp"
+              showUserInfo={false}
+              iconUrl="/Images/r3actr.png"
+              enableTilt={true}
+              enableMobileTilt={false}
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
+            />
+            <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
+              <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">KALIDAS V.</h3>
+              <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-6 w-full">
+            <ProfileCard
+              name=""
+              title=""
+              handle="neeraj"
+              status="Online"
+              contactText="Connect"
+              avatarUrl="/founders/neeraj.webp"
+              showUserInfo={false}
+              iconUrl="/Images/r3actr.png"
+              enableTilt={true}
+              enableMobileTilt={false}
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
+            />
+            <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
+              <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">NEERAJ S.</h3>
+              <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Dashed Separator */}
+      <div className="w-full border-b border-dashed border-white relative z-20 opacity-50" />
+
+      {/* Open Source Quest Section */}
+      <section className="w-full min-h-screen bg-black py-24 px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center relative overflow-hidden">
+        {/* Floating Image coming from right */}
+        <div className="absolute right-0 top-0 w-24 md:w-32 lg:w-48 z-10 pointer-events-none transform translate-x-8 -translate-y-2 md:translate-x-12 md:-translate-y-4 opacity-85 select-none">
+          <Image 
+            src="/Images/ChatGPT Image Feb 20, 2026, 10_38_37 AM-Photoroom.png" 
+            alt="Cyberpunk Prop" 
+            width={150} 
+            height={150} 
+            className="w-full h-auto object-contain"
+          />
+        </div>
+
+        <h2 
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center"
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Flagship Event
+        </h2>
+
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-20">
+          
+          {/* Left: Image */}
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="relative w-[300px] md:w-[400px] lg:w-[500px] aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(113,196,255,0.15)]">
+              <Image 
+                src="/Images/osq.png" 
+                alt="Open Source Quest" 
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right: Content */}
+          <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8" style={{ fontFamily: "'Fellix', sans-serif" }}>
+            <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide">
+              Open Source Quest
+            </h3>
+            
+            <div className="space-y-6 text-white/70 text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide">
+              <p>
+                Open Source Quest is a structured, month-long open-source contribution program designed to help students gain real-world experience with professional software development workflows.
+              </p>
+              <p>
+                Participants work individually on curated, domain-specific GitHub repositories under guided mentorship. The program focuses on understanding how real open-source projects function—through issues, pull requests, reviews, and consistent contributions—rather than competitive coding or short-term hackathons.
+              </p>
+            </div>
+
+            <a 
+              href="https://osq.r3actr.work/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-8 py-4 border border-white/20 text-white/90 hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-medium tracking-widest uppercase text-sm"
+            >
+              Explore OSQ
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Dashed Separator */}
+      <div className="w-full border-b border-dashed border-white relative z-20 opacity-50" />
+
+      {/* Publications Section */}
+      <section className="w-full min-h-screen bg-black py-24 px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center relative overflow-hidden">
+        <h2 
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center"
+          style={{ fontFamily: "'Fellix', sans-serif" }}
+        >
+          Publications
+        </h2>
+
+        <div className="w-full max-w-5xl flex flex-col gap-6 relative z-20" style={{ fontFamily: "'Fellix', sans-serif" }}>
+          
+          {/* Publication 1 */}
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+            <div className="flex-1">
+              <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
+                ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNS in Brain Tumor Diagnosis From MRI Images
+              </h3>
+            </div>
+            <a 
+              href="https://doi.org/10.1109/ICITIIT68860.2026.11499683" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="shrink-0 px-6 py-3 border border-white/20 text-white/90 hover:bg-white hover:text-black transition-all duration-300 font-medium tracking-widest uppercase text-xs"
+            >
+              View DOI
+            </a>
+          </div>
+
+          {/* Publication 2 */}
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+            <div className="flex-1">
+              <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
+                CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification
+              </h3>
+            </div>
+            <span className="shrink-0 px-6 py-3 border border-white/10 text-white/40 font-medium tracking-widest uppercase text-xs bg-black/50 cursor-not-allowed">
+              DOI Coming Soon
+            </span>
+          </div>
+
+          {/* Publication 3 */}
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+            <div className="flex-1">
+              <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
+                Pixel-Level Supervision for Medical Imaging: A Custom Masked Autoencoder Framework for Renal Pathology Detection
+              </h3>
+            </div>
+            <span className="shrink-0 px-6 py-3 border border-white/10 text-white/40 font-medium tracking-widest uppercase text-xs bg-black/50 cursor-not-allowed">
+              DOI Coming Soon
+            </span>
+          </div>
+
+        </div>
       </section>
     </main>
   );
