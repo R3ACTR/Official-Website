@@ -1,11 +1,42 @@
+'use client';
+
+import React, { useRef } from "react";
 import Image from "next/image";
 import ScrambleText from "@/components/ui/ScrambleText";
 import CircularGallery from "@/components/ui/CircularGallery";
 import ProfileCard from "@/components/ui/ProfileCard";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+    const elements = containerRef.current.querySelectorAll('.gsap-arrive');
+    elements.forEach((el) => {
+      gsap.fromTo(el, 
+        { opacity: 0, y: 50 }, 
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1.2, 
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    });
+  }, { scope: containerRef });
+
   return (
-    <main className="w-full bg-black flex flex-col min-h-screen">
+    <main ref={containerRef} className="w-full bg-black flex flex-col min-h-screen">
       {/* Hero Section */}
       <section id="home" className="w-full h-screen overflow-hidden relative flex flex-col">
         <style>{`
@@ -77,12 +108,14 @@ export default function Home() {
       `}</style>
       
       {/* Top Navigation */}
-      <div className="absolute top-6 md:top-8 w-full z-20 flex flex-row justify-between md:justify-center items-center px-6 md:px-0 pointer-events-none md:gap-16">
+      <div className="absolute top-6 md:top-8 w-full z-20 flex flex-row justify-between md:justify-center items-center px-6 md:px-0 pointer-events-none md:gap-16 gsap-arrive">
         
         {/* Left Nav Elements */}
         <div className="flex gap-3 pointer-events-auto">
           <a 
-            href="#" 
+            href="https://www.instagram.com/r3actr/" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white transition-all duration-300"
             aria-label="Instagram"
           >
@@ -128,7 +161,9 @@ export default function Home() {
             </a>
           ))}
           <a 
-            href="#" 
+            href="https://www.linkedin.com/company/r3actr-innovations/" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white/80 hover:text-white transition-all duration-300"
             aria-label="LinkedIn"
           >
@@ -158,7 +193,7 @@ export default function Home() {
       </div>
 
       {/* Center Text */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none gsap-arrive">
         <p 
           className="text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-[90vw] md:max-w-4xl px-4 leading-tight tracking-tight drop-shadow-lg" 
           style={{ fontFamily: "'Fellix', sans-serif" }}
@@ -168,7 +203,7 @@ export default function Home() {
       </div>
 
       {/* Bottom Footer Text */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-none px-4">
+      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-none px-4 gsap-arrive">
         <p 
           className="text-white/70 text-[8px] sm:text-[10px] md:text-xs font-medium tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-normal md:whitespace-nowrap text-center max-w-[95vw] leading-relaxed"
           style={{ fontFamily: "'Fellix', sans-serif" }}
@@ -185,7 +220,7 @@ export default function Home() {
       <section id="about" className="w-full min-h-screen bg-black text-white/80 flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-16">
         
         {/* Top Cyberpunk Glitch Text */}
-        <div className="w-full px-8 md:pl-16 lg:pl-24 mb-12 md:mb-20 glitch-wrapper">
+        <div className="w-full px-8 md:pl-16 lg:pl-24 mb-12 md:mb-20 glitch-wrapper gsap-arrive">
           {/* Base Text */}
           <p className="font-mono text-[9px] md:text-xs tracking-[0.4em] text-white/40 uppercase leading-[2.5]">
             <span className="text-white/60">OTHERS CHASE</span> TRENDS.<span className="barcode text-white/80"></span><br/>
@@ -211,7 +246,7 @@ export default function Home() {
           
           {/* Left Text */}
           <div 
-            className="space-y-8 text-left text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide px-8 md:pl-16 lg:pl-24 md:pr-12 py-16" 
+            className="space-y-8 text-left text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide px-8 md:pl-16 lg:pl-24 md:pr-12 py-16 gsap-arrive" 
             style={{ fontFamily: "'Fellix', sans-serif" }}
           >
             <p>
@@ -224,7 +259,7 @@ export default function Home() {
 
           {/* Right Video */}
           <div 
-            className="relative w-full md:w-[85%] mx-auto aspect-square md:aspect-video flex items-center justify-center pointer-events-none scale-95 md:scale-100"
+            className="relative w-full md:w-[85%] mx-auto aspect-square md:aspect-video flex items-center justify-center pointer-events-none scale-95 md:scale-100 gsap-arrive"
             style={{ 
               WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
               WebkitMaskComposite: 'source-in',
@@ -264,14 +299,14 @@ export default function Home() {
 
         {/* Heading */}
         <h2 
-          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-8"
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-8 gsap-arrive"
           style={{ fontFamily: "'Fellix', sans-serif" }}
         >
           Snapshots
         </h2>
 
         {/* Gallery Container */}
-        <div className="w-full relative h-[50vh] md:h-[65vh] block">
+        <div className="w-full relative h-[50vh] md:h-[65vh] block gsap-arrive">
           <CircularGallery 
             items={[
               { image: '/Images/1.jpeg', text: '' },
@@ -292,7 +327,7 @@ export default function Home() {
 
         {/* Text Below Carousel */}
         <div 
-          className="max-w-5xl px-8 mt-12 space-y-8 text-center text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide z-20" 
+          className="max-w-5xl px-8 mt-12 space-y-8 text-center text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide z-20 gsap-arrive" 
           style={{ fontFamily: "'Fellix', sans-serif" }}
         >
           <p>
@@ -318,7 +353,7 @@ export default function Home() {
         </div>
 
         <h2 
-          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-16"
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-16 gsap-arrive"
           style={{ fontFamily: "'Fellix', sans-serif" }}
         >
           Founders
@@ -326,7 +361,7 @@ export default function Home() {
         
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 justify-items-center">
           
-          <div className="flex flex-col items-center gap-6 w-full">
+          <div className="flex flex-col items-center gap-6 w-full gsap-arrive">
             <ProfileCard
               name=""
               title=""
@@ -338,15 +373,14 @@ export default function Home() {
               iconUrl="/Images/r3actr.png"
               enableTilt={true}
               enableMobileTilt={false}
-              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
-            />
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)" behindGlowColor={undefined} behindGlowSize={undefined} miniAvatarUrl={undefined} onContactClick={undefined}            />
             <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
               <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">ABHINAV R.</h3>
               <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-6 w-full">
+          <div className="flex flex-col items-center gap-6 w-full gsap-arrive">
             <ProfileCard
               name=""
               title=""
@@ -358,15 +392,14 @@ export default function Home() {
               iconUrl="/Images/r3actr.png"
               enableTilt={true}
               enableMobileTilt={false}
-              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
-            />
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)" behindGlowColor={undefined} behindGlowSize={undefined} miniAvatarUrl={undefined} onContactClick={undefined}            />
             <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
               <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">SREEHARI R.</h3>
               <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-6 w-full">
+          <div className="flex flex-col items-center gap-6 w-full gsap-arrive">
             <ProfileCard
               name=""
               title=""
@@ -378,15 +411,14 @@ export default function Home() {
               iconUrl="/Images/r3actr.png"
               enableTilt={true}
               enableMobileTilt={false}
-              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
-            />
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)" behindGlowColor={undefined} behindGlowSize={undefined} miniAvatarUrl={undefined} onContactClick={undefined}            />
             <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
               <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">KALIDAS V.</h3>
               <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-6 w-full">
+          <div className="flex flex-col items-center gap-6 w-full gsap-arrive">
             <ProfileCard
               name=""
               title=""
@@ -398,8 +430,7 @@ export default function Home() {
               iconUrl="/Images/r3actr.png"
               enableTilt={true}
               enableMobileTilt={false}
-              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)"
-            />
+              innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.55) 0%, rgba(113, 196, 255, 0.27) 100%)" behindGlowColor={undefined} behindGlowSize={undefined} miniAvatarUrl={undefined} onContactClick={undefined}            />
             <div className="text-center space-y-1 w-full" style={{ fontFamily: "'Fellix', sans-serif" }}>
               <h3 className="text-white/90 font-medium text-xl tracking-[0.15em] uppercase">NEERAJ S.</h3>
               <p className="text-white/50 text-sm tracking-widest font-light uppercase">Co-Founder @ R3ACTR</p>
@@ -414,6 +445,21 @@ export default function Home() {
 
       {/* Open Source Quest Section */}
       <section className="w-full min-h-screen bg-black py-24 px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center relative overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload="auto"
+            className="w-full h-full object-cover opacity-85"
+          >
+            <source src="/videos/19782b13-9fd4bd7a.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+        </div>
+
         {/* Floating Image coming from right */}
         <div className="absolute right-0 top-0 w-24 md:w-32 lg:w-48 z-10 pointer-events-none transform translate-x-8 -translate-y-2 md:translate-x-12 md:-translate-y-4 opacity-85 select-none">
           <Image 
@@ -423,10 +469,8 @@ export default function Home() {
             height={150} 
             className="w-full h-auto object-contain"
           />
-        </div>
-
-        <h2 
-          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center"
+        </div>        <h2 
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center gsap-arrive"
           style={{ fontFamily: "'Fellix', sans-serif" }}
         >
           Flagship Event
@@ -435,7 +479,7 @@ export default function Home() {
         <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-20">
           
           {/* Left: Image */}
-          <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="w-full lg:w-1/2 flex justify-center gsap-arrive">
             <div className="relative w-[300px] md:w-[400px] lg:w-[500px] aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(113,196,255,0.15)]">
               <Image 
                 src="/Images/osq.png" 
@@ -447,7 +491,7 @@ export default function Home() {
           </div>
 
           {/* Right: Content */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8" style={{ fontFamily: "'Fellix', sans-serif" }}>
+          <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8 gsap-arrive" style={{ fontFamily: "'Fellix', sans-serif" }}>
             <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide">
               Open Source Quest
             </h3>
@@ -480,7 +524,7 @@ export default function Home() {
       {/* Publications Section */}
       <section id="contact" className="w-full min-h-screen bg-black py-24 px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center relative overflow-hidden">
         <h2 
-          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center"
+          className="text-white/80 text-xl md:text-3xl tracking-[0.25em] uppercase font-medium z-20 pointer-events-none mb-20 text-center gsap-arrive"
           style={{ fontFamily: "'Fellix', sans-serif" }}
         >
           Publications
@@ -489,7 +533,7 @@ export default function Home() {
         <div className="w-full max-w-5xl flex flex-col gap-6 relative z-20" style={{ fontFamily: "'Fellix', sans-serif" }}>
           
           {/* Publication 1 */}
-          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden gsap-arrive">
             <div className="flex-1">
               <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
                 ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNS in Brain Tumor Diagnosis From MRI Images
@@ -506,7 +550,7 @@ export default function Home() {
           </div>
 
           {/* Publication 2 */}
-          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden gsap-arrive">
             <div className="flex-1">
               <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
                 CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification
@@ -518,7 +562,7 @@ export default function Home() {
           </div>
 
           {/* Publication 3 */}
-          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+          <div className="group border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden gsap-arrive">
             <div className="flex-1">
               <h3 className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed group-hover:text-white transition-colors">
                 Pixel-Level Supervision for Medical Imaging: A Custom Masked Autoencoder Framework for Renal Pathology Detection
@@ -533,8 +577,23 @@ export default function Home() {
       </section>
 
       {/* Footer Section */}
-      <footer className="w-full bg-black border-t border-dashed border-white/30 py-16 px-8 md:px-16 lg:px-24 flex flex-col items-center relative z-20 overflow-hidden" style={{ fontFamily: "'Fellix', sans-serif" }}>
-        <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-12 pb-12 border-b border-white/10">
+      <footer className="w-full bg-black border-t border-dashed border-white/30 py-16 px-8 md:px-16 lg:px-24 flex flex-col items-center relative z-20 overflow-hidden gsap-arrive" style={{ fontFamily: "'Fellix', sans-serif" }}>
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload="auto"
+            className="w-full h-full object-cover opacity-85"
+          >
+            <source src="/videos/288713ad-32b2074f.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black pointer-events-none" />
+        </div>
+
+        <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-12 pb-12 border-b border-white/10 relative z-10">
           
           {/* Left Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
@@ -562,14 +621,14 @@ export default function Home() {
                 <path d="M9 18c-4.51 2-5-2-7-2"></path>
               </svg>
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all duration-300" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/r3actr-innovations/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all duration-300" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect width="4" height="12" x="2" y="9"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all duration-300" aria-label="Instagram">
+            <a href="https://www.instagram.com/r3actr/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all duration-300" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -581,7 +640,7 @@ export default function Home() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="w-full max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-white/40 text-[10px] tracking-widest uppercase font-light">
+        <div className="w-full max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-white/40 text-[10px] tracking-widest uppercase font-light relative z-10">
           <p>© 2026 R3ACTR. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white/70 transition-colors">Privacy Policy</a>
