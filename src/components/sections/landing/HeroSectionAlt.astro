@@ -1,0 +1,59 @@
+---
+// Import the necessary dependencies
+import GithubBtn from '@components/ui/buttons/GithubBtn.astro';
+
+// Define props from Astro
+const { title, subTitle, url, src } = Astro.props;
+
+const btnTitle =
+  Astro.currentLocale === 'fr'
+    ? 'Continuer avec Github'
+    : 'Continue with Github';
+
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle?: string;
+  url?: string;
+  src?: string;
+}
+---
+
+<section
+  class="mx-auto grid max-w-[85rem] gap-4 px-4 pt-10 pb-24 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8"
+>
+  {/* Left Column: Image */}
+  <div class="flex w-full justify-center">
+    {
+      src && (
+        <img
+          src={src}
+          alt={title}
+          class="w-1/2 md:w-3/5 lg:w-1/2 h-auto object-contain rounded-2xl"
+          draggable="false"
+          loading="lazy"
+        />
+      )
+    }
+  </div>
+
+  {/* Right Column: Text & Button */}
+  <div class="mt-5 md:mt-0">
+    <h2
+      class="block text-4xl leading-tight font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
+      set:html={title}
+    />
+    {
+      subTitle && (
+        <p class="mt-5 text-lg text-pretty text-neutral-600 dark:text-neutral-400" set:html={subTitle} />
+      )
+    }
+    {
+      url && (
+        <div class="mt-8 flex gap-3">
+          <GithubBtn url={url} title={btnTitle} />
+        </div>
+      )
+    }
+  </div>
+</section>

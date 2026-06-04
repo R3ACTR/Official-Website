@@ -1,0 +1,78 @@
+---
+const items1 = [
+  "INNOVATION", "RESEARCH", "WEB3", "SAAS", "SOFTWARE", "AI", "DEVELOPMENT",
+  "INNOVATION", "RESEARCH", "WEB3", "SAAS", "SOFTWARE", "AI", "DEVELOPMENT"
+];
+
+const items2 = [
+  "SCALABILITY", "PERFORMANCE", "OPEN SOURCE", "ARCHITECTURE", "DESIGN", "CLOUD",
+  "SCALABILITY", "PERFORMANCE", "OPEN SOURCE", "ARCHITECTURE", "DESIGN", "CLOUD"
+];
+---
+
+<section class="marquee-section py-4 overflow-hidden bg-neutral-100 dark:bg-neutral-800/50">
+  <div class="flex flex-col gap-4">
+    <!-- First Row (Left to Right) -->
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        {items1.map((item) => (
+          <span class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-400 to-neutral-600 dark:from-neutral-500 dark:to-neutral-300 uppercase tracking-wider">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Second Row (Right to Left) -->
+    <div class="marquee-wrapper">
+      <div class="marquee-content reverse">
+        {items2.map((item) => (
+          <span class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-600 to-neutral-400 dark:from-neutral-300 dark:to-neutral-500 uppercase tracking-wider">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+  }
+
+  .marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 2rem;
+    padding-right: 2rem; /* Matches gap */
+    animation: scroll 20s linear infinite;
+  }
+
+  .marquee-content.reverse {
+    animation-direction: reverse;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+</style>

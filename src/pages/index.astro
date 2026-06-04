@@ -1,0 +1,73 @@
+---
+// Import the necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import AboutSection from '@components/sections/landing/AboutSection.astro';
+import DoubleMarquee from '@components/ui/blocks/DoubleMarquee.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import SnapshotCarousel from '@components/ui/blocks/SnapshotCarousel.astro';
+import construction from '@images/construction-image.avif';
+import tools from '@images/automated-tools.avif';
+import dashboard from '@images/dashboard-image.avif';
+import { partnersData } from '@/data_files/constants';
+
+---
+
+<MainLayout>
+  <div class="flex flex-col gap-16 md:gap-24">
+    <HeroSection
+      title=`Driving software innovation and research, working remotely with a <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">global reach</span>`
+      subTitle="Innovating, researching, and building next-gen software solutions."
+      primaryBtn="Explore OSQ"
+      primaryBtnURL="https://osq.r3actr.work/"
+      secondaryBtn="Contact Us"
+      secondaryBtnURL="/contact"
+      withReview={false}
+      src="/assets/illustrations/Team work-cuate.svg"
+      alt="R3ACTR Hero Image"
+    />
+
+    <DoubleMarquee />
+
+    <AboutSection src="/assets/illustrations/About%20us%20page-pana.png" />
+
+    <FeaturesNavs
+      title=`Customize your experience with <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">R3ACTR</span>'s core pillars.`
+      tabs={[
+        {
+          heading: 'AI & Web3 Applications',
+          content: 'Building cutting-edge applications using artificial intelligence and decentralized technologies to create products that make a real impact.',
+          svg: 'tools',
+          src: '/assets/Custsection/ai.svg',
+          alt: 'AI and Web3 tools',
+          first: true,
+        },
+        {
+          heading: 'SaaS Platforms',
+          content: 'Designing and developing robust, user-friendly SaaS platforms for a variety of industry challenges.',
+          svg: 'dashboard',
+          src: '/assets/Custsection/saas.svg',
+          alt: 'SaaS Platforms dashboard',
+          second: true,
+        },
+        {
+          heading: 'Research-Driven Projects',
+          content: 'Exploring emerging technologies and pushing the boundaries of what’s possible with advanced research and prototyping.',
+          svg: 'house',
+          src: '/assets/Custsection/research.svg',
+          alt: 'Research projects',
+        },
+      ]}
+    />
+
+    <SnapshotCarousel />
+
+    <HeroSectionAlt
+      title=`Open <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Source Quest</span>`
+      subTitle="Open Source Quest is a structured, month-long open-source contribution program designed to help students gain real-world experience with professional software development workflows.<br/><br/>Participants work individually on curated, domain-specific GitHub repositories under guided mentorship. The program focuses on understanding how real open-source projects function—through issues, pull requests, reviews, and consistent contributions—rather than competitive coding or short-term hackathons."
+      url="https://github.com/orgs/R3ACTR"
+      src="/assets/others/osq.webp"
+    />
+  </div>
+</MainLayout>
