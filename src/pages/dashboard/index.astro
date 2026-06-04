@@ -4,7 +4,9 @@ import DashboardLayout from '@/layouts/DashboardLayout.astro';
 
 <DashboardLayout>
   <div class="mb-8">
-    <h1 class="text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200">
+    <h1
+      class="text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
       Welcome back!
     </h1>
     <p class="mt-2 text-neutral-600 dark:text-neutral-400">
@@ -12,47 +14,68 @@ import DashboardLayout from '@/layouts/DashboardLayout.astro';
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     {/* News Widget */}
-    <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 p-6 shadow-sm">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-neutral-800 dark:text-neutral-200">News</h2>
-        <span class="inline-flex items-center gap-x-1.5 rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-500/10 dark:text-orange-400">
+    <div
+      class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50"
+    >
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          News
+        </h2>
+        <span
+          class="inline-flex items-center gap-x-1.5 rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:bg-orange-500/10 dark:text-orange-400"
+        >
           New
         </span>
       </div>
-      
+
       <div class="space-y-5">
         <div class="group relative flex gap-x-5">
-          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-2 after:w-px after:-translate-x-[0.5px] after:bg-neutral-200 dark:after:bg-neutral-700">
+          <div
+            class="relative after:absolute after:start-2 after:top-8 after:bottom-0 after:w-px after:-translate-x-[0.5px] after:bg-neutral-200 group-last:after:hidden dark:after:bg-neutral-700"
+          >
             <div class="relative z-10 flex h-4 w-4 items-center justify-center">
-              <div class="h-2 w-2 rounded-full bg-neutral-400 dark:bg-neutral-600 group-hover:bg-orange-500 transition-colors"></div>
+              <div
+                class="h-2 w-2 rounded-full bg-neutral-400 transition-colors group-hover:bg-orange-500 dark:bg-neutral-600"
+              >
+              </div>
             </div>
           </div>
           <div class="grow pb-5">
-            <h3 class="flex gap-x-1.5 font-semibold text-neutral-800 dark:text-neutral-200">
+            <h3
+              class="flex gap-x-1.5 font-semibold text-neutral-800 dark:text-neutral-200"
+            >
               R3ACTR Dashboard is Live!
             </h3>
             <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              We've successfully rolled out the beta version of the centralized dashboard for all members.
+              We've successfully rolled out the beta version of the centralized
+              dashboard for all members.
             </p>
             <span class="mt-2 text-xs text-neutral-500">Just now</span>
           </div>
         </div>
 
         <div class="group relative flex gap-x-5">
-          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-2 after:w-px after:-translate-x-[0.5px] after:bg-neutral-200 dark:after:bg-neutral-700">
+          <div
+            class="relative after:absolute after:start-2 after:top-8 after:bottom-0 after:w-px after:-translate-x-[0.5px] after:bg-neutral-200 group-last:after:hidden dark:after:bg-neutral-700"
+          >
             <div class="relative z-10 flex h-4 w-4 items-center justify-center">
-              <div class="h-2 w-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></div>
+              <div
+                class="h-2 w-2 rounded-full bg-neutral-400 dark:bg-neutral-600"
+              >
+              </div>
             </div>
           </div>
           <div class="grow pb-5">
-            <h3 class="flex gap-x-1.5 font-semibold text-neutral-800 dark:text-neutral-200">
+            <h3
+              class="flex gap-x-1.5 font-semibold text-neutral-800 dark:text-neutral-200"
+            >
               EPOQ v2.0 Roadmap Published
             </h3>
             <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Check out the Beta Lab to see what's coming next for our local deep learning GUI.
+              Check out the Beta Lab to see what's coming next for our local
+              deep learning GUI.
             </p>
             <span class="mt-2 text-xs text-neutral-500">2 days ago</span>
           </div>
@@ -61,37 +84,83 @@ import DashboardLayout from '@/layouts/DashboardLayout.astro';
     </div>
 
     {/* Announcements Widget */}
-    <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 p-6 shadow-sm">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-neutral-800 dark:text-neutral-200">Announcements</h2>
+    <div
+      class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50"
+    >
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          Announcements
+        </h2>
       </div>
 
       <div class="space-y-4">
         <div class="rounded-xl border border-orange-500/20 bg-orange-500/5 p-4">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/20 text-orange-500">
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="mb-2 flex items-center gap-3">
+            <div
+              class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/20 text-orange-500"
+            >
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                ></path><line x1="12" y1="9" x2="12" y2="13"></line><line
+                  x1="12"
+                  y1="17"
+                  x2="12.01"
+                  y2="17"></line></svg
+              >
             </div>
-            <h3 class="font-semibold text-neutral-800 dark:text-neutral-200">Server Maintenance</h3>
+            <h3 class="font-semibold text-neutral-800 dark:text-neutral-200">
+              Server Maintenance
+            </h3>
           </div>
           <p class="text-sm text-neutral-600 dark:text-neutral-400">
-            PaperLab Studio API will be down for scheduled maintenance on Sunday at 2 AM EST.
+            PaperLab Studio API will be down for scheduled maintenance on Sunday
+            at 2 AM EST.
           </p>
         </div>
 
-        <div class="rounded-xl border border-neutral-200 dark:border-neutral-700/50 bg-neutral-50 dark:bg-neutral-800/20 p-4">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20 text-blue-500">
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <div
+          class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700/50 dark:bg-neutral-800/20"
+        >
+          <div class="mb-2 flex items-center gap-3">
+            <div
+              class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20 text-blue-500"
+            >
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"
+                ></path><path d="M12 8h.01"></path></svg
+              >
             </div>
-            <h3 class="font-semibold text-neutral-800 dark:text-neutral-200">Seeking Maintainers</h3>
+            <h3 class="font-semibold text-neutral-800 dark:text-neutral-200">
+              Seeking Maintainers
+            </h3>
           </div>
           <p class="text-sm text-neutral-600 dark:text-neutral-400">
-            We are looking for open source maintainers for KTUHub. Check the Community > Team Finder section for details.
+            We are looking for open source maintainers for KTUHub. Check the
+            Community > Team Finder section for details.
           </p>
         </div>
       </div>
     </div>
-
   </div>
 </DashboardLayout>
