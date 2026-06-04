@@ -110,10 +110,18 @@ const ogTitle = 'Log In | R3ACTR';
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
 
-  // If user is already logged in, redirect them to dashboard automatically
+  // If user is already logged in, redirect them to dashboard automatically (only on desktop)
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      window.location.href = '/dashboard';
+      if (window.innerWidth < 1024) {
+        // Prevent mobile users from accessing dashboard
+        if (errorMsg) {
+          errorMsg.textContent = 'The dashboard is only accessible on desktop devices.';
+          errorMsg.classList.remove('hidden');
+        }
+      } else {
+        window.location.href = '/dashboard';
+      }
     }
   });
 
@@ -129,6 +137,22 @@ const ogTitle = 'Log In | R3ACTR';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Signing in...';
+      }
+
+      // Check for desktop screen size
+      if (window.innerWidth < 1024) {
+        if (errorMsg) {
+          errorMsg.textContent = 'The dashboard is only accessible on desktop devices.';
+          errorMsg.classList.remove('hidden');
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            Log in to Dashboard
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          `;
+        }
+        return;
       }
 
       const emailInput = form.querySelector('input[type="email"]');
