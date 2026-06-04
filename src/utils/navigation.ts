@@ -11,28 +11,25 @@ const footerLinks = [
   {
     section: 'Ecosystem',
     links: [
-      { name: 'Documentation', url: '/welcome-to-docs/' },
-      { name: 'Tools & Equipment', url: '/products' },
-      { name: 'Construction Services', url: '/services' },
+      { name: 'Products', url: '/products' },
+      { name: 'Services', url: '/services' },
+      { name: 'Open Source', url: 'https://github.com/R3ACTR-DEV' },
     ],
   },
   {
     section: 'Company',
     links: [
-      { name: 'About us', url: '#' },
+      { name: 'Home', url: '/' },
       { name: 'Blog', url: '/blog' },
-      { name: 'Careers', url: '#' },
-      { name: 'Customers', url: '#' },
+      { name: 'Contact', url: '/contact' },
     ],
   },
 ];
 // An object of links for social icons
 const socialLinks = {
-  facebook: 'https://www.facebook.com/',
-  x: 'https://twitter.com/',
-  github: 'https://github.com/mearashadowfax/ScrewFast',
-  google: 'https://www.google.com/',
-  slack: 'https://slack.com/',
+  github: 'https://github.com/R3ACTR-DEV',
+  instagram: 'https://www.instagram.com/r3actr/',
+  linkedin: 'https://www.linkedin.com/company/r3actr-innovations/',
 };
 
 export default {

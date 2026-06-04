@@ -4,6 +4,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import HeroSection from '@components/sections/landing/HeroSection.astro';
 import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import AboutSection from '@components/sections/landing/AboutSection.astro';
+import PublicationsSection from '@components/sections/landing/PublicationsSection.astro';
 import DoubleMarquee from '@components/ui/blocks/DoubleMarquee.astro';
 import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
 import SnapshotCarousel from '@components/ui/blocks/SnapshotCarousel.astro';
@@ -15,12 +16,12 @@ import { partnersData } from '@/data_files/constants';
 ---
 
 <MainLayout>
-  <div class="flex flex-col gap-16 md:gap-24">
+  <div class="flex flex-col gap-16 md:gap-24 mb-16 md:mb-24">
     <HeroSection
       title=`Driving software innovation and research, working remotely with a <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">global reach</span>`
       subTitle="Innovating, researching, and building next-gen software solutions."
-      primaryBtn="Explore OSQ"
-      primaryBtnURL="https://osq.r3actr.work/"
+      primaryBtn="Join R3ACTR"
+      primaryBtnURL="#join"
       secondaryBtn="Contact Us"
       secondaryBtnURL="/contact"
       withReview={false}
@@ -39,7 +40,7 @@ import { partnersData } from '@/data_files/constants';
           heading: 'AI & Web3 Applications',
           content: 'Building cutting-edge applications using artificial intelligence and decentralized technologies to create products that make a real impact.',
           svg: 'tools',
-          src: '/assets/Custsection/ai.svg',
+          src: '/assets/Custsection/Artificial%20intelligence-bro.png',
           alt: 'AI and Web3 tools',
           first: true,
         },
@@ -47,7 +48,7 @@ import { partnersData } from '@/data_files/constants';
           heading: 'SaaS Platforms',
           content: 'Designing and developing robust, user-friendly SaaS platforms for a variety of industry challenges.',
           svg: 'dashboard',
-          src: '/assets/Custsection/saas.svg',
+          src: '/assets/Custsection/Working-rafiki.png',
           alt: 'SaaS Platforms dashboard',
           second: true,
         },
@@ -55,7 +56,7 @@ import { partnersData } from '@/data_files/constants';
           heading: 'Research-Driven Projects',
           content: 'Exploring emerging technologies and pushing the boundaries of what’s possible with advanced research and prototyping.',
           svg: 'house',
-          src: '/assets/Custsection/research.svg',
+          src: '/assets/Custsection/Web%20search-pana.png',
           alt: 'Research projects',
         },
       ]}
@@ -69,5 +70,7 @@ import { partnersData } from '@/data_files/constants';
       url="https://github.com/orgs/R3ACTR"
       src="/assets/others/osq.webp"
     />
+
+    <PublicationsSection />
   </div>
 </MainLayout>

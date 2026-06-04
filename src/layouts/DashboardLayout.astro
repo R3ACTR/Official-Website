@@ -1,0 +1,213 @@
+---
+// Importing necessary components
+import Meta from '@components/Meta.astro';
+import { SITE } from '@data/constants';
+import '@styles/global.css';
+
+const {
+  title = `Dashboard | ${SITE.title}`,
+  meta,
+  structuredData,
+  lang = 'en',
+  customDescription = "Member exclusive dashboard area.",
+  customOgTitle = `Dashboard | ${SITE.title}`,
+} = Astro.props;
+
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: object;
+  lang?: string;
+  customDescription?: string | null;
+  customOgTitle?: string | null;
+}
+
+const sidebarLinks = [
+  {
+    category: 'Dashboard',
+    items: [
+      { name: 'Overview', url: '/dashboard', icon: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' },
+    ]
+  },
+  {
+    category: 'Projects',
+    items: [
+      { name: 'EPOQ', url: '#', icon: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+      { name: 'PaperLab Studio', url: '#', icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z' },
+      { name: 'KTUHub', url: '#', icon: 'M4 19.5A2.5 2.5 0 0 1 6.5 17H20' },
+      { name: 'Future Projects', url: '#', icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
+    ]
+  },
+  {
+    category: 'Community',
+    items: [
+      { name: 'Discussions', url: '#', icon: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+      { name: 'Team Finder', url: '#', icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
+      { name: 'Events', url: '#', icon: 'M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18' },
+    ]
+  },
+  {
+    category: 'Resources',
+    items: [
+      { name: 'Templates', url: '#', icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6' },
+      { name: 'Research Papers', url: '#', icon: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z' },
+      { name: 'Datasets', url: '#', icon: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z' },
+    ]
+  },
+  {
+    category: 'Beta Lab',
+    items: [
+      { name: 'Test Builds', url: '#', icon: 'M19.11 3.53l.46.25c2.39 1.3 3.65 4.3 2.5 7.15l-1.07 2.65L15 8.16l2.1-5.18c.2-.5.54-.7.9-.66z' },
+      { name: 'Feature Voting', url: '#', icon: 'M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3' },
+      { name: 'Bug Reports', url: '#', icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
+    ]
+  }
+];
+---
+
+<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+  <head>
+    <Meta
+      meta={meta}
+      structuredData={structuredData}
+      customDescription={customDescription}
+      customOgTitle={customOgTitle}
+    />
+    <title>{title}</title>
+    <script is:inline>
+      if (
+        localStorage.getItem('hs_theme') === 'dark' ||
+        (!('hs_theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <script>
+      import '@scripts/lenisSmoothScroll.js';
+    </script>
+    
+    {/* Firebase Auth Guard */}
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCjAXaJTz6eemuhJTNgzZPiHHGE97ZWPpo",
+        authDomain: "r3actr-work.firebaseapp.com",
+        projectId: "r3actr-work",
+        storageBucket: "r3actr-work.firebasestorage.app",
+        messagingSenderId: "1022996885028",
+        appId: "1:1022996885028:web:0b6d73baa82c6ffc0e32b1"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Auth Guard
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          window.location.href = '/login';
+        } else {
+          // Display user email
+          const userEmailEl = document.getElementById('user-email');
+          if (userEmailEl) userEmailEl.textContent = user.email;
+          
+          // Remove loading overlay
+          const loader = document.getElementById('auth-loader');
+          if (loader) loader.style.display = 'none';
+        }
+      });
+
+      // Global Sign Out Hook
+      window.signOutUser = () => {
+        signOut(auth).then(() => {
+          window.location.href = '/login';
+        });
+      };
+    </script>
+  </head>
+  
+  <body class="bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200">
+    
+    {/* Full Screen Loader until Firebase Auth resolves */}
+    <div id="auth-loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-neutral-100 dark:bg-neutral-900">
+      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-orange-500 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+      </div>
+    </div>
+
+    <div class="flex h-screen overflow-hidden">
+      
+      {/* Sidebar */}
+      <aside class="w-64 flex-shrink-0 border-r border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 flex flex-col hidden md:flex">
+        <div class="h-16 flex items-center px-6 border-b border-neutral-200 dark:border-neutral-800">
+          <a href="/" class="text-xl font-extrabold tracking-tight">
+            R3ACTR<span class="text-orange-500">.</span>
+          </a>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-4 scrollbar-hide">
+          {sidebarLinks.map(section => (
+            <div class="mb-6">
+              <h3 class="px-2 mb-2 text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                {section.category}
+              </h3>
+              <ul class="space-y-1">
+                {section.items.map(item => (
+                  <li>
+                    <a href={item.url} class="flex items-center gap-3 px-2 py-2 rounded-lg text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                      <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d={item.icon}/>
+                      </svg>
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </aside>
+
+      {/* Main Content Area */}
+      <div class="flex-1 flex flex-col overflow-hidden">
+        
+        {/* Top Header */}
+        <header class="h-16 flex items-center justify-between px-6 border-b border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm z-10">
+          <div class="flex items-center gap-4">
+            {/* Mobile menu toggle could go here */}
+            <h1 class="text-lg font-bold">Dashboard</h1>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <span id="user-email" class="text-sm font-medium hidden sm:block"></span>
+            <button onclick="window.signOutUser()" class="rounded-lg bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 px-3 py-1.5 text-sm font-medium transition-colors">
+              Sign Out
+            </button>
+          </div>
+        </header>
+
+        {/* Page Content Slot */}
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 bg-neutral-100 dark:bg-neutral-950">
+          <div class="mx-auto max-w-5xl">
+            <slot />
+          </div>
+        </main>
+
+      </div>
+    </div>
+    
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </body>
+</html>

@@ -1,144 +1,216 @@
 ---
-// Importing necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
-import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
-import CardSmall from '@components/ui/cards/CardSmall.astro';
-import CardWide from '@components/ui/cards/CardWide.astro';
-import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
-import TestimonialsSectionAlt from '@components/sections/testimonials/TestimonialsSectionAlt.astro';
-
-// Importing necessary functions from Astro
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import { SITE } from '@data/constants';
-
-// Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<'products'>[] = (
-  await getCollection('products', ({ id }) => {
-    return id.startsWith('en/');
-  })
-).sort(
-  (a: CollectionEntry<'products'>, b: CollectionEntry<'products'>) =>
-    a.data.main.id - b.data.main.id
-);
-
-// Define variables for page content
-const title: string = 'Products';
-const subTitle: string =
-  'Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.';
-
-// Testimonial data that will be rendered in the component
-const testimonials = [
-  // First testimonial data
-  {
-    content:
-      ' "Since switching to ScrewFast\'s hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It\'s refreshing to work with a company that truly understands the daily demands of the industry." ',
-    author: 'Jason Clark',
-    role: 'Site Foreman | TopBuild',
-    avatarSrc:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-    avatarAlt: 'Image Description',
-  },
-  // Second testimonial data
-  {
-    content:
-      ' "As an interior designer, I\'m always looking for high-quality materials and tools that help bring my visions to life. ScrewFast\'s mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!" ',
-    author: 'Maria Gonzalez',
-    role: 'Interior Designer | Creative Spaces',
-    avatarSrc:
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-    avatarAlt: 'Image Description',
-  },
-  // Third testimonial data
-  {
-    content:
-      " \"I've been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast's tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
-    author: 'Richard Kim',
-    role: 'Master Carpenter | WoodWright',
-    avatarSrc:
-      'https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-    avatarAlt: 'Image Description',
-  },
-];
 
 const pageTitle: string = `Products | ${SITE.title}`;
 const metaDescription =
-  'Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.';
-const ogTitle = 'Hardware Tools | ScrewFast';
+  'Explore KTU Hub and other innovative products developed by R3ACTR.';
+const ogTitle = 'Products | R3ACTR';
 ---
 
 <MainLayout
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
-  structuredData={{
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': 'https://screwfast.uk/products',
-    url: 'https://screwfast.uk/products',
-    name: 'Hardware Tools | ScrewFast',
-    description:
-      'Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.',
-    isPartOf: {
-      '@type': 'WebSite',
-      url: 'https://screwfast.uk',
-      name: 'ScrewFast',
-      description:
-        'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
-    },
-    inLanguage: 'en-US',
-  }}
 >
-  <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
-              {subTitle}
-            </p>
-          )
-        }
-      </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
-    </div>
-    {
-      /* Displaying products in alternating styles. Alternative product gets different card styling.
-    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */
-    }
-    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
-    </section>
+  {/* Header Section */}
+  <div class="mx-auto max-w-[85rem] px-4 py-12 sm:px-6 lg:px-8 lg:py-16 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight">
+      Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Products</span>
+    </h1>
+    <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+      Discover the platforms and solutions engineered by R3ACTR. We build products designed for scale, performance, and real-world impact.
+    </p>
   </div>
-  {/* Features statistics section */}
-  <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
-    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
-    benefits={[
-      'Robust and reliable tools for long-lasting performance.',
-      'Innovative solutions tailored to modern construction needs.',
-      "Customer support dedicated to your project's success.",
-    ]}
-  />
-  {/* Testimonials section */}
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  />
+
+  {/* Flagship Product: KTU Hub Showcase */}
+  <div class="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 mb-24">
+    <div class="relative overflow-hidden rounded-[3rem] border border-neutral-200/50 bg-white/40 shadow-2xl shadow-orange-500/5 backdrop-blur-xl dark:border-neutral-700/50 dark:bg-neutral-800/20">
+      
+
+
+      <div class="relative z-10 grid gap-12 lg:grid-cols-2 items-center p-8 sm:p-12 lg:p-16">
+        
+        {/* Left: Text Content */}
+        <div class="flex flex-col justify-center">
+          <div class="mb-6 inline-flex items-center gap-x-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-bold tracking-widest text-orange-600 dark:border-orange-400/30 dark:bg-orange-400/10 dark:text-orange-400 w-fit uppercase">
+            <span class="flex h-2 w-2 rounded-full bg-orange-500 animate-pulse"></span>
+            Flagship Platform
+          </div>
+          
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight mb-6">
+            KTU Hub
+          </h2>
+          
+          <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+            The premier academic platform designed specifically for KTU students. We've engineered a unified ecosystem to seamlessly deliver essential resources, real-time updates, and powerful tools directly to your fingertips.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            {[
+              'Centralized Academic Resources & Materials',
+              'Real-Time Notifications & Syllabus Updates',
+              'Intuitive, Fast, and Mobile-Optimized Experience'
+            ].map((feature) => (
+              <li class="flex items-start gap-3 text-neutral-700 dark:text-neutral-300 font-medium">
+                <div class="flex-shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <a
+            href="https://www.ktuhub.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex w-fit items-center gap-x-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/50"
+          >
+            Launch KTU Hub
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        
+        {/* Right: Image */}
+        <div class="relative flex items-center justify-center lg:justify-end">
+          <img
+            src="/assets/illustrations/Studying-amico.png"
+            alt="KTU Hub Platform"
+            class="w-full max-w-lg object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-[1.02]"
+            draggable="false"
+            loading="lazy"
+          />
+        </div>
+        
+      </div>
+    </div>
+
+    {/* Product 2: EPOQ Showcase */}
+    <div class="relative mt-24 overflow-hidden rounded-[3rem] border border-neutral-200/50 bg-white/40 shadow-2xl shadow-orange-500/5 backdrop-blur-xl dark:border-neutral-700/50 dark:bg-neutral-800/20">
+      <div class="relative z-10 grid gap-12 lg:grid-cols-2 items-center p-8 sm:p-12 lg:p-16">
+        
+        {/* Left: Image (Desktop) */}
+        <div class="relative flex items-center justify-center lg:justify-start order-last lg:order-first">
+          <img
+            src="/assets/illustrations/epoq.png"
+            alt="EPOQ Repository"
+            class="w-full max-w-lg object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-[1.02]"
+            draggable="false"
+            loading="lazy"
+          />
+        </div>
+        
+        {/* Right: Text Content */}
+        <div class="flex flex-col justify-center">
+          <div class="mb-6 inline-flex items-center gap-x-2 rounded-full border border-neutral-500/30 bg-neutral-500/10 px-4 py-2 text-sm font-bold tracking-widest text-neutral-600 dark:border-neutral-400/30 dark:bg-neutral-400/10 dark:text-neutral-400 w-fit uppercase">
+            <span class="flex h-2 w-2 rounded-full bg-neutral-500"></span>
+            Open Source Project
+          </div>
+          
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight mb-6">
+            EPOQ
+          </h2>
+          
+          <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+            EPOQ brings the power of deep learning to your desktop. Built with Tauri, Next.js, and PyTorch, this application provides a sleek, intuitive GUI for training state-of-the-art image classification models locally. Say goodbye to complex CLI scripts and hello to real-time visual feedback!
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            {[
+              'Local Deep Learning Training',
+              'Sleek Desktop GUI (Tauri + Next.js)',
+              'Real-Time Visual Feedback'
+            ].map((feature) => (
+              <li class="flex items-start gap-3 text-neutral-700 dark:text-neutral-300 font-medium">
+                <div class="flex-shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <a
+            href="https://github.com/Sree14hari/EPOQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex w-fit items-center gap-x-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-transparent px-8 py-4 text-base font-bold text-neutral-800 dark:text-neutral-200 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:scale-105"
+          >
+            View Repository
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24 10 10 0 0 0 7-6.76c0-4.64-3.56-5.4-5.4-5.4A8.25 8.25 0 0 0 12 2a8.25 8.25 0 0 0-3.56.6c-1.84 0-5.4.76-5.4 5.4 0 3.32 2.66 6.36 7 6.76a4.8 4.8 0 0 0-1 3.24v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    {/* Product 3: PaperLab Showcase */}
+    <div class="relative mt-24 overflow-hidden rounded-[3rem] border border-neutral-200/50 bg-white/40 shadow-2xl shadow-orange-500/5 backdrop-blur-xl dark:border-neutral-700/50 dark:bg-neutral-800/20">
+      <div class="relative z-10 grid gap-12 lg:grid-cols-2 items-center p-8 sm:p-12 lg:p-16">
+        
+        {/* Left: Text Content */}
+        <div class="flex flex-col justify-center">
+          <div class="mb-6 inline-flex items-center gap-x-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-bold tracking-widest text-orange-600 dark:border-orange-400/30 dark:bg-orange-400/10 dark:text-orange-400 w-fit uppercase">
+            <span class="flex h-2 w-2 rounded-full bg-orange-500"></span>
+            Academic Tool
+          </div>
+          
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight mb-6">
+            PaperLab
+          </h2>
+          
+          <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+            <span class="font-bold block mb-2 text-neutral-800 dark:text-neutral-200">Academic reports & IEEE papers, formatted perfectly.</span>
+            Writing KTU seminar/project reports and IEEE conference papers shouldn't be a formatting nightmare. PaperLab auto-formats margins, citations, and university-approved certificate pages in real-time.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            {[
+              'Auto-formats Margins & Citations',
+              'University-Approved Certificate Pages',
+              'Real-Time Formatting Feedback'
+            ].map((feature) => (
+              <li class="flex items-start gap-3 text-neutral-700 dark:text-neutral-300 font-medium">
+                <div class="flex-shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <a
+            href="https://paperlab.r3actr.work/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex w-fit items-center gap-x-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/50"
+          >
+            Launch PaperLab
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        
+        {/* Right: Image */}
+        <div class="relative flex items-center justify-center lg:justify-end">
+          <img
+            src="/assets/illustrations/Thesis-bro.png"
+            alt="PaperLab Tool"
+            class="w-full max-w-lg object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-[1.02]"
+            draggable="false"
+            loading="lazy"
+          />
+        </div>
+        
+      </div>
+    </div>
+    
+    {/* Coming Soon Note */}
+    <div class="mt-16 text-center">
+      <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+        More products in development
+      </p>
+    </div>
+  </div>
+
 </MainLayout>

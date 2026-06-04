@@ -28,10 +28,9 @@ const userSVG = `<svg
   </svg>`;
 ---
 
-<button
-  type="button"
+<a
+  href="/login"
   class={`${baseClasses} ${hoverClasses} ${darkClasses} ${mdClasses} ${txtSizeClasses}`}
-  data-hs-overlay="#hs-toggle-between-modals-login-modal"
 >
   {
     /* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */
@@ -39,4 +38,4 @@ const userSVG = `<svg
 
   <Fragment set:html={userSVG} />
   {title}
-</button>
+</a>
