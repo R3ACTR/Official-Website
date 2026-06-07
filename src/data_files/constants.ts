@@ -37,7 +37,7 @@ export const OG = {
   url: SITE.url,
   title: `${SITE.title}: Driving Software Innovation & Advanced Research`,
   description:
-    "R3ACTR specializes in building innovative software solutions, cutting-edge AI & Web3 applications, SaaS platforms, and research-driven projects with a global remote reach.",
+    'R3ACTR specializes in building innovative software solutions, cutting-edge AI & Web3 applications, SaaS platforms, and research-driven projects with a global remote reach.',
   image: ogImageSrc,
 };
 

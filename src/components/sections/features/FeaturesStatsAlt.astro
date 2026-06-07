@@ -13,16 +13,20 @@ interface Props {
 const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-6 w-6 text-orange-500 dark:text-orange-400 flex-none"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>`;
 ---
 
-<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
-  <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
-    <div class="space-y-6 sm:space-y-8 w-full">
-      <div class="space-y-4 md:space-y-6 mb-12">
-        <h2 class="text-4xl font-extrabold tracking-tight text-neutral-800 lg:text-5xl dark:text-neutral-200">
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+    <div class="w-full space-y-6 sm:space-y-8">
+      <div class="mb-12 space-y-4 md:space-y-6">
+        <h2
+          class="text-4xl font-extrabold tracking-tight text-neutral-800 lg:text-5xl dark:text-neutral-200"
+        >
           {title}
         </h2>
         {
           subTitle && (
-            <p class="text-lg text-pretty text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+            <p class="mx-auto max-w-2xl text-lg text-pretty text-neutral-600 dark:text-neutral-400">
               {subTitle}
             </p>
           )
@@ -30,11 +34,11 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
       </div>
       {
         benefits && (
-          <ul class="space-y-4 sm:space-y-6 max-w-2xl mx-auto text-left inline-block">
-            {benefits.map((item) => (
+          <ul class="mx-auto inline-block max-w-2xl space-y-4 text-left sm:space-y-6">
+            {benefits.map(item => (
               <li class="flex items-start space-x-4">
                 <Fragment set:html={ListItemMarker} />
-                <span class="text-lg font-medium text-pretty text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                <span class="text-lg leading-relaxed font-medium text-pretty text-neutral-700 dark:text-neutral-300">
                   {item}
                 </span>
               </li>
