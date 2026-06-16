@@ -85,7 +85,7 @@ const homeUrl = '/';
       >
         {/* Navigation links and Authentication component */}
         {
-          strings.navBarLinks.map((link: { name: string, url: string }) => {
+          strings.navBarLinks.map((link: { name: string; url: string }) => {
             if (link.name === 'Services') {
               return <MegaMenuLink />;
             } else {
