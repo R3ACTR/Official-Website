@@ -18,26 +18,38 @@ interface Props {
       class="block text-3xl font-extrabold tracking-tight text-neutral-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-neutral-200"
     >
       OTHERS CHASE TRENDS.<br />
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">WE ENGINEER MOMENTUM.</span>
+      <span
+        class="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent dark:from-orange-300 dark:to-orange-500"
+        >WE ENGINEER MOMENTUM.</span
+      >
     </h2>
-    
+
     <p class="mt-6 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
-      At R3ACTR, we specialize in building innovative software solutions, research-driven projects, and cutting-edge web experiences. From AI and Web3 applications to SaaS platforms, our goal is to create products that make a real impact.
+      At R3ACTR, we specialize in building innovative software solutions,
+      research-driven projects, and cutting-edge web experiences. From AI and
+      Web3 applications to SaaS platforms, our goal is to create products that
+      make a real impact.
     </p>
-    
+
     <p class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
-      We combine creativity, technology, and research to craft software that is not only functional but also intelligent, scalable, and user-friendly. Whether designing sleek interfaces, developing complex applications, or exploring emerging technologies, our team is always pushing the boundaries of what’s possible.
+      We combine creativity, technology, and research to craft software that is
+      not only functional but also intelligent, scalable, and user-friendly.
+      Whether designing sleek interfaces, developing complex applications, or
+      exploring emerging technologies, our team is always pushing the boundaries
+      of what’s possible.
     </p>
   </div>
 
   {/* Right Column: Image */}
-  <div class="flex w-full justify-center order-first md:order-last mb-8 md:mb-0">
+  <div
+    class="order-first mb-8 flex w-full justify-center md:order-last md:mb-0"
+  >
     {
       src && (
         <img
           src={src}
           alt="About R3ACTR"
-          class="w-3/4 md:w-full lg:w-4/5 h-auto object-contain drop-shadow-2xl"
+          class="h-auto w-3/4 object-contain drop-shadow-2xl md:w-full lg:w-4/5"
           draggable="false"
           loading="lazy"
         />

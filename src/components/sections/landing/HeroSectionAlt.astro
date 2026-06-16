@@ -29,7 +29,7 @@ interface Props {
         <img
           src={src}
           alt={title}
-          class="w-1/2 md:w-3/5 lg:w-1/2 h-auto object-contain rounded-2xl"
+          class="h-auto w-1/2 rounded-2xl object-contain md:w-3/5 lg:w-1/2"
           draggable="false"
           loading="lazy"
         />
@@ -45,7 +45,10 @@ interface Props {
     />
     {
       subTitle && (
-        <p class="mt-5 text-lg text-pretty text-neutral-600 dark:text-neutral-400" set:html={subTitle} />
+        <p
+          class="mt-5 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
+          set:html={subTitle}
+        />
       )
     }
     {
