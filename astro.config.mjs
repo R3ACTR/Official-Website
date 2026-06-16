@@ -8,7 +8,7 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: 'https://screwfast.uk',
+  site: 'https://r3actr.work',
   image: {
     domains: ['images.unsplash.com'],
   },
@@ -34,7 +34,7 @@ export default defineConfig({
       },
     }),
     starlight({
-      title: 'ScrewFast Docs',
+      title: 'R3ACTR Docs',
       // https://github.com/withastro/starlight/blob/main/packages/starlight/CHANGELOG.md
       // If no Astro and Starlight i18n configurations are provided, the built-in default locale is used in Starlight and a matching Astro i18n configuration is generated/used.
       // If only a Starlight i18n configuration is provided, an equivalent Astro i18n configuration is generated/used.
@@ -104,14 +104,14 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             property: 'og:image',
-            content: 'https://screwfast.uk' + '/social.webp',
+            content: 'https://r3actr.work' + '/social.png',
           },
         },
         {
           tag: 'meta',
           attrs: {
             property: 'twitter:image',
-            content: 'https://screwfast.uk' + '/social.webp',
+            content: 'https://r3actr.work' + '/social.png',
           },
         },
       ],
