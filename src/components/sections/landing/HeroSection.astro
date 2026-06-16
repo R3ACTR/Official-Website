@@ -45,7 +45,7 @@ interface Props {
   class="mx-auto grid max-w-[85rem] gap-4 px-4 pt-24 pb-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full"
 >
   {/* Title and description */}
-  <div class="order-2 md:order-1 mt-8 md:mt-0">
+  <div class="order-2 mt-8 md:order-1 md:mt-0">
     {
       /* Each h1 and p tag renders a portion of the title and subTitle defined above */
     }
@@ -67,7 +67,9 @@ interface Props {
     {
       /* Action Button Section: This section includes two CTAs with their own styles and URL */
     }
-    <div class="mt-7 flex w-full flex-row justify-center gap-3 sm:justify-start sm:inline-flex">
+    <div
+      class="mt-7 flex w-full flex-row justify-center gap-3 sm:inline-flex sm:justify-start"
+    >
       {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
       {
         secondaryBtn && (
@@ -93,15 +95,16 @@ interface Props {
     }
   </div>
   {/* Hero Image Section */}
-  <div class="flex w-full justify-center order-1 md:order-2">
+  <div class="order-1 flex w-full justify-center md:order-2">
     <div class="top-12 w-full">
       {
-        src && alt && (
-          typeof src === 'string' ? (
+        src &&
+          alt &&
+          (typeof src === 'string' ? (
             <img
               src={src}
               alt={alt}
-              class="w-full h-auto object-contain md:scale-110 lg:scale-115"
+              class="h-auto w-full object-contain md:scale-110 lg:scale-115"
               draggable="false"
               loading="eager"
             />
@@ -114,8 +117,7 @@ interface Props {
               loading={'eager'}
               format={'avif'}
             />
-          )
-        )
+          ))
       }
     </div>
   </div>
