@@ -2,4 +2,10 @@
 // R3ACTR Logo component
 const { class: className, ...rest } = Astro.props;
 ---
-<img src="/R3ACTRLOGOWHITE.svg" alt="R3ACTR Logo" class={`invert dark:invert-0 ${className || ''}`} {...rest} />
+
+<img
+  src="/R3ACTRLOGOWHITE.svg"
+  alt="R3ACTR Logo"
+  class={`invert dark:invert-0 ${className || ''}`}
+  {...rest}
+/>
