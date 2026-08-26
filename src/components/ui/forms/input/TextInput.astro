@@ -3,13 +3,18 @@ const { label, id, name } = Astro.props;
 
 interface Props {
   label: string;
-  name: string;
   id: string;
+  name: string;
 }
 ---
 
+{/* Container for the label and text input field */}
 <div>
+  {
+    /* Label for the text input field, visually hidden but accessible to screen readers */
+  }
   <label for={id} class="sr-only">{label}</label>
+  {/* Text input field */}
   <input
     type="text"
     name={name}

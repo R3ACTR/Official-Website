@@ -1,21 +1,14 @@
 ---
-import mainLogo from '@images/starlight/screwfast_logo_dark.svg?raw';
-import docsLogo from '@images/starlight/docs_logo.svg?raw';
+import BrandLogo from '@components/BrandLogo.astro';
 import type { Props } from '@astrojs/starlight/props';
 
 const main = '/';
-const locale = Astro.props.locale ? Astro.props.locale + '/' : '';
-const docs = '/' + locale + 'welcome-to-docs/';
 ---
 
 <span class="site-title flex">
-  <a class="main-logo" href={main} set:html={mainLogo} aria-label="ScrewFast" />
-  <a
-    class="docs-logo"
-    href={docs}
-    set:html={docsLogo}
-    aria-label="ScrewFast Docs"
-  />
+  <a class="main-logo" href={main} aria-label="R3ACTR">
+    <BrandLogo class="h-6 w-auto" />
+  </a>
 </span>
 
 <style>

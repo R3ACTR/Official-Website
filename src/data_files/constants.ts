@@ -1,12 +1,12 @@
-import ogImageSrc from '@images/social.png';
+import ogImageSrc from '@images/icon.png';
 
 export const SITE = {
   title: 'R3ACTR',
-  tagline: 'Driving Software Innovation & Advanced Research',
+  tagline: 'Building intelligent software for what’s next',
   description:
-    'R3ACTR specializes in building innovative software solutions, cutting-edge AI & Web3 applications, SaaS platforms, and research-driven projects with a global remote reach.',
+    'We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers.',
   description_short:
-    'R3ACTR specializes in building innovative software solutions, research-driven projects, and cutting-edge web experiences.',
+    'Building intelligent software for what’s next.',
   url: 'https://r3actr.work',
   author: 'R3ACTR Innovations',
 };
@@ -35,9 +35,9 @@ export const OG = {
   locale: 'en_US',
   type: 'website',
   url: SITE.url,
-  title: `${SITE.title}: Driving Software Innovation & Advanced Research`,
+  title: `${SITE.title}: Building Intelligent Software for What’s Next`,
   description:
-    "R3ACTR specializes in building innovative software solutions, cutting-edge AI & Web3 applications, SaaS platforms, and research-driven projects with a global remote reach.",
+    "We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers.",
   image: ogImageSrc,
 };
 
