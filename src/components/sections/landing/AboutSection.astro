@@ -1,4 +1,6 @@
 ---
+import LinkPreview from '@components/ui/links/LinkPreview.astro';
+
 const { title, subTitle1, subTitle2, src } = Astro.props;
 
 interface Props {
@@ -22,11 +24,35 @@ interface Props {
     </h2>
     
     <p class="mt-6 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
-      At R3ACTR, we specialize in building innovative software solutions, research-driven projects, and cutting-edge web experiences. From AI and Web3 applications to SaaS platforms, our goal is to create products that make a real impact.
+      At R3ACTR, we turn real-world problems into software products. We research, design, and engineer technology across AI, SaaS, Web3, and digital platforms — with a focus on building products that are genuinely useful.
     </p>
     
     <p class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
-      We combine creativity, technology, and research to craft software that is not only functional but also intelligent, scalable, and user-friendly. Whether designing sleek interfaces, developing complex applications, or exploring emerging technologies, our team is always pushing the boundaries of what’s possible.
+      Our products reflect that approach.{' '}
+      <LinkPreview
+        href="https://paperlab.r3actr.work/"
+        title="Paper Lab"
+        description="A modern academic & research editor that brings writing, LaTeX, citations, and publication formatting into one workflow."
+        image="/assets/illustrations/Thesis-bro.png"
+        badge="Academic Editor"
+      >
+        Paper Lab
+      </LinkPreview>
+      {' '}is a modern academic and research editor that brings writing, LaTeX, citations, diagrams, and publication-ready formatting into one workflow.{' '}
+      <LinkPreview
+        href="https://www.ktuhub.site/"
+        title="KTUHub"
+        description="Unified academic ecosystem for KTU students with syllabus updates, question banks, and learning resources."
+        image="/assets/illustrations/Studying-amico.png"
+        badge="Platform"
+      >
+        KTUHUB
+      </LinkPreview>
+      {' '}is built to make academic resources and tools more accessible to students.
+    </p>
+
+    <p class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
+      We combine research, engineering, and design to transform complex problems into software that is intelligent, scalable, and simple to use.
     </p>
   </div>
 
