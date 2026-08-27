@@ -86,7 +86,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/mearashadowfax/ScrewFast',
+          href: 'https://github.com/R3ACTR',
         },
       ],
       disable404Route: true,

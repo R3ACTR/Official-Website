@@ -1,0 +1,206 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle: string = `FAQ | ${SITE.title}`;
+const metaDescription =
+  'Find answers to frequently asked questions about R3ACTR, our software products, client services, research, and open-source initiatives.';
+const ogTitle = 'Frequently Asked Questions | R3ACTR';
+
+const faqCategories = [
+  {
+    category: 'About R3ACTR',
+    description: 'Learn more about our mission, vision, and how we operate.',
+    questions: [
+      {
+        question: 'What is R3ACTR?',
+        answer:
+          'R3ACTR is an engineering and research organization that turns real-world problems into software products. We research, design, and engineer technology across AI, SaaS, Web3, and digital platforms — with a focus on building products that are genuinely useful.',
+      },
+      {
+        question: 'What core technologies and domains do you focus on?',
+        answer:
+          'Our core technical domains include Artificial Intelligence (machine learning, vision models, LLM systems), Modern Web & SaaS development (full-stack TypeScript, Astro, Next.js, Rust/Tauri), Decentralized Web3 technologies, and Academic/Scientific computing tools.',
+      },
+      {
+        question: 'How is the R3ACTR team structured?',
+        answer:
+          'We operate as a distributed team of specialized software engineers, researchers, and designers collaborating globally to build open-source tools, consumer platforms, and research-backed software solutions.',
+      },
+    ],
+  },
+  {
+    category: 'Products & Platforms',
+    description: 'Questions about our active software platforms and tools.',
+    questions: [
+      {
+        question: 'What is KTU Hub?',
+        answer:
+          'KTU Hub (ktuhub.site) is our flagship academic platform designed specifically for university students. It provides centralized course materials, real-time syllabus updates, previous question banks, and productivity tools in a fast, mobile-friendly interface.',
+      },
+      {
+        question: 'What is PaperLab?',
+        answer:
+          'PaperLab (paperlab.r3actr.work) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.',
+      },
+      {
+        question: 'Are R3ACTR products free to use?',
+        answer:
+          'Yes, our primary student and community platforms like KTU Hub and PaperLab are publicly accessible and free to use for students, educators, and researchers.',
+      },
+    ],
+  },
+  {
+    category: 'Services & Collaboration',
+    description: 'Working with us on custom software, AI, and research projects.',
+    questions: [
+      {
+        question: 'How can we work with R3ACTR on a custom project?',
+        answer:
+          'You can contact us directly through our Contact page (/contact) or email us with your project details. We collaborate with startups, enterprises, academic labs, and institutions to design and build custom software from scratch.',
+      },
+      {
+        question: 'What kind of client projects do you take on?',
+        answer:
+          'We engineer custom SaaS platforms, AI/ML pipelines and desktop apps (like GUI model training tools), high-performance web applications, and research prototypes. We handle everything from system architecture and UI/UX design to full-stack implementation and deployment.',
+      },
+      {
+        question: 'What is your typical development process?',
+        answer:
+          'We follow an agile, iterative workflow: starting with problem discovery and technical architecture, followed by rapid prototyping, rigorous testing, and continuous deployment with transparent progress updates.',
+      },
+    ],
+  },
+  {
+    category: 'Open Source & Community',
+    description: 'How to contribute and participate in our open-source programs.',
+    questions: [
+      {
+        question: 'What is Open Source Quest (OSQ)?',
+        answer:
+          'Open Source Quest is a structured, month-long open-source contribution program designed to help students and developers gain real-world experience with professional development workflows, pull request reviews, and guided mentorship on production repositories.',
+      },
+      {
+        question: 'Where can I find your open-source code?',
+        answer:
+          'All our public repositories, tools, and open-source initiatives are hosted on GitHub at github.com/R3ACTR. We welcome contributions, feature suggestions, and issues from the developer community.',
+      },
+    ],
+  },
+];
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+>
+  <div class="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+    {/* Header Section */}
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+      <div class="inline-flex items-center gap-x-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3.5 py-1 text-xs font-bold tracking-widest text-orange-600 dark:border-orange-400/30 dark:bg-orange-400/10 dark:text-orange-400 uppercase mb-3">
+        <span class="flex h-1.5 w-1.5 rounded-full bg-orange-500"></span>
+        Help & Information
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight">
+        Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Questions</span>
+      </h1>
+      <p class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        Everything you need to know about R3ACTR, our platforms, development services, and community initiatives.
+      </p>
+    </div>
+
+    {/* FAQ Categories & Accordions Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 items-start">
+      {
+        faqCategories.map((cat, catIndex) => (
+          <div class="flex flex-col justify-between h-full rounded-2xl border border-neutral-300 bg-white p-5 sm:p-6 dark:border-neutral-700 dark:bg-neutral-900">
+            <div class="mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-800">
+              <h2 class="text-lg sm:text-xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
+                {cat.category}
+              </h2>
+              <p class="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                {cat.description}
+              </p>
+            </div>
+
+            <div class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-800">
+              {cat.questions.map((faq, faqIndex) => {
+                const id = `faq-${catIndex}-${faqIndex}`;
+                const collapseId = `faq-collapse-${catIndex}-${faqIndex}`;
+                return (
+                  <div class="hs-accordion py-3.5 first:pt-0 last:pb-0" id={id}>
+                    <button
+                      type="button"
+                      class="hs-accordion-toggle group flex w-full items-center justify-between gap-x-3 text-start font-semibold text-neutral-800 hover:text-orange-600 dark:text-neutral-200 dark:hover:text-orange-400 text-xs sm:text-sm transition-colors duration-200"
+                      aria-expanded="false"
+                      aria-controls={collapseId}
+                    >
+                      <span>{faq.question}</span>
+                      <svg
+                        class="hs-accordion-active:hidden block h-4 w-4 shrink-0 text-neutral-500 group-hover:text-orange-600 dark:text-neutral-400 dark:group-hover:text-orange-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                      <svg
+                        class="hs-accordion-active:block hidden h-4 w-4 shrink-0 text-orange-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="18 15 12 9 6 15" />
+                      </svg>
+                    </button>
+                    <div
+                      id={collapseId}
+                      role="region"
+                      aria-labelledby={id}
+                      class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    >
+                      <p class="mt-2.5 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Bottom Callout Banner */}
+    <div class="rounded-2xl border border-neutral-300 bg-white p-6 sm:p-8 text-center dark:border-neutral-700 dark:bg-neutral-900">
+      <h3 class="text-xl sm:text-2xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
+        Still have questions?
+      </h3>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400 max-w-lg mx-auto text-xs sm:text-sm">
+        Can’t find what you’re looking for? Reach out to our team directly and we’ll be happy to assist you.
+      </p>
+      <div class="mt-4 flex justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-x-2 rounded-lg bg-neutral-900 px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition-colors duration-200 hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+        >
+          Contact Us
+          <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

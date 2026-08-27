@@ -14,8 +14,23 @@ interface Props {
 <section
   class="mx-auto grid max-w-[85rem] gap-4 px-4 sm:px-6 md:grid-cols-2 md:items-center md:gap-12 lg:px-8"
 >
-  {/* Left Column: Text */}
-  <div class="mt-5 md:mt-0">
+  {/* Left Column: Image */}
+  <div class="flex w-full justify-center order-1 md:order-1 mb-8 md:mb-0">
+    {
+      src && (
+        <img
+          src={src}
+          alt="About R3ACTR"
+          class="w-3/4 md:w-full lg:w-4/5 h-auto object-contain drop-shadow-2xl"
+          draggable="false"
+          loading="lazy"
+        />
+      )
+    }
+  </div>
+
+  {/* Right Column: Text */}
+  <div class="mt-5 md:mt-0 order-2 md:order-2">
     <h2
       class="block text-3xl font-extrabold tracking-tight text-neutral-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-neutral-200"
     >
@@ -54,20 +69,5 @@ interface Props {
     <p class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
       We combine research, engineering, and design to transform complex problems into software that is intelligent, scalable, and simple to use.
     </p>
-  </div>
-
-  {/* Right Column: Image */}
-  <div class="flex w-full justify-center order-first md:order-last mb-8 md:mb-0">
-    {
-      src && (
-        <img
-          src={src}
-          alt="About R3ACTR"
-          class="w-3/4 md:w-full lg:w-4/5 h-auto object-contain drop-shadow-2xl"
-          draggable="false"
-          loading="lazy"
-        />
-      )
-    }
   </div>
 </section>

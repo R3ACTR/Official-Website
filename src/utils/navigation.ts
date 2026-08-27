@@ -13,21 +13,29 @@ const footerLinks = [
     links: [
       { name: 'Products', url: '/products' },
       { name: 'Services', url: '/services' },
-      { name: 'Open Source', url: 'https://github.com/R3ACTR-DEV' },
+      { name: 'Open Source', url: 'https://github.com/R3ACTR' },
     ],
   },
   {
     section: 'Company',
     links: [
       { name: 'Home', url: '/' },
+      { name: 'FAQ', url: '/faq' },
       { name: 'Blog', url: '/blog' },
       { name: 'Contact', url: '/contact' },
+    ],
+  },
+  {
+    section: 'Legal',
+    links: [
+      { name: 'Privacy Policy', url: '/privacy' },
+      { name: 'Terms & Conditions', url: '/terms' },
     ],
   },
 ];
 // An object of links for social icons
 const socialLinks = {
-  github: 'https://github.com/R3ACTR-DEV',
+  github: 'https://github.com/R3ACTR',
   instagram: 'https://www.instagram.com/r3actr/',
   linkedin: 'https://www.linkedin.com/company/r3actr-innovations/',
 };
