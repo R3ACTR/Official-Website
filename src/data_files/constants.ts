@@ -16,18 +16,43 @@ export const SEO = {
   description: SITE.description,
   structuredData: {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    inLanguage: 'en-US',
-    '@id': SITE.url,
-    url: SITE.url,
-    name: SITE.title,
-    description: SITE.description,
-    isPartOf: {
-      '@type': 'WebSite',
-      url: SITE.url,
-      name: SITE.title,
-      description: SITE.description,
-    },
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${SITE.url}/#organization`,
+        name: 'R3ACTR',
+        url: SITE.url,
+        logo: `${SITE.url}/R3ACTRLOGOWHITE.svg`,
+        sameAs: ['https://github.com/R3ACTR', 'https://paperlab.r3actr.work'],
+        description: SITE.description,
+        email: 'r3actr@gmail.com',
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE.url}/#website`,
+        url: SITE.url,
+        name: SITE.title,
+        description: SITE.description,
+        publisher: {
+          '@id': `${SITE.url}/#organization`,
+        },
+        inLanguage: 'en-US',
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE.url}/#webpage`,
+        url: SITE.url,
+        name: `${SITE.title} | ${SITE.tagline}`,
+        isPartOf: {
+          '@id': `${SITE.url}/#website`,
+        },
+        about: {
+          '@id': `${SITE.url}/#organization`,
+        },
+        description: SITE.description,
+        inLanguage: 'en-US',
+      },
+    ],
   },
 };
 

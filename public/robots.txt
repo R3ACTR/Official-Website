@@ -1,0 +1,68 @@
+# ==========================================
+# Robots.txt for R3ACTR (https://r3actr.work)
+# ==========================================
+
+# Standard Web Crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_astro/
+
+# ------------------------------------------
+# AI, LLM & Search Intelligence Crawlers
+# ------------------------------------------
+
+# OpenAI (ChatGPT Browsing & Search)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude & ClaudeBot)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini & Extended AI
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Common Crawl (Open Research Datasets)
+User-agent: CCBot
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# ByteDance / TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# ------------------------------------------
+# Sitemaps and AI Context Directives
+# ------------------------------------------
+Sitemap: https://r3actr.work/sitemap-index.xml
+Host: https://r3actr.work

@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://r3actr.com',
+  site: 'https://r3actr.work',
   image: {
     domains: ['images.unsplash.com'],
   },

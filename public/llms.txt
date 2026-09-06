@@ -1,0 +1,38 @@
+# R3ACTR
+
+> R3ACTR researches, develops, and deploys next-generation software products with a distributed team of engineers and researchers. Specializing in AI systems, academic tooling, Web3 architecture, and open-source ecosystems.
+
+For full-text context including uncompressed articles, research notes, and platform documentation, see [Full Context Dump](https://r3actr.work/llms-full.txt).
+
+## Core Platforms & Products
+
+- [Paper Lab](https://paperlab.r3actr.work/): An all-in-one visual academic authoring environment combining WYSIWYG editing, Monaco-powered LaTeX compilation, real-time A4 preview, built-in vector diagrams, and local-first data privacy.
+- [Open Source Quest](https://github.com/R3ACTR): A structured, month-long open-source contribution program for developers and researchers to master production workflows, pull requests, and peer reviews under guided mentorship.
+
+## Research & Scientific Publications
+
+- [Boosted Vision Transformer Ensembles for Automatic Detection of Laryngeal and Neurological Voice Disorders](https://doi.org/10.1007/s00521-026-12393-5): Peer-reviewed machine learning research published in Neural Computing and Applications.
+- [ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNs in Brain Tumor Diagnosis From MRI Images](https://doi.org/10.1109/ICITIIT68860.2026.11499683): Research on explainable AI (XAI) for medical computer vision published via IEEE.
+- [CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification](https://r3actr.work/): Novel uncertainty estimation framework for clinical bioacoustic analysis.
+
+## Technical Blog & Deep Dives
+
+- [Paper Lab: Eliminating the Chaos of Academic Writing](https://r3actr.work/blog/paper-lab): Architectural deep dive into why dual-mode authoring (WYSIWYG + raw LaTeX), local-first storage, and real-time pagination solve long-standing academic writing frictions.
+
+## Services & Engineering Capabilities
+
+- [Web & Mobile Application Engineering](https://r3actr.work/services): High-performance, scalable web and mobile applications using modern frameworks, TypeScript, and edge-native architectures.
+- [Artificial Intelligence & Machine Learning](https://r3actr.work/services): Custom AI agent workflows, computer vision, natural language processing, and medical imaging pipelines.
+- [Web3 & Distributed Systems](https://r3actr.work/services): Smart contract engineering, decentralized protocol design, and cryptographic systems.
+- [UI/UX & Product Design](https://r3actr.work/services): Minimalist, responsive, and accessible interface design tailored for developers, researchers, and enterprise users.
+
+## Key Information & FAQ
+
+- [Frequently Asked Questions](https://r3actr.work/faq): Detailed overview of R3ACTR's business model, open-source initiatives, technology stack, student opportunities, and collaboration terms.
+
+## Contact & Links
+
+- Website: https://r3actr.work
+- GitHub: https://github.com/R3ACTR
+- Email: r3actr@gmail.com
+- Contact Form: https://r3actr.work/contact

@@ -1,0 +1,154 @@
+# R3ACTR - Complete Documentation & Knowledge Base
+
+> Organization: R3ACTR  
+> Canonical URL: https://r3actr.work  
+> Contact: r3actr@gmail.com  
+> GitHub: https://github.com/R3ACTR  
+> Tagline: Building intelligent software for what’s next.
+
+---
+
+## 1. About R3ACTR
+
+R3ACTR is an independent software research and engineering collective. We design, develop, and deploy production-grade software products, scientific tools, and open-source ecosystems. Our team consists of distributed software engineers, ML researchers, and systems designers.
+
+### Core Focus Areas
+1. **Developer & Scientific Tools**: Reducing friction in academic authoring, research workflows, and typesetting.
+2. **Artificial Intelligence & Machine Learning**: Building resilient multi-agent workflows, computer vision models, and explainable AI (XAI) systems.
+3. **Web3 & Decentralized Systems**: Designing secure smart contracts, tokenomics, and censorship-resistant protocols.
+4. **Open-Source Community**: Mentoring emerging engineers through production-level open-source initiatives like Open Source Quest (OSQ).
+
+---
+
+## 2. Flagship Product: Paper Lab
+
+- **URL**: https://paperlab.r3actr.work
+- **Target Audience**: Academics, PhD candidates, university students, and technical researchers.
+- **Problem Solved**: Eliminates the fragmented workflow of academic writing, where researchers must juggle separate tools for writing, citations, diagrams, and LaTeX compilation.
+
+### Key Capabilities
+- **Dual-Mode Editing**: Instant switching between an intuitive WYSIWYG rich-text editor and a Monaco-powered raw LaTeX workspace with syntax highlighting, autocomplete, and error diagnostics.
+- **Real-Time A4 Preview**: Live rendering with realistic page breaks, margins, headers, and footers as you type, eliminating the "compile and pray" PDF workflow.
+- **Modular Section Tree**: Drag-and-drop hierarchy to reorganize chapters, sections, and subsections without tedious cutting and pasting.
+- **Built-in Citation Manager**: Centralized BibTeX repository with one-click citation insertion, automatic bibliography generation, and instant switching between IEEE, APA, Harvard, and Nature styles.
+- **Integrated Vector Diagramming**: In-editor diagramming suite supporting flowcharts, system architectures, and scientific diagrams exported as razor-sharp SVG or Vector PDF.
+- **Local-First & Zero Telemetry**: Complete data privacy. Manuscripts and datasets remain on the user's local machine with no unwanted cloud transmission.
+- **Export Flexibility**: Full PDF compilation plus raw LaTeX archive export (including BibTeX, figures, and style files) for direct submission to journals such as IEEE, ACM, Springer, or Elsevier.
+
+### Pricing Tiers
+- **Free Plan ($0)**: 3 projects, unlimited diagram boards, full LaTeX editing, IEEE templates.
+- **Pro Plan ($10/mo)**: Unlimited folders, version control, dedicated citation manager, and workspace personalization.
+
+---
+
+## 3. Community Initiative: Open Source Quest (OSQ)
+
+- **Repository / Organization**: https://github.com/R3ACTR
+- **Overview**: A structured, month-long open-source contribution program designed to help students and developers gain hands-on experience with production software development workflows.
+- **Structure**:
+  - Domain-specific production repositories.
+  - Guided 1-on-1 and group mentorship from experienced engineers.
+  - Emphasis on code reviews, issue triaging, clean pull requests, and automated CI/CD pipelines.
+
+---
+
+## 4. Scientific Research & Peer-Reviewed Publications
+
+1. **Boosted Vision Transformer Ensembles for Automatic Detection of Laryngeal and Neurological Voice Disorders**
+   - **Journal**: Neural Computing and Applications (Springer)
+   - **DOI**: https://doi.org/10.1007/s00521-026-12393-5
+   - **Focus**: Ensemble deep learning using Vision Transformers (ViTs) applied to acoustic spectrogram representations for clinical voice pathology detection.
+
+2. **ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNs in Brain Tumor Diagnosis From MRI Images**
+   - **Conference / Publisher**: IEEE
+   - **DOI**: https://doi.org/10.1109/ICITIIT68860.2026.11499683
+   - **Focus**: Novel explainable AI framework combining EVA-02 vision backbones with deformable convolution networks, validated with quantitative faithfulness metrics for neuro-oncology MRI scans.
+
+3. **CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification**
+   - **Status**: Pre-print / In Press
+   - **Focus**: Cross-model disagreement analysis for estimating predictive uncertainty in bioacoustic diagnostics.
+
+---
+
+## 5. Full-Text Article: Paper Lab: Eliminating the Chaos of Academic Writing
+
+If you’ve ever written a research paper, a thesis, or a dense technical report, you already know the dirty little secret of academic writing: the actual writing is only a fraction of the job.
+
+What starts as a simple document quickly metastasizes into a chaotic workflow. You’re juggling a word processor for the text, Zotero or Mendeley for references, a separate tool for diagrams, and a local LaTeX installation just to get the math and journal templates to compile correctly. You write, format, manage citations, export figures, compile, inspect the PDF, realize a page break is ruined, revise, and repeat.
+
+It’s exhausting. And it’s exactly the friction Paper Lab is trying to eliminate.
+
+Paper Lab isn’t just another word processor, nor is it just another code-editor for LaTeX. It’s pitching itself as an end-to-end academic authoring environment. The goal? Let you focus on your research while the software handles the heavy lifting of formatting, compiling, and publishing.
+
+Here is a deep dive into how Paper Lab is trying to change the way we write, and whether it actually lives up to the hype.
+
+### The Best of Both Worlds: Visual Writing Meets Raw Code
+The biggest hurdle in academic writing is the false choice between ease of use and typesetting power. Traditional word processors are easy but choke on complex math and strict journal templates. LaTeX is incredibly powerful but feels like programming a document, complete with a steep learning curve and endless compilation errors.
+
+Paper Lab’s standout feature is its dual-mode editing system. You can write in a clean, intuitive WYSIWYG interface when you just want to get words on the page. But the moment you need precision—like a complex mathematical equation or a custom LaTeX command—you can seamlessly switch into a raw LaTeX workspace powered by the Monaco editor. It gives you syntax highlighting, autocompletion, and line numbers.
+
+For beginners, this means you can write a complete paper without ever touching a line of code. For LaTeX veterans, it means you aren’t trapped in a restrictive visual editor when you need to tweak the underlying source.
+
+### Seeing the Final Page Before You Finish Writing
+If you’ve ever exported a massive document to PDF only to find that Figure 4 spilled onto the next page and your headings are in all the wrong places, you know the pain of the "compile and pray" workflow.
+
+Paper Lab solves this with a real-time A4 preview engine. Instead of writing on an infinite, abstract digital canvas, you see your document rendering in something that closely mimics its final printed form. Margins, headers, footers, and page breaks update as you type. It’s a massive quality-of-life improvement that lets you catch layout issues while you’re writing, rather than discovering them at 2:00 AM the night before your deadline.
+
+### Taming the Long Document
+When you’re writing a 100-page thesis, scrolling through a single massive file is a nightmare. Paper Lab introduces a modular section tree. You can break your document down into sections and subsections, and literally drag-and-drop them to reorganize your manuscript.
+
+Imagine realizing halfway through your thesis that your "Background" section needs to be split into three distinct chapters. Instead of manually cutting and pasting hundreds of paragraphs, you just drag the blocks in the section tree. It turns structural editing from a chore into a breeze.
+
+### Citations and Diagrams, Built Right In
+References are arguably the most tedious part of academic writing. Manually formatting citations for IEEE, APA, Nature, or Harvard is a massive waste of intellectual energy. Paper Lab bakes a Global Citation Library directly into the workflow. You can maintain a shared BibTeX repository, sync with tools like Zotero or Mendeley, and insert citations with a click. The bibliography generates automatically, and switching citation styles takes seconds.
+
+But Paper Lab doesn’t stop at text. Technical papers live and die by their figures. Instead of forcing you to build a system architecture diagram in a separate app, export it, and import it back into your document, Paper Lab includes a built-in diagramming tool. You can create flowcharts, scientific schematics, and system architectures right inside the editor. Better yet, it exports them as crisp vector graphics (SVG, Vector PDF), ensuring your diagrams look razor-sharp in the final publication.
+
+### The Final Mile: Exporting and Privacy
+Ultimately, a document needs to be published. Paper Lab handles the final PDF compilation in-house, ensuring clean typography and proper equation numbering. But it also respects the reality of academic publishing: sometimes you need to submit raw source files to a journal like IEEE or Springer. Paper Lab lets you export the entire project as a raw LaTeX archive, complete with your figures, templates, and BibTeX files. You’re never locked into a proprietary format.
+
+Beyond the features, Paper Lab’s underlying philosophy is highly appealing to the academic crowd. It’s built as a local-first application with zero telemetry. Your unpublished research, sensitive datasets, and intellectual property stay on your machine, not floating in a third-party cloud. It’s also open-source, backed by an active Discord community and a dedicated team of developers and researchers who are actively shaping the tool's roadmap.
+
+### Is It Worth Your Time (and Money)?
+Paper Lab is currently split into two tiers. The Free plan is incredibly generous, offering three projects, unlimited diagram boards, full LaTeX editing, and IEEE templates. It’s a perfect sandbox for students or anyone wanting to test the waters.
+
+If you need more, the Pro plan is just $10 a month. It unlocks unlimited folders, version control, a dedicated citation manager, and custom workspace personalization. Given that it replaces a word processor, a LaTeX editor, a reference manager, and a diagramming tool, $10 a month is a steal for professionals and researchers.
+
+### The Verdict
+The brilliance of Paper Lab isn’t necessarily that it reinvented the wheel in any single category. Visual editors, LaTeX compilers, and citation managers already exist.
+
+The brilliance is in the integration.
+
+Paper Lab recognizes that a modern research paper isn’t just a text file; it’s a complex technical artifact made of ideas, math, references, vector figures, and strict formatting rules. By bringing all of these pieces into one cohesive, visual, and local-first environment, Paper Lab removes the friction from academic writing.
+
+---
+
+## 6. Frequently Asked Questions (FAQ)
+
+### Q: What is R3ACTR?
+**A**: R3ACTR is an independent tech startup and software research collective. We specialize in building developer platforms, scientific computing tools, open-source initiatives, and bespoke AI/Web3 software solutions for clients and researchers globally.
+
+### Q: How can I collaborate or work with R3ACTR?
+**A**: You can reach out via our contact page at https://r3actr.work/contact or email us directly at r3actr@gmail.com. Whether you are looking for custom software development, research partnerships, or consulting on AI/Web3 systems, we typically respond within 1-2 business days.
+
+### Q: What is PaperLab and how does it work?
+**A**: PaperLab (https://paperlab.r3actr.work) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.
+
+### Q: What services does R3ACTR offer?
+**A**: We provide full-lifecycle software engineering, including Web Application Development (Astro, Next.js, React, Node.js), Artificial Intelligence & ML engineering, Smart Contract and Web3 protocol development, and UI/UX product design for mission-critical software.
+
+### Q: What is Open Source Quest (OSQ)?
+**A**: Open Source Quest is a structured, month-long open-source contribution program designed to help students and developers gain real-world experience with professional development workflows, pull request reviews, and guided mentorship on production repositories.
+
+### Q: Where can I find your open-source code?
+**A**: All our public repositories, tools, and open-source initiatives are hosted on GitHub at https://github.com/R3ACTR. We welcome contributions, feature suggestions, and issues from the developer community.
+
+---
+
+## 7. Contact Information
+
+- **Organization**: R3ACTR Innovations
+- **Official Website**: https://r3actr.work
+- **Direct Email**: r3actr@gmail.com
+- **GitHub**: https://github.com/R3ACTR
+- **Paper Lab Platform**: https://paperlab.r3actr.work

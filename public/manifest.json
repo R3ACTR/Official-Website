@@ -1,0 +1,23 @@
+{
+  "name": "R3ACTR - Building Intelligent Software",
+  "short_name": "R3ACTR",
+  "description": "We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/R3ACTRLOGOWHITE.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
