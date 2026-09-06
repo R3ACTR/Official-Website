@@ -16,16 +16,30 @@ interface Props {
   subTitle?: string;
   url?: string;
   src?: string;
+  images?: string[];
 }
 ---
 
 <section
-  class="mx-auto grid max-w-[85rem] gap-4 px-4 pt-10 pb-24 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8"
+  class="osq-container mx-auto grid max-w-[85rem] gap-4 px-4 pt-10 pb-24 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8"
 >
-  {/* Left Column: Image */}
-  <div class="flex w-full justify-center">
+  {/* Left Column: Image(s) */}
+  <div class="flex w-full justify-center relative min-h-[300px] md:min-h-[400px] items-center">
     {
-      src && (
+      Astro.props.images && Astro.props.images.length > 0 ? (
+        <div class="relative w-full aspect-square max-w-sm mx-auto flex justify-center items-center">
+          {Astro.props.images.map((imgSrc, index) => (
+            <img
+              src={imgSrc}
+              alt={`${title} image ${index + 1}`}
+              class="osq-image absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl transition-all duration-700 ease-in-out origin-center"
+              data-index={index}
+              draggable="false"
+              loading="lazy"
+            />
+          ))}
+        </div>
+      ) : src ? (
         <img
           src={src}
           alt={title}
@@ -33,7 +47,7 @@ interface Props {
           draggable="false"
           loading="lazy"
         />
-      )
+      ) : null
     }
   </div>
 
@@ -50,10 +64,78 @@ interface Props {
     }
     {
       url && (
-        <div class="mt-8 flex gap-3">
+        <div class="mt-8 flex items-center gap-4 flex-wrap">
           <GithubBtn url={url} title={btnTitle} />
+          
+          {Astro.props.images && Astro.props.images.length > 1 && (
+            <div class="flex gap-3 sm:ml-4">
+              <button aria-label="Previous image" class="osq-prev-btn group p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all duration-300 text-neutral-800 dark:text-neutral-200 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button aria-label="Next image" class="osq-next-btn group p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all duration-300 text-neutral-800 dark:text-neutral-200 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          )}
         </div>
       )
     }
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.osq-container');
+    
+    containers.forEach(container => {
+      const images = container.querySelectorAll('.osq-image');
+      if (images.length <= 1) return; // No need to animate if 0 or 1 image
+
+      let currentIndex = 0;
+      const total = images.length;
+      const prevBtn = container.querySelector('.osq-prev-btn');
+      const nextBtn = container.querySelector('.osq-next-btn');
+      
+      // Random deterministic rotations for stacked images
+      const rotations = [-4, 5, -6, 4, -3];
+
+      function update() {
+        images.forEach((img, i) => {
+          const diff = (i - currentIndex + total) % total;
+          const el = img as HTMLElement;
+          
+          if (diff === 0) {
+            // Active image
+            el.style.zIndex = '30';
+            el.style.transform = 'scale(1) rotate(0deg) translateY(0)';
+            el.style.opacity = '1';
+            el.style.filter = 'blur(0px)';
+          } else {
+            // Stacked images behind
+            const rot = rotations[i % rotations.length];
+            el.style.zIndex = (20 - diff).toString();
+            // Create a nice stacked effect
+            const scale = 1 - (diff * 0.05);
+            const translate = diff * 5; 
+            el.style.transform = `scale(${scale}) rotate(${rot}deg) translateY(${translate}%)`;
+            el.style.opacity = (1 - diff * 0.2).toString();
+            el.style.filter = `blur(${diff}px)`;
+          }
+        });
+      }
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % total;
+        update();
+      });
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + total) % total;
+        update();
+      });
+
+      // Initialize
+      update();
+    });
+  });
+</script>

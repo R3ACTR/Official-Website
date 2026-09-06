@@ -150,6 +150,12 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
   *,
   ::after,
   ::before,

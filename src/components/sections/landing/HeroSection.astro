@@ -45,7 +45,7 @@ interface Props {
   class="mx-auto grid max-w-[85rem] gap-4 px-4 pt-10 md:pt-16 pb-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full"
 >
   {/* Title and description */}
-  <div class="order-2 md:order-1 mt-8 md:mt-0">
+  <div class="order-1">
     {
       /* Each h1 and p tag renders a portion of the title and subTitle defined above */
     }
@@ -65,9 +65,9 @@ interface Props {
       )
     }
     {
-      /* Action Button Section: This section includes two CTAs with their own styles and URL */
+      /* Action Button Section: Desktop (below subtitle) */
     }
-    <div class="mt-7 flex w-full flex-row justify-center gap-3 sm:justify-start sm:inline-flex">
+    <div class="mt-7 hidden w-full flex-row justify-center gap-3 sm:justify-start md:flex md:inline-flex">
       {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
       {
         secondaryBtn && (
@@ -77,23 +77,25 @@ interface Props {
     </div>
 
     {
-      /* Review Section: This section presents avatars, review ratings and the number of reviews */
+      /* Review Section: Desktop */
     }
     {
       withReview ? (
-        <ReviewComponent
-          avatars={avatars}
-          starCount={starCount}
-          rating={rating}
-          reviews={reviews}
-        />
+        <div class="hidden md:block">
+          <ReviewComponent
+            avatars={avatars}
+            starCount={starCount}
+            rating={rating}
+            reviews={reviews}
+          />
+        </div>
       ) : (
         ''
       )
     }
   </div>
   {/* Hero Image Section */}
-  <div class="flex w-full justify-center order-1 md:order-2">
+  <div class="flex flex-col items-center w-full justify-center order-2">
     <div class="top-12 w-full">
       {
         src && alt && (
@@ -118,5 +120,30 @@ interface Props {
         )
       }
     </div>
+
+    {/* Action Button Section: Mobile (below illustration) */}
+    <div class="mt-6 flex w-full flex-row justify-center gap-3 md:hidden">
+      {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+      {
+        secondaryBtn && (
+          <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+        )
+      }
+    </div>
+
+    {
+      withReview ? (
+        <div class="mt-4 md:hidden">
+          <ReviewComponent
+            avatars={avatars}
+            starCount={starCount}
+            rating={rating}
+            reviews={reviews}
+          />
+        </div>
+      ) : (
+        ''
+      )
+    }
   </div>
 </section>

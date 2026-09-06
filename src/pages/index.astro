@@ -5,9 +5,8 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
 import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import AboutSection from '@components/sections/landing/AboutSection.astro';
 import PublicationsSection from '@components/sections/landing/PublicationsSection.astro';
-import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
 import SnapshotCarousel from '@components/ui/blocks/SnapshotCarousel.astro';
-
+import FeaturedBlogSection from '@components/sections/landing/FeaturedBlogSection.astro';
 ---
 
 <MainLayout>
@@ -18,49 +17,37 @@ import SnapshotCarousel from '@components/ui/blocks/SnapshotCarousel.astro';
       primaryBtn="Work with Us"
       primaryBtnURL="/contact"
       withReview={false}
-      src="/assets/illustrations/support.png"
+      src="/assets/illustrations/Cool%20robot-rafiki.png"
       alt="R3ACTR Hero Image"
     />
 
-    <AboutSection src="/assets/illustrations/about.webp" />
+    <AboutSection src="/assets/illustrations/Online%20tech%20talks-bro.png" />
 
-    <FeaturesNavs
-      title=`Customize your experience with <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">R3ACTR</span>'s core pillars.`
-      tabs={[
-        {
-          heading: 'AI & Web3 Applications',
-          content: 'Building cutting-edge applications using artificial intelligence and decentralized technologies to create products that make a real impact.',
-          svg: 'tools',
-          src: '/assets/Custsection/Artificial%20intelligence-bro.png',
-          alt: 'AI and Web3 tools',
-          first: true,
-        },
-        {
-          heading: 'SaaS Platforms',
-          content: 'Designing and developing robust, user-friendly SaaS platforms for a variety of industry challenges.',
-          svg: 'dashboard',
-          src: '/assets/Custsection/Working-rafiki.png',
-          alt: 'SaaS Platforms dashboard',
-          second: true,
-        },
-        {
-          heading: 'Research-Driven Projects',
-          content: 'Exploring emerging technologies and pushing the boundaries of what’s possible with advanced research and prototyping.',
-          svg: 'house',
-          src: '/assets/Custsection/Web%20search-pana.png',
-          alt: 'Research projects',
-        },
-      ]}
-    />
 
     <SnapshotCarousel />
+
+    <HeroSection
+      title=`Write Smarter. Format Automatically with <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Paper Lab</span>.`
+      subTitle="Built for academics and professionals. Paper Lab combines the ease of a rich-text WYSIWYG editor with the power of Python-based templating and LaTeX compilation. Focus on your research, not your references."
+      primaryBtn="Launch Paper Lab"
+      primaryBtnURL="https://paperlab.r3actr.work/"
+      withReview={false}
+      src="/assets/illustrations/Online%20document-pana%20(1).png"
+      alt="Paper Lab Illustration"
+    />
 
     <HeroSectionAlt
       title=`Open <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Source Quest</span>`
       subTitle="Open Source Quest is a structured, month-long open-source contribution program designed to help students gain real-world experience with professional software development workflows.<br/><br/>Participants work individually on curated, domain-specific GitHub repositories under guided mentorship. The program focuses on understanding how real open-source projects function—through issues, pull requests, reviews, and consistent contributions—rather than competitive coding or short-term hackathons."
       url="https://github.com/R3ACTR"
-      src="/assets/others/osq.webp"
+      images={[
+        "/assets/others/osq.webp",
+        "/assets/others/osq1.png",
+        "/assets/others/osq3.png"
+      ]}
     />
+
+    <FeaturedBlogSection />
 
     <PublicationsSection />
   </div>

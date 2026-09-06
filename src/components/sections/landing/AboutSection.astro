@@ -14,8 +14,8 @@ interface Props {
 <section
   class="mx-auto grid max-w-[85rem] gap-4 px-4 sm:px-6 md:grid-cols-2 md:items-center md:gap-12 lg:px-8"
 >
-  {/* Left Column: Image */}
-  <div class="flex w-full justify-center order-1 md:order-1 mb-8 md:mb-0">
+  {/* Left Column: Image (Desktop Only) */}
+  <div class="hidden md:flex w-full justify-center order-1 md:order-1 mb-8 md:mb-0">
     {
       src && (
         <img
@@ -41,6 +41,21 @@ interface Props {
     <p class="mt-6 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
       At R3ACTR, we turn real-world problems into software products. We research, design, and engineer technology across AI, SaaS, Web3, and digital platforms — with a focus on building products that are genuinely useful.
     </p>
+
+    {/* Mobile Image: Shown only on small screens */}
+    {
+      src && (
+        <div class="flex md:hidden w-full justify-center my-8">
+          <img
+            src={src}
+            alt="About R3ACTR"
+            class="w-3/4 h-auto object-contain drop-shadow-2xl"
+            draggable="false"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
     
     <p class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400">
       Our products reflect that approach.{' '}

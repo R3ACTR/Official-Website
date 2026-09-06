@@ -1,6 +1,5 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
-import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
 import { SITE } from '@data/constants';
 
 const pageTitle: string = `Services | ${SITE.title}`;
@@ -46,7 +45,7 @@ const services = [
   customOgTitle={ogTitle}
 >
   {/* Header Section */}
-  <div class="mx-auto max-w-5xl px-4 pt-10 pb-8 sm:px-6 lg:px-8 text-center">
+  <div class="mx-auto max-w-5xl px-4 pt-20 md:pt-24 pb-8 sm:px-6 lg:px-8 text-center">
     <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight">
       Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Services</span>
     </h1>
@@ -85,17 +84,6 @@ const services = [
     ))}
   </div>
 
-  {/* Stats Section */}
-  <div class="mb-24">
-    <FeaturesStatsAlt
-      title="By the Numbers"
-      subTitle="Our commitment to quality, open-source innovation, and robust engineering is evident in every project we undertake."
-      benefits={[
-        '100+ Open Source Commits across repositories.',
-        'Multiple highly-scalable platforms actively maintained.',
-        'Dedicated mentorship for emerging student developers.',
-      ]}
-    />
-  </div>
+
 
 </MainLayout>
