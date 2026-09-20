@@ -30,9 +30,19 @@ For full-text context including uncompressed articles, research notes, and platf
 
 - [Frequently Asked Questions](https://r3actr.work/faq): Detailed overview of R3ACTR's business model, open-source initiatives, technology stack, student opportunities, and collaboration terms.
 
+## Core Team & ID Registry
+
+- [Core Team Directory](https://r3actr.work/id): Official digital identification registry for verified R3ACTR researchers and architects.
+- [Abhinav R](https://r3actr.work/id/abhinav): Co-Founder & CEO (ID: R3-001). Leading strategic vision, operations, and product engineering.
+- [Sreehari R](https://r3actr.work/id/sreehari): Co-Founder & CTO (ID: R3-002). Deep learning, mechanistic interpretability, and systems architecture.
+- [Neeraj Sukumaran](https://r3actr.work/id/neeraj): Co-Founder & CPIO (ID: R3-003). Public information, media dissemination, and developer relations.
+- [Kalidas V S](https://r3actr.work/id/kalidas): Co-Founder & COO (ID: R3-004). Operations, workflow execution, and community ecosystems.
+- [Neha Siju](https://r3actr.work/id/neha): Director of External Relations — DER (ID: R3-005). External partnerships, corporate outreach, and institutional alliances.
+- [Diya Tresia Daniel](https://r3actr.work/id/diya): Communication & Documentation Lead (ID: R3-006). Technical documentation, architectural specifications, and knowledge repositories.
+
 ## Contact & Links
 
 - Website: https://r3actr.work
 - GitHub: https://github.com/R3ACTR
 - Email: r3actr@gmail.com
-- Contact Form: https://r3actr.work/contact
+- Contact: https://r3actr.work/contact

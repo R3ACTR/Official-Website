@@ -6,12 +6,33 @@ import { coreTeam } from '@data/team';
 const pageTitle = `Core Team Directory & ID Registry | ${SITE.title}`;
 const pageDescription =
   'Official registry and credentials for the R3ACTR Core Engineering, Research, and Systems Architecture team.';
+
+const directoryStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'R3ACTR Core Team Directory & ID Registry',
+  description: pageDescription,
+  url: 'https://r3actr.work/id',
+  itemListElement: coreTeam.map((member, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'Person',
+      name: member.name,
+      jobTitle: member.title,
+      url: `https://r3actr.work/id/${member.slug}`,
+      image: member.avatar.startsWith('http') ? member.avatar : `https://r3actr.work${member.avatar}`,
+      sameAs: member.socials.map((s) => s.url),
+    },
+  })),
+};
 ---
 
 <MainLayout
   title={pageTitle}
   customDescription={pageDescription}
   customOgTitle="Core Team ID Registry | R3ACTR"
+  structuredData={directoryStructuredData}
 >
   <div class="relative py-12 sm:py-16 md:py-20">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">

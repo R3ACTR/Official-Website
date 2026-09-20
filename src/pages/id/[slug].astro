@@ -36,7 +36,7 @@ const canonicalUrl = `https://r3actr.work/id/${member.slug}`;
       url: 'https://r3actr.work',
     },
     url: canonicalUrl,
-    image: `https://r3actr.work${member.avatar}`,
+    image: member.avatar.startsWith('http') ? member.avatar : `https://r3actr.work${member.avatar}`,
     sameAs: member.socials.map((s) => s.url),
     knowsAbout: member.skills,
   }}
