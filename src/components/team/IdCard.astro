@@ -1,0 +1,554 @@
+---
+import type { TeamMember } from '@data/team';
+
+interface Props {
+  member: TeamMember;
+}
+
+const { member } = Astro.props;
+
+const cardUrl = `https://r3actr.work/id/${member.slug}`;
+---
+
+<div class="relative flex flex-col items-center select-none">
+  {/* 3D PERSPECTIVE WRAPPER */}
+  <div
+    id="badge-perspective-container"
+    class="relative w-full max-w-[280px] cursor-pointer perspective-[1200px] sm:max-w-[300px]"
+    style="perspective: 1200px;"
+  >
+    {/* CARD FLIPPER CONTAINER */}
+    <div
+      id="id-badge-flipper"
+      class="transform-style-3d relative w-full rounded-[28px] transition-transform duration-700 ease-out"
+      style="transform-style: preserve-3d;"
+    >
+      {/* ======================================================== */}
+      {/* FRONT OF BADGE                                          */}
+      {/* ======================================================== */}
+      <div
+        id="badge-front"
+        class:list={[
+          "relative w-full overflow-hidden backface-hidden",
+          member.cardImage
+            ? "rounded-[28px] p-0 shadow-2xl drop-shadow-xl"
+            : "rounded-[20px] border-2 border-neutral-300 bg-white p-4 sm:p-4.5 shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
+        ]}
+        style="backface-visibility: hidden;"
+      >
+        {/* Holographic Sheen Layer */}
+        <div
+          id="badge-holo-glare"
+          class="pointer-events-none absolute -inset-full rotate-12 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-300 z-20 dark:via-white/10"
+        >
+        </div>
+
+        {member.cardImage ? (
+          <img
+            src={member.cardImage}
+            alt={`${member.name} ID Card`}
+            class="w-full h-auto block select-none pointer-events-none rounded-[28px]"
+            loading="eager"
+          />
+        ) : (
+          <div>
+            {/* Ambient Subtle Grid Watermark */}
+            <div
+              class="pointer-events-none absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.03] dark:opacity-[0.05]"
+            >
+            </div>
+
+            {/* TOP HEADER: R3ACTR LOGO */}
+            <div
+              class="flex items-center justify-center border-b border-neutral-200 pb-3 dark:border-neutral-800"
+            >
+              <img
+                src="/R3ACTRLOGOWHITE.svg"
+                alt="R3ACTR Logo"
+                class="h-5 w-auto drop-shadow-sm invert dark:invert-0"
+              />
+            </div>
+
+            {/* MEMBER PORTRAIT & SMART CHIP */}
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="group relative">
+                <div
+                  class="relative h-16 w-16 rounded-xl bg-gradient-to-tr from-orange-500 via-amber-400 to-neutral-400 p-1 shadow-md sm:h-20 sm:w-20 dark:from-orange-500 dark:via-neutral-700 dark:to-orange-400"
+                >
+                  <div
+                    class="flex h-full w-full items-center justify-center overflow-hidden rounded-[10px] bg-neutral-100 dark:bg-neutral-800"
+                  >
+                    <img
+                      src={member.avatar}
+                      alt={member.name}
+                      class="h-full w-full transform object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Smart EMV Chip & NFC */}
+              <div class="flex flex-1 flex-col items-end gap-2.5">
+                <div
+                  class="relative flex h-6 w-9 flex-col justify-between overflow-hidden rounded-md border border-amber-500/80 bg-gradient-to-br from-amber-200 via-yellow-400 to-amber-600 p-1 shadow-xs sm:h-7 sm:w-10"
+                >
+                  <div class="my-auto h-px w-full bg-amber-700/60"></div>
+                </div>
+                <div
+                  class="rounded-md border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-right dark:border-neutral-700 dark:bg-neutral-800"
+                >
+                  <p
+                    class="font-mono text-[8px] leading-none font-semibold text-neutral-500 uppercase dark:text-neutral-400"
+                  >
+                    CLEARANCE
+                  </p>
+                  <p
+                    class="mt-0.5 font-mono text-[10px] font-bold text-neutral-900 dark:text-neutral-100"
+                  >
+                    {member.clearance.split('•')[0].trim()}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Identity Info */}
+            <div class="mt-4">
+              <div class="flex items-baseline justify-between gap-2">
+                <h2
+                  class="font-sans text-base font-extrabold tracking-tight text-neutral-900 uppercase sm:text-lg dark:text-neutral-100"
+                >
+                  {member.name}
+                </h2>
+                <span
+                  class="font-mono text-[9px] font-bold tracking-wider text-orange-600 dark:text-orange-400"
+                >
+                  {member.idNumber}
+                </span>
+              </div>
+              <p
+                class="mt-0.5 text-[9px] font-semibold text-orange-600 dark:text-orange-400"
+              >
+                {member.title}
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ======================================================== */}
+      {/* BACK OF BADGE                                           */}
+      {/* ======================================================== */}
+      <div
+        id="badge-back"
+        class="absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-[28px] border border-neutral-800 bg-neutral-950 p-4 shadow-xl backface-hidden sm:p-4.5 text-neutral-200"
+        style="backface-visibility: hidden; transform: rotateY(180deg);"
+      >
+        {/* Ambient Subtle Grid Watermark */}
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-10"
+        >
+        </div>
+
+        {/* Magnetic Stripe */}
+        <div
+          class="-mx-4 -mt-4 sm:-mx-4.5 sm:-mt-4.5 flex h-9 items-center justify-between border-b border-neutral-800 bg-black px-4 shadow-inner"
+        >
+          <span
+            class="font-mono text-[8px] font-semibold tracking-widest text-neutral-500"
+          >
+            MAGNETIC STRIPE // HI-CO
+          </span>
+          <span
+            class="font-mono text-[8px] font-bold tracking-widest text-orange-500"
+          >
+            R3ACTR-PASS
+          </span>
+        </div>
+
+        {/* Security Declaration */}
+        <div class="my-1 space-y-1.5 relative z-10">
+          <div class="flex items-center justify-between">
+            <span
+              class="font-mono text-[9px] font-bold tracking-wider text-orange-400 uppercase"
+            >
+              GOVERNANCE & ACCESS
+            </span>
+            <span
+              class="font-mono text-[8px] font-semibold text-neutral-400"
+              >ISO-7810</span
+            >
+          </div>
+          <p
+            class="text-[9px] leading-relaxed text-neutral-300"
+          >
+            This credential confirms appointment within the <strong class="text-white"
+              >R3ACTR Core Lab</strong
+            >. Authorized holder possesses cryptographic rights to commit, sign
+            releases, and access lab clusters.
+          </p>
+          <p
+            class="font-mono text-[8px] leading-tight text-neutral-400"
+          >
+            {member.securityNotes}
+          </p>
+        </div>
+
+        {/* Cryptographic SHA-256 Checksum */}
+        <div
+          class="rounded-lg border border-neutral-800 bg-neutral-900/90 p-2 font-mono text-[9px] relative z-10"
+        >
+          <span
+            class="block text-[7px] font-semibold tracking-wider text-neutral-400 uppercase"
+            >SHA-256 FINGERPRINT</span
+          >
+          <span
+            class="font-semibold break-all text-orange-400"
+          >
+            {member.fingerprint}
+          </span>
+        </div>
+
+        {/* Barcode on Back */}
+        <div class="my-1 border-t border-neutral-800/80 pt-2 relative z-10">
+          <svg
+            class="h-6 w-full text-neutral-300"
+            viewBox="0 0 200 40"
+            preserveAspectRatio="none"
+          >
+            <rect x="0" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="5" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="8" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="15" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="19" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="23" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="29" y="0" width="5" height="40" fill="currentColor"></rect>
+            <rect x="36" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="41" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="44" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="50" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="55" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="62" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="65" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="71" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="76" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="83" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="86" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="92" y="0" width="5" height="40" fill="currentColor"></rect>
+            <rect x="100" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="105" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="108" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="115" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="119" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="125" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="129" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="136" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="140" y="0" width="5" height="40" fill="currentColor"></rect>
+            <rect x="148" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="151" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="157" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="162" y="0" width="4" height="40" fill="currentColor"></rect>
+            <rect x="169" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="174" y="0" width="3" height="40" fill="currentColor"></rect>
+            <rect x="180" y="0" width="1" height="40" fill="currentColor"></rect>
+            <rect x="183" y="0" width="5" height="40" fill="currentColor"></rect>
+            <rect x="191" y="0" width="2" height="40" fill="currentColor"></rect>
+            <rect x="195" y="0" width="5" height="40" fill="currentColor"></rect>
+          </svg>
+          <p
+            class="mt-0.5 text-center font-mono text-[8px] font-semibold tracking-widest text-neutral-400"
+          >
+            {member.badgeCode}
+          </p>
+        </div>
+
+        {/* Signature & Return Instructions */}
+        <div
+          class="flex items-end justify-between border-t border-neutral-800 pt-2 relative z-10"
+        >
+          <div>
+            <span
+              class="block font-mono text-[8px] font-semibold text-neutral-400 uppercase"
+              >AUTHORIZED SIGNATURE</span
+            >
+            <div
+              class="mt-0.5 font-serif text-base tracking-wide text-neutral-100 italic sm:text-lg"
+            >
+              {member.name}
+            </div>
+          </div>
+          <div class="text-right">
+            <span
+              class="block font-mono text-[8px] font-semibold text-neutral-400"
+              >IF FOUND RETURN TO</span
+            >
+            <span
+              class="font-mono text-[9px] font-bold text-neutral-200"
+            >
+              {member.email}
+            </span>
+          </div>
+        </div>
+
+        {/* FLIP BACK TRIGGER */}
+        <div
+          class="mt-1 flex items-center justify-center gap-1.5 font-mono text-[10px] text-neutral-400 transition-colors hover:text-orange-400 relative z-10"
+        >
+          <svg
+            class="h-3 w-3"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="m3 12 4-4 4 4M7 8v10a4 4 0 0 0 4 4h10M21 12l-4 4-4-4M17 16V6a4 4 0 0 0-4-4H3"
+            ></path>
+          </svg>
+          <span>Click to flip to front</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ======================================================== */}
+  {/* INTERACTIVE CONTROLS DOCK                                */}
+  {/* ======================================================== */}
+  <div class="z-10 mt-4 flex flex-wrap items-center justify-center gap-2">
+    {/* Flip Toggle Button */}
+    <button
+      type="button"
+      id="flip-badge-btn"
+      class="inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-neutral-800 shadow-xs transition-all hover:border-neutral-400 hover:bg-neutral-100 active:scale-95 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
+    >
+      <svg
+        class="h-3.5 w-3.5 text-orange-600 dark:text-orange-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+        <path d="M16 21h5v-5"></path>
+      </svg>
+      <span>Flip</span>
+    </button>
+
+    {/* Copy URL Button */}
+    <button
+      type="button"
+      id="copy-card-link-btn"
+      data-url={cardUrl}
+      class="inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-neutral-800 shadow-xs transition-all hover:border-neutral-400 hover:bg-neutral-100 active:scale-95 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
+    >
+      <svg
+        class="h-3.5 w-3.5 text-orange-600 dark:text-orange-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+        ></path>
+      </svg>
+      <span id="copy-btn-text">Share</span>
+    </button>
+
+    {/* Download vCard (.vcf) */}
+    <button
+      type="button"
+      id="download-vcard-btn"
+      data-name={member.name}
+      data-title={member.title}
+      data-email={member.email}
+      data-url={cardUrl}
+      data-org="R3ACTR Innovations"
+      class="inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-neutral-800 shadow-xs transition-all hover:border-neutral-400 hover:bg-neutral-100 active:scale-95 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
+    >
+      <svg
+        class="h-3.5 w-3.5 text-orange-600 dark:text-orange-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <line x1="19" x2="19" y1="8" y2="14"></line>
+        <line x1="22" x2="16" y1="11" y2="11"></line>
+      </svg>
+      <span>Contact</span>
+    </button>
+
+    {/* Print Badge */}
+    <button
+      type="button"
+      id="print-badge-btn"
+      class="inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-neutral-800 shadow-xs transition-all hover:border-neutral-400 hover:bg-neutral-100 active:scale-95 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
+    >
+      <svg
+        class="h-3.5 w-3.5 text-orange-600 dark:text-orange-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path
+          d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
+        ></path>
+        <rect width="12" height="8" x="6" y="14"></rect>
+      </svg>
+      <span>Print</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  function setupIdCard() {
+    const container = document.getElementById('badge-perspective-container');
+    const flipper = document.getElementById('id-badge-flipper');
+    const glare = document.getElementById('badge-holo-glare');
+    const flipBtn = document.getElementById('flip-badge-btn');
+    const copyBtn = document.getElementById('copy-card-link-btn');
+    const copyText = document.getElementById('copy-btn-text');
+    const vcardBtn = document.getElementById('download-vcard-btn');
+    const printBtn = document.getElementById('print-badge-btn');
+
+    if (!container || !flipper) return;
+
+    let isFlipped = false;
+
+    // Toggle Flip
+    function toggleFlip() {
+      if (!flipper) return;
+      isFlipped = !isFlipped;
+      flipper.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    }
+
+    container.addEventListener('click', toggleFlip);
+    flipBtn?.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleFlip();
+    });
+
+    // 3D Tilt & Specular Holo Glare Effect
+    container.addEventListener('mousemove', e => {
+      if (!flipper) return;
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      const baseTransform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+      flipper.style.transform = `${baseTransform} rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+      if (glare) {
+        glare.style.opacity = '0.35';
+        glare.style.transform = `translate(${x - rect.width}px, ${y - rect.height}px) rotate(25deg)`;
+      }
+    });
+
+    container.addEventListener('mouseleave', () => {
+      if (!flipper) return;
+      const baseTransform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+      flipper.style.transform = baseTransform;
+      if (glare) {
+        glare.style.opacity = '0';
+      }
+    });
+
+    // Copy Link Handler
+    copyBtn?.addEventListener('click', async e => {
+      e.stopPropagation();
+      const url = copyBtn.getAttribute('data-url') || window.location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (copyText) {
+          const original = copyText.textContent;
+          copyText.textContent = 'Copied!';
+          copyBtn.classList.add(
+            '!bg-orange-500',
+            '!text-white',
+            '!border-orange-600'
+          );
+          setTimeout(() => {
+            copyText.textContent = original;
+            copyBtn.classList.remove(
+              '!bg-orange-500',
+              '!text-white',
+              '!border-orange-600'
+            );
+          }, 2000);
+        }
+      } catch (err) {
+        console.error('Failed to copy', err);
+      }
+    });
+
+    // vCard (.vcf) Generator Handler
+    vcardBtn?.addEventListener('click', e => {
+      e.stopPropagation();
+      const name = vcardBtn.getAttribute('data-name') || '';
+      const title = vcardBtn.getAttribute('data-title') || '';
+      const email = vcardBtn.getAttribute('data-email') || '';
+      const url = vcardBtn.getAttribute('data-url') || window.location.href;
+      const org = vcardBtn.getAttribute('data-org') || 'R3ACTR';
+
+      const vcardData = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `FN:${name}`,
+        `ORG:${org}`,
+        `TITLE:${title}`,
+        `EMAIL;TYPE=INTERNET,WORK:${email}`,
+        `URL:${url}`,
+        'NOTE:R3ACTR Core Engineering Team Member ID',
+        'END:VCARD',
+      ].join('\r\n');
+
+      const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `${name.replace(/\s+/g, '_')}_ID.vcf`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    // Print Handler
+    printBtn?.addEventListener('click', e => {
+      e.stopPropagation();
+      window.print();
+    });
+  }
+
+  setupIdCard();
+  document.addEventListener('astro:page-load', setupIdCard);
+</script>
+
+<style>
+  /* Print Optimization: Print badge crisply on physical ID card printers / paper */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    #flip-badge-btn,
+    #copy-card-link-btn,
+    #download-vcard-btn,
+    #print-badge-btn {
+      display: none !important;
+    }
+    #id-badge-flipper {
+      box-shadow: none !important;
+    }
+  }
+</style>

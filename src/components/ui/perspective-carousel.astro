@@ -1,0 +1,441 @@
+---
+interface CarouselItem {
+  src: string;
+  title: string;
+  alt?: string;
+}
+
+interface Props {
+  items?: CarouselItem[];
+  defaultActiveIndex?: number;
+  slideWidth?: number;
+  rotationStep?: number;
+  inactiveScale?: number;
+  autoplay?: boolean;
+  autoplayInterval?: number;
+  className?: string;
+}
+
+const defaultItems: CarouselItem[] = [
+  {
+    src: '/assets/Images/1.jpeg',
+    title: 'RunnerUp Genesis',
+  },
+  { src: '/assets/Images/2.jpeg', title: 'Best Paper ICITIIT' },
+  { src: '/assets/Images/3.jpeg', title: 'MOU R3ACTR x SBCE' },
+  { src: '/assets/Images/4.jpeg', title: 'MOU R3ACTR x SBCE' },
+  { src: '/assets/Images/5.jpeg', title: 'Beginning of R3ACTR' },
+  { src: '/assets/Images/6.jpeg', title: 'Research & Applied AI Lab' },
+  { src: '/assets/Images/7.jpeg', title: 'Building' },
+  { src: '/assets/Images/8.jpeg', title: 'Kerala STartup Summit' },
+  { src: '/assets/Images/9.jpeg', title: 'PaperLab Amal Jyothi' },
+];
+
+const {
+  items = defaultItems,
+  defaultActiveIndex = 2,
+  slideWidth = 240,
+  rotationStep = 55,
+  inactiveScale = 0.85,
+  autoplay = true,
+  autoplayInterval = 3200,
+  className = '',
+} = Astro.props;
+
+// Render 3 sets of items for seamless infinite virtual wrap-around
+const repeatedItems = [...items, ...items, ...items];
+const carouselId =
+  'perspective-carousel-' + Math.random().toString(36).substring(2, 9);
+---
+
+<div
+  id={carouselId}
+  class={`perspective-carousel-root relative isolate h-full w-full overflow-hidden select-none outline-none ${className}`}
+  tabindex="0"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Perspective image carousel"
+  data-original-total={items.length}
+  data-active={defaultActiveIndex}
+  data-slide-width={slideWidth}
+  data-rotation-step={rotationStep}
+  data-inactive-scale={inactiveScale}
+  data-autoplay={autoplay ? 'true' : 'false'}
+  data-autoplay-interval={autoplayInterval}
+>
+  {/* 3D Viewport */}
+  <div
+    class="carousel-viewport absolute inset-0 overflow-hidden"
+    style="perspective: 1200px;"
+  >
+    <div
+      class="carousel-track absolute top-1/2 left-1/2 flex w-fit -translate-y-1/2 items-center will-change-transform"
+      style="transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
+    >
+      {
+        repeatedItems.map((item, index) => {
+          const originalIndex = index % items.length;
+          return (
+            <div
+              class="carousel-slide shrink-0"
+              data-index={index}
+              data-original-index={originalIndex}
+              style={`width: ${slideWidth}px; perspective: 1200px;`}
+            >
+              <div
+                class="slide-inner flex w-full flex-col items-center gap-3.5 will-change-transform"
+                style="transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
+              >
+                <button
+                  type="button"
+                  class="slide-btn group aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/10 transition-all duration-300 focus:outline-none dark:ring-white/10"
+                  aria-label={`Show ${item.title}`}
+                  data-index={index}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt ?? item.title}
+                    draggable="false"
+                    class="h-full w-full object-cover transition-transform duration-500 select-none group-hover:scale-105"
+                    loading="eager"
+                  />
+                </button>
+
+                <p class="slide-title text-xs font-semibold tracking-wide whitespace-nowrap text-neutral-800 transition-all duration-500 sm:text-sm dark:text-neutral-200">
+                  {item.title}
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  {/* Bottom Floating Controls */}
+  <div
+    class="carousel-controls absolute inset-x-4 bottom-5 z-20 mx-auto flex w-fit items-center justify-center gap-3 rounded-full border border-neutral-300/80 bg-neutral-100/80 px-2.5 py-1 text-neutral-700 shadow-lg backdrop-blur-md dark:border-white/15 dark:bg-neutral-900/80 dark:text-neutral-200"
+  >
+    <button
+      type="button"
+      class="carousel-prev inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 dark:hover:bg-white/10"
+      aria-label="Show previous slide"
+    >
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="carousel-dots flex items-center justify-center gap-1.5 px-1">
+      {
+        items.map((item, index) => (
+          <button
+            type="button"
+            class="carousel-dot h-2 cursor-pointer rounded-full bg-neutral-900 transition-all duration-300 focus:outline-none dark:bg-neutral-100"
+            aria-label={`Show slide ${index + 1}: ${item.title}`}
+            data-index={index}
+          />
+        ))
+      }
+    </div>
+
+    <button
+      type="button"
+      class="carousel-next inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 dark:hover:bg-white/10"
+      aria-label="Show next slide"
+    >
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  function initPerspectiveCarousel() {
+    const carousels = document.querySelectorAll('.perspective-carousel-root');
+
+    carousels.forEach(root => {
+      if ((root as any).__perspective_inited) return;
+      (root as any).__perspective_inited = true;
+
+      const track = root.querySelector('.carousel-track') as HTMLElement;
+      const slides = root.querySelectorAll(
+        '.carousel-slide'
+      ) as NodeListOf<HTMLElement>;
+      const dots = root.querySelectorAll(
+        '.carousel-dot'
+      ) as NodeListOf<HTMLElement>;
+      const prevBtn = root.querySelector('.carousel-prev') as HTMLButtonElement;
+      const nextBtn = root.querySelector('.carousel-next') as HTMLButtonElement;
+      const slideBtns = root.querySelectorAll(
+        '.slide-btn'
+      ) as NodeListOf<HTMLButtonElement>;
+
+      const originalTotal = parseInt(
+        root.getAttribute('data-original-total') || '0',
+        10
+      );
+      const totalSlides = slides.length;
+      if (originalTotal === 0 || totalSlides === 0) return;
+
+      const slideWidth = parseFloat(
+        root.getAttribute('data-slide-width') || '240'
+      );
+      const rotationStep = parseFloat(
+        root.getAttribute('data-rotation-step') || '55'
+      );
+      const inactiveScale = parseFloat(
+        root.getAttribute('data-inactive-scale') || '0.85'
+      );
+      const isAutoplay = root.getAttribute('data-autoplay') === 'true';
+      const autoplayInterval = parseInt(
+        root.getAttribute('data-autoplay-interval') || '3200',
+        10
+      );
+
+      // Start in the middle set (offset by originalTotal)
+      const initialActive = parseInt(
+        root.getAttribute('data-active') || '0',
+        10
+      );
+      let currentIndex = originalTotal + (initialActive % originalTotal);
+      let isTransitioning = false;
+      let autoplayTimer: any = null;
+
+      function update(animate = true) {
+        if (!track) return;
+
+        const transitionValue = animate
+          ? 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)'
+          : 'none';
+
+        track.style.transition = transitionValue;
+        const trackOffset = -(currentIndex * slideWidth + slideWidth / 2);
+        track.style.transform = `translateX(${trackOffset}px)`;
+
+        // Update each slide rotation, scale, and title visibility
+        slides.forEach((slide, idx) => {
+          const inner = slide.querySelector('.slide-inner') as HTMLElement;
+          const title = slide.querySelector('.slide-title') as HTMLElement;
+          const btn = slide.querySelector('.slide-btn') as HTMLElement;
+          const isActive = idx === currentIndex;
+          const diff = currentIndex - idx;
+
+          if (inner) {
+            inner.style.transition = transitionValue;
+            const rotY = diff * rotationStep;
+            const scale = isActive ? 1 : inactiveScale;
+            inner.style.transform = `rotateY(${rotY}deg) scale(${scale})`;
+          }
+
+          if (title) {
+            if (isActive) {
+              title.style.filter = 'blur(0px)';
+              title.style.opacity = '1';
+              title.style.transform = 'translateY(0)';
+            } else {
+              title.style.filter = 'blur(3px)';
+              title.style.opacity = '0';
+              title.style.transform = 'translateY(6px)';
+            }
+          }
+
+          if (btn) {
+            if (isActive) {
+              btn.setAttribute('aria-current', 'true');
+              btn.classList.add('ring-2', 'ring-orange-500/60');
+            } else {
+              btn.removeAttribute('aria-current');
+              btn.classList.remove('ring-2', 'ring-orange-500/60');
+            }
+          }
+        });
+
+        // Update indicator dots for the original items
+        const activeOriginalIndex = currentIndex % originalTotal;
+        dots.forEach((dot, idx) => {
+          if (idx === activeOriginalIndex) {
+            dot.style.width = '28px';
+            dot.style.opacity = '1';
+            dot.classList.add('bg-orange-500');
+            dot.classList.remove('bg-neutral-900', 'dark:bg-neutral-100');
+          } else {
+            dot.style.width = '8px';
+            dot.style.opacity = '0.35';
+            dot.classList.remove('bg-orange-500');
+            dot.classList.add('bg-neutral-900', 'dark:bg-neutral-100');
+          }
+        });
+      }
+
+      function goTo(index: number) {
+        currentIndex = index;
+        isTransitioning = true;
+        update(true);
+
+        // After the transition ends, smoothly re-center if we crossed into the buffer copies
+        setTimeout(() => {
+          if (currentIndex < originalTotal) {
+            currentIndex += originalTotal;
+            update(false); // instantaneous jump without animation
+          } else if (currentIndex >= originalTotal * 2) {
+            currentIndex -= originalTotal;
+            update(false); // instantaneous jump without animation
+          }
+          isTransitioning = false;
+        }, 660);
+      }
+
+      function next() {
+        goTo(currentIndex + 1);
+      }
+
+      function prev() {
+        goTo(currentIndex - 1);
+      }
+
+      // Autoplay cycle
+      function startAutoplay() {
+        if (!isAutoplay) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+          next();
+        }, autoplayInterval);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      // Pause autoplay on mouse hover or touch interaction
+      root.addEventListener('mouseenter', stopAutoplay);
+      root.addEventListener('mouseleave', startAutoplay);
+      root.addEventListener('focusin', stopAutoplay);
+      root.addEventListener('focusout', startAutoplay);
+
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          stopAutoplay();
+          prev();
+          startAutoplay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          stopAutoplay();
+          next();
+          startAutoplay();
+        });
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          stopAutoplay();
+          const targetOriginalIdx = parseInt(
+            dot.getAttribute('data-index') || '0',
+            10
+          );
+          const currentOriginalIdx = currentIndex % originalTotal;
+          const diff = targetOriginalIdx - currentOriginalIdx;
+          goTo(currentIndex + diff);
+          startAutoplay();
+        });
+      });
+
+      slideBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stopAutoplay();
+          const clickedIndex = parseInt(
+            btn.getAttribute('data-index') || '0',
+            10
+          );
+          goTo(clickedIndex);
+          startAutoplay();
+        });
+      });
+
+      // Keyboard navigation
+      root.addEventListener('keydown', e => {
+        const keyEvent = e as KeyboardEvent;
+        if (keyEvent.key === 'ArrowLeft') {
+          keyEvent.preventDefault();
+          stopAutoplay();
+          prev();
+          startAutoplay();
+        } else if (keyEvent.key === 'ArrowRight') {
+          keyEvent.preventDefault();
+          stopAutoplay();
+          next();
+          startAutoplay();
+        }
+      });
+
+      // Touch / swipe gestures
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      root.addEventListener(
+        'touchstart',
+        e => {
+          stopAutoplay();
+          const touchEvent = e as TouchEvent;
+          if (touchEvent.changedTouches?.[0]) {
+            touchStartX = touchEvent.changedTouches[0].screenX;
+          }
+        },
+        { passive: true }
+      );
+
+      root.addEventListener(
+        'touchend',
+        e => {
+          const touchEvent = e as TouchEvent;
+          if (touchEvent.changedTouches?.[0]) {
+            touchEndX = touchEvent.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 40) {
+              if (diff > 0) next();
+              else prev();
+            }
+          }
+          startAutoplay();
+        },
+        { passive: true }
+      );
+
+      // Initial render without animation
+      update(false);
+      startAutoplay();
+    });
+  }
+
+  // Run on initial load and View Transitions navigation
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPerspectiveCarousel);
+  } else {
+    initPerspectiveCarousel();
+  }
+  document.addEventListener('astro:page-load', initPerspectiveCarousel);
+</script>
