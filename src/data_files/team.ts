@@ -183,7 +183,7 @@ export const coreTeam: TeamMember[] = [
     name: 'Neeraj Sukumaran',
     title: 'Co-Founder & CPIO',
     role: 'Co-Founder',
-    department: 'CPIO (Chief Public Information Officer)',
+    department: 'CPIO (Chief Product & Innovation Officer)',
     idNumber: 'R3-003',
     badgeCode: 'R3ACTR-CR-003',
     clearance: 'Level 4 • Core Maintainer',
