@@ -22,7 +22,7 @@ export const SEO = {
         '@id': `${SITE.url}/#organization`,
         name: 'R3ACTR',
         url: SITE.url,
-        logo: `${SITE.url}/R3ACTRLOGOWHITE.svg`,
+        logo: `${SITE.url}/R3ACTR%20INNOVATIONS%20LLP.svg`,
         sameAs: ['https://github.com/R3ACTR', 'https://paperlab.r3actr.work'],
         description: SITE.description,
         email: 'r3actr@gmail.com',

@@ -13,7 +13,7 @@ For full-text context including uncompressed articles, research notes, and platf
 
 - [Boosted Vision Transformer Ensembles for Automatic Detection of Laryngeal and Neurological Voice Disorders](https://doi.org/10.1007/s00521-026-12393-5): Peer-reviewed machine learning research published in Neural Computing and Applications.
 - [ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNs in Brain Tumor Diagnosis From MRI Images](https://doi.org/10.1109/ICITIIT68860.2026.11499683): Research on explainable AI (XAI) for medical computer vision published via IEEE.
-- [CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification](https://r3actr.work/): Novel uncertainty estimation framework for clinical bioacoustic analysis.
+- [CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification](https://doi.org/10.1109/ICIET70550.2026.11712867): Novel uncertainty estimation framework for clinical bioacoustic analysis.
 
 ## Technical Blog & Deep Dives
 

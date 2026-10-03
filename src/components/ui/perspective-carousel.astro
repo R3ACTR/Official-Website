@@ -34,8 +34,8 @@ const defaultItems: CarouselItem[] = [
 const {
   items = defaultItems,
   defaultActiveIndex = 2,
-  slideWidth = 240,
-  rotationStep = 55,
+  slideWidth = 220,
+  rotationStep = 45,
   inactiveScale = 0.85,
   autoplay = true,
   autoplayInterval = 3200,
@@ -62,6 +62,7 @@ const carouselId =
   data-inactive-scale={inactiveScale}
   data-autoplay={autoplay ? 'true' : 'false'}
   data-autoplay-interval={autoplayInterval}
+  style={`--default-slide-w: ${slideWidth}px;`}
 >
   {/* 3D Viewport */}
   <div
@@ -69,26 +70,26 @@ const carouselId =
     style="perspective: 1200px;"
   >
     <div
-      class="carousel-track absolute top-1/2 left-1/2 flex w-fit -translate-y-1/2 items-center will-change-transform"
-      style="transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
+      class="carousel-track absolute top-1/2 left-1/2 flex w-fit items-center will-change-transform"
+      style="transform-style: preserve-3d; transform: translate3d(0, -50%, 0); transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
     >
       {
         repeatedItems.map((item, index) => {
           const originalIndex = index % items.length;
           return (
             <div
-              class="carousel-slide shrink-0"
+              class="carousel-slide shrink-0 select-none"
               data-index={index}
               data-original-index={originalIndex}
-              style={`width: ${slideWidth}px; perspective: 1200px;`}
+              style="perspective: 1200px;"
             >
               <div
-                class="slide-inner flex w-full flex-col items-center gap-3.5 will-change-transform"
-                style="transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
+                class="slide-inner flex w-full flex-col items-center gap-2 sm:gap-3.5 will-change-transform"
+                style="transform-style: preserve-3d; backface-visibility: hidden; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);"
               >
                 <button
                   type="button"
-                  class="slide-btn group aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/10 transition-all duration-300 focus:outline-none dark:ring-white/10"
+                  class="slide-btn group aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/10 transition-all duration-300 focus:outline-none dark:ring-white/10"
                   aria-label={`Show ${item.title}`}
                   data-index={index}
                 >
@@ -96,12 +97,12 @@ const carouselId =
                     src={item.src}
                     alt={item.alt ?? item.title}
                     draggable="false"
-                    class="h-full w-full object-cover transition-transform duration-500 select-none group-hover:scale-105"
+                    class="pointer-events-none h-full w-full object-cover transition-transform duration-500 select-none group-hover:scale-105"
                     loading="eager"
                   />
                 </button>
 
-                <p class="slide-title text-xs font-semibold tracking-wide whitespace-nowrap text-neutral-800 transition-all duration-500 sm:text-sm dark:text-neutral-200">
+                <p class="slide-title w-full max-w-[95%] truncate text-center text-xs font-semibold tracking-wide text-neutral-800 transition-all duration-500 sm:text-sm dark:text-neutral-200">
                   {item.title}
                 </p>
               </div>
@@ -114,15 +115,15 @@ const carouselId =
 
   {/* Bottom Floating Controls */}
   <div
-    class="carousel-controls absolute inset-x-4 bottom-5 z-20 mx-auto flex w-fit items-center justify-center gap-3 rounded-full border border-neutral-300/80 bg-neutral-100/80 px-2.5 py-1 text-neutral-700 shadow-lg backdrop-blur-md dark:border-white/15 dark:bg-neutral-900/80 dark:text-neutral-200"
+    class="carousel-controls absolute inset-x-2 bottom-3 z-20 mx-auto flex w-fit max-w-[calc(100%-1rem)] items-center justify-center gap-1.5 rounded-full border border-neutral-300/80 bg-neutral-100/90 px-2 py-1 text-neutral-700 shadow-lg backdrop-blur-md sm:bottom-5 sm:gap-3 sm:px-2.5 dark:border-white/15 dark:bg-neutral-900/90 dark:text-neutral-200"
   >
     <button
       type="button"
-      class="carousel-prev inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 dark:hover:bg-white/10"
+      class="carousel-prev inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 sm:h-9 sm:w-9 dark:hover:bg-white/10"
       aria-label="Show previous slide"
     >
       <svg
-        class="h-5 w-5"
+        class="h-4 w-4 sm:h-5 sm:w-5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -134,12 +135,12 @@ const carouselId =
       </svg>
     </button>
 
-    <div class="carousel-dots flex items-center justify-center gap-1.5 px-1">
+    <div class="carousel-dots scrollbar-hide flex max-w-[170px] items-center justify-center gap-1 overflow-x-auto px-0.5 sm:max-w-none sm:gap-1.5 sm:px-1">
       {
         items.map((item, index) => (
           <button
             type="button"
-            class="carousel-dot h-2 cursor-pointer rounded-full bg-neutral-900 transition-all duration-300 focus:outline-none dark:bg-neutral-100"
+            class="carousel-dot h-1.5 shrink-0 cursor-pointer rounded-full bg-neutral-900 transition-all duration-300 focus:outline-none sm:h-2 dark:bg-neutral-100"
             aria-label={`Show slide ${index + 1}: ${item.title}`}
             data-index={index}
           />
@@ -149,11 +150,11 @@ const carouselId =
 
     <button
       type="button"
-      class="carousel-next inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 dark:hover:bg-white/10"
+      class="carousel-next inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-neutral-200/80 active:scale-95 sm:h-9 sm:w-9 dark:hover:bg-white/10"
       aria-label="Show next slide"
     >
       <svg
-        class="h-5 w-5"
+        class="h-4 w-4 sm:h-5 sm:w-5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -167,13 +168,44 @@ const carouselId =
   </div>
 </div>
 
+<style>
+  .perspective-carousel-root {
+    touch-action: pan-y;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    position: relative;
+  }
+
+  .carousel-slide {
+    width: var(--default-slide-w, 220px);
+  }
+
+  @media (max-width: 640px) {
+    .carousel-slide {
+      width: clamp(170px, 60vw, 210px);
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
 <script>
   function initPerspectiveCarousel() {
-    const carousels = document.querySelectorAll('.perspective-carousel-root');
+    const carousels =
+      document.querySelectorAll<HTMLElement>('.perspective-carousel-root');
 
     carousels.forEach(root => {
-      if ((root as any).__perspective_inited) return;
-      (root as any).__perspective_inited = true;
+      // Clean up previous instance if re-initializing
+      if ((root as any).__perspective_cleanup) {
+        (root as any).__perspective_cleanup();
+      }
 
       const track = root.querySelector('.carousel-track') as HTMLElement;
       const slides = root.querySelectorAll(
@@ -193,13 +225,13 @@ const carouselId =
         10
       );
       const totalSlides = slides.length;
-      if (originalTotal === 0 || totalSlides === 0) return;
+      if (originalTotal === 0 || totalSlides === 0 || !track) return;
 
-      const slideWidth = parseFloat(
-        root.getAttribute('data-slide-width') || '240'
+      const fallbackSlideWidth = parseFloat(
+        root.getAttribute('data-slide-width') || '220'
       );
       const rotationStep = parseFloat(
-        root.getAttribute('data-rotation-step') || '55'
+        root.getAttribute('data-rotation-step') || '45'
       );
       const inactiveScale = parseFloat(
         root.getAttribute('data-inactive-scale') || '0.85'
@@ -216,21 +248,35 @@ const carouselId =
         10
       );
       let currentIndex = originalTotal + (initialActive % originalTotal);
-      let isTransitioning = false;
       let autoplayTimer: any = null;
+
+      // Drag and swipe gesture tracking
+      let isDragging = false;
+      let isSwiping = false;
+      let didDrag = false;
+      let startX = 0;
+      let startY = 0;
+      let currentX = 0;
+      let startTime = 0;
+
+      function getSlideWidth() {
+        return slides[0]?.offsetWidth || fallbackSlideWidth;
+      }
 
       function update(animate = true) {
         if (!track) return;
 
+        const currentSlideWidth = getSlideWidth();
         const transitionValue = animate
           ? 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)'
           : 'none';
 
         track.style.transition = transitionValue;
-        const trackOffset = -(currentIndex * slideWidth + slideWidth / 2);
-        track.style.transform = `translateX(${trackOffset}px)`;
+        const trackOffset = -(currentIndex * currentSlideWidth + currentSlideWidth / 2);
+        // Important: maintain -50% Y-axis translation for vertical centering
+        track.style.transform = `translate3d(${trackOffset}px, -50%, 0)`;
 
-        // Update each slide rotation, scale, and title visibility
+        // Update each slide rotation, scale, z-index, and title visibility
         slides.forEach((slide, idx) => {
           const inner = slide.querySelector('.slide-inner') as HTMLElement;
           const title = slide.querySelector('.slide-title') as HTMLElement;
@@ -238,11 +284,20 @@ const carouselId =
           const isActive = idx === currentIndex;
           const diff = currentIndex - idx;
 
+          // Stacking order: active slide is on top, adjacent slides behind
+          const zIndex = 100 - Math.min(Math.abs(diff), 90);
+          slide.style.zIndex = String(zIndex);
+
           if (inner) {
             inner.style.transition = transitionValue;
-            const rotY = diff * rotationStep;
+            // Clamp rotation angle so distant slides don't flip backwards
+            const clampedDiff = Math.max(-1.5, Math.min(1.5, diff));
+            const rotY = clampedDiff * rotationStep;
             const scale = isActive ? 1 : inactiveScale;
+            const opacity = Math.abs(diff) > 2 ? '0.25' : '1';
+
             inner.style.transform = `rotateY(${rotY}deg) scale(${scale})`;
+            inner.style.opacity = opacity;
           }
 
           if (title) {
@@ -260,24 +315,34 @@ const carouselId =
           if (btn) {
             if (isActive) {
               btn.setAttribute('aria-current', 'true');
-              btn.classList.add('ring-2', 'ring-orange-500/60');
+              btn.classList.add('ring-2', 'ring-orange-500/80');
             } else {
               btn.removeAttribute('aria-current');
-              btn.classList.remove('ring-2', 'ring-orange-500/60');
+              btn.classList.remove('ring-2', 'ring-orange-500/80');
             }
           }
         });
 
         // Update indicator dots for the original items
+        const isMobile = window.innerWidth < 640;
+        const activeDotWidth = isMobile ? '18px' : '28px';
+        const inactiveDotWidth = isMobile ? '6px' : '8px';
         const activeOriginalIndex = currentIndex % originalTotal;
+
+        const dotsContainer = root.querySelector('.carousel-dots') as HTMLElement;
         dots.forEach((dot, idx) => {
           if (idx === activeOriginalIndex) {
-            dot.style.width = '28px';
+            dot.style.width = activeDotWidth;
             dot.style.opacity = '1';
             dot.classList.add('bg-orange-500');
             dot.classList.remove('bg-neutral-900', 'dark:bg-neutral-100');
+            if (dotsContainer) {
+              const targetScroll =
+                dot.offsetLeft - dotsContainer.offsetWidth / 2 + dot.offsetWidth / 2;
+              dotsContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+            }
           } else {
-            dot.style.width = '8px';
+            dot.style.width = inactiveDotWidth;
             dot.style.opacity = '0.35';
             dot.classList.remove('bg-orange-500');
             dot.classList.add('bg-neutral-900', 'dark:bg-neutral-100');
@@ -287,19 +352,17 @@ const carouselId =
 
       function goTo(index: number) {
         currentIndex = index;
-        isTransitioning = true;
         update(true);
 
-        // After the transition ends, smoothly re-center if we crossed into the buffer copies
+        // After the transition ends, smoothly re-center if we crossed into buffer sets
         setTimeout(() => {
           if (currentIndex < originalTotal) {
             currentIndex += originalTotal;
-            update(false); // instantaneous jump without animation
+            update(false);
           } else if (currentIndex >= originalTotal * 2) {
             currentIndex -= originalTotal;
-            update(false); // instantaneous jump without animation
+            update(false);
           }
-          isTransitioning = false;
         }, 660);
       }
 
@@ -327,15 +390,16 @@ const carouselId =
         }
       }
 
-      // Pause autoplay on mouse hover or touch interaction
+      // Mouse hover listeners
       root.addEventListener('mouseenter', stopAutoplay);
       root.addEventListener('mouseleave', startAutoplay);
       root.addEventListener('focusin', stopAutoplay);
       root.addEventListener('focusout', startAutoplay);
 
-      // Event listeners
+      // Prev / Next button listeners
       if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           stopAutoplay();
           prev();
           startAutoplay();
@@ -343,15 +407,18 @@ const carouselId =
       }
 
       if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           stopAutoplay();
           next();
           startAutoplay();
         });
       }
 
+      // Dots click
       dots.forEach(dot => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
           stopAutoplay();
           const targetOriginalIdx = parseInt(
             dot.getAttribute('data-index') || '0',
@@ -364,8 +431,14 @@ const carouselId =
         });
       });
 
+      // Slide button clicks (only trigger if not swiping/dragging)
       slideBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+          if (didDrag) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+          }
           stopAutoplay();
           const clickedIndex = parseInt(
             btn.getAttribute('data-index') || '0',
@@ -377,55 +450,124 @@ const carouselId =
       });
 
       // Keyboard navigation
-      root.addEventListener('keydown', e => {
-        const keyEvent = e as KeyboardEvent;
-        if (keyEvent.key === 'ArrowLeft') {
-          keyEvent.preventDefault();
+      const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
           stopAutoplay();
           prev();
           startAutoplay();
-        } else if (keyEvent.key === 'ArrowRight') {
-          keyEvent.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
           stopAutoplay();
           next();
           startAutoplay();
         }
-      });
+      };
+      root.addEventListener('keydown', onKeyDown);
 
-      // Touch / swipe gestures
-      let touchStartX = 0;
-      let touchEndX = 0;
+      // Touch & Swipe gestures with vertical scroll recognition
+      const onTouchStart = (e: TouchEvent) => {
+        if (!e.touches[0]) return;
+        stopAutoplay();
+        isDragging = true;
+        isSwiping = false;
+        didDrag = false;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        currentX = startX;
+        startTime = Date.now();
+      };
 
-      root.addEventListener(
-        'touchstart',
-        e => {
-          stopAutoplay();
-          const touchEvent = e as TouchEvent;
-          if (touchEvent.changedTouches?.[0]) {
-            touchStartX = touchEvent.changedTouches[0].screenX;
+      const onTouchMove = (e: TouchEvent) => {
+        if (!isDragging || !e.touches[0]) return;
+        const x = e.touches[0].clientX;
+        const y = e.touches[0].clientY;
+        const diffX = x - startX;
+        const diffY = y - startY;
+
+        // If swipe direction not yet established:
+        if (!isSwiping) {
+          // If vertical scroll intent is clear, let page scroll natively
+          if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 8) {
+            isDragging = false;
+            return;
           }
-        },
-        { passive: true }
-      );
-
-      root.addEventListener(
-        'touchend',
-        e => {
-          const touchEvent = e as TouchEvent;
-          if (touchEvent.changedTouches?.[0]) {
-            touchEndX = touchEvent.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 40) {
-              if (diff > 0) next();
-              else prev();
-            }
+          // If horizontal swipe detected:
+          if (Math.abs(diffX) > 8) {
+            isSwiping = true;
+            didDrag = true;
           }
+        }
+
+        if (isSwiping) {
+          if (e.cancelable) e.preventDefault();
+          currentX = x;
+          const currentSlideWidth = getSlideWidth();
+          const baseOffset = -(currentIndex * currentSlideWidth + currentSlideWidth / 2);
+          track.style.transition = 'none';
+          track.style.transform = `translate3d(${baseOffset + diffX}px, -50%, 0)`;
+        }
+      };
+
+      const onTouchEnd = () => {
+        if (!isDragging && !isSwiping) {
           startAutoplay();
-        },
-        { passive: true }
-      );
+          return;
+        }
 
-      // Initial render without animation
+        const wasSwiping = isSwiping;
+        isDragging = false;
+        isSwiping = false;
+
+        if (wasSwiping) {
+          const diffX = currentX - startX;
+          const timeElapsed = Date.now() - startTime;
+          const velocity = Math.abs(diffX) / Math.max(timeElapsed, 1);
+
+          // Threshold: moved > 35px or flicked quickly
+          if (diffX < -35 || (diffX < -15 && velocity > 0.25)) {
+            next();
+          } else if (diffX > 35 || (diffX > 15 && velocity > 0.25)) {
+            prev();
+          } else {
+            // Snap back
+            update(true);
+          }
+
+          // Suppress synthetic clicks following the swipe
+          setTimeout(() => {
+            didDrag = false;
+          }, 150);
+        } else {
+          didDrag = false;
+        }
+
+        startAutoplay();
+      };
+
+      root.addEventListener('touchstart', onTouchStart, { passive: true });
+      root.addEventListener('touchmove', onTouchMove, { passive: false });
+      root.addEventListener('touchend', onTouchEnd, { passive: true });
+      root.addEventListener('touchcancel', onTouchEnd, { passive: true });
+
+      // Window resize listener to re-align slides
+      const onResize = () => {
+        update(false);
+      };
+      window.addEventListener('resize', onResize);
+
+      // Store cleanup handler
+      (root as any).__perspective_cleanup = () => {
+        stopAutoplay();
+        root.removeEventListener('keydown', onKeyDown);
+        root.removeEventListener('touchstart', onTouchStart);
+        root.removeEventListener('touchmove', onTouchMove);
+        root.removeEventListener('touchend', onTouchEnd);
+        root.removeEventListener('touchcancel', onTouchEnd);
+        window.removeEventListener('resize', onResize);
+      };
+
+      // Initial render
       update(false);
       startAutoplay();
     });

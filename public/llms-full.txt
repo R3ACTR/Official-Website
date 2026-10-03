@@ -65,7 +65,8 @@ R3ACTR is an independent software research and engineering collective. We design
    - **Focus**: Novel explainable AI framework combining EVA-02 vision backbones with deformable convolution networks, validated with quantitative faithfulness metrics for neuro-oncology MRI scans.
 
 3. **CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification**
-   - **Status**: Pre-print / In Press
+   - **Conference / Publisher**: IEEE ICIET
+   - **DOI**: https://doi.org/10.1109/ICIET70550.2026.11712867
    - **Focus**: Cross-model disagreement analysis for estimating predictive uncertainty in bioacoustic diagnostics.
 
 ---
