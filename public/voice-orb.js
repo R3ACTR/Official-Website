@@ -183,11 +183,17 @@
       const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
       this._touch = [clamp(x, -1.2, 1.2), clamp(y, -1.2, 1.2), activeVal];
     }
+    _isMobileOrTouch(e) {
+      if (e && e.pointerType === 'touch') return true;
+      return window.matchMedia && window.matchMedia('(max-width: 640px), (pointer: coarse)').matches;
+    }
     _onPointerDown(e) {
+      if (this._isMobileOrTouch(e)) return;
       this._isPointerActive = true;
       this._handlePointerPos(e, 0.7);
     }
     _onPointerMove(e) {
+      if (this._isMobileOrTouch(e)) return;
       if (this._isPointerActive) {
         this._handlePointerPos(e, 0.7);
       } else {

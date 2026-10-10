@@ -56,10 +56,10 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
         </div>
       </div>
 
-      <!-- BOTTOM: Voice Orb (Bigger on mobile, vertically centered with text, overlapping on desktop) -->
-      <div class="relative w-full flex items-center justify-center overflow-visible mt-4 sm:mt-0 sm:-mb-96 md:-mb-[480px] lg:-mb-[560px] pointer-events-auto animate-blur-arrive-delay-2">
-        <div class="w-[310px] xs:w-[350px] sm:w-[740px] md:w-[980px] lg:w-[1200px] max-w-[92vw] aspect-square flex items-center justify-center">
-          <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;"></voice-orb>
+      <!-- BOTTOM: Voice Orb (Non-reactive to touch on mobile, responsive hover on desktop) -->
+      <div class="relative w-full flex items-center justify-center overflow-visible mt-4 sm:mt-0 sm:-mb-96 md:-mb-[480px] lg:-mb-[560px] pointer-events-none sm:pointer-events-auto animate-blur-arrive-delay-2">
+        <div class="w-[310px] xs:w-[350px] sm:w-[740px] md:w-[980px] lg:w-[1200px] max-w-[92vw] aspect-square flex items-center justify-center pointer-events-none sm:pointer-events-auto">
+          <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;" class="pointer-events-none sm:pointer-events-auto"></voice-orb>
         </div>
       </div>
     </section>
