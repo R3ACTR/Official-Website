@@ -3,13 +3,13 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { SITE } from '@data/constants';
 import { blogs } from '@data/blogs';
 
-const pageTitle = `Blog & Insights | ${SITE.title}`;
+const pageTitle = `Blog & Insights • ${SITE.title}`;
 const metaDescription =
   'Read technical deep dives, engineering insights, and tool spotlights from the R3ACTR team across AI, Web3, and scientific computing.';
 const ogTitle = 'Blog & Insights | R3ACTR';
 
 const featuredPost = blogs[0];
-
+const allTags = Array.from(new Set(blogs.flatMap((b) => b.tags)));
 ---
 
 <MainLayout
@@ -17,104 +17,246 @@ const featuredPost = blogs[0];
   customDescription={metaDescription}
   customOgTitle={ogTitle}
 >
-  <div class="mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 sm:pt-24 lg:px-8 lg:pt-28">
-    {/* Header Section */}
-    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+  <div class="relative w-full bg-white text-neutral-900 font-sans min-h-screen">
+    
+    <!-- Top Editorial Header -->
+    <header class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12 sm:pb-16 border-b border-neutral-100">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-5 font-sans animate-blur-arrive">
+          Engineering insights & perspectives.
+        </h1>
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl animate-blur-arrive-delay-1">
+          Deep dives into developer tooling, scientific authoring, scalable SaaS architecture, and practical engineering breakthroughs from the team.
+        </p>
+      </div>
 
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight">
-        Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Momentum</span> & Perspectives
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl mx-auto">
-        Deep dives into developer tooling, scientific authoring, scalable SaaS architecture, and the frontier of AI & Web3.
-      </p>
-    </div>
+      <!-- Categories / Filter Pills -->
+      <div class="mt-8 flex flex-wrap items-center gap-2 pt-6 border-t border-neutral-100 animate-blur-arrive-delay-3">
+        <span class="text-xs font-mono uppercase tracking-wider text-neutral-400 mr-2">Topics:</span>
+        <span class="rounded-full bg-neutral-900 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs">
+          All Posts
+        </span>
+        {allTags.map((tag) => (
+          <span class="rounded-full bg-neutral-100 hover:bg-neutral-200/80 px-3.5 py-1.5 text-xs font-medium text-neutral-600 transition-colors cursor-pointer">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
 
-    {/* Featured Article Hero Card */}
-    <section class="mb-16">
-      <div class="relative overflow-hidden rounded-3xl border border-neutral-300 bg-white p-6 sm:p-8 lg:p-10 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-600">
+    <!-- SVG Noise Filter for Texture -->
+    <svg class="hidden" aria-hidden="true">
+      <defs>
+        <filter id="blogNoiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.45 0" />
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- Main Content: Gradient Square Cards Grid -->
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Article Info */}
-          <div class="lg:col-span-7 flex flex-col justify-between">
-            <div>
-              <div class="flex flex-wrap items-center gap-3 text-xs mb-4">
-                <span class="inline-flex items-center gap-1.5 rounded-full bg-orange-500 px-3 py-1 font-bold tracking-wider text-white uppercase text-[11px] shadow-sm">
-                  ★ Featured Post
-                </span>
-                <span class="rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 font-semibold text-orange-600 dark:border-orange-400/30 dark:bg-orange-400/10 dark:text-orange-400">
-                  {featuredPost.category}
-                </span>
-                <span class="text-neutral-400 dark:text-neutral-500">•</span>
-                <span class="text-neutral-600 dark:text-neutral-400 font-medium">
-                  {featuredPost.readTime}
-                </span>
-              </div>
+        <!-- Blog 1: Paper Lab (Featured Gradient Square Card) -->
+        <article class="flex flex-col group animate-blur-arrive">
+          <!-- Square Rounded Gradient Texture Card -->
+          <a
+            href={`/blog/${featuredPost.slug}`}
+            class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-6 sm:p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(228,118,72,0.35)] hover:-translate-y-1 cursor-pointer"
+          >
+            <!-- Full Gradient Art Backdrop -->
+            <img
+              src="/gradients/creative-1.webp"
+              alt={featuredPost.title}
+              class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+              loading="lazy"
+            />
+            <!-- Concentric Wave Texture -->
+            <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+            <!-- Sand Grain Noise Overlay -->
+            <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#blogNoiseFilter);"></div>
+            <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
 
-              <a href={`/blog/${featuredPost.slug}`} class="group block">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
-                  {featuredPost.title}
-                </h2>
-              </a>
-
-              <p class="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                {featuredPost.description}
-              </p>
-
-              <div class="mt-6 flex flex-wrap gap-2">
-                {featuredPost.tags.map((tag) => (
-                  <span class="rounded-md bg-neutral-100 px-2.5 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4">
-              <div class="flex items-center gap-x-3">
-                <img
-                  src={featuredPost.author.avatar}
-                  alt={featuredPost.author.name}
-                  class="h-10 w-10 rounded-full border border-neutral-300 bg-neutral-100 object-cover dark:border-neutral-700 dark:bg-neutral-800"
-                  loading="lazy"
-                />
-                <div>
-                  <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200">
-                    {featuredPost.author.name}
-                  </p>
-                  <p class="text-xs text-neutral-500 dark:text-neutral-400">
-                    {featuredPost.pubDate}
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href={`/blog/${featuredPost.slug}`}
-                class="inline-flex items-center gap-x-2 rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-orange-500 dark:bg-white dark:text-neutral-900 dark:hover:bg-orange-500 dark:hover:text-white"
-              >
-                Read Article
-                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <!-- Top Row: Badge & Arrow -->
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+                <svg class="h-3 w-3 fill-current" viewBox="0 0 256 256">
+                  <path d="M239.2,97.29a8,8,0,0,0-6.52-5.49l-67.1-9.75L135.56,21.2a8,8,0,0,0-15.12,0L90.42,82.05l-67.1,9.75A8,8,0,0,0,19,105.47l48.56,47.33L56.09,219.64a8,8,0,0,0,11.6,8.43L128,196.19l60.31,31.88A8,8,0,0,0,200,219.64l-11.47-66.84L237,105.47A8,8,0,0,0,239.2,97.29Z"/>
                 </svg>
-              </a>
+                <span>FEATURED</span>
+              </span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30 text-base shadow-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                ↗
+              </span>
             </div>
-          </div>
 
-          {/* Article Image / Illustration */}
-          <div class="lg:col-span-5 flex items-center justify-center">
+            <!-- Center Title on Square Card -->
+            <div class="relative z-10 my-auto text-center px-3">
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+                Paper Lab
+              </h2>
+              <p class="text-xs sm:text-sm text-white/90 font-mono mt-2 tracking-wide uppercase">
+                {featuredPost.category}
+              </p>
+            </div>
+
+            <!-- Bottom Row: Read time and date -->
+            <div class="relative z-10 flex items-center justify-between text-xs text-white/90 font-mono">
+              <span>{featuredPost.readTime}</span>
+              <span>{featuredPost.pubDate}</span>
+            </div>
+          </a>
+
+          <!-- Content Directly Below Square Card -->
+          <div class="pt-5 flex flex-col">
+            <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+              01 / Academic Writing & Tools
+            </span>
+            <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+              {featuredPost.description}
+            </p>
             <a
               href={`/blog/${featuredPost.slug}`}
-              class="group relative block w-full overflow-hidden rounded-2xl border border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100 p-6 sm:p-8 dark:border-neutral-800 dark:from-neutral-800/60 dark:to-neutral-900/80"
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-orange-600 hover:gap-2.5 w-fit"
             >
-              <img
-                src={featuredPost.coverImage}
-                alt={featuredPost.title}
-                class="mx-auto max-h-[300px] sm:max-h-[320px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
+              <span>Read deep dive</span>
+              <span class="text-base">↗</span>
             </a>
           </div>
-        </div>
+        </article>
+
+        <!-- Card 02: Open Source Quest (Blue-Slate Gradient Square Card) -->
+        <article class="flex flex-col group animate-blur-arrive-delay-1">
+          <div
+            class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2b4c6f] via-[#3d7099] to-[#5a9dc4] p-6 sm:p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(90,157,196,0.35)] hover:-translate-y-1"
+          >
+            <img
+              src="/gradients/creative-9.webp"
+              alt="Open Source Quest"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+            <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#blogNoiseFilter);"></div>
+            <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+                OPEN SOURCE
+              </span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30 text-base shadow-xs">
+                ↗
+              </span>
+            </div>
+
+            <div class="relative z-10 my-auto text-center px-3">
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+                Open Source<br/>Quest
+              </h2>
+              <p class="text-xs sm:text-sm text-white/90 font-mono mt-2 tracking-wide uppercase">
+                Community Programs
+              </p>
+            </div>
+
+            <div class="relative z-10 flex items-center justify-between text-xs text-white/90 font-mono">
+              <span>8 min read</span>
+              <span>Coming Soon</span>
+            </div>
+          </div>
+
+          <div class="pt-5 flex flex-col">
+            <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+              02 / Developer Ecosystems
+            </span>
+            <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+              Structuring month-long open source sprints for engineering students to master production git workflows and collaboration.
+            </p>
+            <span class="text-sm font-semibold text-neutral-400">
+              Publishing shortly • Research Lab
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 03: Dooms Protocol (Emerald-Teal Gradient Square Card) -->
+        <article class="flex flex-col group animate-blur-arrive-delay-2">
+          <div
+            class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#285e52] via-[#3a8b73] to-[#4eb896] p-6 sm:p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(78,184,150,0.35)] hover:-translate-y-1"
+          >
+            <img
+              src="/gradients/creative-5.webp"
+              alt="Dooms Protocol"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+            <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#blogNoiseFilter);"></div>
+            <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+                HACKATHONS
+              </span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30 text-base shadow-xs">
+                ↗
+              </span>
+            </div>
+
+            <div class="relative z-10 my-auto text-center px-3">
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+                Dooms<br/>Protocol
+              </h2>
+              <p class="text-xs sm:text-sm text-white/90 font-mono mt-2 tracking-wide uppercase">
+                High-Pressure Builds
+              </p>
+            </div>
+
+            <div class="relative z-10 flex items-center justify-between text-xs text-white/90 font-mono">
+              <span>5 min read</span>
+              <span>Coming Soon</span>
+            </div>
+          </div>
+
+          <div class="pt-5 flex flex-col">
+            <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+              03 / Competitive Engineering
+            </span>
+            <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+              Designing high-intensity technical hackathons that challenge engineers to build under adversarial and emergency protocols.
+            </p>
+            <span class="text-sm font-semibold text-neutral-400">
+              Publishing shortly • Research Lab
+            </span>
+          </div>
+        </article>
+
       </div>
-    </section>
+
+    </main>
+
   </div>
+
+  <!-- Scroll-Triggered Reveal Animation Observer -->
+  <script is:inline>
+    (() => {
+      const elements = document.querySelectorAll('.reveal-on-scroll');
+      if (!elements.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    })();
+  </script>
 </MainLayout>
+

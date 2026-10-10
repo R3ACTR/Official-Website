@@ -1,119 +1,192 @@
 ---
-import Icon from '@components/ui/icons/Icon.astro';
-
-// Define the variables that will be used in this component
+// Editorial Contact Page matching the R3ACTR playground & gradient aesthetic
 const subTitle: string =
-  "Have questions, partnership inquiries, or want to discuss a project? Reach out directly through any of our channels.";
+  "Have questions, partnership inquiries, or want to build something ambitious with us? Reach out directly through any of our channels.";
 ---
 
-{/* Contact Us */}
-<section class="mx-auto max-w-[85rem] px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-  <div class="mx-auto max-w-2xl lg:max-w-4xl">
-    {/* Header */}
-    <div class="text-center">
-      <h1
-        class="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-50"
-      >
-        Get in <span class="text-orange-500 dark:text-orange-400">Touch</span>
+<!-- SVG Noise Filter for Texture -->
+<svg class="hidden" aria-hidden="true">
+  <defs>
+    <filter id="contactNoiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.45 0" />
+    </filter>
+  </defs>
+</svg>
+
+<section class="relative w-full bg-white text-neutral-900 font-sans min-h-screen">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-20">
+    
+    <!-- Editorial Header -->
+    <div class="max-w-3xl mb-14 sm:mb-16">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-5 font-sans animate-blur-arrive">
+        Let's create what's next.
       </h1>
-      <p class="mt-3 text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
+      <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl animate-blur-arrive-delay-1">
         {subTitle}
       </p>
     </div>
 
-    {/* Contact Channels Grid */}
-    <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-      {/* Email Card */}
-      <a
-        href="mailto:r3actr@gmail.com"
-        class="group relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 hover:border-orange-500/60 dark:hover:border-orange-500/60 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-200 flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-5">
-            <Icon name="envelopeOpen" />
-          </div>
-          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-            Email Us
-          </h2>
-          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Drop us an email for general inquiries, project proposals, or collaboration opportunities.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between text-sm font-semibold text-orange-600 dark:text-orange-400">
-          <span>r3actr@gmail.com</span>
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
+    <!-- Gradient Square Cards Grid (Matching Playground Cards: ONLY Title Inside Card) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
+      
+      <!-- Card 01: Direct Email -->
+      <div class="flex flex-col group animate-blur-arrive">
+        <a
+          href="mailto:r3actr@gmail.com"
+          class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(228,118,72,0.35)] hover:-translate-y-1 cursor-pointer"
+        >
+          <img
+            src="/gradients/creative-1.webp"
+            alt="Email R3ACTR"
+            class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+          <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#contactNoiseFilter);"></div>
+          <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
 
-      {/* Office & Headquarters */}
-      <div
-        class="relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-sm flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-5">
-            <Icon name="mapPin" />
-          </div>
-          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-            Headquarters
+          <!-- Centered Title on Square Card -->
+          <h2 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+            Direct<br/>Inquiry
           </h2>
-          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Operating from Kerala, India, building systems and intelligent software for the global developer ecosystem.
+        </a>
+
+        <div class="pt-5 flex flex-col">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+            01 / Electronic Mail
+          </span>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+            Drop us a message for partnerships, new client contracts, product inquiries, or creator collaborations.
           </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800 text-sm font-semibold text-neutral-700 dark:text-neutral-300">
-          Kerala, India
+          <a
+            href="mailto:r3actr@gmail.com"
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+          >
+            <span>r3actr@gmail.com</span>
+            <span class="text-base">↗</span>
+          </a>
         </div>
       </div>
 
-      {/* FAQ & Support */}
-      <a
-        href="/faq"
-        class="group relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 hover:border-orange-500/60 dark:hover:border-orange-500/60 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-200 flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-5">
-            <Icon name="chatBubble" />
-          </div>
-          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-            Frequently Asked Questions
-          </h2>
-          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Find immediate answers to common questions about our research, tooling, programs, and engagement models.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between text-sm font-semibold text-orange-600 dark:text-orange-400">
-          <span>Explore FAQ</span>
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
+      <!-- Card 02: Innovation Studio -->
+      <div class="flex flex-col group animate-blur-arrive-delay-1">
+        <div
+          class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(216,122,42,0.35)] hover:-translate-y-1"
+        >
+          <img
+            src="/gradients/creative-5.webp"
+            alt="Studio Location"
+            class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+          <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#contactNoiseFilter);"></div>
+          <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
 
-      {/* Core Team ID Registry */}
-      <a
-        href="/id"
-        class="group relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 hover:border-orange-500/60 dark:hover:border-orange-500/60 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-200 flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-5">
-            <Icon name="question" />
-          </div>
-          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-            Core Team & Personnel
+          <!-- Centered Title on Square Card -->
+          <h2 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+            Kerala,<br/>India
           </h2>
-          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Verify official credentials, leadership roles, and connect directly with our founders and core leads.
+        </div>
+
+        <div class="pt-5 flex flex-col">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+            02 / Innovation Studio
+          </span>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+            Rooted in Kerala, India, building intelligent platforms and autonomous software for creators globally.
           </p>
+          <span class="text-sm font-semibold text-neutral-500">
+            UTC+05:30 (IST)
+          </span>
         </div>
-        <div class="mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between text-sm font-semibold text-orange-600 dark:text-orange-400">
-          <span>View Team ID Registry</span>
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+      </div>
+
+      <!-- Card 03: Knowledge Base / FAQ -->
+      <div class="flex flex-col group animate-blur-arrive-delay-2">
+        <a
+          href="/#faq"
+          class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2b4c6f] via-[#3d7099] to-[#5a9dc4] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(90,157,196,0.35)] hover:-translate-y-1 cursor-pointer"
+        >
+          <img
+            src="/gradients/creative-9.webp"
+            alt="FAQ"
+            class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+          <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#contactNoiseFilter);"></div>
+          <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+          <!-- Centered Title on Square Card -->
+          <h2 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+            Knowledge<br/>Base
+          </h2>
+        </a>
+
+        <div class="pt-5 flex flex-col">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+            03 / Help & FAQ
+          </span>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+            Find prompt answers regarding our products, custom engagements, engineering process, and timeline models.
+          </p>
+          <a
+            href="/#faq"
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+          >
+            <span>Frequently asked questions</span>
+            <span class="text-base">↗</span>
+          </a>
         </div>
-      </a>
+      </div>
+
+      <!-- Card 04: Community & GitHub -->
+      <div class="flex flex-col group animate-blur-arrive-delay-3">
+        <a
+          href="https://github.com/R3ACTR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#285e52] via-[#3a8b73] to-[#4eb896] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(78,184,150,0.35)] hover:-translate-y-1 cursor-pointer"
+        >
+          <img
+            src="/gradients/creative-5.webp"
+            alt="GitHub & Community"
+            class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+          <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#contactNoiseFilter);"></div>
+          <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+          <!-- Centered Title on Square Card -->
+          <h2 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+            GitHub<br/>Hub
+          </h2>
+        </a>
+
+        <div class="pt-5 flex flex-col">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+            04 / Open Source Space
+          </span>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+            Star our repositories, join our hackathons, or submit PRs to our open source initiatives and tools.
+          </p>
+          <a
+            href="https://github.com/R3ACTR"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+          >
+            <span>github.com/R3ACTR</span>
+            <span class="text-base">↗</span>
+          </a>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
+

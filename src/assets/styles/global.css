@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import 'tailwindcss';
 
 /* Preline UI */
@@ -48,13 +49,36 @@
 }
 
 @theme {
-  --font-sans: 'Chillax', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Plus Jakarta Sans', 'Chillax', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   /* https://tailwindcss.com/docs/colors#customizing-your-colors */
   --color-*: initial;
   --color-transparent: transparent;
   --color-current: currentColor;
   --color-black: #000;
   --color-white: #fff;
+
+  /* Deep Space Navy tokens matching #13233f navbar */
+  --color-navy-950: #080e1a;
+  --color-navy-900: #0b1424;
+  --color-navy-850: #0e192d;
+  --color-navy-800: #13233f;
+  --color-navy-700: #162744;
+  --color-navy-600: #1c3258;
+  --color-navy-500: #254476;
+  --color-navy-400: #3b639e;
+  --color-navy-300: #628bc7;
+
+  --color-neutral-50: oklch(0.985 0 0);
+  --color-neutral-100: oklch(0.97 0 0);
+  --color-neutral-200: oklch(0.922 0 0);
+  --color-neutral-300: oklch(0.87 0 0);
+  --color-neutral-400: oklch(0.708 0 0);
+  --color-neutral-500: oklch(0.556 0 0);
+  --color-neutral-600: oklch(0.439 0 0);
+  --color-neutral-700: oklch(0.371 0 0);
+  --color-neutral-800: oklch(0.269 0 0);
+  --color-neutral-900: oklch(0.205 0 0);
+  --color-neutral-950: oklch(0.145 0 0);
 
   --color-gray-50: oklch(0.985 0.002 247.839);
   --color-gray-100: oklch(0.967 0.003 264.542);
@@ -68,6 +92,18 @@
   --color-gray-900: oklch(0.21 0.034 264.665);
   --color-gray-950: oklch(0.13 0.028 261.692);
 
+  --color-zinc-50: oklch(0.985 0 0);
+  --color-zinc-100: oklch(0.967 0.001 286.375);
+  --color-zinc-200: oklch(0.92 0.004 286.32);
+  --color-zinc-300: oklch(0.871 0.006 286.286);
+  --color-zinc-400: oklch(0.705 0.015 286.067);
+  --color-zinc-500: oklch(0.552 0.016 285.938);
+  --color-zinc-600: oklch(0.442 0.017 285.786);
+  --color-zinc-700: oklch(0.37 0.013 285.805);
+  --color-zinc-800: oklch(0.274 0.006 286.033);
+  --color-zinc-900: oklch(0.21 0.006 285.885);
+  --color-zinc-950: oklch(0.141 0.005 285.823);
+
   --color-indigo-50: oklch(0.962 0.018 272.314);
   --color-indigo-100: oklch(0.93 0.034 272.788);
   --color-indigo-200: oklch(0.87 0.065 274.039);
@@ -79,18 +115,6 @@
   --color-indigo-800: oklch(0.398 0.195 277.366);
   --color-indigo-900: oklch(0.359 0.144 278.697);
   --color-indigo-950: oklch(0.257 0.09 281.288);
-
-  --color-neutral-50: oklch(0.985 0 0);
-  --color-neutral-100: oklch(0.97 0 0);
-  --color-neutral-200: oklch(0.922 0 0);
-  --color-neutral-300: oklch(0.87 0 0);
-  --color-neutral-400: oklch(0.708 0 0);
-  --color-neutral-500: oklch(0.556 0 0);
-  --color-neutral-600: oklch(0.439 0 0);
-  --color-neutral-700: oklch(0.371 0 0);
-  --color-neutral-800: oklch(0.269 0 0);
-  --color-neutral-900: oklch(0.205 0 0);
-  --color-neutral-950: oklch(0.145 0 0);
 
   --color-yellow-50: oklch(0.987 0.026 102.212);
   --color-yellow-100: oklch(0.973 0.071 103.193);
@@ -169,3 +193,98 @@
     cursor: pointer;
   }
 }
+
+/* Smooth lightweight blur arrival animation for initial page load */
+@keyframes blurArrival {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-blur-arrive {
+  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, filter, transform;
+}
+
+.animate-blur-arrive-delay-1 {
+  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  will-change: opacity, filter, transform;
+}
+
+.animate-blur-arrive-delay-2 {
+  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+  will-change: opacity, filter, transform;
+}
+
+.animate-blur-arrive-delay-3 {
+  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+  will-change: opacity, filter, transform;
+}
+
+/* Scroll-triggered reveal animations with subtle blur */
+.reveal-on-scroll {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Custom Organic Shapes for Founders Section */
+.shape-organic-1 {
+  border-radius: 44% 44% 44% 44% / 36% 36% 36% 36%;
+  clip-path: inset(0 round 60px 60px 60px 60px);
+}
+.shape-arch {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+.shape-egg {
+  border-radius: 50% 50% 50% 50% / 56% 56% 44% 44%;
+}
+.shape-pill-stack {
+  border-radius: 40px;
+}
+
+/* Fluent Modal Entrance Animation */
+@keyframes fluentPopup {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-fluent-popup {
+  animation: fluentPopup 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+

@@ -1,7 +1,7 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Services', url: '/services' },
+  { name: 'Services', url: '/#playground' },
   { name: 'Blog', url: '/blog' },
   { name: 'Contact', url: '/contact' },
 ];
@@ -10,7 +10,7 @@ const footerLinks = [
   {
     section: 'Ecosystem',
     links: [
-      { name: 'Services', url: '/services' },
+      { name: 'Services', url: '/#playground' },
       { name: 'Open Source', url: 'https://github.com/R3ACTR' },
     ],
   },

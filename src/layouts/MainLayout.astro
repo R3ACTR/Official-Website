@@ -39,45 +39,43 @@ interface Props {
       customDescription={customDescription}
       customOgTitle={customOgTitle}
     />
+    {/* Preconnect and load Plus Jakarta Sans */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
     {/* Define the title of the page */}
     <title>{title}</title>
     <script is:inline>
-      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
-      if (
-        localStorage.getItem('hs_theme') === 'dark' ||
-        (!('hs_theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      // Clean white mode
+      document.documentElement.classList.remove('dark');
     </script>
     <script>
       import '@scripts/lenisSmoothScroll.js';
     </script>
   </head>
   <body
-    class="flex min-h-screen flex-col bg-neutral-200 selection:bg-neutral-900 selection:text-neutral-700 dark:bg-neutral-800 overflow-x-clip"
+    class="relative flex min-h-screen flex-col bg-white text-neutral-900 overflow-x-clip"
   >
-    <Preloader />
     {
       /*
-    Setting up the main structure of the page.
-    The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
+    Navbar is placed fixed at the top with clean white theme.
     */
     }
     {!hideNavFooter && (
-      <div class="sticky inset-x-0 top-4 z-50 mx-auto w-full max-w-[92rem] px-3 sm:px-6 lg:px-8">
+      <header class="fixed inset-x-0 top-0 z-50 w-full shadow-xs">
         <Navbar />
-      </div>
+      </header>
     )}
-    <div class={`mx-auto w-full max-w-[90rem] grow ${!hideNavFooter ? 'px-4 sm:px-6 lg:px-8' : ''}`}>
+    <div class={`w-full grow ${!hideNavFooter ? 'pt-[100px]' : ''}`}>
       <main class={hideNavFooter ? 'h-full flex flex-col' : ''}>
         <slot />
       </main>
     </div>
     {!hideNavFooter && <FooterSection />}
+
     <script>
       // https://preline.co
       import 'preline';

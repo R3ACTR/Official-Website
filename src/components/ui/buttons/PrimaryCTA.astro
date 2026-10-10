@@ -10,13 +10,13 @@ interface Props {
 }
 // Define CSS classes for styling the button
 const baseClasses =
-  'group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden';
-const borderClasses = 'border border-transparent';
+  'group inline-flex items-center justify-center gap-x-2 rounded-xl px-5 py-3 text-sm font-bold text-slate-900 transition duration-300 focus-visible:ring-3 outline-hidden shadow-md active:scale-95';
+const borderClasses = 'border border-white/20';
 const bgColorClasses =
-  'bg-neutral-900 hover:bg-neutral-900 active:bg-neutral-900 dark:focus:outline-hidden';
+  'bg-white hover:bg-slate-100 text-slate-950 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100';
 const disableClasses = 'disabled:pointer-events-none disabled:opacity-50';
 const fontSizeClasses = '2xl:text-base';
-const ringClasses = 'dark:ring-zinc-200';
+const ringClasses = 'dark:ring-cyan-400';
 ---
 
 {/* Link styled as a button, with dynamic title, URL, and optional arrow */}

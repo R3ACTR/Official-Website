@@ -1,58 +1,941 @@
 ---
 // Import the necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
-import HeroSection from '@components/sections/landing/HeroSection.astro';
-import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
-import AboutSection from '@components/sections/landing/AboutSection.astro';
-import PublicationsSection from '@components/sections/landing/PublicationsSection.astro';
-import SnapshotCarousel from '@components/ui/blocks/SnapshotCarousel.astro';
-import FeaturedBlogSection from '@components/sections/landing/FeaturedBlogSection.astro';
 import { SITE } from '@data/constants';
 
 const pageTitle = `${SITE.title} • ${SITE.tagline}`;
-const pageDescription =
-  'R3ACTR researches, designs, and engineers next-generation software products, AI systems, academic platforms like Paper Lab, and open-source ecosystems.';
+const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomous Engineering';
 ---
 
 <MainLayout title={pageTitle} customDescription={pageDescription}>
-  <div class="mb-16 flex flex-col gap-16 md:mb-24 md:gap-24">
-    <HeroSection
-      title=`Building intelligent software for <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">what’s next</span>.`
-      subTitle="We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers."
-      primaryBtn="Work with Us"
-      primaryBtnURL="/contact"
-      withReview={false}
-      src="/assets/illustrations/heror3actr.png"
-      alt="R3ACTR Hero Image"
-    />
+  <!-- HERO CONTAINER (Sticky base that playground scrolls over) -->
+  <div class="relative w-full">
+    <!-- HERO SECTION: R3ACTR on left, Pure Voice Orb on right -->
+    <section class="sticky top-[100px] z-10 w-full bg-white flex items-center px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 overflow-hidden min-h-[calc(100vh-120px)]">
+      <div class="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        
+        <!-- SVG Noise for grain text/card effects -->
+        <svg class="sr-only" aria-hidden="true">
+          <filter id="heroGrain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0" />
+          </filter>
+        </svg>
 
-    <AboutSection src="/assets/illustrations/Online%20tech%20talks-bro.png" />
+        <!-- LEFT: R3ACTR Editorial Hero Content -->
+        <div class="lg:col-span-6 flex flex-col justify-center text-left">
+          <!-- Headline with blur arrival -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-5 font-sans animate-blur-arrive">
+            Engineering the next era of <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">intelligent</span> systems.
+          </h1>
 
-    <SnapshotCarousel />
+          <!-- Subheading with slight delay -->
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mb-8 animate-blur-arrive-delay-1">
+            R3ACTR designs autonomous software, high-performance deep learning workflows, and modern web architectures with relentless precision and speed.
+          </p>
 
-    <HeroSection
-      title=`Write Smarter. Format Automatically with <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Paper Lab</span>.`
-      subTitle="Built for academics and professionals. Paper Lab combines the ease of a rich-text WYSIWYG editor with the power of Python-based templating and LaTeX compilation. Focus on your research, not your references."
-      primaryBtn="Launch Paper Lab"
-      primaryBtnURL="https://paperlab.r3actr.work/"
-      withReview={false}
-      src="/assets/illustrations/Online%20document-pana%20(1).png"
-      alt="Paper Lab Illustration"
-    />
+          <!-- CTA Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 animate-blur-arrive-delay-2">
+            <a
+              href="#playground"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-neutral-800 active:scale-95 transition-all"
+            >
+              <span>Explore Solutions</span>
+              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+              </svg>
+            </a>
 
-    <HeroSectionAlt
-      title=`Open <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Source Quest</span>`
-      subTitle="Open Source Quest is a structured, month-long open-source contribution program designed to help students gain real-world experience with professional software development workflows.<br/><br/>Participants work individually on curated, domain-specific GitHub repositories under guided mentorship. The program focuses on understanding how real open-source projects function—through issues, pull requests, reviews, and consistent contributions—rather than competitive coding or short-term hackathons."
-      url="https://github.com/R3ACTR"
-      images={[
-        '/assets/others/osq.webp',
-        '/assets/others/osq1.png',
-        '/assets/others/osq3.png',
-      ]}
-    />
+            <a
+              href="https://github.com/R3ACTR"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-100 border border-neutral-300/80 px-6 py-3 text-sm font-semibold text-neutral-900 hover:bg-neutral-200/70 active:scale-95 transition-all"
+            >
+              <span>Open Source Hub</span>
+            </a>
+          </div>
+        </div>
 
-    <FeaturedBlogSection />
+        <!-- RIGHT: Voice Orb with gentle blur arrival -->
+        <div class="lg:col-span-6 flex items-center justify-center relative overflow-visible animate-blur-arrive-delay-2">
+          <div class="w-full max-w-[540px] lg:max-w-[620px] aspect-square flex items-center justify-center">
+            <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;"></voice-orb>
+          </div>
+        </div>
 
-    <PublicationsSection />
+      </div>
+    </section>
+
+    <!-- OVERLAPPING SECTION: Our playground (Scrolls up over the hero with rounded borders & soft shadow) -->
+    <section id="playground" class="relative z-20 w-full rounded-t-[36px] sm:rounded-t-[48px] bg-white text-neutral-900 border-t border-neutral-200/90 shadow-[0_-16px_40px_rgba(0,0,0,0.08)] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-16 sm:pb-20">
+      <div class="mx-auto w-full max-w-7xl">
+        <div class="mb-10 sm:mb-14 reveal-on-scroll">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans">
+            Our <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b8599] via-[#4d6b46] to-[#254226]" style="background-image: linear-gradient(135deg, #6b8599 0%, #4d6b46 50%, #254226 100%), url('/gradients/creative-9.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">playground</span>.
+          </h2>
+        </div>        <!-- SVG Grain Texture Filter Definition (Hidden) -->
+        <svg class="sr-only" aria-hidden="true">
+          <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.45 0" />
+          </filter>
+          <filter id="heavyNoiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.90 0" />
+          </filter>
+        </svg>
+
+        <!-- 4 Grid Cards: Square Graphic Tiles + Clean Content Below -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
+
+          <!-- Card 01: Digital Products -->
+          <div class="flex flex-col group reveal-on-scroll reveal-delay-1">
+            <!-- Square Rounded Gradient Texture Card with Centered Heading -->
+            <div class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(228,118,72,0.35)] hover:-translate-y-1">
+              <!-- Full Gradient Art Backdrop -->
+              <img
+                src="/gradients/creative-1.webp"
+                alt="Digital Products"
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <!-- SVG Sand Grain Noise Overlay -->
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <!-- Centered Title on Square Card -->
+              <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+                Digital<br/>Products
+              </h3>
+            </div>
+
+            <!-- Content Directly Below Square Card -->
+            <div class="pt-5 flex flex-col">
+              <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+                01 / Digital Products
+              </span>
+              <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+                We turn bold ideas into useful digital products — designed to solve real problems and create meaningful experiences.
+              </p>
+              <a
+                href="/contact"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              >
+                <span>From concept to launch</span>
+                <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 02: Micro SaaS -->
+          <div class="flex flex-col group reveal-on-scroll reveal-delay-2">
+            <!-- Square Rounded Gradient Texture Card with Centered Heading -->
+            <div class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(216,122,42,0.35)] hover:-translate-y-1">
+              <!-- Full Gradient Art Backdrop -->
+              <img
+                src="/gradients/creative-5.webp"
+                alt="Micro SaaS"
+                class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <!-- Concentric Topo Wave Texture -->
+              <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+              <!-- SVG Sand Grain Noise Overlay -->
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <!-- Centered Title on Square Card -->
+              <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+                Micro<br/>SaaS
+              </h3>
+            </div>
+
+            <!-- Content Directly Below Square Card -->
+            <div class="pt-5 flex flex-col">
+              <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+                02 / Micro SaaS
+              </span>
+              <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+                Small, focused software. Big solutions. We build lean, scalable tools that simplify workflows and tackle niche problems.
+              </p>
+              <a
+                href="/contact"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              >
+                <span>Built to solve, designed to scale</span>
+                <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 03: Web Engineering -->
+          <div class="flex flex-col group reveal-on-scroll reveal-delay-3">
+            <!-- Square Rounded Gradient Texture Card with Centered Heading -->
+            <div class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b8599] via-[#4d6b46] to-[#254226] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(77,107,70,0.35)] hover:-translate-y-1">
+              <!-- Full Gradient Art Backdrop -->
+              <img
+                src="/gradients/creative-9.webp"
+                alt="Web Engineering"
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <!-- SVG Sand Grain Noise Overlay -->
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <!-- Centered Title on Square Card -->
+              <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+                Web<br/>Engineering
+              </h3>
+            </div>
+
+            <!-- Content Directly Below Square Card -->
+            <div class="pt-5 flex flex-col">
+              <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+                03 / Web Services
+              </span>
+              <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+                We design and develop high-performance websites and web applications that bring brands, businesses, and ideas to life.
+              </p>
+              <a
+                href="/contact"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              >
+                <span>Design. Develop. Deploy.</span>
+                <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 04: Tech & Community -->
+          <div class="flex flex-col group reveal-on-scroll reveal-delay-4">
+            <!-- Square Rounded Gradient Texture Card with Centered Heading -->
+            <div class="relative w-full aspect-square overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2a3861] via-[#5c3c73] to-[#803d52] p-6 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(92,60,115,0.35)] hover:-translate-y-1">
+              <!-- Full Gradient Art Backdrop -->
+              <img
+                src="/gradients/tvqokiltm5q-Agents-BG.webp"
+                alt="Tech Community"
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <!-- SVG Sand Grain Noise Overlay -->
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <!-- Centered Title on Square Card -->
+              <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
+                Tech &<br/>Community
+              </h3>
+            </div>
+
+            <!-- Content Directly Below Square Card -->
+            <div class="pt-5 flex flex-col">
+              <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+                04 / Tech Events
+              </span>
+              <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+                We bring curious minds together through tech events, collaborative sessions, and experiences that spark ideas and build connections.
+              </p>
+              <a
+                href="/contact"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              >
+                <span>Connect. Collaborate. Create.</span>
+                <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Ideas in action. -->
+    <section class="relative z-20 w-full bg-white text-neutral-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-neutral-100">
+      <div class="mx-auto w-full max-w-7xl">
+        <div class="mb-8 sm:mb-10 reveal-on-scroll">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans">
+            Ideas in <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2a3861] via-[#5c3c73] to-[#803d52]" style="background-image: linear-gradient(135deg, #2a3861 0%, #5c3c73 50%, #803d52 100%), url('/gradients/tvqokiltm5q-Agents-BG.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">action</span>.
+          </h2>
+        </div>
+
+        <!-- Video Showcase Container with custom Play/Pause toggle only -->
+        <div class="relative w-full overflow-hidden rounded-[28px] sm:rounded-[36px] border border-neutral-200/80 bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.08)] group reveal-on-scroll">
+          <video
+            id="showcase-video"
+            class="w-full h-auto object-cover block cursor-pointer"
+            src="https://ik.imagekit.io/hvfqhwn3j/r3actrpaperlabn.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+          >
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Custom Play/Pause Button (bottom-right / bottom-left or centered) -->
+          <button
+            id="video-toggle-btn"
+            type="button"
+            aria-label="Pause video"
+            class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-10 flex items-center justify-center h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-black/60 hover:bg-black/85 text-white backdrop-blur-md border border-white/20 shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+          >
+            <!-- Pause Icon (shown when playing) -->
+            <svg id="pause-icon" class="h-5 w-5 fill-current" viewBox="0 0 256 256">
+              <path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"/>
+            </svg>
+            <!-- Play Icon (shown when paused) -->
+            <svg id="play-icon" class="h-5 w-5 fill-current hidden ml-0.5" viewBox="0 0 256 256">
+              <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65A16,16,0,0,1,64,216.13V39.87A16,16,0,0,1,88.32,26.35L232.4,114.49A15.74,15.74,0,0,1,240,128Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Product Introduction: Paperlab -->
+        <div class="mt-6 sm:mt-8 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 reveal-on-scroll">
+          <div class="max-w-3xl">
+            <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+              Introducing Paperlab
+            </span>
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
+              Write Smarter. Format Automatically.
+            </h3>
+            <p class="text-base sm:text-lg text-neutral-600 leading-relaxed">
+              Built for academics and professionals. Combines the ease of a rich-text WYSIWYG editor with the power of Python-based templating and LaTeX compilation.
+            </p>
+          </div>
+
+          <div class="shrink-0">
+            <a
+              href="https://apps.microsoft.com/detail/9P0XRRPBC34P"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2.5 rounded-full bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 hover:shadow-md transition-all active:scale-95"
+            >
+              <span>Get on Microsoft Store</span>
+              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Community / Curiosity -->
+    <section class="relative z-20 w-full bg-white text-neutral-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-neutral-100">
+      <div class="mx-auto w-full max-w-7xl">
+        <div class="max-w-4xl mb-8 sm:mb-10 reveal-on-scroll">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-5">
+            Technology brings us together. <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1e4a6e] via-[#207d8a] to-[#38b2ac]" style="background-image: linear-gradient(135deg, #1e4a6e 0%, #207d8a 50%, #38b2ac 100%), url('/gradients/31vqrnjmkll-Creatives-BG.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">Curiosity</span> keeps us moving.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            We create spaces for curious minds to meet, exchange ideas, explore emerging technologies, and build what's next — together.
+          </p>
+        </div>
+
+        <!-- 2 Gradient Boxes: Open Source Quest & Dooms Protocol -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8">
+          <!-- Box 1: Open Source Quest (Orange) -->
+          <a
+            href="https://www.opensourcequest.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-8 sm:p-10 lg:p-12 min-h-[340px] sm:min-h-[400px] flex flex-col justify-between shadow-xl cursor-pointer block text-left transition-transform duration-300 active:scale-[0.99] reveal-on-scroll reveal-delay-1"
+          >
+            <!-- Full Gradient Art Backdrop (Exactly like Playground Card 01) -->
+            <img
+              src="/gradients/creative-1.webp"
+              alt="Open Source Quest"
+              class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+              loading="lazy"
+            />
+            <!-- SVG Sand Grain Noise Overlay (Same as Playground) -->
+            <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+            <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+            <!-- Header / Graphic Area (Using odq.webp) -->
+            <div class="relative z-10 flex items-center justify-between">
+              <img
+                src="/events/odq.webp"
+                alt="Open Source Quest Mascot"
+                class="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-md invert pointer-events-none select-none"
+                loading="lazy"
+              />
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30 text-lg shadow-sm">
+                ↗
+              </span>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 mt-auto pt-8">
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-sans drop-shadow-md mb-3">
+                Open Source Quest
+              </h3>
+              <p class="text-base sm:text-lg text-white/95 leading-relaxed max-w-md drop-shadow-sm">
+                Empowering developers, students, and creators through collaborative hacking and open-source contributions.
+              </p>
+            </div>
+          </a>
+
+          <!-- Box 2: Dooms Protocol (Green) -->
+          <a
+            href="https://www.doomsprotocol.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-[32px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b8599] via-[#4d6b46] to-[#254226] p-8 sm:p-10 lg:p-12 min-h-[340px] sm:min-h-[400px] flex flex-col justify-between shadow-xl cursor-pointer block text-left transition-transform duration-300 active:scale-[0.99] reveal-on-scroll reveal-delay-2"
+          >
+            <!-- Full Gradient Art Backdrop (Exactly like Playground Card 03) -->
+            <img
+              src="/gradients/creative-9.webp"
+              alt="Dooms Protocol"
+              class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+              loading="lazy"
+            />
+            <!-- SVG Sand Grain Noise Overlay (Same as Playground) -->
+            <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+            <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+            <!-- Header / Graphic Area (Using DOOMS PROTOCOL COMIC LOGO.webp) -->
+            <div class="relative z-10 flex items-center justify-between">
+              <img
+                src="/events/DOOMS%20PROTOCOL%20COMIC%20LOGO.webp"
+                alt="Dooms Protocol Comic Logo"
+                class="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-md pointer-events-none select-none"
+                loading="lazy"
+              />
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30 text-lg shadow-sm">
+                ↗
+              </span>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 mt-auto pt-8">
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-sans drop-shadow-md mb-3">
+                Dooms Protocol
+              </h3>
+              <p class="text-base sm:text-lg text-white/95 leading-relaxed max-w-md drop-shadow-sm">
+                High-octane engineering challenges and hackathons designed to push boundary thinking under intense scenarios.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Founders / Leadership Team (Matching Reference Layout & Organic Shapes) -->
+    <section class="relative z-20 w-full bg-white text-neutral-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-neutral-100">
+      <div class="mx-auto w-full max-w-7xl">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-14 sm:mb-16 reveal-on-scroll">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Founding Team
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-4">
+            The minds building <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] via-[#ec4899] to-[#f97316]" style="background-image: linear-gradient(135deg, #d946ef 0%, #ec4899 50%, #f97316 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">R3ACTR</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            A small, relentless team combining product engineering, deep learning, systems architecture, and community leadership.
+          </p>
+        </div>
+
+        <!-- 4 Founders Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
+          
+          <!-- Founder 1: Abhinav R (Dark Charcoal Double Curved Shape) -->
+          <div class="flex flex-col items-center text-center reveal-on-scroll reveal-delay-1">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#3c3e4c] rounded-[52px] flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <!-- Geometric Accent / Silhouette Backdrop -->
+              <div class="absolute -top-10 -left-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none"></div>
+              <img
+                src="/assets/id/abhinav_nobg.png"
+                alt="Abhinav R"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none filter grayscale contrast-110 transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Abhinav R
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CEO
+              </p>
+              <!-- Socials: X and LinkedIn -->
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/abhinavr-19"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Abhinav R GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abhinav-r-a2b970286"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Abhinav R LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 2: Sreehari R (Warm Orange Dome Arch) -->
+          <div class="flex flex-col items-center text-center reveal-on-scroll reveal-delay-2">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#ff9352] shape-arch flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/shr_nobg.png"
+                alt="Sreehari R"
+                class="w-[114%] h-[114%] max-w-none object-contain object-bottom select-none pointer-events-none translate-y-11 scale-105 transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Sreehari R
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CTO
+              </p>
+              <!-- Socials: X and LinkedIn -->
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://x.com/r3actr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Sreehari R X"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sree14hari/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Sreehari R LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 3: Neeraj Sukumaran (Sunny Yellow Oval / Egg Shape) -->
+          <div class="flex flex-col items-center text-center reveal-on-scroll reveal-delay-3">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#fae06b] shape-egg flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/neeraj_nobg.png"
+                alt="Neeraj Sukumaran"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Neeraj Sukumaran
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CPIO
+              </p>
+              <!-- Socials: X and LinkedIn -->
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://x.com/r3actr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Neeraj Sukumaran X"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/neeraj-sukumaran"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Neeraj Sukumaran LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 4: Kalidas V S (Sky Blue Rounded Triple Tier Shape) -->
+          <div class="flex flex-col items-center text-center reveal-on-scroll reveal-delay-4">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#22b7fa] rounded-[48px] flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <!-- Geometric Horizontal Lines Accent -->
+              <div class="absolute inset-0 flex flex-col justify-between py-6 opacity-20 pointer-events-none">
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+              </div>
+              <img
+                src="/assets/id/kalidas_nobg.png"
+                alt="Kalidas V S"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Kalidas V S
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & COO
+              </p>
+              <!-- Socials: X and LinkedIn -->
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://x.com/r3actr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Kalidas V S X"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/kalidas-v-s-853b0a293"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Kalidas V S LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: Frequently Asked Questions (FAQ) -->
+    <section id="faq" class="relative z-20 w-full bg-white text-neutral-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-neutral-100">
+      <div class="mx-auto w-full max-w-5xl">
+        
+        <!-- Header -->
+        <div class="mb-12 sm:mb-16 reveal-on-scroll">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Frequently Asked Questions
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans mb-4">
+            Questions? We've got <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#a855f7]" style="background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%), url('/gradients/tvqokiltm5q-Agents-BG.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">answers</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            Find out more about what we build, how we work, and how you can get involved with R3ACTR.
+          </p>
+        </div>
+
+        <!-- FAQ Categories & Accordions -->
+        <div class="space-y-12 sm:space-y-16">
+          
+          <!-- Category 1: About R3ACTR -->
+          <div class="reveal-on-scroll">
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-sans mb-5 pb-3 border-b border-neutral-200">
+              About R3ACTR
+            </h3>
+            <div class="divide-y divide-neutral-200/80">
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>What is R3ACTR?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  R3ACTR is a technology-driven team focused on building useful software products, digital experiences, and tools. We bring together engineering, creativity, and practical problem-solving to turn ideas into things people can use.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>What does R3ACTR do?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  We build digital products, develop Micro SaaS solutions, create websites and web applications, and bring people together through technology-focused events and initiatives.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>What makes R3ACTR different?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  We focus on practical outcomes, thoughtful design, and technology that serves a purpose. Rather than building for the sake of it, we aim to create solutions that are useful, intuitive, and built to evolve.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category 2: Products & Services -->
+          <div class="reveal-on-scroll">
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-sans mb-5 pb-3 border-b border-neutral-200">
+              Products & Services
+            </h3>
+            <div class="divide-y divide-neutral-200/80">
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>What kind of products does R3ACTR build?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  We build software tools and digital products designed to solve specific problems. Our work can include productivity platforms, web-based tools, SaaS applications, and other software experiences.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>What is Micro SaaS?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Micro SaaS refers to focused software products that solve a particular problem for a specific audience. At R3ACTR, this means building streamlined, accessible tools with clear use cases and room to grow.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Can R3ACTR build a website or web application for my business?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Yes. We can work with businesses, founders, creators, and teams to develop websites and web applications tailored to their goals, audience, and functional requirements.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Do you work on existing websites or products?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Yes. Depending on the project, we can help improve an existing digital product through interface redesign, feature development, performance improvements, and other technical enhancements.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Can you help turn my idea into a product?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Yes. Share your idea, the problem you want to solve, and who the product is for. We can discuss the scope, identify a practical starting point, and determine the next steps toward building it.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category 3: Working Together -->
+          <div class="reveal-on-scroll">
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-sans mb-5 pb-3 border-b border-neutral-200">
+              Working Together
+            </h3>
+            <div class="divide-y divide-neutral-200/80">
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Who can work with R3ACTR?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  We welcome enquiries from startups, businesses, founders, creators, developers, and organizations looking for a technology partner or opportunities to collaborate.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>How do I start a project with R3ACTR?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Reach out through our contact page with a brief description of your idea, goals, expected features, and timeline. We'll review the details and discuss whether the project is a good fit.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>How much does a project cost?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Pricing depends on the scope, complexity, features, and timeline. Once we understand your requirements, we can discuss an appropriate scope and provide a project-specific estimate.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>How long does it take to build a website or product?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Timelines vary based on the size and complexity of the project. A focused website may take considerably less time than a custom application with multiple integrations. We'll establish a realistic timeline after defining the scope.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category 4: Community & Events -->
+          <div class="reveal-on-scroll">
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-sans mb-5 pb-3 border-b border-neutral-200">
+              Community & Events
+            </h3>
+            <div class="divide-y divide-neutral-200/80">
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Does R3ACTR organize tech events?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Tech events and community initiatives are among our focus areas. These may include learning sessions, developer meetups, collaborative activities, and opportunities to connect with people interested in technology.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>Can I collaborate with R3ACTR on an event?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Yes. If you're interested in hosting an event, partnering on a workshop, sharing technical knowledge, or supporting a community initiative, contact us with your proposal.
+                </p>
+              </details>
+
+              <details class="group py-4 sm:py-5 cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                  <span>How can I stay updated on R3ACTR projects and events?</span>
+                  <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6">
+                  Follow our official social channels and check our website for project updates, announcements, opportunities, and upcoming activities.
+                </p>
+              </details>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
   </div>
+
+  <!-- Video Play/Pause Controller -->
+  <script is:inline>
+    (() => {
+      const video = document.getElementById('showcase-video');
+      const btn = document.getElementById('video-toggle-btn');
+      const pauseIcon = document.getElementById('pause-icon');
+      const playIcon = document.getElementById('play-icon');
+
+      if (!video || !btn) return;
+
+      const updateState = () => {
+        if (video.paused) {
+          pauseIcon?.classList.add('hidden');
+          playIcon?.classList.remove('hidden');
+          btn.setAttribute('aria-label', 'Play video');
+        } else {
+          pauseIcon?.classList.remove('hidden');
+          playIcon?.classList.add('hidden');
+          btn.setAttribute('aria-label', 'Pause video');
+        }
+      };
+
+      const togglePlay = () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+        updateState();
+      };
+
+      btn.addEventListener('click', togglePlay);
+      video.addEventListener('click', togglePlay);
+      video.addEventListener('play', updateState);
+      video.addEventListener('pause', updateState);
+    })();
+  </script>
+
+  <!-- Scroll-Triggered Reveal Animation Observer -->
+  <script is:inline>
+    (() => {
+      const elements = document.querySelectorAll('.reveal-on-scroll');
+      if (!elements.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    })();
+  </script>
+
+  <!-- Load voice-orb script -->
+  <script src="/voice-orb.js" defer></script>
 </MainLayout>

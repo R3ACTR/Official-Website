@@ -9,17 +9,17 @@ interface Props {
 }
 // Define CSS classes for the hyperlink button
 const baseClasses =
-  'inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-center text-sm font-medium text-neutral-600 shadow-xs outline-hidden ring-zinc-500 focus-visible:ring-3 transition duration-300';
-const borderClasses = 'border border-neutral-200';
-const bgColorClasses = 'bg-neutral-300';
+  'inline-flex items-center justify-center gap-x-2 rounded-xl px-5 py-3 text-center text-sm font-semibold text-slate-200 shadow-xs outline-hidden transition duration-300 active:scale-95';
+const borderClasses = 'border border-white/15';
+const bgColorClasses = 'bg-[#162744] hover:bg-[#1f375f] hover:text-white';
 const hoverClasses =
-  'hover:bg-neutral-400/50 hover:text-neutral-600 active:text-neutral-700';
+  'hover:border-white/30';
 const disableClasses = 'disabled:pointer-events-none disabled:opacity-50';
 const fontSizeClasses = '2xl:text-base';
-const ringClasses = 'ring-zinc-500';
+const ringClasses = 'focus-visible:ring-2 focus-visible:ring-cyan-400';
 
 const darkClasses =
-  'dark:border-neutral-700 dark:bg-zinc-700 dark:text-neutral-300 dark:ring-zinc-200 dark:hover:bg-zinc-600 dark:focus:outline-hidden';
+  'dark:border-white/15 dark:bg-[#162744] dark:text-slate-200 dark:hover:bg-[#1f375f] dark:hover:text-white dark:focus:outline-hidden';
 ---
 
 {/* Styled hyperlink */}

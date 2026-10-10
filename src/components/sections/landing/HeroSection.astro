@@ -50,7 +50,7 @@ interface Props {
       /* Each h1 and p tag renders a portion of the title and subTitle defined above */
     }
     <h1
-      class="block text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
+      class="block text-3xl font-bold tracking-tight text-balance text-white sm:text-4xl lg:text-6xl lg:leading-tight"
     >
       {
         /* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */
@@ -59,7 +59,7 @@ interface Props {
     </h1>
     {
       subTitle && (
-        <p class="mt-3 text-lg leading-relaxed text-pretty text-neutral-700 lg:w-4/5 dark:text-neutral-400">
+        <p class="mt-3 text-lg leading-relaxed text-pretty text-slate-300 lg:w-4/5">
           {subTitle}
         </p>
       )
