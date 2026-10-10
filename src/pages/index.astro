@@ -258,17 +258,20 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
         </div>
 
         <!-- Video Showcase Container with custom Play/Pause toggle only -->
-        <div class="relative w-full overflow-hidden rounded-[28px] sm:rounded-[36px] border border-neutral-200/80 bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.08)] group reveal-on-scroll">
+        <div class="relative w-full overflow-hidden rounded-[28px] sm:rounded-[36px] border border-neutral-200/80 bg-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.08)] group reveal-on-scroll">
           <video
             id="showcase-video"
             class="w-full h-auto object-cover block cursor-pointer"
-            src="https://ik.imagekit.io/hvfqhwn3j/r3actrpaperlabn.mp4"
+            poster="/paperlab-poster.jpg"
             autoplay
             loop
             muted
             playsinline
-            preload="metadata"
+            webkit-playsinline
+            preload="auto"
           >
+            <source src="https://ik.imagekit.io/hvfqhwn3j/r3actrpaperlabn.mp4?tr=w-1080,q-50" type="video/mp4" />
+            <source src="https://paperlab.r3actr.work/media/hero-video/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -873,7 +876,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
     </section>
   </div>
 
-  <!-- Video Play/Pause Controller -->
+  <!-- Video Play/Pause Controller & Viewport Autoplay -->
   <script is:inline>
     (() => {
       const video = document.getElementById('showcase-video');
@@ -897,7 +900,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
 
       const togglePlay = () => {
         if (video.paused) {
-          video.play();
+          video.play().catch(() => {});
         } else {
           video.pause();
         }
@@ -908,6 +911,20 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
       video.addEventListener('click', togglePlay);
       video.addEventListener('play', updateState);
       video.addEventListener('pause', updateState);
+
+      // Attempt initial autoplay
+      video.muted = true;
+      video.play().catch(() => {});
+
+      // Play when visible in viewport
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && video.paused) {
+            video.play().catch(() => {});
+          }
+        });
+      }, { threshold: 0.2 });
+      videoObserver.observe(video);
     })();
   </script>
 
