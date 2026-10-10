@@ -2,18 +2,20 @@ import ogImageSrc from '@images/icon.png';
 
 export const SITE = {
   title: 'R3ACTR',
-  tagline: 'Building intelligent software for what’s next',
+  tagline: 'Engineering the next era of intelligent systems',
   description:
-    'We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers.',
+    'R3ACTR designs autonomous software, high-performance deep learning workflows, and modern web architectures with relentless precision and speed.',
   description_short:
-    'Building intelligent software for what’s next.',
-  url: 'https://r3actr.work',
-  author: 'R3ACTR Innovations',
+    'Intelligent Systems & Autonomous Engineering.',
+  url: 'https://r3actr.com',
+  author: 'R3ACTR Innovations LLP',
 };
 
 export const SEO = {
-  title: SITE.title,
+  title: `${SITE.title} • ${SITE.tagline}`,
   description: SITE.description,
+  keywords:
+    'R3ACTR, r3actr.com, R3ACTR Innovations, autonomous software, deep learning, artificial intelligence, intelligent systems, modern web architectures, PaperLab, Dooms Protocol, machine learning research, software engineering, systems architecture',
   structuredData: {
     '@context': 'https://schema.org',
     '@graph': [
@@ -21,17 +23,48 @@ export const SEO = {
         '@type': 'Organization',
         '@id': `${SITE.url}/#organization`,
         name: 'R3ACTR',
+        legalName: 'R3ACTR Innovations LLP',
         url: SITE.url,
-        logo: `${SITE.url}/R3ACTR%20INNOVATIONS%20LLP.svg`,
-        sameAs: ['https://github.com/R3ACTR', 'https://paperlab.r3actr.work'],
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE.url}/R3ACTR%20INNOVATIONS%20LLP.svg`,
+          width: '512',
+          height: '512',
+        },
+        image: `${SITE.url}/icon.png`,
+        sameAs: [
+          'https://github.com/R3ACTR',
+          'https://x.com/r3actr',
+          'https://twitter.com/r3actr',
+          'https://linkedin.com/company/r3actr',
+          'https://paperlab.r3actr.work',
+          'https://ambassador.r3actr.work',
+          'https://www.doomsprotocol.xyz',
+        ],
         description: SITE.description,
         email: 'r3actr@gmail.com',
+        knowsAbout: [
+          'Artificial Intelligence',
+          'Autonomous Software Engineering',
+          'Deep Learning & Neural Architectures',
+          'Mechanistic Interpretability',
+          'Modern Web Applications',
+          'Distributed Systems',
+          'Scientific & Academic Tools',
+        ],
+        founders: [
+          { '@type': 'Person', name: 'Abhinav R', jobTitle: 'Co-Founder & CEO' },
+          { '@type': 'Person', name: 'Sreehari R', jobTitle: 'Co-Founder & CTO' },
+          { '@type': 'Person', name: 'Neeraj Sukumaran', jobTitle: 'Co-Founder & CPIO' },
+          { '@type': 'Person', name: 'Kalidas V S', jobTitle: 'Co-Founder & COO' },
+        ],
       },
       {
         '@type': 'WebSite',
         '@id': `${SITE.url}/#website`,
         url: SITE.url,
         name: SITE.title,
+        alternateName: ['R3ACTR Innovations', 'R3ACTR Innovations LLP', 'r3actr.com'],
         description: SITE.description,
         publisher: {
           '@id': `${SITE.url}/#organization`,
@@ -42,7 +75,7 @@ export const SEO = {
         '@type': 'WebPage',
         '@id': `${SITE.url}/#webpage`,
         url: SITE.url,
-        name: `${SITE.title} | ${SITE.tagline}`,
+        name: `${SITE.title} • ${SITE.tagline}`,
         isPartOf: {
           '@id': `${SITE.url}/#website`,
         },
@@ -60,9 +93,8 @@ export const OG = {
   locale: 'en_US',
   type: 'website',
   url: SITE.url,
-  title: `${SITE.title}: Building Intelligent Software for What’s Next`,
-  description:
-    "We research, develop, and deploy next-generation software products with a distributed team of engineers and researchers.",
+  title: `${SITE.title} • ${SITE.tagline}`,
+  description: SITE.description,
   image: ogImageSrc,
 };
 

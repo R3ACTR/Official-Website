@@ -66,7 +66,7 @@ export const coreTeam: TeamMember[] = [
         name: 'R3ACTR Platform',
         role: 'Co-Founder & Lead',
         desc: 'Directing overarching engineering strategy and platform deployment.',
-        url: 'https://r3actr.work',
+        url: 'https://r3actr.com',
       },
     ],
     socials: [
@@ -207,7 +207,7 @@ export const coreTeam: TeamMember[] = [
         name: 'R3ACTR Public Relations',
         role: 'CPIO & Co-Founder',
         desc: 'Directing outward institutional communications, documentation integrity, and community engagement.',
-        url: 'https://r3actr.work',
+        url: 'https://r3actr.com',
       },
     ],
     socials: [
@@ -266,7 +266,7 @@ export const coreTeam: TeamMember[] = [
         name: 'R3ACTR Operations',
         role: 'COO & Co-Founder',
         desc: 'Directing operational scale, program logistics, and execution frameworks across all active labs.',
-        url: 'https://r3actr.work',
+        url: 'https://r3actr.com',
       },
     ],
     socials: [
@@ -325,7 +325,7 @@ export const coreTeam: TeamMember[] = [
         name: 'R3ACTR External Partnerships',
         role: 'Director of External Relations',
         desc: 'Structuring institutional partnerships and collaborative alliances across tech ecosystems.',
-        url: 'https://r3actr.work',
+        url: 'https://r3actr.com',
       },
     ],
     socials: [
@@ -374,7 +374,7 @@ export const coreTeam: TeamMember[] = [
         name: 'R3ACTR Documentation Standards',
         role: 'Documentation Lead',
         desc: 'Authoring architectural whitepapers, developer handbooks, and system documentation frameworks.',
-        url: 'https://r3actr.work',
+        url: 'https://r3actr.com',
       },
     ],
     socials: [

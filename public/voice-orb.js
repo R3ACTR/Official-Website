@@ -104,7 +104,7 @@
     float flow=pow(.5+.5*sin(angle*13.0+(weights.y-weights.w)*t*5.8+drift*2.0),7.0);
     float depth=clamp((pos.z+1.35)/2.7,0.0,1.0);
     float perspective=3.8/(3.8-pos.z*.60);
-    gl_Position=vec4(pos.xy*perspective*.72,0,1);
+    gl_Position=vec4(pos.xy*perspective*.80,0,1);
     float point=(3.6+3.2*depth+1.6*rim)*density;
     point+=active*high*pop*2.2 + talkDisperse * 0.55 * weights.x;
     gl_PointSize=max(3.2,point*pixels/680.0);

@@ -39,7 +39,7 @@ const socialImageRes = await getImage({
   width: 1200,
   height: 600,
 });
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+const socialImage = new URL(socialImageRes.src, Astro.site || 'https://r3actr.com').href;
 
 const languages: { [key: string]: string } = {
   en: '',
@@ -73,13 +73,24 @@ const hostname = new URL(canonical).hostname;
     />
   )
 }
-{/* Define the character set, description, author, robots, and viewport settings */}
+{/* Primary Meta Tags */}
 <meta charset="utf-8" />
 <meta content={description} name="description" />
+<meta name="keywords" content={SEO.keywords} />
+<meta name="author" content={author} />
+<meta name="publisher" content={SITE.title} />
+<meta name="copyright" content={`© ${new Date().getFullYear()} ${author}`} />
+<meta name="application-name" content="R3ACTR" />
+<meta name="apple-mobile-web-app-title" content="R3ACTR" />
 <meta name="web_author" content={author} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+{/* Search Engine Crawler Directives */}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
 <link rel="canonical" href={canonical} />
 {
   Object.entries(languages).map(([lang, prefix]) => {
@@ -104,17 +115,22 @@ const hostname = new URL(canonical).hostname;
 <meta property="og:site_name" content={SITE.title} />
 <meta property="og:description" content={ogDescription} />
 <meta property="og:image" content={socialImage} />
+<meta property="og:image:secure_url" content={socialImage} />
+<meta property="og:image:alt" content={`${SITE.title} • ${SITE.tagline}`} />
 <meta content="1200" property="og:image:width" />
 <meta content="600" property="og:image:height" />
 <meta content="image/png" property="og:image:type" />
 
 {/* Twitter Meta Tags */}
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@r3actr" />
+<meta name="twitter:creator" content="@r3actr" />
 <meta property="twitter:domain" content={hostname} />
 <meta property="twitter:url" content={canonical} />
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
+<meta name="twitter:image:alt" content={`${SITE.title} • ${SITE.tagline}`} />
 
 {/* Links to the webmanifest and sitemap */}
 <link rel="manifest" href="/manifest.json" />

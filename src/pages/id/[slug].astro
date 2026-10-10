@@ -18,7 +18,7 @@ const { member } = Astro.props;
 
 const pageTitle = `${member.name} • ${member.title} | ${SITE.title} ID`;
 const pageDescription = `Official R3ACTR Core Team Member ID for ${member.name}. ${member.role} in ${member.department}. ID: ${member.idNumber}.`;
-const canonicalUrl = `https://r3actr.work/id/${member.slug}`;
+const canonicalUrl = `https://r3actr.com/id/${member.slug}`;
 ---
 
 <MainLayout
@@ -33,10 +33,10 @@ const canonicalUrl = `https://r3actr.work/id/${member.slug}`;
     worksFor: {
       '@type': 'Organization',
       name: 'R3ACTR Innovations',
-      url: 'https://r3actr.work',
+      url: 'https://r3actr.com',
     },
     url: canonicalUrl,
-    image: member.avatar.startsWith('http') ? member.avatar : `https://r3actr.work${member.avatar}`,
+    image: member.avatar.startsWith('http') ? member.avatar : `https://r3actr.com${member.avatar}`,
     sameAs: member.socials.map((s) => s.url),
     knowsAbout: member.skills,
   }}

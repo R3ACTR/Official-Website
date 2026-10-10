@@ -1,7 +1,7 @@
 # R3ACTR - Complete Documentation & Knowledge Base
 
 > Organization: R3ACTR  
-> Canonical URL: https://r3actr.work  
+> Canonical URL: https://r3actr.com  
 > Contact: r3actr@gmail.com  
 > GitHub: https://github.com/R3ACTR  
 > Tagline: Building intelligent software for whatâ€™s next.
@@ -130,7 +130,7 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 **A**: R3ACTR is an independent tech startup and software research collective. We specialize in building developer platforms, scientific computing tools, open-source initiatives, and bespoke AI/Web3 software solutions for clients and researchers globally.
 
 ### Q: How can I collaborate or work with R3ACTR?
-**A**: You can reach out via our contact page at https://r3actr.work/contact or email us directly at r3actr@gmail.com. Whether you are looking for custom software development, research partnerships, or consulting on AI/Web3 systems, we typically respond within 1-2 business days.
+**A**: You can reach out via our contact page at https://r3actr.com/contact or email us directly at r3actr@gmail.com. Whether you are looking for custom software development, research partnerships, or consulting on AI/Web3 systems, we typically respond within 1-2 business days.
 
 ### Q: What is PaperLab and how does it work?
 **A**: PaperLab (https://paperlab.r3actr.work) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.
@@ -149,7 +149,7 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 ## 7. Contact Information
 
 - **Organization**: R3ACTR Innovations
-- **Official Website**: https://r3actr.work
+- **Official Website**: https://r3actr.com
 - **Direct Email**: r3actr@gmail.com
 - **GitHub**: https://github.com/R3ACTR
 - **Paper Lab Platform**: https://paperlab.r3actr.work
