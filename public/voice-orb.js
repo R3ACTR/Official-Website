@@ -51,6 +51,15 @@
     float bass=noise(n*1.8+vec3(t*.32,0,-t*.2));
     float grain=noise(n*17.0+vec3(-t*1.8,t*.7,t));
     float low=bands.x, mid=bands.y, high=bands.z;
+    // Periodic speech-like utterance cadence (talk burst every 5s lasting ~1.6s)
+    float cycle = mod(t, 5.0);
+    float speechGate = smoothstep(0.0, 0.22, cycle) * (1.0 - smoothstep(1.3, 1.7, cycle));
+    // Multisyllabic acoustics (syllable inflection, formant waves, acoustic scatter)
+    float syllable = sin(t * 11.5 + angle * 8.0 + drift * 2.5);
+    float formant = sin(angle * 14.0 - t * 7.5 + drift * 1.5) * 0.5 + 0.5;
+    float jitter = sin(t * 22.0 + seed.w * 37.0) * 0.5 + 0.5;
+    float talkDisperse = speechGate * (0.6 * max(0.0, syllable) + 0.25 * formant + 0.15 * jitter);
+
     float idleR=1.0+.018*drift+.008*sin(t*.85);
     float inward=sin(angle*13.0+t*5.4+drift*1.6);
     float outward=sin(angle*12.0-t*6.2+drift*1.6);
@@ -65,6 +74,12 @@
     pos+=turn(n,t*.16)*listenR*weights.y;
     pos+=thought*weights.z;
     pos+=turn(n,t*.20)*speakR*weights.w;
+
+    // Disperse particles outward & in acoustic ripples during talk beats (idle mode) - subtle & elegant
+    if (weights.x > 0.01) {
+      vec3 outwardDir = normalize(pos + vec3(0.0001));
+      pos += outwardDir * (talkDisperse * (0.09 + 0.06 * seed.w) * weights.x);
+    }
 
     // Interactive Touch & Pointer reaction:
     if (touch.z > 0.001) {
@@ -91,15 +106,22 @@
     float perspective=3.8/(3.8-pos.z*.60);
     gl_Position=vec4(pos.xy*perspective*.72,0,1);
     float point=(3.6+3.2*depth+1.6*rim)*density;
-    point+=active*high*pop*2.2;
+    point+=active*high*pop*2.2 + talkDisperse * 0.55 * weights.x;
     gl_PointSize=max(3.2,point*pixels/680.0);
     float cool=.5+.5*sin(n.y*2.1+n.x*1.6+drift*.65);
-    // Obsidian Black tones: ultra-dark jet obsidian with subtle charcoal edge highlights
-    vec3 obsidian = mix(vec3(0.02, 0.02, 0.03), vec3(0.08, 0.09, 0.11), cool);
-    vec3 charcoal = mix(vec3(0.04, 0.04, 0.05), vec3(0.14, 0.15, 0.18), cool);
-    tint = mix(obsidian, charcoal, weights.y * 0.4 + weights.w * 0.5);
+    // Playground Card Gradients (Purple -> Orange/Coral -> Forest Green)
+    vec3 cPurple = vec3(0.42, 0.35, 0.48);
+    vec3 cCoral  = vec3(0.77, 0.41, 0.38);
+    vec3 cOrange = vec3(0.89, 0.46, 0.28);
+    vec3 cGreen  = vec3(0.18, 0.46, 0.24); // Card 03 forest green
+    // Smooth multidimensional gradient across the globe sphere surface
+    float gradMix = clamp((n.y * 0.5 + 0.5) + (cool - 0.5) * 0.3, 0.0, 1.0);
+    float greenAccent = clamp((sin(n.x * 2.2 + n.z * 1.8 + t * 0.15) * 0.5 + 0.5), 0.0, 1.0);
+    vec3 warmGrad = mix(cOrange, mix(cCoral, cPurple, smoothstep(0.45, 1.0, gradMix)), smoothstep(0.0, 0.55, gradMix));
+    vec3 cardTint = mix(warmGrad, cGreen, greenAccent * 0.35);
+    tint = cardTint;
     strength = (.65 + .40 * depth + .55 * rim) * (.75 + .25 * seed.w);
-    strength += active * (mid * flow * .6 + onset * rim * .5) + weights.z * belts * 0.8;
+    strength += active * (mid * flow * .6 + onset * rim * .5) + weights.z * belts * 0.8 + talkDisperse * 0.35 * weights.x;
     spark = active * (high * pop * .6 + onset * rim * .2) + weights.z * belts * .1;
   }`;
   const FS = `

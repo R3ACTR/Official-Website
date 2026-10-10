@@ -1,0 +1,278 @@
+---
+// Import layout and team data
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `The Squad | ${SITE.title}`;
+const pageDescription =
+  'Meet the engineers, architects, and researchers building intelligent software and autonomous systems at R3ACTR Innovations.';
+---
+
+<MainLayout title={pageTitle} customDescription={pageDescription}>
+  <div class="relative w-full bg-white text-neutral-900 font-sans min-h-screen">
+    
+    <!-- Top Hero Header Section -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 pt-14 sm:pt-20 pb-12 sm:pb-16 border-b border-neutral-100">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-3">
+            R3ACTR Innovations • Collective
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-5">
+            The <span class="bg-gradient-to-r from-[#d946ef] via-[#ec4899] to-[#f97316] bg-clip-text text-transparent">Squad</span>.
+          </h1>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            A small, relentless team combining product engineering, deep learning workflows, systems architecture, and community leadership.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Squad Grid Section (Exact Same Aesthetic and Pure Shapes as Founders Section) -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-14 lg:gap-16">
+          
+          <!-- 1. Abhinav R (Dark Charcoal Double Curved Shape) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#3c3e4c] rounded-[52px] flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <div class="absolute -top-10 -left-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none"></div>
+              <img
+                src="/assets/id/abhinav_nobg.png"
+                alt="Abhinav R"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none filter grayscale contrast-110 transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Abhinav R
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CEO
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/abhinavr-19"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Abhinav R GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abhinav-r-a2b970286"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Abhinav R LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Sreehari R (Warm Orange Dome Arch) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#ff9352] shape-arch flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/shr_nobg.png"
+                alt="Sreehari R"
+                class="w-[114%] h-[114%] max-w-none object-contain object-bottom select-none pointer-events-none translate-y-11 scale-105 transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Sreehari R
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CTO
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/Sree14hari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Sreehari R GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sree14hari/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Sreehari R LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Neeraj Sukumaran (Sunny Yellow Oval / Egg Shape) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#fae06b] shape-egg flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/neeraj_nobg.png"
+                alt="Neeraj Sukumaran"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Neeraj Sukumaran
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & CPIO
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/Neeraj2303"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Neeraj Sukumaran GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/neeraj-sukumaran"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Neeraj Sukumaran LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Kalidas V S (Sky Blue Shield / Inverted Arch Shape) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#22b7fa] shape-shield flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <div class="absolute inset-0 flex flex-col justify-between py-6 opacity-20 pointer-events-none">
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+              </div>
+              <img
+                src="/assets/id/kalidas_nobg.png"
+                alt="Kalidas V S"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Kalidas V S
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Co-Founder & COO
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/Kalidas797"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Kalidas V S GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/kalidas-v-s-853b0a293"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Kalidas V S LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Neha Siju (Emerald Velvet Diagonal Leaf / Petal Shape) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#285e52] shape-leaf flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/neha.png"
+                alt="Neha Siju"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Neha Siju
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Director of External Relations
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://www.linkedin.com/in/nehasiju/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Neha Siju LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Diya Tresia Daniel (Royal Purple Architectural Slope Shape) -->
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#5c3c73] shape-slope flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+              <img
+                src="/assets/id/Diya.jpeg"
+                alt="Diya Tresia Daniel"
+                class="w-full h-full object-cover object-center select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+              <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+                Diya Tresia Daniel
+              </h2>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-medium">
+                Communication & Documentation
+              </p>
+              <div class="mt-3 flex items-center gap-3 text-neutral-400">
+                <a
+                  href="https://github.com/135790-diya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Diya Tresia Daniel GitHub"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/diya-thresia-daniel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-neutral-900 transition-colors"
+                  aria-label="Diya Tresia Daniel LinkedIn"
+                >
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</MainLayout>

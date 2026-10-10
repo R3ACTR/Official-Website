@@ -250,7 +250,10 @@
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* Custom Organic Shapes for Founders Section */
+/* Custom Organic Shapes for Founders and Squad Sections */
+.shape-squircle {
+  border-radius: 52px;
+}
 .shape-organic-1 {
   border-radius: 44% 44% 44% 44% / 36% 36% 36% 36%;
   clip-path: inset(0 round 60px 60px 60px 60px);
@@ -263,6 +266,30 @@
 }
 .shape-egg {
   border-radius: 50% 50% 50% 50% / 56% 56% 44% 44%;
+}
+.shape-shield {
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
+.shape-leaf {
+  border-top-left-radius: 130px;
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 130px;
+  border-bottom-left-radius: 28px;
+}
+.shape-slope {
+  border-top-left-radius: 28px;
+  border-top-right-radius: 130px;
+  border-bottom-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+.shape-teardrop {
+  border-top-left-radius: 130px;
+  border-top-right-radius: 130px;
+  border-bottom-right-radius: 130px;
+  border-bottom-left-radius: 28px;
 }
 .shape-pill-stack {
   border-radius: 40px;

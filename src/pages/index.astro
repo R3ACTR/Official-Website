@@ -10,65 +10,62 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
 <MainLayout title={pageTitle} customDescription={pageDescription}>
   <!-- HERO CONTAINER (Sticky base that playground scrolls over) -->
   <div class="relative w-full">
-    <!-- HERO SECTION: R3ACTR on left, Pure Voice Orb on right -->
-    <section class="sticky top-[100px] z-10 w-full bg-white flex items-center px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 overflow-hidden min-h-[calc(100vh-120px)]">
-      <div class="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-        
-        <!-- SVG Noise for grain text/card effects -->
-        <svg class="sr-only" aria-hidden="true">
-          <filter id="heroGrain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0" />
-          </filter>
-        </svg>
+    <!-- HERO SECTION: Pinned/still hero screen -->
+    <section class="sticky top-0 z-10 w-full h-screen bg-white flex flex-col items-center justify-between px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-0 overflow-hidden">
+      
+      <!-- SVG Noise for grain text/card effects -->
+      <svg class="sr-only" aria-hidden="true">
+        <filter id="heroGrain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0" />
+        </filter>
+      </svg>
 
-        <!-- LEFT: R3ACTR Editorial Hero Content -->
-        <div class="lg:col-span-6 flex flex-col justify-center text-left">
-          <!-- Headline with blur arrival -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-5 font-sans animate-blur-arrive">
-            Engineering the next era of <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">intelligent</span> systems.
-          </h1>
+      <!-- CENTER: R3ACTR Editorial Hero Content -->
+      <div class="mx-auto w-full max-w-5xl flex flex-col items-center text-center z-10 pt-4 sm:pt-8">
+        <!-- Headline with blur arrival -->
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight text-neutral-900 leading-[1.05] mb-5 font-sans animate-blur-arrive">
+          Engineering the next era of <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">intelligent</span> systems.
+        </h1>
 
-          <!-- Subheading with slight delay -->
-          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mb-8 animate-blur-arrive-delay-1">
-            R3ACTR designs autonomous software, high-performance deep learning workflows, and modern web architectures with relentless precision and speed.
-          </p>
+        <!-- Subheading with slight delay -->
+        <p class="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mb-7 animate-blur-arrive-delay-1">
+          R3ACTR designs autonomous software, high-performance deep learning workflows, and modern web architectures with relentless precision and speed.
+        </p>
 
-          <!-- CTA Action Buttons -->
-          <div class="flex flex-wrap items-center gap-3 sm:gap-4 animate-blur-arrive-delay-2">
-            <a
-              href="#playground"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-neutral-800 active:scale-95 transition-all"
-            >
-              <span>Explore Solutions</span>
-              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
-              </svg>
-            </a>
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 animate-blur-arrive-delay-2">
+          <a
+            href="#playground"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-neutral-800 active:scale-95 transition-all"
+          >
+            <span>Explore Solutions</span>
+            <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+              <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+            </svg>
+          </a>
 
-            <a
-              href="https://github.com/R3ACTR"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-100 border border-neutral-300/80 px-6 py-3 text-sm font-semibold text-neutral-900 hover:bg-neutral-200/70 active:scale-95 transition-all"
-            >
-              <span>Open Source Hub</span>
-            </a>
-          </div>
+          <a
+            href="https://github.com/R3ACTR"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-100 border border-neutral-300/80 px-6 py-3 text-sm font-semibold text-neutral-900 hover:bg-neutral-200/70 active:scale-95 transition-all"
+          >
+            <span>Open Source Hub</span>
+          </a>
         </div>
+      </div>
 
-        <!-- RIGHT: Voice Orb with gentle blur arrival -->
-        <div class="lg:col-span-6 flex items-center justify-center relative overflow-visible animate-blur-arrive-delay-2">
-          <div class="w-full max-w-[540px] lg:max-w-[620px] aspect-square flex items-center justify-center">
-            <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;"></voice-orb>
-          </div>
+      <!-- BOTTOM: Voice Orb bigger and more down -->
+      <div class="relative w-full flex items-center justify-center overflow-visible -mb-72 sm:-mb-96 md:-mb-[480px] lg:-mb-[560px] pointer-events-auto animate-blur-arrive-delay-2">
+        <div class="w-[520px] sm:w-[740px] md:w-[980px] lg:w-[1200px] aspect-square flex items-center justify-center">
+          <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;"></voice-orb>
         </div>
-
       </div>
     </section>
 
     <!-- OVERLAPPING SECTION: Our playground (Scrolls up over the hero with rounded borders & soft shadow) -->
-    <section id="playground" class="relative z-20 w-full rounded-t-[36px] sm:rounded-t-[48px] bg-white text-neutral-900 border-t border-neutral-200/90 shadow-[0_-16px_40px_rgba(0,0,0,0.08)] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-16 sm:pb-20">
+    <section id="playground" class="relative z-20 w-full rounded-t-[36px] sm:rounded-t-[48px] bg-white text-neutral-900 border-t border-neutral-200/90 shadow-[0_-20px_50px_rgba(0,0,0,0.12)] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-16 sm:pb-20">
       <div class="mx-auto w-full max-w-7xl">
         <div class="mb-10 sm:mb-14 reveal-on-scroll">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans">

@@ -1,5 +1,4 @@
 ---
-// Import relevant dependencies
 const homeUrl = '/';
 ---
 
@@ -32,195 +31,32 @@ const homeUrl = '/';
     <div class="flex items-center gap-2 sm:gap-3">
       
       <!-- "All products" Dropdown Trigger -->
-      <div class="hidden md:block" id="products-dropdown-container">
-        <button
-          type="button"
-          id="products-dropdown-btn"
-          class="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 rounded-md hover:bg-neutral-100 cursor-pointer"
-          aria-expanded="false"
-        >
-          <span>All products</span>
-          <svg class="h-4 w-4 text-neutral-500 transition-transform duration-200" id="products-chevron" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-          </svg>
-        </button>
 
-        <!-- All Products Mega Dropdown Menu (Full Screen Width, Pure White Theme) -->
-        <div
-          id="products-dropdown-menu"
-          class="absolute left-0 right-0 top-full hidden w-full bg-white text-neutral-900 border-b border-neutral-200/90 shadow-[0_30px_70px_rgba(0,0,0,0.06)] z-50 animate-fluent-popup font-sans select-none"
-        >
-          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-9">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-              
-              <!-- Left Column: Navigation & Categories (3 cols) -->
-              <div class="md:col-span-3 border-b md:border-b-0 md:border-r border-neutral-200/80 pr-0 md:pr-6 flex flex-col justify-between">
-                <div>
-                  <!-- Section Label -->
-                  <div class="mb-5">
-                    <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase block mb-2.5">
-                      01 / Catalog
-                    </span>
-                    <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-neutral-100 text-neutral-900 text-xs font-semibold">
-                      <svg class="h-4 w-4 text-neutral-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                      </svg>
-                      <span>Academic & Research</span>
-                    </div>
-                  </div>
 
-                  <!-- Recognition Link -->
-                  <div>
-                    <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase block mb-2">
-                      Recognition
-                    </span>
-                    <a
-                      href="https://launchpadindia.co/listing/paper-lab"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-medium text-neutral-700 hover:text-neutral-950 hover:bg-neutral-50 border border-neutral-200/60 transition-colors group"
-                    >
-                      <span class="flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-neutral-900"></span>
-                        <span>LaunchPad India #1</span>
-                      </span>
-                      <span class="text-neutral-400 group-hover:text-neutral-950 transition-colors">↗</span>
-                    </a>
-                  </div>
-                </div>
+      <!-- Pill 0: Squad (Direct link to /squad) -->
+      <a
+        href="/squad"
+        id="btn-squad"
+        class="flex items-center gap-2 rounded-full bg-neutral-100 px-3.5 py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200 shadow-2xs transition-all hover:bg-neutral-200 active:scale-95 cursor-pointer"
+        title="View R3ACTR Squad"
+      >
+        <!-- Phosphor Users Icon -->
+        <svg class="h-3.5 w-3.5 text-orange-600 shrink-0" viewBox="0 0 256 256" fill="currentColor">
+          <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.37a8,8,0,0,1-11.07-2.33,79.83,79.83,0,0,0-53.76-36.82,8,8,0,0,1,6.58-14.61,95.83,95.83,0,0,1,64.51,44.17A8,8,0,0,1,250.14,206.37ZM172,120a44,44,0,0,1-23.76-7,8,8,0,0,1,8.68-13.44A28,28,0,1,0,172,80a8,8,0,0,1,16,0A44.05,44.05,0,0,1,172,120Z"/>
+        </svg>
+        <span class="tracking-tight">Squad</span>
+      </a>
 
-                <!-- Bottom Ecosystem Links -->
-                <div class="pt-6 border-t border-neutral-200/80 mt-6 space-y-1">
-                  <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase block px-1 mb-2">
-                    R3ACTR Universe
-                  </span>
-                  <a href="/blog" class="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium text-neutral-600 hover:text-neutral-950 hover:bg-neutral-50 transition-colors">
-                    <span>Dispatches & Blog</span>
-                    <span class="text-neutral-400">→</span>
-                  </a>
-                  <a href="/contact" class="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium text-neutral-600 hover:text-neutral-950 hover:bg-neutral-50 transition-colors">
-                    <span>About & Contact</span>
-                    <span class="text-neutral-400">→</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Middle Column: Product Showcase & Features (5 cols) -->
-              <div class="md:col-span-5 flex flex-col justify-between py-0.5">
-                <div>
-                  <div class="flex items-center justify-between mb-3.5">
-                    <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase">
-                      02 / Flagship Suite
-                    </span>
-                    <span class="text-[11px] font-mono text-neutral-500">Live Production</span>
-                  </div>
-
-                  <!-- Product Main Card -->
-                  <a
-                    href="https://paperlab.r3actr.work/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="group block p-5 rounded-2xl bg-white border border-neutral-200 hover:border-neutral-400 hover:shadow-xs transition-all"
-                  >
-                    <div class="flex items-center justify-between mb-2.5">
-                      <div class="flex items-center gap-3.5">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-900 text-white">
-                          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <h3 class="text-base font-bold text-neutral-900 group-hover:text-neutral-600 transition-colors">PaperLab</h3>
-                          <p class="text-xs text-neutral-500 font-mono">paperlab.r3actr.work</p>
-                        </div>
-                      </div>
-                      <span class="text-neutral-400 group-hover:text-neutral-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
-                    </div>
-                    <p class="text-sm text-neutral-600 leading-relaxed mt-2.5">
-                      Intelligent academic paper editor with real-time formatting, IEEE templates, automated citations, and instant LaTeX export.
-                    </p>
-                  </a>
-
-                  <!-- 4 Capabilities Grid -->
-                  <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
-                    <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200/80">
-                      <p class="font-semibold text-neutral-900">IEEE Formatting</p>
-                      <p class="text-[11px] text-neutral-500 mt-1 leading-snug">Automated paper margins & columns</p>
-                    </div>
-                    <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200/80">
-                      <p class="font-semibold text-neutral-900">LaTeX Engine</p>
-                      <p class="text-[11px] text-neutral-500 mt-1 leading-snug">Instant in-browser document compilation</p>
-                    </div>
-                    <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200/80">
-                      <p class="font-semibold text-neutral-900">Citation Engine</p>
-                      <p class="text-[11px] text-neutral-500 mt-1 leading-snug">BibTeX auto-lookup & cross references</p>
-                    </div>
-                    <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200/80">
-                      <p class="font-semibold text-neutral-900">Local Execution</p>
-                      <p class="text-[11px] text-neutral-500 mt-1 leading-snug">Zero cloud tracking or paper retention</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Footer note -->
-                <div class="pt-4 mt-4 border-t border-neutral-200/80 text-xs text-neutral-500 flex items-center justify-between">
-                  <span>Awarded #1 Product of the Week</span>
-                  <a href="https://launchpadindia.co/listing/paper-lab" target="_blank" rel="noopener noreferrer" class="font-semibold text-neutral-900 hover:text-neutral-600 transition-colors flex items-center gap-1">
-                    <span>LaunchPad India</span>
-                    <span>↗</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Right Column: Spotlight Feature Card (4 cols) -->
-              <div class="md:col-span-4 rounded-2xl bg-neutral-50 border border-neutral-200 p-6 sm:p-7 flex flex-col justify-between">
-                <div>
-                  <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase block mb-3">
-                    03 / Browser Native
-                  </span>
-                  <h4 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 leading-snug">
-                    Experience PaperLab in your browser
-                  </h4>
-                  <p class="text-sm text-neutral-600 leading-relaxed mt-3">
-                    Eliminate citation hassles and manual typesetting. Jump straight into writing publication-ready papers without installing compilers or configuring local packages.
-                  </p>
-                </div>
-
-                <div class="mt-8 pt-5 border-t border-neutral-200">
-                  <a
-                    href="https://paperlab.r3actr.work/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-neutral-900 text-white text-xs font-semibold hover:bg-neutral-800 transition-colors shadow-2xs active:scale-98"
-                  >
-                    <span>Launch PaperLab</span>
-                    <span class="text-sm">↗</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Divider 1 -->
-      <div class="hidden h-4 w-px bg-neutral-200 md:block"></div>
-
-      <!-- Pill 1: Ask AI (White/Light Theme) -->
+      <!-- Pill 1: Ask AI (Greyed out / Disabled for now) -->
       <button
         type="button"
         id="btn-ask-ai"
-        class="flex items-center gap-2 rounded-full bg-neutral-100 px-3.5 py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200 shadow-2xs transition-all hover:bg-neutral-200 active:scale-95 cursor-pointer"
-        title="Ask R3ACTR AI Assistant"
+        disabled
+        class="flex items-center gap-2 rounded-full bg-neutral-100/80 px-3.5 py-1.5 text-xs font-semibold text-neutral-400 border border-neutral-200/80 shadow-2xs opacity-60 cursor-not-allowed select-none"
+        title="Ask AI (Coming Soon)"
       >
         <!-- Phosphor Sparkle Icon -->
-        <svg class="h-3.5 w-3.5 text-cyan-600 shrink-0" viewBox="0 0 256 256" fill="currentColor">
+        <svg class="h-3.5 w-3.5 text-neutral-400 shrink-0" viewBox="0 0 256 256" fill="currentColor">
           <path d="M213.92,110.62,156.44,98.11,143.93,40.63a16,16,0,0,0-31.86,0L99.56,98.11,42.08,110.62a16,16,0,0,0,0,31.86l57.48,12.51,12.51,57.48a16,16,0,0,0,31.86,0l12.51-57.48,57.48-12.51a16,16,0,0,0,0-31.86Z" />
         </svg>
         <span class="tracking-tight">Ask AI</span>
@@ -239,6 +75,54 @@ const homeUrl = '/';
         </svg>
         <span class="tracking-tight">Launchpad</span>
       </button>
+
+      <!-- Divider -->
+      <div class="hidden h-4 w-px bg-neutral-200 md:block"></div>
+
+      <!-- Social Media Icons (Top Nav Right) -->
+      <div class="hidden md:flex items-center gap-1">
+        <!-- GitHub -->
+        <a
+          href="https://github.com/R3ACTR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-8 w-8 items-center justify-center rounded-full text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+
+        <!-- X (Twitter) -->
+        <a
+          href="https://x.com/r3actr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-8 w-8 items-center justify-center rounded-full text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
+          aria-label="X (Twitter)"
+          title="X (Twitter)"
+        >
+          <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://linkedin.com/company/r3actr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-8 w-8 items-center justify-center rounded-full text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
 
       <!-- Mobile Hamburger Button -->
       <button
@@ -259,8 +143,17 @@ const homeUrl = '/';
 
   <!-- BOTTOM TIER: Context Sub-Navbar Row (White Theme) -->
   <div class="border-t border-neutral-200/80 bg-white">
-    <div class="mx-auto flex h-11 w-full items-center justify-end px-4 sm:px-6 lg:px-8">
-      <!-- Right: Sub-nav Quick Links -->
+    <div class="mx-auto flex h-11 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
+      <!-- Left: Products / Initiatives -->
+      <div class="flex items-center gap-4 text-xs font-medium text-neutral-500">
+        <a href="https://paperlab.r3actr.work/" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">PaperLab</a>
+        <span class="text-neutral-300">•</span>
+        <a href="https://ambassador.r3actr.work/" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">Ambassador</a>
+        <span class="text-neutral-300">•</span>
+        <a href="https://www.doomsprotocol.xyz/" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">Dooms Protocol</a>
+      </div>
+
+      <!-- Right: Main Sub-nav Quick Links -->
       <div class="flex items-center gap-4 text-xs font-medium text-neutral-500">
         <a href="/" class="hover:text-neutral-900 transition-colors">Overview</a>
         <span class="text-neutral-300">•</span>
@@ -281,12 +174,24 @@ const homeUrl = '/';
     <div class="space-y-3">
       <!-- Quick Pills on Mobile -->
       <div class="flex flex-wrap gap-2 pb-3 border-b border-neutral-200">
+        <a
+          href="/squad"
+          id="btn-squad-mobile"
+          class="flex items-center gap-2 rounded-full bg-neutral-100 px-3.5 py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200"
+        >
+          <svg class="h-3.5 w-3.5 text-orange-600" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.37a8,8,0,0,1-11.07-2.33,79.83,79.83,0,0,0-53.76-36.82,8,8,0,0,1,6.58-14.61,95.83,95.83,0,0,1,64.51,44.17A8,8,0,0,1,250.14,206.37ZM172,120a44,44,0,0,1-23.76-7,8,8,0,0,1,8.68-13.44A28,28,0,1,0,172,80a8,8,0,0,1,16,0A44.05,44.05,0,0,1,172,120Z"/>
+          </svg>
+          <span>Squad</span>
+        </a>
         <button
           type="button"
           id="btn-ask-ai-mobile"
-          class="flex items-center gap-2 rounded-full bg-neutral-100 px-3.5 py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200"
+          disabled
+          class="flex items-center gap-2 rounded-full bg-neutral-100/80 px-3.5 py-1.5 text-xs font-semibold text-neutral-400 border border-neutral-200/80 opacity-60 cursor-not-allowed select-none"
+          title="Ask AI (Coming Soon)"
         >
-          <svg class="h-3.5 w-3.5 text-cyan-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="7" r="2"/></svg>
+          <svg class="h-3.5 w-3.5 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="7" r="2"/></svg>
           <span>Ask AI</span>
         </button>
         <button
@@ -304,6 +209,9 @@ const homeUrl = '/';
         <p class="px-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">Navigation</p>
         <a href="/" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Home</a>
         <a href="https://paperlab.r3actr.work/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Paper Lab</a>
+        <a href="https://ambassador.r3actr.work/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Ambassador</a>
+        <a href="https://www.doomsprotocol.xyz/" target="_blank" rel="noopener noreferrer" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Dooms Protocol</a>
+        <a href="/squad" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Squad</a>
         <a href="/blog" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Blog</a>
         <a href="/contact" class="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">Contact</a>
       </div>
@@ -493,7 +401,9 @@ const homeUrl = '/';
 
       <!-- Option 4: Ambassador Program (Emerald/Teal Creative Gradient) -->
       <a
-        href="/contact"
+        href="https://ambassador.r3actr.work/"
+        target="_blank"
+        rel="noopener noreferrer"
         class="group relative w-full aspect-square overflow-hidden rounded-[26px] sm:rounded-[32px] border border-white/20 bg-gradient-to-b from-[#285e52] via-[#3a8b73] to-[#4eb896] p-4 sm:p-6 flex items-center justify-center text-center shadow-lg transition-all duration-300 hover:border-white/40 hover:shadow-[0_16px_40px_rgba(78,184,150,0.35)] hover:-translate-y-1 cursor-pointer"
       >
         <img
@@ -517,6 +427,8 @@ const homeUrl = '/';
   </div>
 </div>
 
+
+
 <!-- CLIENT JAVASCRIPT: Dropdown toggles, modals, sub-nav title contextualization -->
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
@@ -539,7 +451,7 @@ const homeUrl = '/';
         e.stopPropagation();
         const isHidden = menu.classList.contains('hidden');
         // Close other open popovers
-        document.querySelectorAll('#products-dropdown-menu, #globe-dropdown-menu, #notifications-menu, #user-dropdown-menu').forEach(el => {
+        document.querySelectorAll('#globe-dropdown-menu, #notifications-menu, #user-dropdown-menu').forEach(el => {
           if (el !== menu) el.classList.add('hidden');
         });
         if (isHidden) {
@@ -549,15 +461,6 @@ const homeUrl = '/';
         }
       });
     };
-
-    setupDropdown('products-dropdown-btn', 'products-dropdown-menu');
-
-    // Close open menus on outside click
-    document.addEventListener('click', () => {
-      document.querySelectorAll('#products-dropdown-menu').forEach(el => {
-        el.classList.add('hidden');
-      });
-    });
 
     // Mobile Hamburger Toggle
     const mobileBtn = document.getElementById('mobile-menu-toggle');
@@ -608,7 +511,7 @@ const homeUrl = '/';
       }
     };
 
-    setupModal(['btn-ask-ai', 'btn-ask-ai-mobile'], 'modal-ask-ai', 'close-ask-ai');
+    // setupModal(['btn-ask-ai', 'btn-ask-ai-mobile'], 'modal-ask-ai', 'close-ask-ai'); // Disabled for now
     setupModal(['btn-launchpad', 'btn-launchpad-mobile'], 'modal-launchpad', 'close-launchpad');
 
     // Interactive Ask AI behavior
