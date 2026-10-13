@@ -57,15 +57,15 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
       </div>
 
       <!-- BOTTOM: Voice Orb (Non-reactive to touch on mobile, responsive hover on desktop) -->
-      <div class="relative w-full flex items-center justify-center overflow-visible mt-4 sm:mt-0 sm:-mb-96 md:-mb-[480px] lg:-mb-[560px] pointer-events-none sm:pointer-events-auto animate-blur-arrive-delay-2">
-        <div class="w-[310px] xs:w-[350px] sm:w-[740px] md:w-[980px] lg:w-[1200px] max-w-[92vw] aspect-square flex items-center justify-center pointer-events-none sm:pointer-events-auto">
+      <div id="hero-orb-container" class="relative w-full flex items-center justify-center overflow-visible mt-4 sm:mt-0 sm:-mb-96 md:-mb-[480px] lg:-mb-[560px] pointer-events-none sm:pointer-events-auto animate-blur-arrive-delay-2 transition-opacity duration-300">
+        <div class="w-[310px] xs:w-[350px] sm:w-[740px] md:w-[980px] lg:w-[1200px] max-w-[92vw] aspect-square flex items-center justify-center pointer-events-none sm:pointer-events-auto [contain:paint]">
           <voice-orb id="hero-orb" state="idle" style="width: 100%; height: 100%; aspect-ratio: 1;" class="pointer-events-none sm:pointer-events-auto"></voice-orb>
         </div>
       </div>
     </section>
 
     <!-- OVERLAPPING SECTION: Our playground (Scrolls up over the hero with rounded borders & soft shadow) -->
-    <section id="playground" class="relative z-20 w-full rounded-t-[36px] sm:rounded-t-[48px] bg-white text-neutral-900 border-t border-neutral-200/90 shadow-[0_-20px_50px_rgba(0,0,0,0.12)] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-16 sm:pb-20">
+    <section id="playground" class="relative z-20 w-full rounded-t-[36px] sm:rounded-t-[48px] bg-white text-neutral-900 border-t border-neutral-200/90 shadow-[0_-20px_50px_rgba(0,0,0,0.12)] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-16 sm:pb-20 [transform:translateZ(0)]">
       <div class="mx-auto w-full max-w-7xl">
         <div class="mb-10 sm:mb-14 reveal-on-scroll">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans">
@@ -89,7 +89,13 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
           <!-- Card 01: Digital Products -->
           <div class="flex flex-col group reveal-on-scroll reveal-delay-1">
             <!-- Square Rounded Gradient Texture Card with Centered Heading -->
-            <div class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(228,118,72,0.35)] hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-playground-1"
+              class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(228,118,72,0.35)] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#e47648] focus:ring-offset-2"
+              aria-haspopup="dialog"
+              aria-label="View Digital Products overview"
+            >
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-1.webp"
@@ -105,7 +111,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
                 Digital<br/>Products
               </h3>
-            </div>
+            </button>
 
             <!-- Content Directly Below Square Card -->
             <div class="pt-5 flex flex-col">
@@ -115,20 +121,27 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <p class="text-sm text-neutral-600 leading-relaxed mb-3">
                 We turn bold ideas into useful digital products — designed to solve real problems and create meaningful experiences.
               </p>
-              <a
-                href="/contact"
-                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              <button
+                type="button"
+                id="trigger-playground-1"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit cursor-pointer text-left"
               >
                 <span>From concept to launch</span>
                 <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
+              </button>
             </div>
           </div>
 
           <!-- Card 02: Micro SaaS -->
           <div class="flex flex-col group reveal-on-scroll reveal-delay-2">
             <!-- Square Rounded Gradient Texture Card with Centered Heading -->
-            <div class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(216,122,42,0.35)] hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-playground-2"
+              class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(216,122,42,0.35)] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#d87a2a] focus:ring-offset-2"
+              aria-haspopup="dialog"
+              aria-label="View Micro SaaS overview"
+            >
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-5.webp"
@@ -146,7 +159,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
                 Micro<br/>SaaS
               </h3>
-            </div>
+            </button>
 
             <!-- Content Directly Below Square Card -->
             <div class="pt-5 flex flex-col">
@@ -156,20 +169,27 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <p class="text-sm text-neutral-600 leading-relaxed mb-3">
                 Small, focused software. Big solutions. We build lean, scalable tools that simplify workflows and tackle niche problems.
               </p>
-              <a
-                href="/contact"
-                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              <button
+                type="button"
+                id="trigger-playground-2"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit cursor-pointer text-left"
               >
                 <span>Built to solve, designed to scale</span>
                 <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
+              </button>
             </div>
           </div>
 
           <!-- Card 03: Web Engineering -->
           <div class="flex flex-col group reveal-on-scroll reveal-delay-3">
             <!-- Square Rounded Gradient Texture Card with Centered Heading -->
-            <div class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b8599] via-[#4d6b46] to-[#254226] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(77,107,70,0.35)] hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-playground-3"
+              class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b8599] via-[#4d6b46] to-[#254226] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(77,107,70,0.35)] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#4d6b46] focus:ring-offset-2"
+              aria-haspopup="dialog"
+              aria-label="View Web Engineering overview"
+            >
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-9.webp"
@@ -185,7 +205,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
                 Web<br/>Engineering
               </h3>
-            </div>
+            </button>
 
             <!-- Content Directly Below Square Card -->
             <div class="pt-5 flex flex-col">
@@ -195,20 +215,27 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <p class="text-sm text-neutral-600 leading-relaxed mb-3">
                 We design and develop high-performance websites and web applications that bring brands, businesses, and ideas to life.
               </p>
-              <a
-                href="/contact"
-                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              <button
+                type="button"
+                id="trigger-playground-3"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit cursor-pointer text-left"
               >
                 <span>Design. Develop. Deploy.</span>
                 <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
+              </button>
             </div>
           </div>
 
           <!-- Card 04: Tech & Community -->
           <div class="flex flex-col group reveal-on-scroll reveal-delay-4">
             <!-- Square Rounded Gradient Texture Card with Centered Heading -->
-            <div class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2a3861] via-[#5c3c73] to-[#803d52] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(92,60,115,0.35)] hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-playground-4"
+              class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2a3861] via-[#5c3c73] to-[#803d52] p-5 sm:p-8 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(92,60,115,0.35)] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#5c3c73] focus:ring-offset-2"
+              aria-haspopup="dialog"
+              aria-label="View Tech & Community overview"
+            >
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/tvqokiltm5q-Agents-BG.webp"
@@ -224,7 +251,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md px-2">
                 Tech &<br/>Community
               </h3>
-            </div>
+            </button>
 
             <!-- Content Directly Below Square Card -->
             <div class="pt-5 flex flex-col">
@@ -234,13 +261,14 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <p class="text-sm text-neutral-600 leading-relaxed mb-3">
                 We bring curious minds together through tech events, collaborative sessions, and experiences that spark ideas and build connections.
               </p>
-              <a
-                href="/contact"
-                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit"
+              <button
+                type="button"
+                id="trigger-playground-4"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit cursor-pointer text-left"
               >
                 <span>Connect. Collaborate. Create.</span>
                 <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -947,6 +975,351 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
       });
 
       elements.forEach((el) => observer.observe(el));
+    })();
+  </script>
+
+  <!-- Playground Modals: Card on Top, Content Below -->
+
+  <!-- Playground Modal 1: Digital Products -->
+  <div
+    id="pg-modal-1"
+    class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pg-modal-title-1"
+  >
+    <div id="pg-modal-backdrop-1" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative w-full max-w-2xl my-auto bg-white rounded-3xl shadow-2xl border border-neutral-100 p-6 sm:p-8 transform scale-95 transition-transform duration-300 z-10 flex flex-col items-center">
+      <button
+        type="button"
+        id="close-pg-modal-1"
+        class="absolute top-4 right-4 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+        aria-label="Close dialog"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Card on Top -->
+      <div class="relative w-full max-w-[220px] sm:max-w-[250px] aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-6 flex items-center justify-center text-center shadow-lg">
+        <img
+          src="/gradients/creative-1.webp"
+          alt="Digital Products"
+          class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+        />
+        <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+        <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+        <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+          Digital<br/>Products
+        </h3>
+      </div>
+
+      <!-- Content Below -->
+      <div class="mt-6 w-full text-left">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase">
+            01 / Digital Products
+          </span>
+          <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+          <span class="text-[11px] font-mono text-neutral-400">Playground</span>
+        </div>
+        <h4 id="pg-modal-title-1" class="text-xl sm:text-2xl font-extrabold text-neutral-900 tracking-tight font-sans mb-3">
+          From Concept to Launch
+        </h4>
+        <div class="h-px w-full bg-neutral-100 mb-4"></div>
+        <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans mb-3">
+          We turn bold ideas into useful digital products — designed to solve real problems and create meaningful experiences. We manage the entire lifecycle from early stage product discovery, rapid prototyping, and user testing to production delivery.
+        </p>
+        <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed font-sans mb-5">
+          By combining user-centric engineering with clean aesthetic design, our products are built to be intuitive, durable, and primed for immediate traction.
+        </p>
+        <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-neutral-800 transition-all"
+          >
+            <span>Start a Project</span>
+            <span>↗</span>
+          </a>
+          <span class="text-xs font-mono text-neutral-400">R3ACTR Innovations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playground Modal 2: Micro SaaS -->
+  <div
+    id="pg-modal-2"
+    class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pg-modal-title-2"
+  >
+    <div id="pg-modal-backdrop-2" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative w-full max-w-2xl my-auto bg-white rounded-3xl shadow-2xl border border-neutral-100 p-6 sm:p-8 transform scale-95 transition-transform duration-300 z-10 flex flex-col items-center">
+      <button
+        type="button"
+        id="close-pg-modal-2"
+        class="absolute top-4 right-4 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+        aria-label="Close dialog"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Card on Top -->
+      <div class="relative w-full max-w-[220px] sm:max-w-[250px] aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-6 flex items-center justify-center text-center shadow-lg">
+        <img
+          src="/gradients/creative-5.webp"
+          alt="Micro SaaS"
+          class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay pointer-events-none"
+        />
+        <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+        <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+        <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+        <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+          Micro<br/>SaaS
+        </h3>
+      </div>
+
+      <!-- Content Below -->
+      <div class="mt-6 w-full text-left">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase">
+            02 / Micro SaaS
+          </span>
+          <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+          <span class="text-[11px] font-mono text-neutral-400">Playground</span>
+        </div>
+        <h4 id="pg-modal-title-2" class="text-xl sm:text-2xl font-extrabold text-neutral-900 tracking-tight font-sans mb-3">
+          Built to Solve, Designed to Scale
+        </h4>
+        <div class="h-px w-full bg-neutral-100 mb-4"></div>
+        <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans mb-3">
+          Small, focused software. Big solutions. We build lean, scalable tools that simplify complex workflows and tackle niche problems with zero bloat.
+        </p>
+        <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed font-sans mb-5">
+          Each micro-SaaS is engineered with autonomous data pipelines, self-healing backend infrastructure, and automated billing—allowing companies to operate leaner and automate repetitive tasks effortlessly.
+        </p>
+        <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-neutral-800 transition-all"
+          >
+            <span>Explore Solutions</span>
+            <span>↗</span>
+          </a>
+          <span class="text-xs font-mono text-neutral-400">R3ACTR Innovations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playground Modal 3: Web Engineering -->
+  <div
+    id="pg-modal-3"
+    class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pg-modal-title-3"
+  >
+    <div id="pg-modal-backdrop-3" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative w-full max-w-2xl my-auto bg-white rounded-3xl shadow-2xl border border-neutral-100 p-6 sm:p-8 transform scale-95 transition-transform duration-300 z-10 flex flex-col items-center">
+      <button
+        type="button"
+        id="close-pg-modal-3"
+        class="absolute top-4 right-4 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+        aria-label="Close dialog"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Card on Top -->
+      <div class="relative w-full max-w-[220px] sm:max-w-[250px] aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b8599] via-[#4d6b46] to-[#254226] p-6 flex items-center justify-center text-center shadow-lg">
+        <img
+          src="/gradients/creative-9.webp"
+          alt="Web Engineering"
+          class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+        />
+        <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+        <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+        <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+          Web<br/>Engineering
+        </h3>
+      </div>
+
+      <!-- Content Below -->
+      <div class="mt-6 w-full text-left">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase">
+            03 / Web Services
+          </span>
+          <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+          <span class="text-[11px] font-mono text-neutral-400">Playground</span>
+        </div>
+        <h4 id="pg-modal-title-3" class="text-xl sm:text-2xl font-extrabold text-neutral-900 tracking-tight font-sans mb-3">
+          Design. Develop. Deploy.
+        </h4>
+        <div class="h-px w-full bg-neutral-100 mb-4"></div>
+        <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans mb-3">
+          We design and develop high-performance websites and web applications that bring brands, businesses, and ideas to life. From ultra-fast static Astro frontends to modern full-stack web applications.
+        </p>
+        <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed font-sans mb-5">
+          Equipped with rich interactive aesthetics, dark mode options, silky smooth micro-animations, and complete search engine optimization built straight into the core.
+        </p>
+        <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-neutral-800 transition-all"
+          >
+            <span>Discuss a Build</span>
+            <span>↗</span>
+          </a>
+          <span class="text-xs font-mono text-neutral-400">R3ACTR Innovations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playground Modal 4: Tech & Community -->
+  <div
+    id="pg-modal-4"
+    class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pg-modal-title-4"
+  >
+    <div id="pg-modal-backdrop-4" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative w-full max-w-2xl my-auto bg-white rounded-3xl shadow-2xl border border-neutral-100 p-6 sm:p-8 transform scale-95 transition-transform duration-300 z-10 flex flex-col items-center">
+      <button
+        type="button"
+        id="close-pg-modal-4"
+        class="absolute top-4 right-4 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+        aria-label="Close dialog"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Card on Top -->
+      <div class="relative w-full max-w-[220px] sm:max-w-[250px] aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#2a3861] via-[#5c3c73] to-[#803d52] p-6 flex items-center justify-center text-center shadow-lg">
+        <img
+          src="/gradients/tvqokiltm5q-Agents-BG.webp"
+          alt="Tech Community"
+          class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+        />
+        <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#noiseFilter);"></div>
+        <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+        <h3 class="relative z-10 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+          Tech &<br/>Community
+        </h3>
+      </div>
+
+      <!-- Content Below -->
+      <div class="mt-6 w-full text-left">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase">
+            04 / Tech Events
+          </span>
+          <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+          <span class="text-[11px] font-mono text-neutral-400">Playground</span>
+        </div>
+        <h4 id="pg-modal-title-4" class="text-xl sm:text-2xl font-extrabold text-neutral-900 tracking-tight font-sans mb-3">
+          Connect. Collaborate. Create.
+        </h4>
+        <div class="h-px w-full bg-neutral-100 mb-4"></div>
+        <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans mb-3">
+          We bring curious minds together through tech events, collaborative sessions, and experiences that spark ideas and build connections.
+        </p>
+        <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed font-sans mb-5">
+          Fostering an ecosystem where researchers, engineers, and ambitious creators exchange knowledge, run open workshops, and turn collective exploration into concrete impact.
+        </p>
+        <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-neutral-800 transition-all"
+          >
+            <span>Join Our Network</span>
+            <span>↗</span>
+          </a>
+          <span class="text-xs font-mono text-neutral-400">R3ACTR Innovations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function setupPlaygroundModal(cardTriggerId, textTriggerId, modalId, closeBtnId, backdropId) {
+      const cardTrigger = document.getElementById(cardTriggerId);
+      const textTrigger = document.getElementById(textTriggerId);
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeBtnId);
+      const backdrop = document.getElementById(backdropId);
+
+      function open() {
+        if (!modal) return;
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        const card = modal.querySelector('.relative.w-full.max-w-2xl');
+        if (card) {
+          card.classList.remove('scale-95');
+          card.classList.add('scale-100');
+        }
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        if (!modal) return;
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        const card = modal.querySelector('.relative.w-full.max-w-2xl');
+        if (card) {
+          card.classList.remove('scale-100');
+          card.classList.add('scale-95');
+        }
+        document.body.style.overflow = '';
+      }
+
+      if (cardTrigger) cardTrigger.addEventListener('click', open);
+      if (textTrigger) textTrigger.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+          close();
+        }
+      });
+    }
+
+    setupPlaygroundModal('open-playground-1', 'trigger-playground-1', 'pg-modal-1', 'close-pg-modal-1', 'pg-modal-backdrop-1');
+    setupPlaygroundModal('open-playground-2', 'trigger-playground-2', 'pg-modal-2', 'close-pg-modal-2', 'pg-modal-backdrop-2');
+    setupPlaygroundModal('open-playground-3', 'trigger-playground-3', 'pg-modal-3', 'close-pg-modal-3', 'pg-modal-backdrop-3');
+    setupPlaygroundModal('open-playground-4', 'trigger-playground-4', 'pg-modal-4', 'close-pg-modal-4', 'pg-modal-backdrop-4');
+
+    // Mobile scroll glitch protection for WebGL Voice Orb
+    (() => {
+      const orbContainer = document.getElementById('hero-orb-container');
+      const playground = document.getElementById('playground');
+      if (!orbContainer || !playground) return;
+
+      const handleScroll = () => {
+        const playgroundRect = playground.getBoundingClientRect();
+        // If playground overlaps the viewport near top, hide orb
+        if (playgroundRect.top < window.innerHeight * 0.45) {
+          orbContainer.style.opacity = '0';
+          orbContainer.style.visibility = 'hidden';
+        } else {
+          orbContainer.style.opacity = '1';
+          orbContainer.style.visibility = 'visible';
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
     })();
   </script>
 

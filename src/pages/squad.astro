@@ -35,7 +35,13 @@ const pageDescription =
           
           <!-- 1. Abhinav R (Dark Charcoal Double Curved Shape) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#3c3e4c] rounded-[52px] flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-ceo-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#3c3e4c] rounded-[52px] flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Abhinav R, CEO"
+            >
               <div class="absolute -top-10 -left-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none"></div>
               <img
                 src="/assets/id/abhinav_nobg.png"
@@ -43,7 +49,7 @@ const pageDescription =
                 class="w-full h-full object-contain object-bottom select-none pointer-events-none filter grayscale contrast-110 transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Abhinav R
@@ -76,14 +82,20 @@ const pageDescription =
 
           <!-- 2. Sreehari R (Warm Orange Dome Arch) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#ff9352] shape-arch flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-cto-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#ff9352] shape-arch flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Sreehari R, CTO"
+            >
               <img
                 src="/assets/id/shr_nobg.png"
                 alt="Sreehari R"
                 class="w-[114%] h-[114%] max-w-none object-contain object-bottom select-none pointer-events-none translate-y-11 scale-105 transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Sreehari R
@@ -116,14 +128,20 @@ const pageDescription =
 
           <!-- 3. Neeraj Sukumaran (Sunny Yellow Oval / Egg Shape) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#fae06b] shape-egg flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-cpio-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#fae06b] shape-egg flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Neeraj Sukumaran, CPIO"
+            >
               <img
                 src="/assets/id/neeraj_nobg.png"
                 alt="Neeraj Sukumaran"
                 class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Neeraj Sukumaran
@@ -156,7 +174,13 @@ const pageDescription =
 
           <!-- 4. Kalidas V S (Sky Blue Shield / Inverted Arch Shape) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#22b7fa] shape-shield flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-coo-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#22b7fa] shape-shield flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Kalidas V S, COO"
+            >
               <div class="absolute inset-0 flex flex-col justify-between py-6 opacity-20 pointer-events-none">
                 <div class="w-full h-px bg-white"></div>
                 <div class="w-full h-px bg-white"></div>
@@ -168,7 +192,7 @@ const pageDescription =
                 class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Kalidas V S
@@ -201,14 +225,20 @@ const pageDescription =
 
           <!-- 5. Neha Siju (Emerald Velvet Diagonal Leaf / Petal Shape) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#285e52] shape-leaf flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-der-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#285e52] shape-leaf flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Neha Siju, DER"
+            >
               <img
                 src="/assets/id/neha.png"
                 alt="Neha Siju"
                 class="w-full h-full object-contain object-bottom select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Neha Siju
@@ -232,14 +262,20 @@ const pageDescription =
 
           <!-- 6. Diya Tresia Daniel (Royal Purple Architectural Slope Shape) -->
           <div class="flex flex-col items-center text-center">
-            <div class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#5c3c73] shape-slope flex items-end justify-center group shadow-md transition-transform duration-300 hover:-translate-y-1">
+            <button
+              type="button"
+              id="open-dcl-modal"
+              class="relative w-full aspect-[4/4.5] max-w-[270px] mx-auto overflow-hidden bg-[#5c3c73] shape-slope flex items-end justify-center group shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 text-left"
+              aria-haspopup="dialog"
+              aria-label="Read message from the desk of Diya Tresia Daniel, DCL"
+            >
               <img
                 src="/assets/id/Diya.jpeg"
                 alt="Diya Tresia Daniel"
                 class="w-full h-full object-cover object-center select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="mt-6 flex flex-col items-center">
               <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
                 Diya Tresia Daniel
@@ -274,5 +310,545 @@ const pageDescription =
       </div>
     </section>
 
+    <!-- Modal: From the Desk of the CEO -->
+    <div
+      id="ceo-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="ceo-modal-title"
+    >
+      <!-- Backdrop -->
+      <div id="ceo-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+
+      <!-- Dialog Card -->
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <!-- Close Button -->
+        <button
+          type="button"
+          id="close-ceo-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <!-- Left Side: Image Profile Card -->
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#3c3e4c] rounded-[36px] sm:rounded-[44px] flex items-end justify-center shadow-md">
+              <div class="absolute -top-10 -left-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none"></div>
+              <img
+                src="/assets/id/abhinav_nobg.png"
+                alt="Abhinav R"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none filter grayscale contrast-110"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Abhinav R
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Co-Founder & CEO
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side: Content -->
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <!-- Header -->
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="ceo-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">CEO</span>
+              </h2>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <!-- Body Message -->
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                I believe the future isn’t something we wait for — it’s something we build. At R3ACTR, this belief drives everything we do. What began as a vision is growing into a commitment to engineer meaningful technology, create products that solve real-world problems, and transform ambitious ideas into lasting impact.
+              </p>
+              <p>
+                As CEO, my vision goes beyond building a successful company; it is to build an ecosystem where bold thinking meets purposeful execution, where talent is empowered to create, and where innovation translates into something that truly matters. We embrace challenges as opportunities to rethink possibilities, question conventions, and build solutions that move us forward.
+              </p>
+              <p>
+                I believe that what defines a company is not simply what it achieves, but the problems it chooses to solve, the standards it refuses to compromise, and the impact it leaves behind. The journey of building something meaningful demands patience, resilience, and the courage to pursue a vision even when the path ahead is uncertain. That is the mindset we bring to R3ACTR — a commitment to keep building, keep evolving, and keep pushing beyond the expected.
+              </p>
+              <p>
+                We have ambitious goals, much to learn, and a future we are determined to shape through our work.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                We are not here to follow what comes next. We are here to build it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: From the Desk of the CTO -->
+    <div
+      id="cto-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cto-modal-title"
+    >
+      <!-- Backdrop -->
+      <div id="cto-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+
+      <!-- Dialog Card -->
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <!-- Close Button -->
+        <button
+          type="button"
+          id="close-cto-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <!-- Left Side: Image Profile Card (Arch Shape matching squad) -->
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#ff9352] shape-arch flex items-end justify-center shadow-md">
+              <img
+                src="/assets/id/shr_nobg.png"
+                alt="Sreehari R"
+                class="w-[114%] h-[114%] max-w-none object-contain object-bottom select-none pointer-events-none translate-y-11 scale-105"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Sreehari R
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Co-Founder & CTO
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side: Content -->
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <!-- Header -->
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="cto-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">CTO</span>
+              </h2>
+              <p class="text-xs sm:text-sm font-semibold text-neutral-800 mt-1">
+                Building technology with purpose, precision, and a vision for what comes next.
+              </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <!-- Body Message -->
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                At R3ACTR, I believe technology should do more than solve problems — it should create possibilities.
+              </p>
+              <p>
+                As Chief Technology Officer, my focus is on turning ambitious ideas into practical, scalable, and thoughtfully engineered products. I work at the intersection of software engineering, artificial intelligence, and research, exploring how emerging technologies can be transformed into solutions that deliver meaningful value.
+              </p>
+              <p>
+                My approach to engineering is rooted in curiosity, experimentation, and a commitment to building things that work beyond the prototype. Whether we are developing intelligent systems, designing digital platforms, or exploring new technological frontiers, I believe every solution should be built with a clear purpose, a strong technical foundation, and the people who use it in mind.
+              </p>
+              <p>
+                At R3ACTR, we are not here to follow technology trends blindly. We are here to understand them, challenge conventional approaches, and build solutions that make a difference. That means prioritizing thoughtful architecture, continuous learning, reliability, and the courage to explore ideas that have yet to reach their full potential.
+              </p>
+              <p>
+                The future belongs to those who can bridge the gap between research and real-world impact. That is the standard we strive for in everything we build.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                We don't just build software. We engineer possibilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: From the Desk of the CPIO -->
+    <div
+      id="cpio-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cpio-modal-title"
+    >
+      <div id="cpio-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <button
+          type="button"
+          id="close-cpio-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#fae06b] shape-egg flex items-end justify-center shadow-md">
+              <img
+                src="/assets/id/neeraj_nobg.png"
+                alt="Neeraj Sukumaran"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Neeraj Sukumaran
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Co-Founder & CPIO
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="cpio-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">CPIO</span>
+              </h2>
+            </div>
+
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                At R3ACTR Innovations, I believe that meaningful innovation begins with asking the right questions, challenging conventional approaches, and understanding the problems that truly matter. As Chief Product & Innovation Officer, my focus is on transforming ideas into purposeful products and intelligent technology solutions through strategic thinking, research, and engineering excellence.
+              </p>
+              <p>
+                We strive to build beyond immediate needs—creating solutions that are practical, scalable, and differentiated, with the potential to shape how people and industries work. For me, innovation is not simply about adopting new technologies; it is about applying them with intent, building with purpose, and creating lasting value.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                At R3ACTR, we are committed to turning complex challenges into opportunities and ambitious ideas into solutions that make a meaningful difference.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: From the Desk of the COO -->
+    <div
+      id="coo-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="coo-modal-title"
+    >
+      <div id="coo-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <button
+          type="button"
+          id="close-coo-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#22b7fa] shape-shield flex items-end justify-center shadow-md">
+              <div class="absolute inset-0 flex flex-col justify-between py-6 opacity-20 pointer-events-none">
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+                <div class="w-full h-px bg-white"></div>
+              </div>
+              <img
+                src="/assets/id/kalidas_nobg.png"
+                alt="Kalidas V S"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Kalidas V S
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Co-Founder & COO
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="coo-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">COO</span>
+              </h2>
+            </div>
+
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                At R3ACTR Innovations, I believe that great ideas create impact only when they are supported by strong execution, collaboration, and a clear sense of purpose. As Chief Operating Officer, my focus is on turning our vision into action by building efficient processes, empowering our teams, and ensuring that every initiative moves forward with clarity and consistency.
+              </p>
+              <p>
+                From managing operations and coordinating teams to supporting the development and growth of our products and initiatives, I work to create an environment where ideas can move from concept to meaningful execution. For me, leadership is not simply about managing tasks it is about bringing people together, solving challenges, and creating a culture where innovation can thrive.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                At R3ACTR, we are committed to acting with purpose, working as a team, and transforming ambitious ideas into practical solutions that create lasting value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: From the Desk of the DER -->
+    <div
+      id="der-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="der-modal-title"
+    >
+      <div id="der-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <button
+          type="button"
+          id="close-der-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#285e52] shape-leaf flex items-end justify-center shadow-md">
+              <img
+                src="/assets/id/neha.png"
+                alt="Neha Siju"
+                class="w-full h-full object-contain object-bottom select-none pointer-events-none"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Neha Siju
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Director of External Relations
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="der-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">DER</span>
+              </h2>
+            </div>
+
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                I believe every great company begins with the right relationships, meaningful conversations, and a shared vision. Behind every successful collaboration lies the ability to communicate, understand different perspectives, and build trust that extends beyond individual interests. At R3ACTR Innovations, we believe that communication is not merely a bridge between people and organisations, but the foundation upon which meaningful partnerships, collective growth, and lasting innovation are built.
+              </p>
+              <p>
+                Our vision extends beyond developing technology; it is about bringing the right people, ideas, and opportunities together to create solutions that make a difference. We recognise that innovation flourishes when knowledge is shared, perspectives are valued, and collaborations are driven by a common purpose. As Director of External Relations, I see my role as fostering these connections, cultivating strategic partnerships, and creating opportunities for R3ACTR Innovations to engage with a wider ecosystem of innovators, institutions, and industry leaders.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                At R3ACTR Innovations, we aspire to build more than professional connections; we strive to build relationships that inspire trust, encourage progress, and create possibilities for a future shaped by collaboration and innovation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: From the Desk of the DCL -->
+    <div
+      id="dcl-modal"
+      class="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300 flex items-start sm:items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dcl-modal-title"
+    >
+      <div id="dcl-modal-backdrop" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"></div>
+      <div class="relative w-full max-w-5xl lg:max-w-6xl my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-100 p-5 sm:p-8 md:p-12 transform scale-95 transition-transform duration-300 z-10">
+        <button
+          type="button"
+          id="close-dcl-modal"
+          class="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full text-neutral-400 hover:text-neutral-800 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 z-20"
+          aria-label="Close dialog"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[260px] aspect-[4/4.5] overflow-hidden bg-[#5c3c73] shape-slope flex items-end justify-center shadow-md">
+              <img
+                src="/assets/id/Diya.jpeg"
+                alt="Diya Tresia Daniel"
+                class="w-full h-full object-cover object-center select-none pointer-events-none"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4 text-center">
+              <h3 class="text-base sm:text-lg font-bold text-neutral-900 tracking-tight font-sans">
+                Diya Tresia Daniel
+              </h3>
+              <p class="text-xs text-neutral-500 font-medium mt-0.5">
+                Communication & Documentation
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 flex flex-col justify-center">
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  R3ACTR Innovations
+                </span>
+                <span class="h-1 w-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[10px] sm:text-[11px] font-mono text-neutral-400">Statement</span>
+              </div>
+              <h2
+                id="dcl-modal-title"
+                class="text-lg sm:text-2xl font-extrabold tracking-tight text-neutral-900 uppercase font-sans"
+              >
+                FROM THE DESK OF THE <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]" style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);">DCL</span>
+              </h2>
+            </div>
+
+            <div class="h-px w-full bg-neutral-100 mb-4"></div>
+
+            <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
+              <p>
+                At R3ACTR Innovations, we believe that every breakthrough idea and transformative product requires clarity, context, and a compelling voice to achieve its full potential. As the Documentation and Communication Lead team, our focus is on bridging the gap between complex technical innovation and clear, meaningful engagement—ensuring that our mission, achievements, and insights resonate both within our teams and across our broader community.
+              </p>
+              <p>
+                We recognize that documentation is more than just maintaining records; it is the practice of preserving knowledge, structuring processes, and building a transparent foundation where ideas can evolve seamlessly. Likewise, effective communication is about crafting authentic narratives that capture the essence of what we build and why it matters. By documenting our journey with precision and shaping our communications with purpose, we strive to amplify R3ACTR’s vision, highlight the impact of our initiatives, and maintain a unified narrative that reflects our commitment to excellence.
+              </p>
+              <p class="font-semibold text-neutral-900 pt-2 border-t border-neutral-100">
+                At R3ACTR Innovations, we are dedicated to transforming complex challenges into clear, actionable stories, ensuring that every idea is articulated, shared, and remembered with maximum clarity and impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <script is:inline>
+    function setupModal(openBtnId, modalId, closeBtnId, backdropId) {
+      const openBtn = document.getElementById(openBtnId);
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeBtnId);
+      const backdrop = document.getElementById(backdropId);
+
+      function open() {
+        if (!modal) return;
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        const card = modal.querySelector('.relative.w-full');
+        if (card) {
+          card.classList.remove('scale-95');
+          card.classList.add('scale-100');
+        }
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        if (!modal) return;
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        const card = modal.querySelector('.relative.w-full');
+        if (card) {
+          card.classList.remove('scale-100');
+          card.classList.add('scale-95');
+        }
+        document.body.style.overflow = '';
+      }
+
+      if (openBtn) openBtn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+          close();
+        }
+      });
+    }
+
+    setupModal('open-ceo-modal', 'ceo-modal', 'close-ceo-modal', 'ceo-modal-backdrop');
+    setupModal('open-cto-modal', 'cto-modal', 'close-cto-modal', 'cto-modal-backdrop');
+    setupModal('open-cpio-modal', 'cpio-modal', 'close-cpio-modal', 'cpio-modal-backdrop');
+    setupModal('open-coo-modal', 'coo-modal', 'close-coo-modal', 'coo-modal-backdrop');
+    setupModal('open-der-modal', 'der-modal', 'close-der-modal', 'der-modal-backdrop');
+    setupModal('open-dcl-modal', 'dcl-modal', 'close-dcl-modal', 'dcl-modal-backdrop');
+  </script>
 </MainLayout>
