@@ -303,7 +303,7 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
             Your browser does not support the video tag.
           </video>
 
-          <!-- Custom Play/Pause Button (bottom-right / bottom-left or centered) -->
+          <!-- Custom Play/Pause Button (bottom-right) -->
           <button
             id="video-toggle-btn"
             type="button"
@@ -335,17 +335,24 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
             </p>
           </div>
 
-          <div class="shrink-0">
+          <div class="shrink-0 flex flex-wrap items-center gap-3">
+            <a
+              href="/paperlab"
+              class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 hover:shadow-md transition-all active:scale-95"
+            >
+              <span>Explore PaperLab</span>
+              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+              </svg>
+            </a>
             <a
               href="https://apps.microsoft.com/detail/9P0XRRPBC34P"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2.5 rounded-full bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 hover:shadow-md transition-all active:scale-95"
+              class="inline-flex items-center gap-2 rounded-full bg-neutral-100 border border-neutral-300/80 px-6 py-3.5 text-sm font-semibold text-neutral-900 hover:bg-neutral-200/70 transition-all active:scale-95"
             >
-              <span>Get on Microsoft Store</span>
-              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
-              </svg>
+              <span>Microsoft Store</span>
+              <span class="text-xs">↗</span>
             </a>
           </div>
         </div>

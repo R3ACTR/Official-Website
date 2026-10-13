@@ -1,0 +1,534 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `PaperLab | Research Deserves Better Tools | ${SITE.title}`;
+const pageDescription =
+  'PaperLab is a modern academic writing and document creation workspace designed to make research writing simpler, more organized, and less time-consuming.';
+
+const features = [
+  {
+    num: '01',
+    title: 'A powerful LaTeX editor',
+    desc: 'Access the precision of LaTeX through an intuitive desktop experience. Write structured documents with syntax highlighting while retaining full control over the final result.',
+    tag: 'Core Engine',
+    bgGradient: 'from-[#6b587a] via-[#c46960] to-[#e47648]',
+    img: '/gradients/creative-1.webp',
+  },
+  {
+    num: '02',
+    title: 'AI-assisted writing',
+    desc: 'Use AI assistance to help develop ideas, refine drafts, and accelerate parts of the writing process while keeping your own thinking at the center.',
+    tag: 'Intelligence',
+    bgGradient: 'from-[#4d6375] via-[#a85e3a] to-[#d87a2a]',
+    img: '/gradients/creative-5.webp',
+  },
+  {
+    num: '03',
+    title: 'Ready-to-use templates',
+    desc: 'Start with templates for academic papers, assignments, reports, and technical documents instead of building every document from scratch.',
+    tag: 'Templates',
+    bgGradient: 'from-[#6b8599] via-[#4d6b46] to-[#254226]',
+    img: '/gradients/creative-9.webp',
+  },
+  {
+    num: '04',
+    title: 'Live PDF preview & compilation',
+    desc: 'Compile your documents and review the resulting PDF as you work. Identify formatting issues and refine the output before sharing or submitting.',
+    tag: 'Compiler',
+    bgGradient: 'from-[#2a3861] via-[#5c3c73] to-[#803d52]',
+    img: '/gradients/tvqokiltm5q-Agents-BG.webp',
+  },
+  {
+    num: '05',
+    title: 'Citations and bibliography',
+    desc: 'Manage the references that support your work and create more consistent academic documents with citation and bibliography support.',
+    tag: 'Citations',
+    bgGradient: 'from-[#1e4a6e] via-[#207d8a] to-[#38b2ac]',
+    img: '/gradients/31vqrnjmkll-Creatives-BG.webp',
+  },
+  {
+    num: '06',
+    title: 'One workspace for multiple projects',
+    desc: 'Keep research papers, assignments, reports, and technical writing projects organized and accessible as your work evolves.',
+    tag: 'Workspace',
+    bgGradient: 'from-[#6b587a] via-[#c46960] to-[#e47648]',
+    img: '/gradients/creative-1.webp',
+  },
+];
+
+const steps = [
+  {
+    step: '01',
+    name: 'Start with an idea',
+    desc: 'Create a document using a template or begin with a blank project.',
+    accent: 'text-[#e47648]',
+  },
+  {
+    step: '02',
+    name: 'Write and develop',
+    desc: 'Build your content using the editor, with AI-assisted writing available to support your workflow.',
+    accent: 'text-[#d87a2a]',
+  },
+  {
+    step: '03',
+    name: 'Structure and refine',
+    desc: 'Organize sections, equations, tables, figures, and references into a coherent document.',
+    accent: 'text-[#4d6b46]',
+  },
+  {
+    step: '04',
+    name: 'Compile and review',
+    desc: 'Generate a PDF, inspect the layout, and refine your work until it is ready to share.',
+    accent: 'text-[#803d52]',
+  },
+];
+
+const audiences = [
+  {
+    role: 'Students',
+    desc: 'Prepare assignments, projects, and academic submissions with less formatting friction.',
+    gradient: 'from-[#6b587a] via-[#c46960] to-[#e47648]',
+    img: '/gradients/creative-1.webp',
+  },
+  {
+    role: 'Researchers',
+    desc: 'Develop structured research papers and technical manuscripts in a LaTeX-powered environment.',
+    gradient: 'from-[#4d6375] via-[#a85e3a] to-[#d87a2a]',
+    img: '/gradients/creative-5.webp',
+  },
+  {
+    role: 'Educators',
+    desc: 'Create academic materials, instructional documents, and structured reports.',
+    gradient: 'from-[#6b8599] via-[#4d6b46] to-[#254226]',
+    img: '/gradients/creative-9.webp',
+  },
+  {
+    role: 'Professionals & Engineers',
+    desc: 'Produce technical documentation, detailed reports, and polished professional documents.',
+    gradient: 'from-[#2a3861] via-[#5c3c73] to-[#803d52]',
+    img: '/gradients/tvqokiltm5q-Agents-BG.webp',
+  },
+];
+---
+
+<MainLayout title={pageTitle} customDescription={pageDescription}>
+  <!-- Sand Grain Noise filter identical to R3ACTR index page -->
+  <svg class="sr-only" aria-hidden="true">
+    <filter id="paperlabGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.50 0" />
+    </filter>
+  </svg>
+
+  <div class="relative w-full bg-white text-neutral-900 font-sans">
+    
+    <!-- HERO SECTION -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-neutral-100">
+      <div class="mx-auto max-w-6xl">
+        
+        <!-- Header Text -->
+        <div class="max-w-4xl">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-3">
+            PaperLab Workspace
+          </span>
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-6 font-sans">
+            Research deserves <br class="hidden sm:inline" />
+            <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]"
+              style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >
+              better tools
+            </span>.
+          </h1>
+
+          <p class="text-lg sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans mb-4">
+            Write. Research. Structure. Publish.
+          </p>
+
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl mb-4">
+            PaperLab is a modern academic writing and document creation workspace designed to make research writing simpler, more organized, and less time-consuming. From academic papers and college assignments to technical reports and professional documents, PaperLab brings the tools you need into one focused environment.
+          </p>
+
+          <p class="text-sm sm:text-base text-neutral-500 leading-relaxed font-sans max-w-3xl mb-8">
+            Powered by the flexibility of LaTeX and enhanced with AI-assisted writing, PaperLab helps you move from a blank page to a polished document without getting lost in formatting complexity.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href="https://paperlab.r3actr.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-7 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 hover:shadow-md transition-all active:scale-95"
+            >
+              <span>Get Started</span>
+              <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+              </svg>
+            </a>
+
+            <a
+              href="#features"
+              class="inline-flex items-center gap-2 rounded-full bg-neutral-100 border border-neutral-300/80 px-6 py-3.5 text-sm font-semibold text-neutral-900 hover:bg-neutral-200/70 transition-all active:scale-95"
+            >
+              <span>Explore Features</span>
+              <span class="text-sm">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Big Hero Atmosphere Card: Spotlight -->
+        <div class="mt-12 sm:mt-16 relative overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#6b587a] via-[#c46960] to-[#e47648] p-8 sm:p-12 lg:p-14 min-h-[220px] sm:min-h-[260px] flex flex-col justify-between shadow-xl">
+          <img
+            src="/gradients/creative-1.webp"
+            alt="PaperLab Banner Backdrop"
+            class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+            loading="eager"
+          />
+          <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#paperlabGrain);"></div>
+          <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="font-mono text-xs uppercase tracking-widest text-white/90 font-semibold">
+              PaperLab Authoring System
+            </span>
+          </div>
+
+          <div class="relative z-10 mt-6 sm:mt-8">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-sans drop-shadow-md mb-2">
+              Your ideas deserve the spotlight.
+            </h2>
+            <p class="text-base sm:text-xl text-white/90 font-sans max-w-xl">
+              Let PaperLab handle the structure.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: MORE THINKING. LESS FORMATTING -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100 bg-neutral-50/50">
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-3xl mb-12 sm:mb-16">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Writing Reimagined
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-4">
+            More thinking. <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4d6375] via-[#a85e3a] to-[#d87a2a]"
+              style="background-image: linear-gradient(135deg, #4d6375 0%, #a85e3a 50%, #d87a2a 100%), url('/gradients/creative-5.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >Less formatting</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-2xl">
+            Writing a research paper is challenging enough without spending hours adjusting layouts, fixing references, or rebuilding documents whenever something changes.
+          </p>
+          <p class="text-sm sm:text-base text-neutral-500 leading-relaxed font-sans mt-2">
+            PaperLab is designed to simplify that process by bringing writing, formatting, document organization, and export capabilities together in one workspace.
+          </p>
+        </div>
+
+        <!-- 4 Pillars: Clean cards without capsules -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div>
+              <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">01</span>
+              <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Focus on your ideas</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Work in an environment built for structured academic and technical writing.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div>
+              <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">02</span>
+              <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Keep documents organized</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Manage multiple papers, reports, and writing projects in one place.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div>
+              <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">03</span>
+              <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Work with precision</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Use LaTeX-powered document authoring for structured, professional output.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div>
+              <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">04</span>
+              <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Move forward faster</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Use AI-assisted writing tools to support your drafting and editing workflow.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURES - SIGNATURE GRADIENT CARDS (Like Community / Open Source Quest cards) -->
+    <section id="features" class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12 sm:mb-16">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Capabilities
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-4">
+            Everything you need to <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b8599] via-[#4d6b46] to-[#254226]"
+              style="background-image: linear-gradient(135deg, #6b8599 0%, #4d6b46 50%, #254226 100%), url('/gradients/creative-9.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >create better documents</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            Designed for researchers, engineers, and creators who want total control over LaTeX with zero unnecessary friction.
+          </p>
+        </div>
+
+        <!-- 6 Signature Big Gradient Texture Boxes (2 columns responsive) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
+          {features.map((item) => (
+            <div
+              class={`group relative overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b ${item.bgGradient} p-7 sm:p-9 min-h-[320px] sm:min-h-[360px] flex flex-col justify-between shadow-xl transition-transform duration-300 hover:-translate-y-1`}
+            >
+              <!-- Full Gradient Art Backdrop -->
+              <img
+                src={item.img}
+                alt={item.title}
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <!-- SVG Sand Grain Noise Overlay -->
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#paperlabGrain);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <!-- Top header of the card -->
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="font-mono text-xs font-bold uppercase tracking-widest text-white/90">
+                  {item.num} / {item.tag}
+                </span>
+              </div>
+
+              <!-- Content area at bottom of card -->
+              <div class="relative z-10 mt-auto pt-6">
+                <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans drop-shadow-md mb-2.5">
+                  {item.title}
+                </h3>
+                <p class="text-sm sm:text-base text-white/95 leading-relaxed drop-shadow-sm font-sans">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FROM FIRST DRAFT TO FINISHED DOCUMENT (4-Step Workflow) -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100 bg-neutral-50/50">
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-3xl mb-12 sm:mb-16">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Workflow
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-4">
+            From first draft to <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2a3861] via-[#5c3c73] to-[#803d52]"
+              style="background-image: linear-gradient(135deg, #2a3861 0%, #5c3c73 50%, #803d52 100%), url('/gradients/tvqokiltm5q-Agents-BG.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >finished document</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-2xl">
+            A linear, focused drafting pipeline built to move ideas into publication-ready outputs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+          {steps.map((item) => (
+            <div class="rounded-3xl border border-neutral-200/90 bg-white p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <span class="text-3xl sm:text-4xl font-extrabold font-mono text-neutral-300 block mb-3">
+                  {item.step}
+                </span>
+                <h3 class="text-xl font-bold text-neutral-900 font-sans tracking-tight mb-2">
+                  {item.name}
+                </h3>
+                <p class="text-sm text-neutral-600 leading-relaxed font-sans">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BUILT FOR PEOPLE WHO BUILD KNOWLEDGE (Target Audience) -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100">
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-3xl mb-12 sm:mb-16">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Target Audience
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.15] mb-4">
+            Built for people who <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]"
+              style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >build knowledge</span>.
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-2xl">
+            Whether preparing your first academic paper or managing continuous publications, PaperLab scales with your thinking.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-8">
+          {audiences.map((aud) => (
+            <div
+              class={`group relative overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b ${aud.gradient} p-7 sm:p-9 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between shadow-xl transition-transform duration-300 hover:-translate-y-1`}
+            >
+              <img
+                src={aud.img}
+                alt={aud.role}
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#paperlabGrain);"></div>
+              <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+              <div class="relative z-10">
+                <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans drop-shadow-md mb-2">
+                  {aud.role}
+                </h3>
+                <p class="text-sm sm:text-base text-white/95 leading-relaxed drop-shadow-sm font-sans max-w-lg">
+                  {aud.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CLOSING CTA -->
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-28 bg-white border-t border-neutral-100">
+      <div class="mx-auto max-w-4xl text-center flex flex-col items-center">
+        
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 font-sans leading-[1.12] mb-6">
+          Research is complex. <br/>
+          <span
+            class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6b587a] via-[#c46960] to-[#e47648]"
+            style="background-image: linear-gradient(135deg, #6b587a 0%, #c46960 50%, #e47648 100%), url('/gradients/creative-1.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+          >
+            Your writing workflow shouldn't be
+          </span>.
+        </h2>
+
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-2xl mb-3">
+          Whether you're preparing your first academic paper or producing technical documents regularly, PaperLab gives you a more structured place to turn ideas into finished work.
+        </p>
+
+        <p class="text-base sm:text-lg font-medium text-neutral-900 font-sans mb-8">
+          Spend less time managing the document. Spend more time improving what it says.
+        </p>
+
+        <a
+          href="https://paperlab.r3actr.work"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-neutral-800 hover:shadow-xl active:scale-95 transition-all"
+        >
+          <span>Start Writing with PaperLab</span>
+          <svg class="h-4 w-4" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+          </svg>
+        </a>
+
+        <p class="mt-8 text-xs font-mono font-semibold tracking-wider text-neutral-400 uppercase">
+          PaperLab — Where ideas become well-crafted documents.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FLOATING POPUP IN RIGHT BOTTOM CORNER -->
+    <aside
+      id="reel-corner-popup"
+      class="fixed bottom-5 right-5 z-50 flex flex-col items-end transition-all duration-300"
+      aria-label="PaperLab Instagram reel preview"
+    >
+      <!-- Popup Card -->
+      <div
+        id="reel-popup-card"
+        class="relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-neutral-200/80 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] w-[190px] sm:w-[220px] transition-all duration-300 animate-in fade-in slide-in-from-bottom-6 group"
+      >
+        <!-- Close (Cross) Button at Top Right of Video -->
+        <button
+          type="button"
+          id="reel-close-btn"
+          class="absolute top-2.5 right-2.5 z-20 h-7 w-7 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md border border-white/20 flex items-center justify-center text-xs transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
+          aria-label="Close video popup"
+          title="Close"
+        >
+          ✕
+        </button>
+
+        <!-- Video player inside aspect ratio container -->
+        <div class="relative w-full aspect-[9/16] bg-black overflow-hidden">
+          <video
+            class="w-full h-full object-cover block"
+            autoplay
+            loop
+            muted
+            playsinline
+            webkit-playsinline
+            controls
+            preload="metadata"
+          >
+            <source src="/assets/Video-15544.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+
+      <!-- Minimized Floating Bubble -->
+      <button
+        type="button"
+        id="reel-open-bubble"
+        class="hidden items-center gap-2 rounded-full bg-neutral-900 text-white px-4 py-2.5 text-xs font-semibold shadow-2xl hover:bg-neutral-800 transition-all cursor-pointer active:scale-95 border border-white/20"
+        aria-label="Open PaperLab video"
+      >
+        <span class="w-2 h-2 rounded-full bg-[#e47648] animate-pulse"></span>
+        <span>Watch Video</span>
+        <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 256 256">
+          <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65A16,16,0,0,1,64,216.13V39.87A16,16,0,0,1,88.32,26.35L232.4,114.49A15.74,15.74,0,0,1,240,128Z"/>
+        </svg>
+      </button>
+    </aside>
+
+    <script is:inline>
+      const popupCard = document.getElementById('reel-popup-card');
+      const openBubble = document.getElementById('reel-open-bubble');
+      const closeBtn = document.getElementById('reel-close-btn');
+
+      closeBtn?.addEventListener('click', () => {
+        popupCard?.classList.add('hidden');
+        openBubble?.classList.remove('hidden');
+        openBubble?.classList.add('flex');
+      });
+
+      openBubble?.addEventListener('click', () => {
+        openBubble?.classList.add('hidden');
+        openBubble?.classList.remove('flex');
+        popupCard?.classList.remove('hidden');
+      });
+    </script>
+  </div>
+</MainLayout>
