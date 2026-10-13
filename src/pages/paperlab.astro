@@ -121,10 +121,87 @@ const audiences = [
     </filter>
   </svg>
 
-  <div class="relative w-full bg-white text-neutral-900 font-sans">
+  <div class="relative w-full bg-white text-neutral-900 font-sans overflow-hidden">
+    
+    <!-- VERY MINUTE CLOSELY SPACED MANUSCRIPT GRID (Indic Typography with Gradient & Sparkling Shimmer) -->
+    <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none" aria-hidden="true">
+      <!-- Ambient light atmospheric gradient backdrops -->
+      <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-[#fbeee4]/90 via-[#fdede2]/50 to-transparent rounded-full blur-3xl opacity-80"></div>
+      <div class="absolute top-1/4 -right-32 w-[650px] h-[650px] bg-gradient-to-bl from-[#e8f1fa]/80 via-[#f3eaf9]/40 to-transparent rounded-full blur-3xl opacity-80"></div>
+      <div class="absolute bottom-10 left-1/3 w-[700px] h-[600px] bg-gradient-to-tr from-[#fbf4e5]/70 via-[#eef6ed]/40 to-transparent rounded-full blur-3xl opacity-75"></div>
+
+      <!-- High-density minute Indic manuscript matrix with gradient text shimmer -->
+      <div class="manuscript-dense-matrix absolute inset-0 overflow-hidden p-3 sm:p-5 flex flex-wrap gap-x-2.5 sm:gap-x-3.5 gap-y-2 sm:gap-y-2.5 leading-none font-serif text-[13px] sm:text-[15px] opacity-[0.22] mix-blend-multiply">
+        {Array.from({ length: 480 }).map((_, i) => {
+          const indicChars = [
+            'अ', 'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह', 'ळ', 'क्ष', 'ज्ञ',
+            'ക', 'ഖ', 'ഗ', 'ഘ', 'ങ', 'ച', 'ഛ', 'ജ', 'ഝ', 'ഞ', 'ട', 'ഠ', 'ഡ', 'ഢ', 'ണ', 'ത', 'ഥ', 'ദ', 'ധ', 'ന', 'പ', 'ഫ', 'ബ', 'ഭ', 'മ', 'യ', 'ര', 'ല', 'വ', 'ശ', 'ഷ', 'സ', 'ഹ', 'ള', 'ഴ', 'റ',
+            'க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ', 'ள', 'ற', 'ன',
+            'క', 'ఖ', 'గ', 'ఘ', 'ఙ', 'చ', 'ఛ', 'జ', 'ఝ', 'ఞ', 'ట', 'ఠ', 'డ', 'ఢ', 'ణ', 'త', 'థ', 'ద', 'ధ', 'న', 'ప', 'ఫ', 'బ', 'భ', 'మ', 'య', 'ర', 'ల', 'వ', 'శ', 'ష', 'స', 'హ',
+            'ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ', 'ಋ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ', 'ಕ', 'ಖ', 'ಗ', 'ಘ', 'ಙ', 'ಚ', 'ಛ', 'ಜ', 'ಝ', 'ಞ', 'ಟ', 'ಠ', 'ಡ', 'ಢ', 'ಣ', 'ತ', 'ಥ', 'ದ', 'ಧ', 'ನ', 'ಪ', 'ಫ', 'ಬ', 'ಭ', 'ಮ',
+            'અ', 'આ', 'ઇ', 'ઈ', 'ઉ', 'ઊ', 'ઋ', 'એ', 'ઐ', 'ઓ', 'ઔ', 'ક', 'ખ', 'ગ', 'ઘ', 'ચ', 'છ', 'જ', 'ઝ', 'ટ', 'ઠ', 'ડ', 'ઢ', 'ણ', 'ત', 'થ', 'દ', 'ધ', 'ન', 'પ', 'ફ', 'બ', 'ભ', 'મ', 'ય', 'ર', 'લ', 'વ'
+          ];
+          const char = indicChars[i % indicChars.length];
+          const sparkClass = `spark-${(i % 6) + 1}`;
+          const gradClass = `manuscript-tone-${(i % 4) + 1}`;
+          return (
+            <span class={`manuscript-glyph ${sparkClass} ${gradClass}`}>
+              {char}
+            </span>
+          );
+        })}
+      </div>
+
+      <!-- Fine parchment noise overlay -->
+      <div class="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#222_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    </div>
+
+    <!-- Styles for minute manuscript sparkling and gradient tone -->
+    <style is:inline>
+      .manuscript-glyph {
+        display: inline-block;
+        font-feature-settings: "kern" 1;
+        transition: opacity 1.2s ease, transform 1.2s ease;
+        user-select: none;
+      }
+      
+      /* Subtle diverse gradient tones inspired by Indian ink & manuscript illumination */
+      .manuscript-tone-1 {
+        color: #b45309; /* Warm Terracotta / Sandalwood */
+      }
+      .manuscript-tone-2 {
+        color: #475569; /* Slate Ash / Carbon Ink */
+      }
+      .manuscript-tone-3 {
+        color: #0369a1; /* Peacock Indigo / Sky */
+      }
+      .manuscript-tone-4 {
+        color: #a21caf; /* Plum / Crimson Wash */
+      }
+
+      @keyframes minuteSparkle {
+        0%, 100% {
+          opacity: 0.22;
+          transform: scale(0.96);
+          filter: blur(0.2px);
+        }
+        50% {
+          opacity: 0.85;
+          transform: scale(1.12);
+          filter: drop-shadow(0 0 4px currentColor);
+        }
+      }
+
+      .spark-1 { animation: minuteSparkle 5.5s infinite ease-in-out; }
+      .spark-2 { animation: minuteSparkle 7s infinite ease-in-out 0.8s; }
+      .spark-3 { animation: minuteSparkle 6.2s infinite ease-in-out 1.7s; }
+      .spark-4 { animation: minuteSparkle 8.1s infinite ease-in-out 2.5s; }
+      .spark-5 { animation: minuteSparkle 6.8s infinite ease-in-out 3.4s; }
+      .spark-6 { animation: minuteSparkle 7.5s infinite ease-in-out 4.2s; }
+    </style>
     
     <!-- HERO SECTION -->
-    <section class="relative w-full px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-neutral-100">
+    <section class="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-neutral-100/70 bg-white/40 backdrop-blur-[1.5px]">
       <div class="mx-auto max-w-6xl">
         
         <!-- Header Text -->
@@ -209,7 +286,7 @@ const audiences = [
     </section>
 
     <!-- SECTION: MORE THINKING. LESS FORMATTING -->
-    <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100 bg-neutral-50/50">
+    <section class="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100/70 bg-neutral-50/40 backdrop-blur-[1px]">
       <div class="mx-auto max-w-6xl">
         <div class="max-w-3xl mb-12 sm:mb-16">
           <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
@@ -232,7 +309,7 @@ const audiences = [
         <!-- 4 Pillars: Clean cards without capsules -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          <div class="rounded-3xl border border-neutral-200/80 bg-white/85 backdrop-blur-sm p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div>
               <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">01</span>
               <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Focus on your ideas</h3>
@@ -242,7 +319,7 @@ const audiences = [
             </div>
           </div>
 
-          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          <div class="rounded-3xl border border-neutral-200/80 bg-white/85 backdrop-blur-sm p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div>
               <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">02</span>
               <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Keep documents organized</h3>
@@ -252,7 +329,7 @@ const audiences = [
             </div>
           </div>
 
-          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          <div class="rounded-3xl border border-neutral-200/80 bg-white/85 backdrop-blur-sm p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div>
               <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">03</span>
               <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Work with precision</h3>
@@ -262,7 +339,7 @@ const audiences = [
             </div>
           </div>
 
-          <div class="rounded-3xl border border-neutral-200/80 bg-white p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          <div class="rounded-3xl border border-neutral-200/80 bg-white/85 backdrop-blur-sm p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div>
               <span class="text-xs font-mono font-bold text-neutral-400 block mb-4">04</span>
               <h3 class="text-lg font-bold text-neutral-900 font-sans mb-2">Move forward faster</h3>
@@ -277,7 +354,7 @@ const audiences = [
     </section>
 
     <!-- SECTION: FEATURES - SIGNATURE GRADIENT CARDS (Like Community / Open Source Quest cards) -->
-    <section id="features" class="relative w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100">
+    <section id="features" class="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-b border-neutral-100/70 bg-white/30 backdrop-blur-[1px]">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-3xl mb-12 sm:mb-16">
           <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
