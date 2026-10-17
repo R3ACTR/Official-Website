@@ -131,7 +131,7 @@ export const coreTeam: TeamMember[] = [
         name: 'Paper Lab',
         role: 'Lead Architect',
         desc: 'All-in-one academic authoring environment combining visual WYSIWYG editing with raw Monaco LaTeX compilation.',
-        url: 'https://paperlab.r3actr.work/',
+        url: 'https://paperlab.r3actr.com/',
       },
       {
         name: 'Open Source Quest',

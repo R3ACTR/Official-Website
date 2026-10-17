@@ -37,7 +37,7 @@ export const SEO = {
           'https://x.com/r3actr',
           'https://twitter.com/r3actr',
           'https://linkedin.com/company/r3actr',
-          'https://paperlab.r3actr.work',
+          'https://paperlab.r3actr.com',
           'https://ambassador.r3actr.work',
           'https://www.doomsprotocol.xyz',
         ],

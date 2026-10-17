@@ -22,7 +22,7 @@ R3ACTR is an independent software research and engineering collective. We design
 
 ## 2. Flagship Product: Paper Lab
 
-- **URL**: https://paperlab.r3actr.work
+- **URL**: https://paperlab.r3actr.com
 - **Target Audience**: Academics, PhD candidates, university students, and technical researchers.
 - **Problem Solved**: Eliminates the fragmented workflow of academic writing, where researchers must juggle separate tools for writing, citations, diagrams, and LaTeX compilation.
 
@@ -133,7 +133,7 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 **A**: You can reach out via our contact page at https://r3actr.com/contact or email us directly at r3actr@gmail.com. Whether you are looking for custom software development, research partnerships, or consulting on AI/Web3 systems, we typically respond within 1-2 business days.
 
 ### Q: What is PaperLab and how does it work?
-**A**: PaperLab (https://paperlab.r3actr.work) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.
+**A**: PaperLab (https://paperlab.r3actr.com) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.
 
 ### Q: What services does R3ACTR offer?
 **A**: We provide full-lifecycle software engineering, including Web Application Development (Astro, Next.js, React, Node.js), Artificial Intelligence & ML engineering, Smart Contract and Web3 protocol development, and UI/UX product design for mission-critical software.
@@ -152,4 +152,4 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 - **Official Website**: https://r3actr.com
 - **Direct Email**: r3actr@gmail.com
 - **GitHub**: https://github.com/R3ACTR
-- **Paper Lab Platform**: https://paperlab.r3actr.work
+- **Paper Lab Platform**: https://paperlab.r3actr.com
