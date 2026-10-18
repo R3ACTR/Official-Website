@@ -1,0 +1,190 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `R3ACTR Labs | Applied Research & Publications | ${SITE.title}`;
+const pageDescription =
+  'Investigate emerging technologies, conduct applied research, build prototypes, and translate promising work into practical applications.';
+
+const publications = [
+  {
+    num: '01',
+    title:
+      'Boosted vision transformer ensembles for automatic detection of laryngeal and neurological voice disorders',
+    venue: 'Springer • Neural Computing and Applications',
+    year: '2026',
+    doi: '10.1007/s00521-026-12393-5',
+    url: 'https://doi.org/10.1007/s00521-026-12393-5',
+    desc: 'Deep learning ensemble architecture leveraging vision transformers and boosting mechanisms for automated clinical detection of complex voice disorders.',
+  },
+  {
+    num: '02',
+    title:
+      'ADA-XAI: Adaptive Faithfulness-Driven Explainability for Hybrid EVA-02 and Deformable CNNS in Brain Tumor Diagnosis From MRI Images',
+    venue: 'IEEE • ICITIIT',
+    year: '2026',
+    doi: '10.1109/ICITIIT68860.2026.11499683',
+    url: 'https://doi.org/10.1109/ICITIIT68860.2026.11499683',
+    desc: 'Adaptive faithfulness-driven explainable AI framework integrating vision foundation models and deformable convolutions for clinical MRI brain tumor diagnosis.',
+  },
+  {
+    num: '03',
+    title:
+      'CRDA: Cross-Reasoning Disagreement Analysis for Uncertainty Quantification in Hybrid Voice Classification',
+    venue: 'IEEE • ICIET',
+    year: '2026',
+    doi: '10.1109/ICIET70550.2026.11712867',
+    url: 'https://doi.org/10.1109/ICIET70550.2026.11712867',
+    desc: 'Cross-reasoning disagreement framework for rigorously quantifying model uncertainty and decision confidence in hybrid acoustic health classification.',
+  },
+];
+---
+
+<MainLayout title={pageTitle} customDescription={pageDescription}>
+  <!-- Grain Filter -->
+  <svg class="sr-only" aria-hidden="true">
+    <filter id="labsGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.50 0" />
+    </filter>
+  </svg>
+
+  <div class="relative w-full bg-white text-neutral-900 font-sans min-h-[calc(100vh-200px)]">
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-20 sm:pb-28">
+      <div class="mx-auto max-w-5xl">
+        
+        <!-- Heading -->
+        <div class="mb-10 sm:mb-12">
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-4 font-sans">
+            Explore. Research. <br class="hidden sm:inline" />
+            <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4d6375] via-[#a85e3a] to-[#d87a2a]"
+              style="background-image: linear-gradient(135deg, #4d6375 0%, #a85e3a 50%, #d87a2a 100%), url('/gradients/creative-5.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >
+              Innovate.
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-neutral-600 font-sans max-w-2xl leading-relaxed">
+            Investigate emerging technologies, conduct applied research, build prototypes, and translate promising work into practical applications.
+          </p>
+        </div>
+
+        <!-- 3 Publications Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+          {
+            publications.map((pub) => (
+              <a
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative flex flex-col justify-between p-6 sm:p-7 rounded-[28px] sm:rounded-[32px] bg-white border border-neutral-200/90 shadow-sm hover:shadow-xl hover:border-neutral-300 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                aria-label={`View publication: ${pub.title}`}
+              >
+                <div>
+                  <span class="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider block mb-2">
+                    {pub.venue}
+                  </span>
+
+                  <h2 class="text-lg sm:text-xl font-bold text-neutral-900 tracking-tight font-sans mb-3 group-hover:text-[#a85e3a] transition-colors leading-snug">
+                    {pub.title}
+                  </h2>
+
+                  <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans mb-6">
+                    {pub.desc}
+                  </p>
+                </div>
+
+                <div class="pt-4 border-t border-neutral-100 flex items-center justify-between mt-auto">
+                  <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-900 group-hover:text-[#d87a2a] transition-colors">
+                    <span>View Paper</span>
+                    <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-neutral-400">
+                    {pub.year}
+                  </span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Under Research Section -->
+        <div class="mt-16 sm:mt-20 pt-14 border-t border-neutral-200/80">
+          <div class="mb-8">
+            <span class="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider block mb-2">
+              Under Research
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 font-sans">
+              Active Explorations
+            </h2>
+          </div>
+
+          <!-- Project Tvara Card in Main Screen Playground Aesthetic -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start">
+            <div class="flex flex-col group">
+              <!-- Square Rounded Gradient Texture Card (Exact Main Screen Playground Style) -->
+              <a
+                href="/labs/tvara"
+                class="relative w-full aspect-square overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] p-6 sm:p-10 flex items-center justify-center text-center shadow-xl transition-all duration-300 hover:border-white/40 hover:shadow-[0_20px_50px_rgba(216,122,42,0.35)] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#d87a2a] focus:ring-offset-2"
+                aria-label="View Project Tvara Technical Journey"
+              >
+                <!-- Full Gradient Art Backdrop -->
+                <img
+                  src="/gradients/creative-5.webp"
+                  alt="Project Tvara"
+                  class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                  loading="lazy"
+                />
+                <!-- Concentric Topo Wave Texture -->
+                <div class="absolute inset-0 opacity-35 mix-blend-overlay pointer-events-none" style="background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 10px, rgba(255,255,255,0.2) 11px, rgba(255,255,255,0.2) 12px);"></div>
+                <!-- SVG Sand Grain Noise Overlay -->
+                <div class="absolute inset-0 opacity-45 mix-blend-soft-light pointer-events-none" style="filter: url(#labsGrain);"></div>
+                <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+                <!-- Centered Title on Square Card with Tvara Logo -->
+                <div class="relative z-10 flex flex-col items-center justify-center px-4">
+                  <img
+                    src="/assets/tvaralogor3actr.png"
+                    alt="Project Tvara Logo"
+                    class="h-14 sm:h-16 w-auto mb-3 invert drop-shadow-md brightness-200 group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <span class="text-xs font-mono font-semibold tracking-widest uppercase text-amber-200/90 block mb-1">
+                    Autonomous Edge AI
+                  </span>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+                    Project Tvara (त्वरा)
+                  </h3>
+                  <span class="text-xs font-mono text-white/80 block mt-1.5">
+                    100.68M Params
+                  </span>
+                </div>
+              </a>
+
+              <!-- Content Directly Below Square Card -->
+              <div class="pt-5 flex flex-col">
+                <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-500 uppercase mb-1.5">
+                  Under Research • Edge AI
+                </span>
+                <h4 class="text-lg font-bold text-neutral-900 tracking-tight font-sans mb-1.5">
+                  Tvara (त्वरा): Speed & Swiftness
+                </h4>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+                  Ultra-efficient offline edge AI language model with native structured tool-calling, static O(1) KV-cache acceleration (75 tok/s), and safety guardrails running on consumer hardware (RTX 4050).
+                </p>
+                <a
+                  href="/labs/tvara"
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 transition-all hover:text-neutral-600 hover:gap-2.5 w-fit cursor-pointer text-left"
+                >
+                  <span>Technical Journey & Architecture Log</span>
+                  <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</MainLayout>

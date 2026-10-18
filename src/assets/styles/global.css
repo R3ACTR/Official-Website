@@ -330,8 +330,24 @@
   scrollbar-width: none;
 }
 
+/* Flow Dash Pulse for Ecosystem Flowchart */
+@keyframes flowDash {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-flow-dash {
+  stroke-dasharray: 8 16;
+  animation: flowDash 2.4s linear infinite;
+}
+
 html, body {
   -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
 }
+
 

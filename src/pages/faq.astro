@@ -10,7 +10,7 @@ const ogTitle = 'Frequently Asked Questions | R3ACTR';
 const faqCategories = [
   {
     category: 'About R3ACTR',
-    description: 'Learn more about our mission, vision, and how we operate.',
+    description: 'Our mission, structure, and operational approach.',
     questions: [
       {
         question: 'What is R3ACTR?',
@@ -20,7 +20,7 @@ const faqCategories = [
       {
         question: 'What core technologies and domains do you focus on?',
         answer:
-          'Our core technical domains include Artificial Intelligence (machine learning, vision models, LLM systems), Modern Web & SaaS development (full-stack TypeScript, Astro, Next.js, Rust/Tauri), Decentralized Web3 technologies, and Academic/Scientific computing tools.',
+          'Our core technical domains include Artificial Intelligence (machine learning, vision models, edge LLM systems), Modern Web & SaaS development (full-stack TypeScript, Astro, Next.js, Rust/Tauri), Decentralized Web3 technologies, and Academic/Scientific computing tools.',
       },
       {
         question: 'How is the R3ACTR team structured?',
@@ -31,17 +31,17 @@ const faqCategories = [
   },
   {
     category: 'Products & Platforms',
-    description: 'Questions about our active software platforms and tools.',
+    description: 'Active software platforms, editors, and developer tools.',
     questions: [
-      {
-        question: 'What is KTU Hub?',
-        answer:
-          'KTU Hub (ktuhub.site) is our flagship academic platform designed specifically for university students. It provides centralized course materials, real-time syllabus updates, previous question banks, and productivity tools in a fast, mobile-friendly interface.',
-      },
       {
         question: 'What is PaperLab?',
         answer:
           'PaperLab (paperlab.r3actr.com) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.',
+      },
+      {
+        question: 'What is KTU Hub?',
+        answer:
+          'KTU Hub (ktuhub.site) is our flagship academic platform designed specifically for university students. It provides centralized course materials, real-time syllabus updates, previous question banks, and productivity tools in a fast, mobile-friendly interface.',
       },
       {
         question: 'Are R3ACTR products free to use?',
@@ -62,7 +62,7 @@ const faqCategories = [
       {
         question: 'What kind of client projects do you take on?',
         answer:
-          'We engineer custom SaaS platforms, AI/ML pipelines and desktop apps (like GUI model training tools), high-performance web applications, and research prototypes. We handle everything from system architecture and UI/UX design to full-stack implementation and deployment.',
+          'We engineer custom SaaS platforms, AI/ML pipelines, high-performance web applications, and research prototypes. We handle everything from system architecture and UI/UX design to full-stack implementation and deployment.',
       },
       {
         question: 'What is your typical development process?',
@@ -73,7 +73,7 @@ const faqCategories = [
   },
   {
     category: 'Open Source & Community',
-    description: 'How to contribute and participate in our open-source programs.',
+    description: 'Contributing and participating in our open programs.',
     questions: [
       {
         question: 'What is Open Source Quest (OSQ)?',
@@ -110,108 +110,94 @@ const faqStructuredData = {
   customOgTitle={ogTitle}
   structuredData={faqStructuredData}
 >
-  <div class="mx-auto max-w-5xl px-4 pt-20 pb-10 sm:px-6 sm:pt-24 sm:pb-12 lg:px-8 lg:pt-28 lg:pb-16">
-    {/* Header Section */}
-    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-800 dark:text-neutral-200 tracking-tight">
-        Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-300 dark:to-orange-500">Questions</span>
-      </h1>
-      <p class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
-        Everything you need to know about R3ACTR, our platforms, development services, and community initiatives.
-      </p>
-    </div>
+  <div class="relative w-full bg-white text-neutral-900 font-sans min-h-[calc(100vh-200px)]">
+    <section class="relative w-full px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-20 sm:pb-28">
+      <div class="mx-auto max-w-5xl">
 
-    {/* FAQ Categories & Accordions Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 items-start">
-      {
-        faqCategories.map((cat, catIndex) => (
-          <div class="flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#13233f] p-5 sm:p-6 shadow-md">
-            <div class="mb-4 pb-3 border-b border-white/10">
-              <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">
-                {cat.category}
-              </h2>
-              <p class="mt-1 text-xs text-slate-300">
-                {cat.description}
-              </p>
-            </div>
+        <!-- Back to Home -->
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-neutral-500 hover:text-neutral-900 transition-colors mb-8 group"
+        >
+          <span class="transition-transform group-hover:-translate-x-1">&larr;</span>
+          <span>Back to Home</span>
+        </a>
 
-            <div class="hs-accordion-group divide-y divide-white/10">
-              {cat.questions.map((faq, faqIndex) => {
-                const id = `faq-${catIndex}-${faqIndex}`;
-                const collapseId = `faq-collapse-${catIndex}-${faqIndex}`;
-                return (
-                  <div class="hs-accordion py-3.5 first:pt-0 last:pb-0" id={id}>
-                    <button
-                      type="button"
-                      class="hs-accordion-toggle group flex w-full items-center justify-between gap-x-3 text-start font-semibold text-white hover:text-cyan-300 text-xs sm:text-sm transition-colors duration-200"
-                      aria-expanded="false"
-                      aria-controls={collapseId}
-                    >
-                      <span>{faq.question}</span>
-                      <svg
-                        class="hs-accordion-active:hidden block h-4 w-4 shrink-0 text-slate-400 group-hover:text-cyan-300"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                      <svg
-                        class="hs-accordion-active:block hidden h-4 w-4 shrink-0 text-cyan-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <polyline points="18 15 12 9 6 15" />
-                      </svg>
-                    </button>
-                    <div
-                      id={collapseId}
-                      role="region"
-                      aria-labelledby={id}
-                      class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    >
-                      <p class="mt-2.5 text-xs text-slate-300 leading-relaxed">
+        <!-- Header -->
+        <div class="mb-12 sm:mb-16">
+          <span class="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Frequently Asked Questions
+          </span>
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-4 font-sans">
+            Questions? We've got <br class="hidden sm:inline" />
+            <span
+              class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#a855f7]"
+              style="background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%), url('/gradients/tvqokiltm5q-Agents-BG.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+            >
+              answers
+            </span>.
+          </h1>
+          <p class="text-base sm:text-lg text-neutral-600 font-sans max-w-2xl leading-relaxed">
+            Everything you need to know about R3ACTR, our software products, research initiatives, and client collaboration.
+          </p>
+        </div>
+
+        <!-- FAQ Categories & Accordions Grid -->
+        <div class="space-y-12 sm:space-y-16 mb-16">
+          {
+            faqCategories.map((cat) => (
+              <div>
+                <!-- Category Heading -->
+                <div class="mb-5 pb-3 border-b border-neutral-200">
+                  <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-sans">
+                    {cat.category}
+                  </h2>
+                  <p class="text-xs sm:text-sm text-neutral-500 mt-1 font-sans">
+                    {cat.description}
+                  </p>
+                </div>
+
+                <!-- Clean Accordions List -->
+                <div class="divide-y divide-neutral-200/80">
+                  {cat.questions.map((faq) => (
+                    <details class="group py-4 sm:py-5 cursor-pointer">
+                      <summary class="flex items-center justify-between font-semibold text-neutral-900 text-base sm:text-lg hover:text-neutral-600 transition-colors list-none">
+                        <span>{faq.question}</span>
+                        <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-transform duration-200 group-open:rotate-45">
+                          +
+                        </span>
+                      </summary>
+                      <p class="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl pr-6 font-sans">
                         {faq.answer}
                       </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ))
-      }
-    </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
 
-    {/* Bottom Callout Banner */}
-    <div class="rounded-2xl border border-white/10 bg-[#13233f] p-6 sm:p-8 text-center shadow-lg">
-      <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-        Still have questions?
-      </h3>
-      <p class="mt-2 text-slate-300 max-w-lg mx-auto text-xs sm:text-sm">
-        Can’t find what you’re looking for? Reach out to our team directly and we’ll be happy to assist you.
-      </p>
-      <div class="mt-4 flex justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-x-2 rounded-xl bg-white px-6 py-2.5 text-xs sm:text-sm font-bold text-slate-950 shadow-md transition-all hover:bg-slate-100"
-        >
-          Contact Us
-          <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+        <!-- Still Have Questions? Callout Card -->
+        <div class="p-8 sm:p-10 rounded-[28px] sm:rounded-[32px] bg-neutral-50 border border-neutral-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 font-sans mb-1.5">
+              Still have questions?
+            </h3>
+            <p class="text-sm text-neutral-600 font-sans max-w-xl">
+              Can’t find what you’re looking for? Reach out to our team directly and we’ll be glad to help.
+            </p>
+          </div>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-neutral-900 text-white font-sans text-sm font-semibold hover:bg-neutral-800 transition-all hover:gap-2.5 shrink-0"
+          >
+            <span>Contact Us</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
       </div>
-    </div>
+    </section>
   </div>
 </MainLayout>

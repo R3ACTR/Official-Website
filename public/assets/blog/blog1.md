@@ -8,20 +8,7 @@ Paper Lab isn’t just another word processor, nor is it just another code-edito
 
 Here is a deep dive into how Paper Lab is trying to change the way we write, and whether it actually lives up to the hype.
 
-<div class="not-prose my-10 overflow-hidden rounded-2xl border border-neutral-300 bg-neutral-950 shadow-2xl dark:border-neutral-700">
-  <video
-    src="https://paperlab.r3actr.com/media/hero-video/video.mp4"
-    autoplay
-    loop
-    muted
-    playsinline
-    controls
-    class="w-full aspect-video rounded-t-2xl object-cover"
-  ></video>
-  <div class="px-4 py-2.5 bg-neutral-900 border-t border-neutral-800 text-center">
-    <p class="text-xs text-neutral-400 font-medium">Watch: Paper Lab in action — Seamless dual-mode authoring and live typesetting</p>
-  </div>
-</div>
+
 
 ### The Best of Both Worlds: Visual Writing Meets Raw Code
 

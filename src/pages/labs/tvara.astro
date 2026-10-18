@@ -1,0 +1,509 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `Project Tvara (त्वरा) | Research Monograph & Technical Architecture | ${SITE.title}`;
+const pageDescription =
+  'A rigorous technical investigation into edge-native Transformer architectures: Net2Net progressive parameter expansion, O(1) Key-Value cache dynamics, and closed-domain capability boundary alignment.';
+
+const specHighlights = [
+  { label: 'Parameters', value: '100,685,568', sub: '100.68M Active' },
+  { label: 'Inference Throughput', value: '65 – 75 tok/s', sub: 'O(1) Static KV-Cache' },
+  { label: 'VRAM Allocation', value: '< 4.5 GB', sub: 'RTX 4050 6GB Headroom' },
+  { label: 'Strict Eval Score', value: '88.6%', sub: '31 / 35 Held-Out Tasks' },
+];
+---
+
+<MainLayout title={pageTitle} customDescription={pageDescription}>
+  <!-- Grain Filter -->
+  <svg class="sr-only" aria-hidden="true">
+    <filter id="tvaraGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.50 0" />
+    </filter>
+  </svg>
+
+  <div class="relative w-full bg-white text-neutral-900 font-sans min-h-screen">
+    
+    <!-- Top Editorial Header -->
+    <header class="relative w-full border-b border-neutral-200/80 bg-neutral-50/70 pt-10 sm:pt-14 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <!-- Navigation -->
+        <a
+          href="/labs"
+          class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 transition-colors mb-8 group"
+        >
+          <span class="transition-transform group-hover:-translate-x-1">&larr;</span>
+          <span>R3ACTR Labs / Monograph Archive</span>
+        </a>
+
+        <!-- Metadata Ribbon with Logo -->
+        <div class="flex items-center gap-4 mb-6">
+          <img
+            src="/assets/tvaralogor3actr.png"
+            alt="Project Tvara Logo"
+            class="h-12 w-auto object-contain shrink-0"
+            loading="eager"
+          />
+          <div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-mono text-neutral-500">
+            <span class="font-bold text-neutral-900 uppercase tracking-widest">R3ACTR-LABS-2026-T1</span>
+            <span>•</span>
+            <span>Autonomous Edge Intelligence</span>
+            <span>•</span>
+            <span>Active Investigation</span>
+          </div>
+        </div>
+
+        <!-- Document Title with Gradient Accent -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] mb-6 font-sans">
+          Project Tvara (<span
+            class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4d6375] via-[#a85e3a] to-[#d87a2a]"
+            style="background-image: linear-gradient(135deg, #4d6375 0%, #a85e3a 50%, #d87a2a 100%), url('/gradients/creative-5.webp'); background-size: cover; background-blend-mode: overlay; filter: contrast(1.15);"
+          >त्वरा</span>): Architecture, Optimization, and Safety Dynamics for Sub-100M Edge Language Models
+        </h1>
+
+        <!-- Abstract Box -->
+        <div class="p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-white border border-neutral-200/90 shadow-sm mt-8">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-[#a85e3a] mb-3">
+            Executive Abstract
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans mb-3">
+            Deploying responsive, agentic language models on consumer-grade hardware demands radical parameter parsimony and deterministic runtime stability. 
+            <strong>Project Tvara</strong> (<em class="italic">Sanskrit: त्वरा</em>, meaning <em>speed and swiftness</em>) explores the design of a 100.68M parameter decoder-only Transformer capable of native structured function execution, low-latency autoregressive generation, and reliable boundary compliance under strict local constraints (NVIDIA GeForce RTX 4050, 6 GB VRAM).
+          </p>
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            Through progressive <strong>Net2Net weight expansion</strong>, pre-allocated static <strong class="font-mono text-neutral-900"><i>O</i>(1) Key-Value memory caching</strong>, and response-masked boundary training, we establish that compact models can achieve high precision tool orchestration (88.6% on held-out strict evaluation) while eliminating hallucinated out-of-domain invocations.
+          </p>
+        </div>
+
+        <!-- Empirical Metrics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6">
+          {
+            specHighlights.map((stat) => (
+              <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between group hover:border-neutral-300 transition-all hover:-translate-y-0.5">
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-400 mb-1 block">
+                  {stat.label}
+                </span>
+                <span class="text-xl sm:text-2xl font-extrabold text-neutral-900 font-sans tracking-tight">
+                  {stat.value}
+                </span>
+                <span class="text-[11px] font-mono text-neutral-500 mt-1 block">
+                  {stat.sub}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </header>
+
+    <!-- Monograph Body -->
+    <main class="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+      <div class="mx-auto max-w-4xl space-y-16 sm:space-y-20">
+
+        <!-- Section 1 -->
+        <article class="space-y-4">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 01
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Operational Constraints & Target Hardware Baseline
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            Modern foundation models routinely exceed device storage and latency thresholds for local client workloads. Our empirical envelope is restricted to standard client hardware without reliance on external cloud inference clusters or remote API gateways.
+          </p>
+
+          <div class="p-6 rounded-2xl sm:rounded-[28px] bg-neutral-50/80 border border-neutral-200/80 space-y-3 text-sm font-sans">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-1.5 border-b border-neutral-200/60">
+              <span class="font-semibold text-neutral-900">Host Compute Architecture</span>
+              <span class="font-mono text-neutral-600 text-xs sm:text-sm">Local Workstation • NVIDIA GeForce RTX 4050 Laptop (6.00 GB VRAM)</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-1.5 border-b border-neutral-200/60">
+              <span class="font-semibold text-neutral-900">Numerical Precision</span>
+              <span class="font-mono text-neutral-600 text-xs sm:text-sm">torch.bfloat16 with TensorFloat-32 (TF32) matmul enabled</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-1.5 border-b border-neutral-200/60">
+              <span class="font-semibold text-neutral-900">Maximum Operational VRAM Ceiling</span>
+              <span class="font-mono text-neutral-600 text-xs sm:text-sm">&le; 4.5 GB (Reserving &ge; 1.5 GB for host display and OS tasks)</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between py-1.5">
+              <span class="font-semibold text-neutral-900">Autoregressive Throughput Target</span>
+              <span class="font-mono text-neutral-600 text-xs sm:text-sm">&gt; 65 tokens/sec sustained autoregressive stream</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Section 2 -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 02
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Structural Scaling: From 32M Prototype to 100.68M Architecture
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            Rather than initializing the target network randomly, training progressed through warm tensor expansion using the <strong>Net2Net paradigm</strong>, transferring syntax and foundational linguistic patterns acquired in a 32M baseline model.
+          </p>
+
+          <!-- Scaling Table -->
+          <div class="overflow-x-auto border border-neutral-200 rounded-2xl sm:rounded-[28px]">
+            <table class="w-full text-left text-sm font-sans">
+              <thead class="bg-neutral-50 text-neutral-700 font-semibold border-b border-neutral-200 font-mono text-xs uppercase">
+                <tr>
+                  <th class="py-3 px-4">Hyperparameter</th>
+                  <th class="py-3 px-4">Phase 1: 32M Seed</th>
+                  <th class="py-3 px-4">Phase 2: 100.68M Architecture</th>
+                  <th class="py-3 px-4">Architectural Rationale</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-100 text-neutral-700">
+                <tr>
+                  <td class="py-3 px-4 font-semibold text-neutral-900">Hidden Dimension (<i>d</i><sub>model</sub>)</td>
+                  <td class="py-3 px-4 font-mono text-xs">512</td>
+                  <td class="py-3 px-4 font-mono text-xs font-bold text-neutral-900">768</td>
+                  <td class="py-3 px-4 text-xs text-neutral-600">Elevates semantic representation capacity</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-semibold text-neutral-900">Transformer Layers (<i>L</i>)</td>
+                  <td class="py-3 px-4 font-mono text-xs">8</td>
+                  <td class="py-3 px-4 font-mono text-xs font-bold text-neutral-900">14</td>
+                  <td class="py-3 px-4 text-xs text-neutral-600">Deepens multi-step contextual composition</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-semibold text-neutral-900">Attention Heads (<i>H</i><sub>Q</sub> : <i>H</i><sub>KV</sub>)</td>
+                  <td class="py-3 px-4 font-mono text-xs">8 : 4</td>
+                  <td class="py-3 px-4 font-mono text-xs font-bold text-neutral-900">12 : 4 (GQA 3:1)</td>
+                  <td class="py-3 px-4 text-xs text-neutral-600">Grouped-Query Attention preserves VRAM bandwidth</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-semibold text-neutral-900">Feed-Forward Network (FFN)</td>
+                  <td class="py-3 px-4 font-mono text-xs">SwiGLU (1365)</td>
+                  <td class="py-3 px-4 font-mono text-xs font-bold text-neutral-900">SwiGLU (2048)</td>
+                  <td class="py-3 px-4 text-xs text-neutral-600">64-multiple tensor padding for tensor core alignment</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-semibold text-neutral-900">Vocabulary Size (<i>V</i>)</td>
+                  <td class="py-3 px-4 font-mono text-xs">16,384</td>
+                  <td class="py-3 px-4 font-mono text-xs font-bold text-neutral-900">16,384 (Byte BPE)</td>
+                  <td class="py-3 px-4 text-xs text-neutral-600">Compact vocabulary prevents parameter inflation in embeddings</td>
+                </tr>
+                <tr class="bg-neutral-50/70 font-semibold">
+                  <td class="py-3 px-4 text-neutral-900">Active Parameters</td>
+                  <td class="py-3 px-4 font-mono text-xs">32,442,368</td>
+                  <td class="py-3 px-4 font-mono text-xs text-neutral-900">100,685,568</td>
+                  <td class="py-3 px-4 text-xs font-mono text-neutral-700">Tied input/output embedding matrices</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-xs sm:text-sm text-neutral-600 italic">
+            Following tensor expansion, continued pretraining reached a steady validation loss of <strong>3.46</strong> and a validation perplexity of <strong>31.83</strong> on curated English syntactic corpora.
+          </p>
+        </article>
+
+        <!-- Section 3 -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 03
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Agent Integration: Custom Token Topology & Masked Loss Formulation
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            To enforce predictable structured execution without brittle regex extractors, role boundaries and function triggers were integrated directly into the tokenizer vocabulary as first-class control symbols.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <span class="text-xs font-mono font-bold text-neutral-900 block mb-1">&lt;|im_start|&gt; &bull; &lt;|im_end|&gt;</span>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                ChatML role delineation separating <code>system</code>, <code>user</code>, <code>assistant</code>, and <code>tool</code> execution scopes.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <span class="text-xs font-mono font-bold text-neutral-900 block mb-1">&lt;|call|&gt; &bull; &lt;|call_end|&gt;</span>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Atomic framing for structured JSON tool invocation payloads, preventing syntactical drift in schema emission.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <span class="text-xs font-mono font-bold text-neutral-900 block mb-1">&lt;|result|&gt;</span>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Payload channel delivering tool results back to the model for subsequent answer synthesis.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-xs">
+            <h3 class="text-sm font-bold text-neutral-900 font-sans mb-2">
+              Response-Only Cross-Entropy Optimization
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-3">
+              Standard causal language modeling computes loss across all tokens, causing the network to expend capacity memorizing long prompt schemas. We implemented masked response-only optimization:
+            </p>
+            <div class="bg-neutral-900 text-neutral-100 p-4 rounded-xl font-mono text-xs overflow-x-auto">
+              <code>loss = CrossEntropyLoss(logits[mask], targets[mask], ignore_index=-100)</code>
+            </div>
+            <p class="text-xs text-neutral-500 mt-2">
+              All prompt prefixes and system tool schemas were assigned <code class="font-mono text-neutral-800 bg-neutral-100 px-1 rounded">-100</code>, ensuring backpropagation isolated gradient updates solely to valid tool schema emission and synthesized outputs.
+            </p>
+          </div>
+        </article>
+
+        <!-- Section 4 -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 04
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Inference Acceleration: Removing the <i>O</i>(<i>N</i><sup>2</sup>) Context Bottleneck
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            Autoregressive decoding without state caching forces each subsequent token to recompute key and value representations for every antecedent token in the sequence. On local edge GPUs, this incurs quadratic compute complexity (<span class="font-mono font-semibold"><i>O</i>(<i>N</i><sup>2</sup>)</span>), causing generation throughput to degrade rapidly beyond modest context lengths.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Legacy Runtime Card -->
+            <div class="p-6 sm:p-7 rounded-[24px] sm:rounded-[32px] bg-neutral-50 border border-neutral-200 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 block mb-1">Legacy Runtime</span>
+                <h3 class="text-lg font-bold text-neutral-900 mb-2">Uncached Autoregression (<i>O</i>(<i>N</i><sup>2</sup>))</h3>
+                <p class="text-xs text-neutral-600 leading-relaxed mb-4">
+                  Redundant attention projection on each step. Throughput hovers at 28–46 tokens/sec on mobile RTX 4050, with rising latency per token.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-neutral-200/80">
+                <span class="text-xs font-mono text-neutral-500 block mb-0.5">Observed Throughput</span>
+                <div class="text-2xl font-extrabold text-neutral-800 font-mono">~30 – 46 tok/s</div>
+              </div>
+            </div>
+
+            <!-- Gradient Themed Tvara KV-Engine Card -->
+            <div class="relative overflow-hidden p-6 sm:p-7 rounded-[24px] sm:rounded-[32px] border border-white/20 bg-gradient-to-b from-[#4d6375] via-[#a85e3a] to-[#d87a2a] text-white shadow-xl flex flex-col justify-between">
+              <!-- Art backdrop -->
+              <img
+                src="/gradients/creative-5.webp"
+                alt="KV-Cache Engine"
+                class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay pointer-events-none"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 opacity-35 mix-blend-soft-light pointer-events-none" style="filter: url(#tvaraGrain);"></div>
+              <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+              <div class="relative z-10">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-200 block mb-1">Tvara KV-Engine</span>
+                <h3 class="text-lg font-bold text-white mb-2">Static Pre-allocated Cache (<i>O</i>(1))</h3>
+                <p class="text-xs text-white/90 leading-relaxed mb-4">
+                  Full user prompt ingested in parallel during prefill. Autoregressive decoding passes only a single token (<span class="font-mono"><i>O</i>(1)</span>), indexing past context in microseconds.
+                </p>
+              </div>
+              <div class="relative z-10 pt-4 border-t border-white/20">
+                <span class="text-xs font-mono text-amber-200/90 block mb-0.5">Cached RTX 4050 Benchmark</span>
+                <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono drop-shadow-sm">65 – 75 tok/s <span class="text-xs font-normal text-amber-200">(1.8x – 2.2x speedup)</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Section 5 -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 05
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Safety Verification & Out-of-Domain (OOD) Boundary Enforcement
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            Compact autonomous models face a dual alignment vulnerability: they are prone to either hallucinating bogus function calls for unsupported queries or exhibiting "false refusal syndrome" where harmless natural inquiries are erroneously rejected.
+          </p>
+
+          <div class="space-y-4">
+            <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-xs">
+              <h3 class="text-base font-bold text-neutral-900 font-sans mb-1.5">
+                Deterministic Natural Refusal for Destructive Commands
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mb-3">
+                Destructive operating system commands (e.g. partition formatting, arbitrary file deletion, DPAPI credential theft) trigger natural language refusals without generating malformed tool invocations:
+              </p>
+              <blockquote class="p-3.5 rounded-xl bg-neutral-50 border-l-3 border-neutral-900 text-xs sm:text-sm italic text-neutral-700 font-sans">
+                "I cannot delete system files or execute destructive operations, as that would damage your operating system."
+              </blockquote>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-xs">
+              <h3 class="text-base font-bold text-neutral-900 font-sans mb-1.5">
+                The Out-of-Domain Capability Boundary
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mb-3">
+                When prompted for real-time external services (e.g. live weather, web crawling, stock feeds), naive models hallucinated arithmetic operations. Explicit boundary conditioning enforces transparent capability acknowledgment:
+              </p>
+              <blockquote class="p-3.5 rounded-xl bg-neutral-50 border-l-3 border-amber-600 text-xs sm:text-sm italic text-neutral-700 font-sans">
+                "I do not have access to an external weather API or live internet connection. I operate offline on your local device."
+              </blockquote>
+              <span class="text-xs font-mono text-emerald-700 font-semibold mt-2 block">
+                Verification: 21 / 21 held-out boundary tests passed with 0 hallucinations.
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Section 6 -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 06
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Empirical Evaluation: Strict Benchmark Protocol
+            </h2>
+          </header>
+
+          <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+            To prevent evaluators from giving false passes to generic evasive refusals, we engineered an automated strict validation harness verifying syntax validity, argument fidelity, missing-operand clarification dialogues, and direct conversational competence.
+          </p>
+
+          <div class="overflow-x-auto border border-neutral-200 rounded-2xl shadow-xs">
+            <table class="w-full text-left text-sm font-sans">
+              <thead class="bg-neutral-50 text-neutral-700 font-semibold border-b border-neutral-200 font-mono text-xs uppercase">
+                <tr>
+                  <th class="py-3 px-4">Evaluation Dimension</th>
+                  <th class="py-3 px-4 text-center">Baseline Model</th>
+                  <th class="py-3 px-4 text-center">Aligned Model (600 Steps)</th>
+                  <th class="py-3 px-4 text-right">Differential</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-100 text-neutral-700">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-neutral-900">
+                    Math Paraphrasing & Operand Parsing
+                    <span class="block text-xs text-neutral-500 font-normal">Varied colloquial phrasings ("take away from", "split equally")</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs text-neutral-600">4 / 8</td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs font-bold text-neutral-900">7 / 8</td>
+                  <td class="py-3.5 px-4 text-right text-xs font-mono text-emerald-700 font-bold">+3</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-neutral-900">
+                    Clarification on Missing Operands
+                    <span class="block text-xs text-neutral-500 font-normal">Incomplete user prompts requiring follow-up query</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs text-rose-600">0 / 3 (hallucinated)</td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs font-bold text-neutral-900">3 / 3 (100%)</td>
+                  <td class="py-3.5 px-4 text-right text-xs font-mono text-emerald-700 font-bold">+3</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-neutral-900">
+                    Honest Offline Tool Limitations
+                    <span class="block text-xs text-neutral-500 font-normal">Accurate rejection of internet-dependent queries</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs text-neutral-600">4 / 8</td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs font-bold text-neutral-900">8 / 8 (100%)</td>
+                  <td class="py-3.5 px-4 text-right text-xs font-mono text-emerald-700 font-bold">+4</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-neutral-900">
+                    Safety & Destructive Command Guardrails
+                    <span class="block text-xs text-neutral-500 font-normal">Refusal of format, delete, and credential exploits</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs text-neutral-600">5 / 5 (100%)</td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs font-bold text-neutral-900">5 / 5 (100%)</td>
+                  <td class="py-3.5 px-4 text-right text-xs font-mono text-neutral-500">Preserved</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-neutral-900">
+                    Direct Knowledge Responses
+                    <span class="block text-xs text-neutral-500 font-normal">Zero false refusals on benign factual inquiries</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs text-rose-600">0 / 8 (false refusals)</td>
+                  <td class="py-3.5 px-4 text-center font-mono text-xs font-bold text-neutral-900">8 / 8 (100%)</td>
+                  <td class="py-3.5 px-4 text-right text-xs font-mono text-emerald-700 font-bold">+8</td>
+                </tr>
+                <tr class="bg-neutral-50 font-bold">
+                  <td class="py-4 px-4 text-neutral-900">Aggregate Benchmark Accuracy (35 Held-Out Tasks)</td>
+                  <td class="py-4 px-4 text-center font-mono text-neutral-600">13 / 35 (37.1%)</td>
+                  <td class="py-4 px-4 text-center font-mono text-neutral-900 font-extrabold">31 / 35 (88.6%)</td>
+                  <td class="py-4 px-4 text-right text-xs font-mono text-emerald-700 font-extrabold">+51.5% Gain</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- Section 7: Future Investigations with Gradient Cards -->
+        <article class="space-y-6">
+          <header class="border-b border-neutral-200 pb-3">
+            <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase tracking-widest block mb-1">
+              Section 07
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
+              Future Investigations & Quantization Trajectory
+            </h2>
+          </header>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="p-6 rounded-[24px] bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between group hover:border-neutral-300 transition-all hover:-translate-y-0.5">
+              <div>
+                <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase block mb-1">Track 01</span>
+                <h3 class="text-base font-bold text-neutral-900 mb-2">Interactive Terminal Engine</h3>
+                <p class="text-xs text-neutral-600 leading-relaxed">
+                  Standalone command-line interface featuring real-time stream decoding, native terminal tool dispatch, and autonomous execution loops.
+                </p>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 mt-4 block">Milestone 09</span>
+            </div>
+
+            <div class="p-6 rounded-[24px] bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between group hover:border-neutral-300 transition-all hover:-translate-y-0.5">
+              <div>
+                <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase block mb-1">Track 02</span>
+                <h3 class="text-base font-bold text-neutral-900 mb-2">Multi-Step Tool Chaining</h3>
+                <p class="text-xs text-neutral-600 leading-relaxed">
+                  Scaling autoregressive planning to support trajectories with &ge; 3 dependent function invocations prior to synthesizing final user responses.
+                </p>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 mt-4 block">Trajectory Alignment</span>
+            </div>
+
+            <div class="p-6 rounded-[24px] bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between group hover:border-neutral-300 transition-all hover:-translate-y-0.5">
+              <div>
+                <span class="text-xs font-mono font-bold text-[#a85e3a] uppercase block mb-1">Track 03</span>
+                <h3 class="text-base font-bold text-neutral-900 mb-2">INT4 / GGUF Quantization</h3>
+                <p class="text-xs text-neutral-600 leading-relaxed">
+                  Compressing model footprint to sub-100 MB via 4-bit integer quantization to enable sub-watt execution on ultra-low-power microcontrollers.
+                </p>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 mt-4 block">Hardware Quantization</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Monograph Citation Footer -->
+        <footer class="pt-10 border-t border-neutral-200 text-xs font-mono text-neutral-500 flex flex-col sm:flex-row justify-between gap-4">
+          <div>
+            <span>Published under <strong>R3ACTR Labs Research Monograph Series</strong></span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="/labs" class="text-neutral-900 hover:underline">&larr; Return to Labs</a>
+          </div>
+        </footer>
+
+      </div>
+    </main>
+
+  </div>
+</MainLayout>

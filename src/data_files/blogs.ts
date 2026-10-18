@@ -29,7 +29,7 @@ export const blogs: BlogPostMeta[] = [
     author: {
       name: 'Sreehari R',
       role: 'Software & Research Insights',
-      avatar: '/assets/illustrations/Cool robot-rafiki.png',
+      avatar: '/assets/id/shr_nobg.png',
     },
     pubDate: 'September 6, 2026',
     pubDateISO: '2026-09-06',
