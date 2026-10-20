@@ -331,19 +331,20 @@
   scrollbar-width: none;
 }
 
-/* Flow Dash Pulse for Ecosystem Flowchart */
+/* Flow Dash Pulse for Ecosystem Flowchart (GPU-composited opacity pulse) */
 @keyframes flowDash {
-  0% {
-    stroke-dashoffset: 48;
+  0%, 100% {
+    opacity: 0.35;
   }
-  100% {
-    stroke-dashoffset: 0;
+  50% {
+    opacity: 1;
   }
 }
 
 .animate-flow-dash {
-  stroke-dasharray: 8 16;
-  animation: flowDash 2.4s linear infinite;
+  stroke-dasharray: 8 12;
+  animation: flowDash 2.4s ease-in-out infinite;
+  will-change: opacity;
 }
 
 html, body {
