@@ -1,4 +1,5 @@
 ---
+import AskAIModal from '@components/ui/AskAIModal.astro';
 const homeUrl = '/';
 ---
 
@@ -47,19 +48,17 @@ const homeUrl = '/';
         <span class="tracking-tight">Squad</span>
       </a>
 
-      <!-- Pill 1: Ask AI (Greyed out / Disabled for now - desktop/tablet only) -->
+      <!-- Pill 1: Tvara (Text Trigger) -->
       <button
         type="button"
         id="btn-ask-ai"
-        disabled
-        class="hidden sm:flex items-center gap-2 rounded-full bg-neutral-100/80 px-3.5 py-1.5 text-xs font-semibold text-neutral-400 border border-neutral-200/80 shadow-2xs opacity-60 cursor-not-allowed select-none"
-        title="Ask AI (Coming Soon)"
+        class="hidden sm:flex items-center gap-1.5 sm:gap-2 rounded-full bg-neutral-100 px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200 shadow-2xs transition-all hover:bg-neutral-200 active:scale-95 cursor-pointer select-none"
+        title="Tvara"
       >
-        <!-- Phosphor Sparkle Icon -->
-        <svg class="h-3.5 w-3.5 text-neutral-400 shrink-0" viewBox="0 0 256 256" fill="currentColor">
+        <svg class="h-3.5 w-3.5 text-neutral-700 shrink-0" viewBox="0 0 256 256" fill="currentColor">
           <path d="M213.92,110.62,156.44,98.11,143.93,40.63a16,16,0,0,0-31.86,0L99.56,98.11,42.08,110.62a16,16,0,0,0,0,31.86l57.48,12.51,12.51,57.48a16,16,0,0,0,31.86,0l12.51-57.48,57.48-12.51a16,16,0,0,0,0-31.86Z" />
         </svg>
-        <span class="tracking-tight">Ask AI</span>
+        <span class="tracking-tight">Tvara</span>
       </button>
 
       <!-- Pill 2: Launchpad (Desktop/tablet header pill) -->
@@ -187,12 +186,13 @@ const homeUrl = '/';
         <button
           type="button"
           id="btn-ask-ai-mobile"
-          disabled
-          class="flex items-center gap-2 rounded-full bg-neutral-100/80 px-3.5 py-1.5 text-xs font-semibold text-neutral-400 border border-neutral-200/80 opacity-60 cursor-not-allowed select-none"
-          title="Ask AI (Coming Soon)"
+          class="flex items-center gap-2 rounded-full bg-neutral-100 px-3.5 py-1.5 text-xs font-semibold text-neutral-800 border border-neutral-200 shadow-2xs transition-all active:scale-95 cursor-pointer"
+          title="Tvara"
         >
-          <svg class="h-3.5 w-3.5 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="7" r="2"/></svg>
-          <span>Ask AI</span>
+          <svg class="h-3.5 w-3.5 text-neutral-700" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M213.92,110.62,156.44,98.11,143.93,40.63a16,16,0,0,0-31.86,0L99.56,98.11,42.08,110.62a16,16,0,0,0,0,31.86l57.48,12.51,12.51,57.48a16,16,0,0,0,31.86,0l12.51-57.48,57.48-12.51a16,16,0,0,0,0-31.86Z" />
+          </svg>
+          <span class="tracking-tight">Tvara</span>
         </button>
         <button
           type="button"
@@ -219,76 +219,8 @@ const homeUrl = '/';
   </div>
 </nav>
 
-<!-- MODAL: "Ask AI" Interactive Assistant (White Theme) -->
-<div
-  id="modal-ask-ai"
-  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="ask-ai-title"
->
-  <div class="relative w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl border border-neutral-200 text-neutral-900 font-sans animate-in fade-in zoom-in-95 duration-200">
-    <div class="flex items-center justify-between pb-4 border-b border-neutral-100">
-      <div class="flex items-center gap-3">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="7" r="2"/><circle cx="19" cy="17" r="2"/></svg>
-        </div>
-        <div>
-          <h2 id="ask-ai-title" class="text-base font-bold text-neutral-900">Ask R3ACTR AI</h2>
-          <p class="text-xs text-neutral-500">Explore products, research, & documentation</p>
-        </div>
-      </div>
-      <button
-        type="button"
-        id="close-ask-ai"
-        class="h-8 w-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 hover:text-neutral-900 cursor-pointer"
-        aria-label="Close"
-      >
-        ✕
-      </button>
-    </div>
-
-    <!-- AI Input -->
-    <div class="mt-4">
-      <div class="relative">
-        <input
-          type="text"
-          id="ai-prompt-input"
-          placeholder="Ask anything about R3ACTR or our platforms..."
-          class="w-full rounded-2xl bg-neutral-50 border border-neutral-200 px-4 py-3.5 pr-12 text-sm text-neutral-900 placeholder-neutral-400 focus:border-cyan-500 focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-cyan-500"
-        />
-        <button
-          type="button"
-          id="ai-send-btn"
-          class="absolute right-2 top-2 h-9 w-9 rounded-xl bg-cyan-600 hover:bg-cyan-500 flex items-center justify-center text-white transition-colors cursor-pointer"
-          aria-label="Send"
-        >
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-      </div>
-
-      <!-- Quick Suggestion Chips -->
-      <div class="mt-4">
-        <p class="text-xs font-semibold text-neutral-500 mb-2">Popular prompts:</p>
-        <div class="flex flex-wrap gap-2">
-          <button type="button" class="ai-chip text-xs bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 rounded-full px-3 py-1.5 text-neutral-700 transition-colors cursor-pointer">
-            How do I get started with Paper Lab?
-          </button>
-          <button type="button" class="ai-chip text-xs bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 rounded-full px-3 py-1.5 text-neutral-700 transition-colors cursor-pointer">
-            What is Open Source Quest?
-          </button>
-          <button type="button" class="ai-chip text-xs bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 rounded-full px-3 py-1.5 text-neutral-700 transition-colors cursor-pointer">
-            How can R3ACTR build custom AI models for our team?
-          </button>
-        </div>
-      </div>
-
-      <!-- Response Area -->
-      <div id="ai-response-box" class="mt-4 hidden rounded-2xl bg-neutral-50 p-4 border border-neutral-200 text-xs text-neutral-700 leading-relaxed">
-      </div>
-    </div>
-  </div>
-</div>
+<!-- MODAL: "Ask AI" Interactive Assistant (Edge Neural WebGPU / CPU Engine) -->
+<AskAIModal />
 
 <!-- SVG Noise Filter for Launchpad Grain -->
 <svg class="hidden" aria-hidden="true">
@@ -511,51 +443,6 @@ const homeUrl = '/';
       }
     };
 
-    // setupModal(['btn-ask-ai', 'btn-ask-ai-mobile'], 'modal-ask-ai', 'close-ask-ai'); // Disabled for now
     setupModal(['btn-launchpad', 'btn-launchpad-mobile'], 'modal-launchpad', 'close-launchpad');
-
-    // Interactive Ask AI behavior
-    const promptInput = document.getElementById('ai-prompt-input');
-    const sendBtn = document.getElementById('ai-send-btn');
-    const responseBox = document.getElementById('ai-response-box');
-
-    const handleAiQuery = (query) => {
-      if (!query || !responseBox) return;
-      responseBox.classList.remove('hidden');
-      responseBox.innerHTML = '<div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-cyan-600 animate-ping"></span> Thinking...</div>';
-      
-      setTimeout(() => {
-        const lower = query.toLowerCase();
-        let answer = "R3ACTR is an innovative engineering collective researching, building, and deploying intelligent software, developer ecosystems, and AI infrastructure.";
-        if (lower.includes('paper lab') || lower.includes('paperlab')) {
-          answer = "<strong>Paper Lab:</strong> An intelligent academic writing & publishing platform combining WYSIWYG editing with automated LaTeX compilation and Python templates. Try it live at <a href='https://paperlab.r3actr.com/' target='_blank' class='text-blue-600 underline'>paperlab.r3actr.com</a>.";
-        } else if (lower.includes('quest') || lower.includes('open source')) {
-          answer = "<strong>Open Source Quest:</strong> A month-long contribution program providing guided mentorship on real-world software architecture and repositories. Check out our GitHub at <a href='https://github.com/R3ACTR' target='_blank' class='text-blue-600 underline'>github.com/R3ACTR</a>.";
-        } else if (lower.includes('epoq')) {
-          answer = "<strong>EPOQ:</strong> A local deep learning GUI and experimentation suite designed to streamline neural network training and evaluation.";
-        } else if (lower.includes('custom') || lower.includes('service') || lower.includes('hire')) {
-          answer = "<strong>Custom Engineering:</strong> R3ACTR designs bespoke AI systems, web architectures, and high-performance developer tools. Visit our <a href='/services' class='text-blue-600 underline'>Services Page</a> or <a href='/contact' class='text-blue-600 underline'>Contact Us</a>.";
-        }
-        responseBox.innerHTML = `<p>${answer}</p>`;
-      }, 400);
-    };
-
-    if (sendBtn && promptInput) {
-      sendBtn.addEventListener('click', () => {
-        handleAiQuery(promptInput.value.trim());
-      });
-      promptInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') handleAiQuery(promptInput.value.trim());
-      });
-    }
-
-    document.querySelectorAll('.ai-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        if (promptInput) {
-          promptInput.value = chip.textContent.trim();
-          handleAiQuery(chip.textContent.trim());
-        }
-      });
-    });
   });
 </script>

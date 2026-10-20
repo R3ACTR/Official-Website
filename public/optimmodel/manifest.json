@@ -1,0 +1,772 @@
+{
+  "tok_embeddings.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      16384,
+      768
+    ],
+    "orig_numel": 12582912,
+    "group_size": 64,
+    "packed_offset": 0,
+    "packed_length": 6291456,
+    "scale_offset": 6291456,
+    "scale_length": 393216
+  },
+  "layers.0.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 6684672,
+    "length": 1536
+  },
+  "layers.0.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 6686208,
+    "packed_length": 294912,
+    "scale_offset": 6981120,
+    "scale_length": 18432
+  },
+  "layers.0.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 6999552,
+    "packed_length": 98304,
+    "scale_offset": 7097856,
+    "scale_length": 6144
+  },
+  "layers.0.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 7104000,
+    "packed_length": 98304,
+    "scale_offset": 7202304,
+    "scale_length": 6144
+  },
+  "layers.0.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 7208448,
+    "packed_length": 294912,
+    "scale_offset": 7503360,
+    "scale_length": 18432
+  },
+  "layers.0.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 7521792,
+    "length": 1536
+  },
+  "layers.0.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 7523328,
+    "packed_length": 786432,
+    "scale_offset": 8309760,
+    "scale_length": 49152
+  },
+  "layers.0.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 8358912,
+    "packed_length": 786432,
+    "scale_offset": 9145344,
+    "scale_length": 49152
+  },
+  "layers.0.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 9194496,
+    "packed_length": 786432,
+    "scale_offset": 9980928,
+    "scale_length": 49152
+  },
+  "layers.1.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 10030080,
+    "length": 1536
+  },
+  "layers.1.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 10031616,
+    "packed_length": 294912,
+    "scale_offset": 10326528,
+    "scale_length": 18432
+  },
+  "layers.1.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 10344960,
+    "packed_length": 98304,
+    "scale_offset": 10443264,
+    "scale_length": 6144
+  },
+  "layers.1.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 10449408,
+    "packed_length": 98304,
+    "scale_offset": 10547712,
+    "scale_length": 6144
+  },
+  "layers.1.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 10553856,
+    "packed_length": 294912,
+    "scale_offset": 10848768,
+    "scale_length": 18432
+  },
+  "layers.1.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 10867200,
+    "length": 1536
+  },
+  "layers.1.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 10868736,
+    "packed_length": 786432,
+    "scale_offset": 11655168,
+    "scale_length": 49152
+  },
+  "layers.1.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 11704320,
+    "packed_length": 786432,
+    "scale_offset": 12490752,
+    "scale_length": 49152
+  },
+  "layers.1.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 12539904,
+    "packed_length": 786432,
+    "scale_offset": 13326336,
+    "scale_length": 49152
+  },
+  "layers.2.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 13375488,
+    "length": 1536
+  },
+  "layers.2.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 13377024,
+    "packed_length": 294912,
+    "scale_offset": 13671936,
+    "scale_length": 18432
+  },
+  "layers.2.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 13690368,
+    "packed_length": 98304,
+    "scale_offset": 13788672,
+    "scale_length": 6144
+  },
+  "layers.2.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 13794816,
+    "packed_length": 98304,
+    "scale_offset": 13893120,
+    "scale_length": 6144
+  },
+  "layers.2.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 13899264,
+    "packed_length": 294912,
+    "scale_offset": 14194176,
+    "scale_length": 18432
+  },
+  "layers.2.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 14212608,
+    "length": 1536
+  },
+  "layers.2.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 14214144,
+    "packed_length": 786432,
+    "scale_offset": 15000576,
+    "scale_length": 49152
+  },
+  "layers.2.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 15049728,
+    "packed_length": 786432,
+    "scale_offset": 15836160,
+    "scale_length": 49152
+  },
+  "layers.2.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 15885312,
+    "packed_length": 786432,
+    "scale_offset": 16671744,
+    "scale_length": 49152
+  },
+  "layers.3.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 16720896,
+    "length": 1536
+  },
+  "layers.3.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 16722432,
+    "packed_length": 294912,
+    "scale_offset": 17017344,
+    "scale_length": 18432
+  },
+  "layers.3.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 17035776,
+    "packed_length": 98304,
+    "scale_offset": 17134080,
+    "scale_length": 6144
+  },
+  "layers.3.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 17140224,
+    "packed_length": 98304,
+    "scale_offset": 17238528,
+    "scale_length": 6144
+  },
+  "layers.3.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 17244672,
+    "packed_length": 294912,
+    "scale_offset": 17539584,
+    "scale_length": 18432
+  },
+  "layers.3.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 17558016,
+    "length": 1536
+  },
+  "layers.3.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 17559552,
+    "packed_length": 786432,
+    "scale_offset": 18345984,
+    "scale_length": 49152
+  },
+  "layers.3.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 18395136,
+    "packed_length": 786432,
+    "scale_offset": 19181568,
+    "scale_length": 49152
+  },
+  "layers.3.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 19230720,
+    "packed_length": 786432,
+    "scale_offset": 20017152,
+    "scale_length": 49152
+  },
+  "layers.4.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 20066304,
+    "length": 1536
+  },
+  "layers.4.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 20067840,
+    "packed_length": 294912,
+    "scale_offset": 20362752,
+    "scale_length": 18432
+  },
+  "layers.4.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 20381184,
+    "packed_length": 98304,
+    "scale_offset": 20479488,
+    "scale_length": 6144
+  },
+  "layers.4.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 20485632,
+    "packed_length": 98304,
+    "scale_offset": 20583936,
+    "scale_length": 6144
+  },
+  "layers.4.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 20590080,
+    "packed_length": 294912,
+    "scale_offset": 20884992,
+    "scale_length": 18432
+  },
+  "layers.4.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 20903424,
+    "length": 1536
+  },
+  "layers.4.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 20904960,
+    "packed_length": 786432,
+    "scale_offset": 21691392,
+    "scale_length": 49152
+  },
+  "layers.4.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 21740544,
+    "packed_length": 786432,
+    "scale_offset": 22526976,
+    "scale_length": 49152
+  },
+  "layers.4.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 22576128,
+    "packed_length": 786432,
+    "scale_offset": 23362560,
+    "scale_length": 49152
+  },
+  "layers.5.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 23411712,
+    "length": 1536
+  },
+  "layers.5.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 23413248,
+    "packed_length": 294912,
+    "scale_offset": 23708160,
+    "scale_length": 18432
+  },
+  "layers.5.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 23726592,
+    "packed_length": 98304,
+    "scale_offset": 23824896,
+    "scale_length": 6144
+  },
+  "layers.5.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 23831040,
+    "packed_length": 98304,
+    "scale_offset": 23929344,
+    "scale_length": 6144
+  },
+  "layers.5.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 23935488,
+    "packed_length": 294912,
+    "scale_offset": 24230400,
+    "scale_length": 18432
+  },
+  "layers.5.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 24248832,
+    "length": 1536
+  },
+  "layers.5.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 24250368,
+    "packed_length": 786432,
+    "scale_offset": 25036800,
+    "scale_length": 49152
+  },
+  "layers.5.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 25085952,
+    "packed_length": 786432,
+    "scale_offset": 25872384,
+    "scale_length": 49152
+  },
+  "layers.5.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 25921536,
+    "packed_length": 786432,
+    "scale_offset": 26707968,
+    "scale_length": 49152
+  },
+  "layers.6.attn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 26757120,
+    "length": 1536
+  },
+  "layers.6.attn.wq.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 26758656,
+    "packed_length": 294912,
+    "scale_offset": 27053568,
+    "scale_length": 18432
+  },
+  "layers.6.attn.wk.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 27072000,
+    "packed_length": 98304,
+    "scale_offset": 27170304,
+    "scale_length": 6144
+  },
+  "layers.6.attn.wv.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      256,
+      768
+    ],
+    "orig_numel": 196608,
+    "group_size": 64,
+    "packed_offset": 27176448,
+    "packed_length": 98304,
+    "scale_offset": 27274752,
+    "scale_length": 6144
+  },
+  "layers.6.attn.wo.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      768
+    ],
+    "orig_numel": 589824,
+    "group_size": 64,
+    "packed_offset": 27280896,
+    "packed_length": 294912,
+    "scale_offset": 27575808,
+    "scale_length": 18432
+  },
+  "layers.6.ffn_norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 27594240,
+    "length": 1536
+  },
+  "layers.6.ffn.w_gate.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 27595776,
+    "packed_length": 786432,
+    "scale_offset": 28382208,
+    "scale_length": 49152
+  },
+  "layers.6.ffn.w_up.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      2048,
+      768
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 28431360,
+    "packed_length": 786432,
+    "scale_offset": 29217792,
+    "scale_length": 49152
+  },
+  "layers.6.ffn.w_down.weight": {
+    "type": "int4_g64",
+    "orig_shape": [
+      768,
+      2048
+    ],
+    "orig_numel": 1572864,
+    "group_size": 64,
+    "packed_offset": 29266944,
+    "packed_length": 786432,
+    "scale_offset": 30053376,
+    "scale_length": 49152
+  },
+  "norm.weight": {
+    "type": "fp16",
+    "shape": [
+      768
+    ],
+    "offset": 30102528,
+    "length": 1536
+  }
+}

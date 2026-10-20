@@ -1,0 +1,325 @@
+---
+// AskAIModal.astro - Real-time Edge AI Assistant powered by /optimmodel (WebGPU / CPU)
+---
+
+<div
+  id="modal-ask-ai"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 p-3 sm:p-4 md:p-6 backdrop-blur-md font-sans select-none"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="ask-ai-modal-title"
+>
+  <div
+    class="relative flex flex-col w-full max-w-2xl max-h-[90vh] rounded-[28px] sm:rounded-[36px] bg-white border border-neutral-200/90 shadow-[0_25px_70px_rgba(0,0,0,0.3)] overflow-hidden text-neutral-900 transition-all duration-300 animate-in fade-in zoom-in-95"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between px-6 py-5 border-b border-neutral-100 bg-white">
+      <div class="flex items-center gap-3">
+        <!-- Tvara Logo clean, no black box -->
+        <div class="relative flex h-10 w-10 items-center justify-center shrink-0">
+          <img
+            src="/assets/tvaralogor3actr.png"
+            alt="Tvara"
+            class="h-8 w-auto object-contain"
+          />
+        </div>
+
+        <div>
+          <h2 id="ask-ai-modal-title" class="text-base sm:text-lg font-bold tracking-tight text-neutral-950 font-sans">
+            Tvara
+          </h2>
+          <p class="text-xs text-neutral-400 font-normal">
+            Project Tvara (त्वरा) • Private In-Browser Neural Engine
+          </p>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="close-ask-ai"
+        class="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-500 hover:text-neutral-900 cursor-pointer transition-colors"
+        aria-label="Close Assistant"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Model Loading Banner (Visible during initial download/unpack) -->
+    <div id="ai-loading-banner" class="hidden px-6 py-3 bg-neutral-50/80 border-b border-neutral-100 transition-all">
+      <div class="flex items-center justify-between text-xs text-neutral-500 mb-1.5 font-mono">
+        <span id="ai-loading-status" class="flex items-center gap-2">
+          <svg class="animate-spin h-3.5 w-3.5 text-neutral-900" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          Loading neural weights (30 MB)...
+        </span>
+        <span id="ai-loading-percentage" class="font-bold text-neutral-900">0%</span>
+      </div>
+      <div class="w-full bg-neutral-200/80 rounded-full h-1 overflow-hidden">
+        <div id="ai-loading-bar" class="bg-neutral-950 h-1 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Chat Conversation History -->
+    <div
+      id="ai-chat-thread"
+      class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4 max-h-[460px] min-h-[240px] scroll-smooth bg-white"
+    >
+      <!-- Greeting Message -->
+      <div class="flex items-start gap-3">
+        <div class="h-8 w-8 flex items-center justify-center shrink-0">
+          <img src="/assets/tvaralogor3actr.png" alt="Tvara" class="h-6 w-auto object-contain" />
+        </div>
+        <div class="rounded-2xl rounded-tl-xs bg-neutral-50 border border-neutral-100 px-4 py-3 text-sm text-neutral-700 leading-relaxed max-w-[85%] font-sans">
+          <p class="font-bold text-neutral-900 mb-1">Hi, I'm Tvara</p>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            I run entirely locally inside your browser using WebGPU / CPU. Ask me anything about R3ACTR products, research monographs, or our open-source tools.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Prompt Suggestion Chips -->
+    <div class="px-5 sm:px-6 py-2 border-t border-neutral-100 bg-white">
+      <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-hide py-1">
+        <button
+          type="button"
+          class="ai-suggestion-chip text-xs font-medium bg-neutral-50 hover:bg-neutral-100 text-neutral-700 rounded-full px-3.5 py-1.5 shrink-0 border border-neutral-200/80 transition-all cursor-pointer active:scale-95"
+        >
+          What is Paper Lab?
+        </button>
+        <button
+          type="button"
+          class="ai-suggestion-chip text-xs font-medium bg-neutral-50 hover:bg-neutral-100 text-neutral-700 rounded-full px-3.5 py-1.5 shrink-0 border border-neutral-200/80 transition-all cursor-pointer active:scale-95"
+        >
+          What is R3ACTR?
+        </button>
+        <button
+          type="button"
+          class="ai-suggestion-chip text-xs font-medium bg-neutral-50 hover:bg-neutral-100 text-neutral-700 rounded-full px-3.5 py-1.5 shrink-0 border border-neutral-200/80 transition-all cursor-pointer active:scale-95"
+        >
+          What is Project Tvara?
+        </button>
+        <button
+          type="button"
+          class="ai-suggestion-chip text-xs font-medium bg-neutral-50 hover:bg-neutral-100 text-neutral-700 rounded-full px-3.5 py-1.5 shrink-0 border border-neutral-200/80 transition-all cursor-pointer active:scale-95"
+        >
+          Tell me about Open Source Quest
+        </button>
+      </div>
+    </div>
+
+    <!-- Input Box & Controls -->
+    <div class="p-4 sm:p-5 border-t border-neutral-100 bg-neutral-50/50">
+      <form id="ai-chat-form" class="relative flex items-center">
+        <input
+          type="text"
+          id="ai-prompt-input"
+          placeholder="Ask Tvara anything..."
+          autocomplete="off"
+          class="w-full rounded-2xl bg-white border border-neutral-200 px-4 py-3.5 pr-24 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-hidden focus:ring-1 focus:ring-neutral-900 shadow-2xs transition-all font-sans"
+        />
+        <div class="absolute right-2 flex items-center gap-1">
+          <button
+            type="submit"
+            id="ai-send-btn"
+            class="h-9 px-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 flex items-center justify-center gap-1.5 text-white text-xs font-medium shadow-xs transition-all active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <span>Send</span>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <div class="flex items-center justify-between mt-2.5 px-1 text-[11px] text-neutral-400 font-mono">
+        <span>Press <kbd class="px-1.5 py-0.5 rounded-md bg-neutral-200/60 text-neutral-600 font-sans text-[10px]">Enter ↵</kbd> to generate</span>
+        <span class="inline-flex items-center gap-1.5 text-neutral-500 font-medium font-sans text-[11px]">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+          Under development
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { getTvaraModel } from '@utils/tvaraInference';
+
+  let model = getTvaraModel();
+  let isGenerating = false;
+
+  const modal = document.getElementById('modal-ask-ai');
+  const closeBtn = document.getElementById('close-ask-ai');
+  const chatThread = document.getElementById('ai-chat-thread');
+  const form = document.getElementById('ai-chat-form') as HTMLFormElement | null;
+  const input = document.getElementById('ai-prompt-input') as HTMLInputElement | null;
+  const sendBtn = document.getElementById('ai-send-btn') as HTMLButtonElement | null;
+  const loadingBanner = document.getElementById('ai-loading-banner');
+  const loadingBar = document.getElementById('ai-loading-bar');
+  const loadingStatus = document.getElementById('ai-loading-status');
+  const loadingPct = document.getElementById('ai-loading-percentage');
+
+  // Open modal triggers from Navbar
+  function openModal() {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    input?.focus();
+
+    // Initialize model in background if not already loaded
+    if (!model.isReady) {
+      loadModel();
+    }
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  // Attach triggers
+  document.querySelectorAll('#btn-ask-ai, #btn-ask-ai-mobile').forEach((btn) => {
+    btn.removeAttribute('disabled');
+    btn.classList.remove('opacity-60', 'cursor-not-allowed', 'select-none');
+    btn.classList.add('hover:bg-neutral-200', 'active:scale-95', 'cursor-pointer');
+    btn.setAttribute('title', 'Ask R3ACTR AI (Project Tvara)');
+    btn.addEventListener('click', openModal);
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Load Model with UI Progress
+  async function loadModel() {
+    if (model.isReady) return;
+
+    if (loadingBanner) loadingBanner.classList.remove('hidden');
+
+    try {
+      await model.init((p) => {
+        if (loadingBar) loadingBar.style.width = `${p.percent}%`;
+        if (loadingPct) loadingPct.textContent = `${p.percent}%`;
+        if (loadingStatus) {
+          if (p.stage === 'checking-webgpu') {
+            loadingStatus.innerHTML = 'Detecting WebGPU hardware accelerator...';
+          } else if (p.stage === 'fetching-manifest') {
+            loadingStatus.innerHTML = 'Reading model manifest and tokenizer...';
+          } else if (p.stage === 'fetching-weights') {
+            loadingStatus.innerHTML = `Downloading INT4 weights (30 MB)... ${p.percent}%`;
+          } else if (p.stage === 'initializing-engine') {
+            loadingStatus.innerHTML = 'Unpacking weights to neural engine...';
+          } else if (p.stage === 'ready') {
+            loadingStatus.innerHTML = 'Model loaded and ready!';
+          }
+        }
+      });
+
+      setTimeout(() => {
+        if (loadingBanner) loadingBanner.classList.add('hidden');
+      }, 800);
+    } catch (err) {
+      console.error('Failed to load Tvara model:', err);
+      if (loadingStatus) {
+        loadingStatus.innerHTML = `<span class="text-rose-600">Error loading model: ${(err as Error).message}</span>`;
+      }
+    }
+  }
+
+  // Add Message to Chat
+  function appendMessage(sender: 'user' | 'assistant', initialText: string = '') {
+    if (!chatThread) return null;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = `flex items-start gap-3 ${sender === 'user' ? 'justify-end' : ''}`;
+
+    if (sender === 'assistant') {
+      wrapper.innerHTML = `
+        <div class="h-8 w-8 flex items-center justify-center shrink-0">
+          <img src="/assets/tvaralogor3actr.png" alt="Tvara" class="h-6 w-auto object-contain" />
+        </div>
+        <div class="ai-msg-content rounded-2xl rounded-tl-xs bg-neutral-50 border border-neutral-100 px-4 py-3 text-sm text-neutral-800 leading-relaxed max-w-[85%] font-sans">
+          ${initialText}
+        </div>
+      `;
+    } else {
+      wrapper.innerHTML = `
+        <div class="ai-msg-content rounded-2xl rounded-tr-xs bg-neutral-900 text-white px-4 py-3 text-sm leading-relaxed max-w-[85%] font-sans">
+          ${initialText}
+        </div>
+      `;
+    }
+
+    chatThread.appendChild(wrapper);
+    chatThread.scrollTop = chatThread.scrollHeight;
+
+    return wrapper.querySelector('.ai-msg-content') as HTMLElement;
+  }
+
+  // Handle Prompt Submission
+  async function handleSubmit(query: string) {
+    if (!query || isGenerating) return;
+
+    if (!model.isReady) {
+      await loadModel();
+    }
+
+    appendMessage('user', query);
+    if (input) input.value = '';
+
+    isGenerating = true;
+    if (sendBtn) sendBtn.disabled = true;
+
+    const aiMsgBox = appendMessage('assistant', '');
+    let fullResponse = '';
+
+    try {
+      const stream = model.generateStream(query);
+
+      for await (const chunk of stream) {
+        fullResponse += chunk;
+        if (aiMsgBox) {
+          aiMsgBox.textContent = fullResponse;
+          if (chatThread) chatThread.scrollTop = chatThread.scrollHeight;
+        }
+      }
+
+      if (!fullResponse.trim() && aiMsgBox) {
+        aiMsgBox.textContent = "I'm here! Feel free to ask about PaperLab, Dooms Protocol, or our research monographs.";
+      }
+    } catch (err) {
+      console.error('Inference error:', err);
+      if (aiMsgBox) {
+        aiMsgBox.textContent = `Error during generation: ${(err as Error).message}`;
+      }
+    } finally {
+      isGenerating = false;
+      if (sendBtn) sendBtn.disabled = false;
+      input?.focus();
+    }
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (input) handleSubmit(input.value.trim());
+  });
+
+  // Suggestion chips
+  document.querySelectorAll('.ai-suggestion-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const text = chip.textContent?.trim();
+      if (text) {
+        handleSubmit(text);
+      }
+    });
+  });
+</script>
