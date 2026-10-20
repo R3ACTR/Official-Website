@@ -259,8 +259,15 @@ const carouselId =
       let currentX = 0;
       let startTime = 0;
 
+      let cachedSlideWidth = slides[0]?.offsetWidth || fallbackSlideWidth;
+      const onResize = () => {
+        cachedSlideWidth = slides[0]?.offsetWidth || fallbackSlideWidth;
+        update(false);
+      };
+      window.addEventListener('resize', onResize, { passive: true });
+
       function getSlideWidth() {
-        return slides[0]?.offsetWidth || fallbackSlideWidth;
+        return cachedSlideWidth || fallbackSlideWidth;
       }
 
       function update(animate = true) {
