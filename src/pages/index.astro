@@ -98,7 +98,8 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-1.webp"
-                alt="R3ACTR Products"
+                alt=""
+                aria-hidden="true"
                 class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
                 loading="lazy"
               />
@@ -143,7 +144,8 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-5.webp"
-                alt="R3ACTR Labs"
+                alt=""
+                aria-hidden="true"
                 class="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
                 loading="lazy"
               />
@@ -191,7 +193,8 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/creative-9.webp"
-                alt="R3ACTR Micro"
+                alt=""
+                aria-hidden="true"
                 class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
                 loading="lazy"
               />
@@ -237,7 +240,8 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
               <!-- Full Gradient Art Backdrop -->
               <img
                 src="/gradients/tvqokiltm5q-Agents-BG.webp"
-                alt="R3ACTR Solutions"
+                alt=""
+                aria-hidden="true"
                 class="absolute inset-0 h-full w-full object-cover opacity-85 mix-blend-overlay transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
                 loading="lazy"
               />
@@ -288,16 +292,18 @@ const pageDescription = 'R3ACTR Innovation Hub - Intelligent Systems & Autonomou
           <video
             id="showcase-video"
             class="w-full h-auto object-cover block cursor-pointer"
-            poster="/paperlab-poster.jpg"
+            poster="/paperlab-poster.webp"
             autoplay
             loop
             muted
             playsinline
             webkit-playsinline
-            preload="auto"
+            preload="metadata"
+            aria-label="Paperlab product demonstration video"
           >
             <source src="/assets/videos/paperlab.mp4" type="video/mp4" />
             <source src="https://ik.imagekit.io/hvfqhwn3j/r3actrpaperlabn.mp4?tr=w-854,q-45" type="video/mp4" />
+            <track kind="captions" src="data:text/vtt,WEBVTT" srclang="en" label="English" default />
             Your browser does not support the video tag.
           </video>
 

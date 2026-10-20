@@ -20,36 +20,42 @@
   src: url('/assets/fonts/chillax/Chillax-Extralight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Chillax';
   src: url('/assets/fonts/chillax/Chillax-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Chillax';
   src: url('/assets/fonts/chillax/Chillax-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Chillax';
   src: url('/assets/fonts/chillax/Chillax-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Chillax';
   src: url('/assets/fonts/chillax/Chillax-Semibold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Chillax';
   src: url('/assets/fonts/chillax/Chillax-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -198,55 +204,50 @@
   }
 }
 
-/* Smooth lightweight blur arrival animation for initial page load */
+/* Smooth lightweight arrival animation for initial page load */
 @keyframes blurArrival {
   0% {
     opacity: 0;
-    filter: blur(14px);
-    transform: translateY(16px);
+    transform: translate3d(0, 16px, 0);
   }
   100% {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-blur-arrive {
-  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
-  will-change: opacity, filter, transform;
+  animation: blurArrival 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
 }
 
 .animate-blur-arrive-delay-1 {
-  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  will-change: opacity, filter, transform;
+  animation: blurArrival 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  will-change: opacity, transform;
 }
 
 .animate-blur-arrive-delay-2 {
-  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
-  will-change: opacity, filter, transform;
+  animation: blurArrival 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+  will-change: opacity, transform;
 }
 
 .animate-blur-arrive-delay-3 {
-  animation: blurArrival 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
-  will-change: opacity, filter, transform;
+  animation: blurArrival 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+  will-change: opacity, transform;
 }
 
 /* Scroll-triggered reveal animations with subtle blur */
 .reveal-on-scroll {
   opacity: 0;
-  filter: blur(6px);
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal-on-scroll.is-revealed {
   opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }
