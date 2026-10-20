@@ -41,7 +41,21 @@ R3ACTR is an independent software research and engineering collective. We design
 
 ---
 
-## 3. Community Initiative: Open Source Quest (OSQ)
+## 3. Flagship Product: ReportCraft
+
+- **URL**: https://reportcraft.r3actr.com
+- **Target Audience**: Engineering students, researchers, BTech/MTech candidates, and academic faculty.
+- **Problem Solved**: Streamlines the creation of university project reports, theses, seminar documents, and conference papers conforming strictly to institutional and publisher standards.
+
+### Key Capabilities
+- **Live A4 Preview & Split-Pane Layout**: Precision split-pane document composer with live A4 pagination and formatting rendering.
+- **Automated Academic Structure**: Pre-configured templates with automated generation of certificate pages, declarations, acknowledgments, lists of figures/tables, and table of contents.
+- **Built-in Citation & Bibliography Manager**: Integrated citation finder and reference generator for IEEE, APA, and university guidelines.
+- **LaTeX Formula & Equation Editor**: Visual LaTeX mathematical formula composer and instant PDF/LaTeX export.
+
+---
+
+## 4. Community Initiative: Open Source Quest (OSQ)
 
 - **Repository / Organization**: https://github.com/R3ACTR
 - **Overview**: A structured, month-long open-source contribution program designed to help students and developers gain hands-on experience with production software development workflows.
@@ -135,6 +149,9 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 ### Q: What is PaperLab and how does it work?
 **A**: PaperLab (https://paperlab.r3actr.com) is a modern academic and research document editor. It automates margins, citations, university-approved certificate pages, and IEEE paper formatting in real-time, removing formatting headaches for students and researchers.
 
+### Q: What is ReportCraft?
+**A**: ReportCraft (https://reportcraft.r3actr.com) is an academic report maker and project documentation studio. It enables students and researchers to compose and format university project reports, BTech / MTech theses, IEEE research papers, and seminar documents with live A4 preview, citation management, equation editing, and instant PDF/LaTeX export.
+
 ### Q: What services does R3ACTR offer?
 **A**: We provide full-lifecycle software engineering, including Web Application Development (Astro, Next.js, React, Node.js), Artificial Intelligence & ML engineering, Smart Contract and Web3 protocol development, and UI/UX product design for mission-critical software.
 
@@ -153,3 +170,4 @@ Paper Lab recognizes that a modern research paper isnâ€™t just a text file; itâ€
 - **Direct Email**: r3actr@gmail.com
 - **GitHub**: https://github.com/R3ACTR
 - **Paper Lab Platform**: https://paperlab.r3actr.com
+- **ReportCraft Platform**: https://reportcraft.r3actr.com

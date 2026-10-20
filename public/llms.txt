@@ -7,6 +7,7 @@ For full-text context including uncompressed articles, research notes, and platf
 ## Core Platforms & Products
 
 - [Paper Lab](https://paperlab.r3actr.com/): An all-in-one visual academic authoring environment combining WYSIWYG editing, Monaco-powered LaTeX compilation, real-time A4 preview, built-in vector diagrams, and local-first data privacy.
+- [ReportCraft](https://reportcraft.r3actr.com/): Academic report maker and project documentation studio. Design, compose, and format university project reports, BTech / MTech theses, IEEE research papers, and seminar documents with live A4 preview, citation manager, equation editor, and instant PDF/LaTeX export.
 - [Open Source Quest](https://github.com/R3ACTR): A structured, month-long open-source contribution program for developers and researchers to master production workflows, pull requests, and peer reviews under guided mentorship.
 
 ## Research & Scientific Publications
