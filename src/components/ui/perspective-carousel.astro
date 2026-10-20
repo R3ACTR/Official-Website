@@ -557,12 +557,6 @@ const carouselId =
       root.addEventListener('touchend', onTouchEnd, { passive: true });
       root.addEventListener('touchcancel', onTouchEnd, { passive: true });
 
-      // Window resize listener to re-align slides
-      const onResize = () => {
-        update(false);
-      };
-      window.addEventListener('resize', onResize);
-
       // Store cleanup handler
       (root as any).__perspective_cleanup = () => {
         stopAutoplay();
